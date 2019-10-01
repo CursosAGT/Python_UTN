@@ -1,0 +1,40 @@
+
+Instalar desde:
+https://git-scm.com/downloads  
+siguiente ->siguiente ->siguiente ->siguiente ->
+agregar al PATH y un bash (use Git and optiona Unix tools from the Windows Command Prompt)
+siguiente ->siguiente ->siguiente ->siguiente →
+
+Teoria
+https://www.youtube.com/watch?v=HiXLkL42tMU
+
+Bash – consola 
+Lugares
+Working directory	Área de trabajo donde uno graba lo generado en el IDE, + imagenes, temporales, notas,
+Staging Area			Área de preparado para el guardado
+Internal Repository
+External Repository
+
+Comandos de consola
+git init			Inicializa un proyecto o lo activo
+git add 		<file / directory> working ==> staging
+git commit  		<file / directory> staging ==> Internal repository
+git push 		<file / directory> staging ==> External repository
+git clone		<External repository  <file/ directory> staging ==> working area
+git status		Informa el estado o área en que esta
+git add			<archivo>..." agrega a lo que se le va a hacer commit)
+git rm -rf		<archivo>..." remueve a lo que se le va a hacer commit)
+git checkout -- <archivo>..." para descartar los cambios en el directorio de trabajo)
+
+
+
+
+Ejercicio
+1 crear una carpeta
+generar un 1ro.txt “hola UTN”
+win R	==>	cmd
+cd 		hasta ubicarme en el directorio
+git init	==>	inicializar un proyecto en esa carpeta
+git status
+generar un 2do.txt con  “UTN 2019”
+git status
