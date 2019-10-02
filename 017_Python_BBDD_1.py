@@ -91,19 +91,6 @@ print("""
 https://www.w3schools.com/python/python_mysql_create_db.asp");
 http://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc36272.1550/html/commands/X72692.htm
 """)
-limpiar();
-
-import mysql.connector
-
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  passwd="utn"
-)
-
-print(mydb) 
-
-limpiar();
 #################################################################
 #Clase_BBDD_01 
 import mysql.connector
@@ -111,20 +98,20 @@ import json
 
 def crear_base(nombre_base_MySQL):
 	print ("Conectamos con MySQL")
-	conectarse = mysql.connector.connect(host="localhost",user="root", passwd="utn")#database='AGT',
-	puntero = conectarse.cursor()
-	puntero.execute("CREATE DATABASE "+str(nombre_base_MySQL))
+	connection = mysql.connector.connect(host="localhost",user="root", passwd="utn")#database='AGT',
+	cursor = connection.cursor()
+	cursor.execute("CREATE DATABASE "+str(nombre_base_MySQL))
 	print ("Creamos la base de datos "+str(nombre_base_MySQL))
 	print ("cerramos coneccion")
-	puntero.close
+	cursor.close
 def listar_bases():
 	print ("Conectamos con MySQL")
-	conectarse = mysql.connector.connect(host="localhost",user="root", passwd="utn")
-	puntero = conectarse.cursor()
-	puntero.execute("SHOW DATABASES")
+	connection = mysql.connector.connect(host="localhost",user="root", passwd="utn")
+	cursor = connection.cursor()
+	cursor.execute("SHOW DATABASES")
 	lista_de_bases=[]
 	print ("cargamos el listado de nombres de bases")
-	for lista_bases in (puntero):
+	for lista_bases in (cursor):
 		lista_nombres_bases=str(lista_bases)
 		lista_nombres_bases_largo=len(lista_bases)-4
 		lista_nombres_bases=lista_nombres_bases[2:lista_nombres_bases_largo]
@@ -132,22 +119,22 @@ def listar_bases():
 		lista_de_bases.append(lista_nombres_bases);
 	print (lista_de_bases)
 	print ("cerramos coneccion")
-	puntero.close
+	cursor.close
 	return (lista_de_bases)
 
 def chequear_base_existe(nombre_base_MySQL_input):
 	print ("Conectamos con MySQL")
-	conectarse = mysql.connector.connect(host="localhost",user="root", passwd="utn")
-	puntero = conectarse.cursor()
-	puntero.execute("SHOW DATABASES")
+	connection = mysql.connector.connect(host="localhost",user="root", passwd="utn")
+	cursor = connection.cursor()
+	cursor.execute("SHOW DATABASES")
 	lista_de_bases=[]
 	print ("cargamos el listado de nombres de bases")
-	for lista_bases in (puntero):
+	for lista_bases in (cursor):
 		nombre_base_MySQL_para_chequear=str(lista_bases)
 		nombre_largo=len(lista_bases)-4
 		nombre_base_MySQL_para_chequear=nombre_base_MySQL_para_chequear[2:nombre_largo]
 		lista_de_bases.append(nombre_base_MySQL_para_chequear);
-	puntero.close
+	cursor.close
 	print ("cerramos coneccion")
 	print (lista_de_bases)
 	lista_bases_2=json.loads(lista_bases);
@@ -169,32 +156,32 @@ def chequear_base_existe(nombre_base_MySQL_input):
 def listar_tablas(nombre_base_MySQL_input):
 	print ("Conectamos con MySQL")
 	print (nombre_base_MySQL_input)
-	conectarse = mysql.connector.connect(host="localhost",user="root", passwd="utn", database=nombre_base_MySQL_input,)
-	puntero = conectarse.cursor()
-	puntero.execute("SHOW TABLES")
+	connection = mysql.connector.connect(host="localhost",user="root", passwd="utn", database=nombre_base_MySQL_input,)
+	cursor = connection.cursor()
+	cursor.execute("SHOW TABLES")
 	lista_de_tablas=[]
-	print ("cargamos el listado de tabla de la base"+str(nombre_base_MySQL_input))
-	for lista_tablas in (puntero):
-		print(lista_tablas)
+	print ("cargamos el listado de tabla de la base  "+str(nombre_base_MySQL_input))
+	for lista_tablas in (cursor):
+		print("\t\t",lista_tablas)
 		lista_nombres_tablas=str(lista_tablas)
-		print ("*"+str(lista_nombres_tablas)+"*")
+#		print ("\t\t  *"+str(lista_nombres_tablas)+"*")
 		lista_de_tablas.append(lista_nombres_tablas);
-	puntero.close
+	cursor.close
 	return (lista_de_tablas)
 
 def borrar_base(nombre_base_MySQL_input):
 	limpiar();
 	listar_bases()
 	print ("Conectamos con MySQL")
-	conectarse = mysql.connector.connect(host="localhost",user="root", passwd="utn")
-	puntero = conectarse.cursor()
-	puntero.execute("DROP DATABASE "+str(nombre_base_MySQL_input))
-	puntero.close
+	connection = mysql.connector.connect(host="localhost",user="root", passwd="utn")
+	cursor = connection.cursor()
+	cursor.execute("DROP DATABASE "+str(nombre_base_MySQL_input))
+	cursor.close
 
-limpiar()
 #################################################################
- 
 while True:
+	limpiar();
+	print ("----------------------------------------------------------------------");	
 	print ("\n\n\n");	
 	print ("L) listar Base");
 	print ("C) Crear Base");
@@ -205,19 +192,29 @@ while True:
 	opcion=opcion.upper()
 	if opcion =="C":
 		limpiar();
+		print("Antes")
+		listar_bases()
 		nombre_base_MySQL= input("Ingrese el nombre de la base de datos a CREAR : ")
 		crear_base(nombre_base_MySQL)
+		print("Ahora")
+		listar_bases()	
 	elif opcion =="L":
 		limpiar();
+		print("Listado")
 		listar_bases()
 	elif opcion =="A":
 		limpiar();
+		listar_bases()		
 		nombre_base_MySQL= input("Ingrese el nombre de la base de datos a ABRIR : ")
 		listar_tablas(nombre_base_MySQL)
 	elif opcion =="B":
 		limpiar();
+		print("Antes")
+		listar_bases()	
 		nombre_base_MySQL= input("Ingrese el nombre de la base de datos a BORRAR : ")
 		borrar_base(nombre_base_MySQL)
+		print("Ahora")
+		listar_bases()	
 	elif opcion =="Z":
 		limpiar();
 		break
@@ -237,19 +234,19 @@ for x in mycursor:
 """
 def check_base_existe(nombre_base_MySQL_input):
 	print ("Conectamos con MySQL")
-	conectarse = mysql.connector.connect(host="localhost",user="root", passwd="utn")
-	puntero = conectarse.cursor()
-	puntero.execute("SHOW DATABASES")
+	connection = mysql.connector.connect(host="localhost",user="root", passwd="utn")
+	cursor = connection.cursor()
+	cursor.execute("SHOW DATABASES")
 	lista_de_bases=[]
 	
 	print ("cargamos el listado de nombres de bases")
-	for lista_bases in (puntero):
+	for lista_bases in (cursor):
 		nombre_base_MySQL_para_chequear=str(lista_bases)
 		nombre_largo=len(lista_bases)-4
 		nombre_base_MySQL_para_chequear=nombre_base_MySQL_para_chequear[2:nombre_largo]
 #		print ("*"+nombre_base_MySQL_para_chequear+"*", "*"+nombre_base_MySQL_input+"*")
 		lista_de_bases.append(nombre_base_MySQL_para_chequear);
-	puntero.close
+	cursor.close
 	print ("cerramos coneccion")
 	print (lista_de_bases)
 	c=0

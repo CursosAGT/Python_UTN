@@ -10,7 +10,7 @@ print("""
 ║                                   Bases de Datos                            ║
 ║                                                                             ║
 ║                              libreria mysql.connector                       ║
-║              https://dev.mysql.com/downloads/connector/python/                   ║
+║              https://dev.mysql.com/downloads/connector/python/              ║
 ╠═════════════════════════════════════════════════════════════════════════════╣
 ║                                                                             ║
 ║                              Create Database                                ║
@@ -35,7 +35,7 @@ print("""
 ║                                                                             ║
 ║       Numeric Data types                                                    ║
 ║       Numeric data types are used to store numeric values. It is very       ║
-║         important to make sure range of your data is between lower and upper     ║
+║         important to make sure range of your data is between lower and upper║
 ║         boundaries of numeric data types.                                   ║
 ║                    TINYINT( )    -128 to 127 normal 0 to 255                ║
 ║                    SMALLINT( )   -32768 to 32767 normal                     ║
@@ -86,379 +86,357 @@ print("""
 ║                   in binary format.                                         ║
 ║                                                                             ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
-Scripts>python -m pip install mysql-connector
+
 https://www.w3schools.com/python/python_mysql_create_db.asp
+https://www.w3schools.com/python/python_mysql_create_table.asp
+https://www.w3schools.com/python/python_mysql_insert.asp
+https://www.w3schools.com/python/python_mysql_select.asp
+https://www.w3schools.com/python/python_mysql_where.asp
+https://www.w3schools.com/python/python_mysql_orderby.asp
+https://www.w3schools.com/python/python_mysql_delete.asp
+https://www.w3schools.com/python/python_mysql_drop_table.asp
+https://www.w3schools.com/python/python_mysql_update.asp
+https://www.w3schools.com/python/python_mysql_limit.asp
+https://www.w3schools.com/python/python_mysql_join.asp
+https://dev.mysql.com/doc/connector-python/en/connector-python-example-ddl.html
+https://www.guru99.com/how-to-create-a-database.html
+http://www.mysqltutorial.org/mysql-datetime/
 """)
 limpiar();
 #################################################################
 #Clase_BBDD_01 
-
 import mysql.connector
-def crear_base():
-	try:
-		nombre_DDBB = input("ingrese el nombre de la base de datos a crear : ")
-		nombre_DDBB = nombre_DDBB.capitalize()
-		print ("Conectamos con MySQL")
-		conectarse = mysql.connector.connect(host="localhost",user="root", passwd="utn")#database='nombre',
-		puntero = conectarse.cursor()
-		puntero.execute("CREATE DATABASE "+str(nombre_DDBB))
-		print ("Creamos la base de datos  "+str(nombre_DDBB))
-		print ("cerramos coneccion")
-		puntero.close
-		print (input("		continuar?"));
-		limpiar();
-	except Exception as e:
-		print("Exeception occured:{}".format(e))
-	finally:
-		puntero.close
-def listar_bases():
-	try:
-		print ("Conectamos con MySQL")
-		conectarse = mysql.connector.connect(host="localhost",user="root", passwd="utn")
-		puntero = conectarse.cursor()
-		puntero.execute("SHOW DATABASES")
-		print ("Mostramos las bases de datos  ")
-		lista_de_bases=[]
-		for lista_bases in (puntero):
-			lista_nombres_bases=str(lista_bases)
-			lista_nombres_bases_largo=len(lista_bases)-4
-			lista_nombres_bases=lista_nombres_bases[2:lista_nombres_bases_largo]
-			print ("*"+lista_nombres_bases+"*")
-			lista_de_bases.append(lista_nombres_bases);
-		print (lista_de_bases)
-		print ("cerramos coneccion")
-		puntero.close
-		print (input("		continuar?"));
-		limpiar();
-	except Exception as e:
-		print("Exeception occured:{}".format(e))
-	finally:
-		puntero.close
-def borrar_base():
-	listar_bases()
-	try:
-		nombre_DDBB = input("ingrese el nombre de la BASE (QUE YA DEBE EXISTIR) de datos para insertar tablas  : ")
-		nombre_DDBB = nombre_DDBB.capitalize()
-		print ("Conectamos con MySQL")
-		conectarse = mysql.connector.connect(host="localhost",user="root", passwd="utn")
-		puntero = conectarse.cursor()
-		accion = input ("Drop la DDBB (S/N)")
-		if accion.upper() == "S":
-			print ("Borramos la base de datos ", nombre_DDBB )
-			puntero.execute("DROP DATABASE "+str(nombre_DDBB))
-		puntero.close
-		print (input("		continuar?"));
-		limpiar();
-	except Exception as e:
-		print("Exeception occured:{}".format(e))
-	finally:
-		puntero.close
-def crear_tablas():
-	try:
-		nombre_DDBB = input("ingrese el nombre de la BASE (QUE YA DEBE EXISTIR) de datos para insertar tablas  : ")
-		nombre_DDBB = nombre_DDBB.capitalize()
-		nombre_tabla = input("ingrese el nombre de la nombre TABLA a crear : ")
-		nombre_tabla = nombre_tabla.upper()
-		nombre_columna_1 = input("ingrese el nombre de la nombre de la COLUMNA 1 a crear : ")
-		nombre_columna_1 = nombre_columna_1.upper()
-		nombre_columna_2 = input("ingrese el nombre de la nombre de la COLUMNA 2 a crear : ")
-		nombre_columna_2 = nombre_columna_2.upper()
-		nombre_columna_3 = input("ingrese el nombre de la nombre de la COLUMNA 3 a crear : ")
-		nombre_columna_3 = nombre_columna_3.upper()
-		
-		print ("Conectamos con MySQL")
-		conectarse = mysql.connector.connect(host="localhost",user="root", passwd="utn",database=str(nombre_DDBB))
-		puntero = conectarse.cursor()
-#		puntero.execute("CREATE TABLE "+str(nombre_tabla)+" (id INT AUTO_INCREMENT PRIMARY KEY, "+str(nombre_columna_1)+" VARCHAR(255), "+str(nombre_columna_2)+" INT, "+str(nombre_columna_3)+" VARCHAR(255))")
-		puntero.execute("CREATE TABLE "+str(nombre_tabla)+" ( "+str(nombre_columna_1)+" VARCHAR(255), "+str(nombre_columna_2)+" INT, "+str(nombre_columna_3)+" VARCHAR(255))")
-		puntero.execute("USE "+str(nombre_DDBB)); # select the database
-		puntero.execute("SHOW TABLES")    # execute 'SHOW TABLES' (but data is not returned)
-		tablas = puntero.fetchall()       # return data from last query
-		puntero.execute("SHOW columns FROM "+str(nombre_tabla))
-		for column in puntero.fetchall():
-			print (column[nombre_tabla]);
-		print (tablas)
-		print ("cerramos coneccion")
-		puntero.close
-	except Exception as e:
-		print("Exeception occured:{}".format(e))
-	finally:
-		puntero.close
-def agregar_id_tablas():
-	try:
-		nombre_DDBB = input("ingrese el nombre de la base(QUE YA DEBE EXISTIR) de datos para insertar ID  : ")
-		nombre_DDBB = nombre_DDBB.capitalize()
-		nombre_tabla = input("ingrese el nombre de la nombre TABLA (QUE  YA DEBE EXISTIR) para insertar ID  : ")
-		nombre_tabla = nombre_tabla.upper()
-		print ("Conectamos con MySQL ", nombre_DDBB )
-		conectarse = mysql.connector.connect(host="localhost",user="root", passwd="utn",database=str(nombre_DDBB))
-		puntero = conectarse.cursor()
-		puntero.execute("ALTER TABLE "+str(nombre_tabla)+" ADD COLUMN id INT AUTO_INCREMENT PRIMARY KEY") 
-		puntero.execute("SHOW TABLES")
-		print ("Mostramos las tablas de la bases de datos UTN_practica1_2019")
-		lista_de_tablas=[]
-		for lista_tablas in (puntero):
-			lista_nombres_tablas=str(lista_tablas)
-			lista_nombres_tablas_largo=len(lista_tablas)-4
-			lista_nombres_tablas=lista_nombres_tablas[2:lista_nombres_tablas_largo]
-			print ("*"+lista_nombres_tablas+"*")
-			
-			lista_de_tablas.append(lista_nombres_tablas);
-		print (lista_de_tablas)
-		print("cerramos coneccion");
-		puntero.close
-		print (input("		continuar?"));
-		limpiar();
-	except Exception as e:
-		print("Exeception occured:{}".format(e))
-	finally:
-		puntero.close
-def listar_tablas():
-	try:
-		nombre_DDBB = "UTN_practica1_2019";
-		print ("Conectamos con MySQL")
-		conectarse = mysql.connector.connect(host="localhost",user="root", passwd="utn",database=str(nombre_DDBB))
-		puntero = conectarse.cursor()
-		puntero.execute("SHOW TABLES")
-		print ("Mostramos las tablas de la bases de datos "+str(nombre_DDBB))
-		lista_de_tablas=[]
-		for lista_tablas in (puntero):
-			lista_nombres_tablas=str(lista_tablas)
-			lista_nombres_tablas_largo=len(lista_tablas)-4
-			lista_nombres_tablas=lista_nombres_tablas[2:lista_nombres_tablas_largo]
-			print ("*"+lista_nombres_tablas+"*")
-			lista_de_tablas.append(lista_nombres_tablas);
-		print (lista_de_tablas)
-		colunma_numero = int(input("Ingrese el numero de la tabla cuyas columnas desea listar : "));
-		puntero.execute("SHOW columns FROM "+str(lista_de_tablas[colunma_numero]))
-		for column in puntero.fetchall():
-			print (column[colunma_numero]);
-		print("cerramos coneccion");
-		puntero.close
-		print (input("		continuar?"));
-		limpiar();
-	except Exception as e:
-		print("Exeception occured:{}".format(e))
-	finally:
-		puntero.close
-################################################            segunda parte del ejercicio
-def Iniciar_practica():
-	try:
-		print ("Conectamos con MySQL")
-		conectarse = mysql.connector.connect(host="localhost",user="root", passwd="utn")#database='nombre',
-		puntero = conectarse.cursor()
-		accion = input ("Drop la DDBB (S/N)")
-		if accion.upper() == "S":
-			puntero.execute("DROP DATABASE UTN_practica1_2019")
-		puntero.execute("CREATE DATABASE UTN_practica1_2019")
-		print ("Creamos la base de datos  UTN_practica1_2019")
-		puntero.close
-		conectarse = mysql.connector.connect(host="localhost",user="root", passwd="utn", database="UTN_practica1_2019")
-		puntero = conectarse.cursor()
-		puntero.execute("CREATE TABLE UTN_cuatrimestre (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255), ALUMNO_NOMBRE VARCHAR(255), ALUMNO_MAIL VARCHAR(255), ALUMNO_CELULAR VARCHAR(255), ALUMNO_EDAD INT)")
-		puntero.execute("SHOW TABLES")
-		print ("Mostramos las tablas de la bases de datos UTN_practica1_2019")
-		lista_de_tablas=[]
-		for lista_tablas in (puntero):
-			lista_nombres_tablas=str(lista_tablas)
-			lista_nombres_tablas_largo=len(lista_tablas)-4
-			lista_nombres_tablas=lista_nombres_tablas[2:lista_nombres_tablas_largo]
-			print ("*"+lista_nombres_tablas+"*")
-			lista_de_tablas.append(lista_nombres_tablas);
-		print (lista_de_tablas)
-		columnas_mysql = "INSERT INTO UTN_cuatrimestre (ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD)  VALUES (%s, %s, %s, %s, %s)"
-		datos = ("Primer Apellido Segundo Apellido", "Ariel" , "ariel.garcia.traba@gmail.com","+5491144754637","45")
-		puntero.execute(columnas_mysql, datos)
-		conectarse.commit()
-		print(puntero.rowcount, "record inserted.")
-		puntero.close
-		print (input("		continuar?"));
-		limpiar();
-	except Exception as e:
-		print("Exeception occured:{}".format(e))
-	finally:
-		puntero.close
-def agregar_datos_tabla():
-	try:
-		print ("Conectamos con MySQL")
-		conectarse = mysql.connector.connect(host="localhost",user="root", passwd="utn", database="UTN_practica1_2019")
-		puntero = conectarse.cursor()
-		puntero.execute("SHOW TABLES")
-		print ("Mostramos las tablas de la bases de datos UTN_practica1_2019")
-		lista_de_tablas=[]
-		for lista_tablas in (puntero):
-			lista_nombres_tablas=str(lista_tablas)
-			lista_nombres_tablas_largo=len(lista_tablas)-4
-			lista_nombres_tablas=lista_nombres_tablas[2:lista_nombres_tablas_largo]
-			print ("*"+lista_nombres_tablas+"*")
-			lista_de_tablas.append(lista_nombres_tablas);
-		print (lista_de_tablas)
-		columnas_mysql = "INSERT INTO UTN_cuatrimestre (ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD)  VALUES (%s, %s, %s, %s, %s)"
-		ALUMNO_APELLIDO = str(input("Ingrese su apellido : "));
-		ALUMNO_NOMBRE = str(input("Ingrese su nombre : "));
-		ALUMNO_MAIL = str(input("Ingrese su Email : "));
-		ALUMNO_CELULAR = str(input("Ingrese su celular : "));
-		ALUMNO_EDAD = str(input("Ingrese su edad : "));
-		datos = (ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD)
-		puntero.execute(columnas_mysql, datos)
-		conectarse.commit()
-		print(puntero.rowcount, "record inserted.")
-		puntero.close
-		print (input("		continuar?"));
-		limpiar();
-	except Exception as e:
-		print("Exeception occured:{}".format(e))
-	finally:
-		puntero.close
-def listar_datos_tabla():
-	try:
-		print ("Conectamos con MySQL")
-		conectarse = mysql.connector.connect(host="localhost",user="root", passwd="utn", database="UTN_practica1_2019")
-		puntero = conectarse.cursor()
-		puntero.execute("select ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD from UTN_cuatrimestre")
-		for fila in puntero:
-			print(fila)
-			print("------------------------------\n")
-		puntero.close
-		print (input("		continuar?"));
-		limpiar();
-	except Exception as e:
-		print("Exeception occured:{}".format(e))
-	finally:
-		puntero.close
-
-def modificar_datos_tabla():
-	try:
-		print ("Conectamos con MySQL")
-		conectarse = mysql.connector.connect(host="localhost",user="root", passwd="utn", database="UTN_practica1_2019")
-		puntero = conectarse.cursor()
-		puntero.execute("select ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD from UTN_cuatrimestre")
-		print("--------Ante de borrar-----------\n")
-		for fila in puntero:
-			print(fila)
-			print("------------------------------\n")
-		puntero.execute("update UTN_cuatrimestre set ALUMNO_EDAD=99 where ALUMNO_NOMBRE='Ariel'")
-		conectarse.commit()
-		puntero.execute("select ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD from UTN_cuatrimestre")
-		print("------Despues de borrar-----------\n")
-		for fila in puntero:
-			print(fila)
-			print("------------------------------\n")
-		puntero.close
-		print (input("		continuar?"));
-		limpiar();
-	except Exception as e:
-		print("Exeception occured:{}".format(e))
-	finally:
-		puntero.close
-def borrar_datos_tabla():
-	try:
-		print ("Conectamos con MySQL")
-		conectarse = mysql.connector.connect(host="localhost",user="root", passwd="utn", database="UTN_practica1_2019")
-		puntero = conectarse.cursor()
-		puntero.execute("select ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD from UTN_cuatrimestre")
-		print("--------Ante de borrar-----------\n")
-		for fila in puntero:
-			print(fila)
-			print("------------------------------\n")
-		puntero.execute("delete from UTN_cuatrimestre where ALUMNO_NOMBRE='Ariel'")
-		conectarse.commit()
-
-		puntero.execute("select ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD from UTN_cuatrimestre")
-		print("------Despues de borrar-----------\n")
-		for fila in puntero:
-			print(fila)
-			print("------------------------------\n")
-		puntero.close
-		print (input("		continuar?"));
-		limpiar();
-	except Exception as e:
-		print("Exeception occured:{}".format(e))
-	finally:
-		puntero.close	
-
-accion = input ("Borramos base de datos (S/N)"); limpiar();
-if accion.upper() =="S": borrar_base();
-accion = input ("Creamos base de datos (S/N)"); limpiar();
-if accion.upper() =="S": crear_base();
-accion= input("Listamos base de datos existentes (S/N)"); limpiar();
-if accion.upper() =="S": listar_bases();
-accion = input ("Creamos Tablas en la base de datos (S/N)"); limpiar();
-if accion.upper() =="S": crear_tablas();
-accion= input("Agrego columna ID en tabla (S/N)"); limpiar();
-if accion.upper() =="S": agregar_id_tablas();
-################################################            segunda parte del ejercicio
-print ("segunda parte del ejercicio")
-accion= input("Inicio practica alumnos (S/N)"); 
-if accion.upper() =="S": Iniciar_practica()
-accion= input("Listamos Tablas en la base de datos UTN_practica1_2019 (S/N)");
-if accion.upper() =="S": listar_tablas(); 
-accion= input("Agregar dato 1 en la base de datos UTN_practica1_2019 (S/N)");
-if accion.upper() =="S": agregar_datos_tabla(); 
-accion= input("Agregar dato 2 en la base de datos UTN_practica1_2019 (S/N)");
-if accion.upper() =="S": agregar_datos_tabla(); 
-accion= input("Agregar dato 3 en la base de datos UTN_practica1_2019 (S/N)");
-if accion.upper() =="S": agregar_datos_tabla(); 
-accion= input("Agregar dato 4 en la base de datos UTN_practica1_2019 (S/N)");
-if accion.upper() =="S": agregar_datos_tabla(); 
-accion= input("Agregar dato 5 en la base de datos UTN_practica1_2019 (S/N)");
-if accion.upper() =="S": agregar_datos_tabla(); 
-accion= input("Agregar dato 6 en la base de datos UTN_practica1_2019 (S/N)");
-if accion.upper() =="S": agregar_datos_tabla(); 
-accion= input("Listar datos en la base de datos UTN_practica1_2019 (S/N)");
-if accion.upper() =="S": listar_datos_tabla(); 
-accion= input("Modificar datos en la base de datos UTN_practica1_2019 (S/N)");
-if accion.upper() =="S": modificar_datos_tabla(); 
-accion= input("Borrar datos en la base de datos UTN_practica1_2019 (S/N)");
-if accion.upper() =="S": borrar_datos_tabla(); 
-
-
-
-
-
-
-
-
-'''
 import datetime
-import mysql.connector
- 
-connection = mysql.connector.connect(user='user', password='password', database='database')
+#from datetime import date
+#from datetime import datetime
+def Iniciar_practica():
+#	try:
+	print ("Conectamos con MySQL")
+	connection = mysql.connector.connect(host="localhost",user="root", passwd="utn")
+	cursor = connection.cursor()
+	accion = input ("Drop la DDBB (S/N)")
+	if accion.upper() == "S":
+		print ("Borramos la base de datos  UTN_practica_2_2019")
+		cursor.execute("DROP DATABASE UTN_practica_2_2019")
+	cursor.execute("CREATE DATABASE UTN_practica_2_2019")
+	print ("Creamos la base de datos  UTN_practica_2_2019")
+	cursor.close
+	connection = mysql.connector.connect(host="localhost",user="root", passwd="utn", database="UTN_practica_2_2019")
+	cursor = connection.cursor()
+	cursor.execute("CREATE TABLE backup (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL)")
+	cursor.execute("CREATE TABLE viejo (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL)")	
+	cursor.execute("CREATE TABLE UTN_cuatrimestre (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL , ALUMNO_NOMBRE VARCHAR(255) NOT NULL, ALUMNO_MAIL VARCHAR(255), ALUMNO_CELULAR VARCHAR(255), ALUMNO_EDAD INT , ALUMNO_GENERO enum('M','F') , ALUMNO_HOY date, ALUMNO_NACIMIENTO date, ALUMNO_INGRESO date )")
+	columnas_mysql = "INSERT INTO UTN_cuatrimestre (ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD, ALUMNO_GENERO, ALUMNO_HOY, ALUMNO_NACIMIENTO, ALUMNO_INGRESO) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+
+	nacimiento = datetime.datetime(1973,9,22)
+	hoy = datetime.datetime.now()
+	ingreso = datetime.datetime(2015,3,1)
+	cursor.execute(columnas_mysql, ("Garcia Traba", "Ariel" , "cursos.agt@gmail.com","+5491144754637","46","M",hoy,nacimiento,ingreso))
+	connection.commit()
+	cursor.execute(columnas_mysql, ("Primer Apellido 2", "Nombre_2" , "zzzzz@yahoo.com","+5491100000000","88","F",hoy,nacimiento,ingreso))
+	connection.commit()
+	cursor.execute(columnas_mysql, ("Primer Apellido 3", "Nombre_3" , "xxxxx@hotgmail.com","+5491101234567","77","F",hoy,nacimiento,ingreso))
+	connection.commit()
+	cursor.execute(columnas_mysql, ("Primer Apellido 4", "Nombre_4" , "yyyyy@gmail.com","+549110987654321","66","M",hoy,nacimiento,ingreso))
+	connection.commit()
+	cursor.execute(columnas_mysql, ("Primer Apellido 5", "Nombre_5" , "wwwww2@gmail.com","+5491100000000","55","F",hoy,nacimiento,ingreso))
+	connection.commit()
+
+	print(cursor.rowcount, "record inserted.")
+	cursor.close
+def Recargar_practica():
+	print ("Recargar_practica Conectamos con MySQL")
+	connection = mysql.connector.connect(host="localhost",user="root", passwd="utn", database="UTN_practica_2_2019")
+	cursor = connection.cursor()
+	columnas_mysql = "INSERT INTO UTN_cuatrimestre (ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD, ALUMNO_GENERO, ALUMNO_HOY, ALUMNO_NACIMIENTO, ALUMNO_INGRESO) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+	nacimiento = datetime.datetime(1973,9,22)
+	hoy = datetime.datetime.now()
+	ingreso = datetime.datetime(2015,3,1)
+	cursor.execute(columnas_mysql, ("Garcia traba", "Ariel" , "cursos.agt@gmail.com","+5491144754637","46","M",hoy,nacimiento,ingreso))
+	connection.commit()
+	cursor.execute(columnas_mysql, ("Primer Apellido 2", "Nombre_2" , "zzzzz@yahoo.com","+5491100000000","88","F",hoy,nacimiento,ingreso))
+	connection.commit()
+	cursor.execute(columnas_mysql, ("Primer Apellido 3", "Nombre_3" , "xxxxx@hotgmail.com","+5491101234567","77","F",hoy,nacimiento,ingreso))
+	connection.commit()
+	cursor.execute(columnas_mysql, ("Primer Apellido 4", "Nombre_4" , "yyyyy@gmail.com","+549110987654321","66","M",hoy,nacimiento,ingreso))
+	connection.commit()
+	cursor.execute(columnas_mysql, ("Primer Apellido 5", "Nombre_5" , "wwwww2@gmail.com","+5491100000000","55","F",hoy,nacimiento,ingreso))
+	connection.commit()
+	print(cursor.rowcount, "record inserted.")
+	cursor.close
+
+Iniciar_practica()
+print(input("continuo????"))
+limpiar();
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+print ("\n\n  1_1) SELECIONO Y MUESTRO TODO LO QUE TENGA LA TABLA ");
+connection = mysql.connector.connect(host="localhost",user="root", passwd="utn", database="UTN_practica_2_2019")
 cursor = connection.cursor()
- 
-dni = 10
-nombre = 'George'
-apellido = 'Lopez'
-fecha_nacimiento = datetime.date(1961, 4, 23)
-lugar_nacimiento = 'Mission Hills, California, Estados Unidos'
-domicilio = 'California'
-e_mail = 'george@lopez.com'
- 
-sql = """
-	INSERT INTO alumno
-	(
-		dni,
-		nombre,
-		apellido,
-		fecha_nacimiento,
-		lugar_nacimiento,
-		domicilio,
-		e-mail
-	)
-	VALUES (
-		%s,
-		%s,
-		%s,
-		%s,
-		%s,
-		%s,
-		%s,
-		)
-	"""
-datos = (dni, nombre, apellido, fecha_nacimiento, lugar_nacimiento, domicilio, e_mail)
-cursor.execute(sql, datos)
-cursor.commit()
- 
-cursor.close()
-connection.close()
-'''
+print ('cursor.execute("SELECT * FROM UTN_cuatrimestre")');
+cursor.execute("SELECT * FROM UTN_cuatrimestre")
+resultados = cursor.fetchall()
+print("SELECT * FROM UTN_cuatrimestre")
+for cada_rec in resultados:
+	print(cada_rec)
+limpiar();
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+print ("\n\n  1_2) MUESTRO POR FILAS LAS COLUMNAS SELECCIONADAS TODO LO QUE TENGA LA TABLA ?");
+cursor.execute("select ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD, ALUMNO_GENERO, ALUMNO_INGRESO from UTN_cuatrimestre")
+print("ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD, ALUMNO_GENERO, ALUMNO_INGRESO")
+for fila in cursor:
+	print(fila)
+	print("------------------------------\n")
+cursor.close
+limpiar();
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+print ("\n\n  2) SELECIONO POR COLUMNA ALUMNO_NOMBRE, ALUMNO_MAIL FROM UTN_cuatrimestre ");
+connection = mysql.connector.connect(host="localhost",user="root", passwd="utn", database="UTN_practica_2_2019")
+cursor = connection.cursor()
+cursor.execute("SELECT ALUMNO_NOMBRE, ALUMNO_MAIL FROM UTN_cuatrimestre")
+resultados = cursor.fetchall()
+for cada_rec in resultados:
+	print(cada_rec)
+cursor.close
+print(input("continuo????"))
+limpiar();
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+print ("\n\n  3)SELECCIONO CON FILTROS `WHERE` ");
+connection = mysql.connector.connect(host="localhost",user="root", passwd="utn", database="UTN_practica_2_2019")
+cursor = connection.cursor()
+sql = "SELECT * FROM UTN_cuatrimestre WHERE ALUMNO_MAIL ='cursos.agt@gmail.com'"
+cursor.execute(sql)
+resultados = cursor.fetchall()
+print("Datos encontrados con Where")
+for cada_rec in resultados:
+	print(cada_rec)
+print(input("continuo????"))
+limpiar();
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+print ("\n\n  4 ) FILTRO CON CARACTERES % wildcard '%LIKE%' ");
+connection = mysql.connector.connect(host="localhost",user="root", passwd="utn", database="UTN_practica_2_2019")
+cursor = connection.cursor()
+sql = "SELECT * FROM UTN_cuatrimestre WHERE ALUMNO_MAIL LIKE '%zzzzz%'"
+cursor.execute(sql)
+resultados = cursor.fetchall()
+print("Datos encontrados con like")
+for cada_rec in resultados:
+	print(cada_rec) 
+cursor.close
+
+limpiar();
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+print ("\n\n  5 ) FILTRO CON CARACTERES %s wildcard  SQL Injection ");
+connection = mysql.connector.connect(host="localhost",user="root", passwd="utn", database="UTN_practica_2_2019")
+cursor = connection.cursor()
+sql = "SELECT * FROM UTN_cuatrimestre WHERE ALUMNO_MAIL = %s"
+adr = ("cursos.agt@gmail.com", )
+cursor.execute(sql, adr)
+resultados = cursor.fetchall()
+for cada_rec in resultados:
+	print(cada_rec) 
+cursor.close
+limpiar();
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+print ("\n\n  6 ) SORT ");
+connection = mysql.connector.connect(host="localhost",user="root", passwd="utn", database="UTN_practica_2_2019")
+cursor = connection.cursor()
+sql = "SELECT * FROM UTN_cuatrimestre ORDER BY ALUMNO_NOMBRE"
+cursor.execute(sql)
+resultados = cursor.fetchall()
+for cada_rec in resultados:
+	print(cada_rec)
+cursor.close
+limpiar();
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+print ("\n\n  7 ) SORT INVERTIDO ");
+connection = mysql.connector.connect(host="localhost",user="root", passwd="utn", database="UTN_practica_2_2019")
+cursor = connection.cursor()
+sql = "SELECT * FROM UTN_cuatrimestre ORDER BY ALUMNO_NOMBRE DESC"
+cursor.execute(sql)
+resultados = cursor.fetchall()
+for cada_rec in resultados:
+	print(cada_rec)
+Recargar_practica()
+cursor.close
+limpiar();
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+print ("\n\n  8 ) BORRO UN RECORD ");
+connection = mysql.connector.connect(host="localhost",user="root", passwd="utn", database="UTN_practica_2_2019")
+cursor = connection.cursor()
+
+cursor.execute("SELECT * FROM UTN_cuatrimestre")
+resultados = cursor.fetchall()
+print ("\n\n  Listado original ");
+for cada_rec in resultados:
+	print(cada_rec)
+Recargar_practica()
+cursor.close
+print(input("continuo????"))
+sql = "DELETE FROM UTN_cuatrimestre WHERE ALUMNO_Nombre = 'Nombre_4'"
+cursor.execute(sql)
+print ("borro - "+ str(sql));
+connection.commit()
+print(cursor.rowcount, "record(s) deleted")
+
+cursor.execute("SELECT * FROM UTN_cuatrimestre")
+resultados = cursor.fetchall()
+print ("\n\n  Listado con un dato borrado Nombre_4");
+for cada_rec in resultados:
+	print(cada_rec)
+Recargar_practica()
+cursor.close
+limpiar();
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+print ("\n\n  9 ) BORRO UN RECORD - Prevent SQL Injection ");
+connection = mysql.connector.connect(host="localhost",user="root", passwd="utn", database="UTN_practica_2_2019")
+cursor = connection.cursor()
+
+cursor.execute("SELECT * FROM UTN_cuatrimestre")
+resultados = cursor.fetchall()
+print ("\n\n  Listado original ");
+for cada_rec in resultados:
+	print(cada_rec)
+
+sql = "DELETE FROM UTN_cuatrimestre WHERE ALUMNO_NOMBRE = %s"
+adr = ("Nombre_3", )
+print ("borro - "+ str(sql) + str(adr) );
+cursor.execute(sql, adr)
+connection.commit()
+print(cursor.rowcount, "record(s) deleted")
+
+cursor.execute("SELECT * FROM UTN_cuatrimestre")
+resultados = cursor.fetchall()
+print ("\n\n  Listado con un dato borrado Nombre_3");
+for cada_rec in resultados:
+	print(cada_rec)
+Recargar_practica()
+cursor.close
+limpiar();
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+print ("\n\n  10 ) ACTUALIZAR UN DATO 'UPDATE'");
+connection = mysql.connector.connect(host="localhost",user="root", passwd="utn", database="UTN_practica_2_2019")
+cursor = connection.cursor()
+
+cursor.execute("SELECT * FROM UTN_cuatrimestre WHERE ALUMNO_NOMBRE LIKE '%Nombre_%'")
+print ("\n\n  Listado original detodos los 'Nombres_' ");
+resultados = cursor.fetchall()
+for cada_rec in resultados:
+	print(cada_rec) 
+
+sql = "UPDATE UTN_cuatrimestre SET ALUMNO_MAIL = 'zzzzz@yahoo.com' WHERE ALUMNO_MAIL = 'yyyyy@gmail.com' "
+cursor.execute(sql)
+connection.commit()
+print(cursor.rowcount, "record(s) affected")
+
+cursor.execute("SELECT * FROM UTN_cuatrimestre WHERE ALUMNO_MAIL LIKE '%yyyyy%'")
+resultados = cursor.fetchall()
+print ("\n\n  Listado modificado ");
+for cada_rec in resultados:
+	print(cada_rec) 
+cursor.close
+limpiar();
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+print ("\n\n  11 ) ACTUALIZAR CON %s SQL Injection 'UPDATE' ?");
+connection = mysql.connector.connect(host="localhost",user="root", passwd="utn", database="UTN_practica_2_2019")
+cursor = connection.cursor()
+
+cursor.execute("SELECT * FROM UTN_cuatrimestre WHERE ALUMNO_MAIL LIKE '%zzzzz%'")
+resultados = cursor.fetchall()
+print("SELECT * FROM UTN_cuatrimestre WHERE ALUMNO_MAIL LIKE '%zzzzz%'")
+for cada_rec in resultados:
+	print(cada_rec)
+print(input("Continuo????????"))
+sql = "UPDATE UTN_cuatrimestre SET ALUMNO_MAIL = %s WHERE ALUMNO_MAIL = %s"
+val = ("cursos.mithril@gmail.com", "zzzzz@yahoo.com")
+cursor.execute(sql, val)
+connection.commit()
+print(cursor.rowcount, "record(s) affected")
+cursor.execute("SELECT * FROM UTN_cuatrimestre WHERE ALUMNO_MAIL LIKE '%@%'")
+resultados = cursor.fetchall()
+print("SELECT * FROM UTN_cuatrimestre WHERE ALUMNO_MAIL LIKE '%@%'")
+for cada_rec in resultados:
+	print(cada_rec)
+cursor.close
+limpiar();
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+print ("\n\n  12 ) LIMITO LA CANTIDAD DE RESULTADOS 'LIMIT' ");
+print ("You can limit the number of records returned from the query, by using the 'LIMIT' statement:");
+connection = mysql.connector.connect(host="localhost",user="root", passwd="utn", database="UTN_practica_2_2019")
+cursor = connection.cursor()
+cursor.execute("SELECT * FROM UTN_cuatrimestre LIMIT 5")
+resultados = cursor.fetchall()
+for cada_rec in resultados:
+	print(cada_rec) 
+cursor.close
+limpiar();
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+print ("\n\n  13 ) INICIO DESDE OTRA POSICION OFFSET ");
+connection = mysql.connector.connect(host="localhost",user="root", passwd="utn", database="UTN_practica_2_2019")
+cursor = connection.cursor()
+cursor.execute("SELECT * FROM UTN_cuatrimestre LIMIT 5 OFFSET 2")
+resultados = cursor.fetchall()
+for cada_rec in resultados:
+	print(cada_rec)
+Recargar_practica()  
+cursor.close
+print(input("continuo????"))
+limpiar();
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+print ("\n\n  14 ) BORRO UNA TABLA 'Drop' ");
+connection = mysql.connector.connect(host="localhost",user="root", passwd="utn", database="UTN_practica_2_2019")
+
+print ("------------Estado Inicial-------------")
+cursor = connection.cursor()
+cursor.execute("SHOW TABLES")
+for cada_rec in cursor:
+	print(cada_rec)
+print ("------------DROP-----------------------")
+
+cursor = connection.cursor()
+sql = "DROP TABLE UTN_cuatrimestre"
+cursor.execute(sql) 
+
+print ("------------Estado Final---------------")
+cursor = connection.cursor()
+cursor.execute("SHOW TABLES")
+for cada_rec in cursor:
+	print(cada_rec)
+
+Iniciar_practica()
+cursor.close
+print(input("continuo????"))
+limpiar();
+print (input("\n\n  15 ) BORRO UNA TABLA '2020_Marzo' (Drop) SI EXISTE "));
+connection = mysql.connector.connect(host="localhost",user="root", passwd="utn", database="UTN_practica_2_2019")
+cursor = connection.cursor()
+
+print ("------------Estado Inicial-------------")
+cursor = connection.cursor()
+cursor.execute("SHOW TABLES")
+for cada_rec in cursor:
+	print(cada_rec)
+print ("------------DROP-----------------------")
+
+cursor = connection.cursor()
+sql = "DROP TABLE IF EXISTS 2020_Marzo"
+print( "Tabla a borrar"+str(sql))
+cursor.execute(sql) 
+
+print ("------------Estado Final---------------")
+cursor = connection.cursor()
+cursor.execute("SHOW TABLES")
+for cada_rec in cursor:
+	print(cada_rec)
+cursor = connection.cursor()
+sql = "DROP TABLE IF EXISTS UTN_cuatrimestre"
+print( "Tabla a borrar"+str(sql))
+cursor.execute(sql) 
+
+print ("------------Estado Final---------------")
+cursor = connection.cursor()
+cursor.execute("SHOW TABLES")
+for cada_rec in cursor:
+	print(cada_rec)
+	
+Iniciar_practica()
+cursor.close
