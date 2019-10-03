@@ -283,7 +283,7 @@ nuevo(15);
 print (" Uso de objeto.split(), .rsplit() .join() .rstrip() .lstrip() en un string ")
 print ("split convierte una cadena de texto en una lista. Por defecto al separarse por espacios, los elementos de dicha lista serán las palabras de la cadena.")
 print ("join convierte una lista en una cadena formada por los elementos de la lista separados por comas.")
-gracia= "Name Primer Apellido Renzetti"
+gracia= "Ariel Garcia"
 print ("split divido-fracciono-separo una cadena dependiendo del caracter bucado")
 print(gracia.split( ))# divido en un espacios
 print ("split divido-fracciono-separo al encontrar 'a'")
@@ -350,5 +350,81 @@ print("cadena_de_datos : "+cadena_de_datos);
 print("isalnum - es alfanumerica :"+str(cadena_de_datos.isalnum()));
 print (" Uso de objeto.isupper(), .islower() .isspace() .rstrip() .lstrip() en un string ")
 print(gracia.casefold());
-nuevo(20,"fin");
+nuevo(20);
 #################################################################
+
+print("""
+╔═════════════════════════════════════════════════════════════════════════════╗
+║                                                                             ║
+║                                 format_map                                  ║
+║                                                                             ║
+╚═════════════════════════════════════════════════════════════════════════════╝
+""")
+
+cadena = 'Empleado {Nombre} esta en la empresa como {Trabajo}'
+Nombre_diccionario_1 = {'Nombre': 'Juan X', 'Trabajo': 'Programador'}
+
+print(cadena.format_map(Nombre_diccionario_1))
+print(cadena.format(**Nombre_diccionario_1))
+nuevo(21,"fin");
+#################################################################
+
+print("""
+╔═════════════════════════════════════════════════════════════════════════════╗
+║                                                                             ║
+║                                   pprint                                    ║
+║                                                                             ║
+╚═════════════════════════════════════════════════════════════════════════════╝
+https://docs.python.org/3/library/pprint.html
+The pprint module provides a capability to “pretty-print” arbitrary Python data structures in a form which can be used as input to the interpreter. If the formatted structures include objects which are not fundamental Python types, the representation may not be loadable. This may be the case if objects such as files, sockets or classes are included, as well as many other objects which are not representable as Python literals.
+The formatted representation keeps objects on a single line if it can, and breaks them onto multiple lines if they don’t fit within the allowed width. Construct PrettyPrinter objects explicitly if you need to adjust the width constraint.
+Dictionaries are sorted by key before the display is computed.
+The pprint module defines one class:
+class pprint.PrettyPrinter(indent=1, width=80, depth=None, stream=None, *, compact=False)
+    Construct a PrettyPrinter instance. This constructor understands several keyword parameters. An output stream may be set using the stream keyword; the only method used on the stream object is the file protocol’s write() method. If not specified, the PrettyPrinter adopts sys.stdout. The amount of indentation added for each recursive level is specified by indent; the default is one. Other values can cause output to look a little odd, but can make nesting easier to spot. The number of levels which may be printed is controlled by depth; if the data structure being printed is too deep, the next contained level is replaced by .... By default, there is no constraint on the depth of the objects being formatted. The desired output width is constrained using the width parameter; the default is 80 characters. If a structure cannot be formatted within the constrained width, a best effort will be made. If compact is false (the default) each item of a long sequence will be formatted on a separate line. If compact is true, as many items as will fit within the width will be formatted on each output line.
+    Changed in version 3.4: Added the compact parameter.
+""")
+import pprint
+stuff = ['spam', 'eggs', 'lumberjack', 'knights', 'ni']
+stuff.insert(0, stuff[:])
+pp = pprint.PrettyPrinter(indent=4)
+pp.pprint(stuff)
+
+pp = pprint.PrettyPrinter(width=41, compact=True)
+pp.pprint(stuff)
+
+tup = ('spam', ('eggs', ('lumberjack', ('knights', ('ni', ('dead',('parrot', ('fresh fruit',))))))))
+pp = pprint.PrettyPrinter(depth=6)
+pp.pprint(tup)
+
+print("""
+pprint.pformat(object, indent=1, width=80, depth=None, *, compact=False)
+    Return the formatted representation of object as a string. indent, width, depth and compact will be passed to the PrettyPrinter constructor as formatting parameters.
+    Changed in version 3.4: Added the compact parameter.
+pprint.pprint(object, stream=None, indent=1, width=80, depth=None, *, compact=False)
+    Prints the formatted representation of object on stream, followed by a newline. If stream is None, sys.stdout is used. This may be used in the interactive interpreter instead of the print() function for inspecting values (you can even reassign print = pprint.pprint for use within a scope). indent, width, depth and compact will be passed to the PrettyPrinter constructor as formatting parameters.
+    Changed in version 3.4: Added the compact parameter.
+""")
+import pprint
+stuff = ['spam', 'eggs', 'lumberjack', 'knights', 'ni']
+stuff.insert(0, stuff)
+pprint.pprint(stuff)
+print("""
+pprint.isreadable(object)
+    Determine if the formatted representation of object is “readable,” or can be used to reconstruct the value using eval(). This always returns False for recursive objects.
+""")
+pprint.isreadable(stuff)
+print("""
+pprint.isrecursive(object)
+    Determine if object requires a recursive representation.
+One more support function is also defined:
+pprint.saferepr(object)
+    Return a string representation of object, protected against recursive data structures. If the representation of object exposes a recursive entry, the recursive reference will be represented as <Recursion on typename with id=number>. The representation is not otherwise formatted.
+pprint.isrecursive(object)
+    Determine if object requires a recursive representation.
+One more support function is also defined:
+pprint.saferepr(object)
+    Return a string representation of object, protected against recursive data structures. If the representation of object exposes a recursive entry, the recursive reference will be represented as <Recursion on typename with id=number>. The representation is not otherwise formatted.
+""")
+pprint.saferepr(stuff)
+

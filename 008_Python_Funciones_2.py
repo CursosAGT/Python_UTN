@@ -55,9 +55,10 @@ class Clase1:# ver el nombre con mayuscula en su primer caracter que no debe ser
 ej=Clase1()
 ej.metodo(6,5)
 print (ej.resultado)
-nuevo(1);
+
+nuevo(2);
 #################################################################
-#Clase_Funciones_Ej_002
+#Clase_Funciones_Ej_003
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
 ║                                                                             ║
