@@ -1,7 +1,7 @@
 from Estructura import *
 nuevo(0,"inicio");
 #################################################################
-def Ej_ya_hechos():
+def Ej_ya_hechos(x):
 	#Con tab colocaremos aqui las precticas hechas
 	pass
 print("""
@@ -144,7 +144,7 @@ nuevo(7);
 #IO_ext Ej_08;
 ####################                  JSON (JavaScript Object Notation)."binario.dat"
 print("""
-╔═════════════════════════════════════════════════════════════════════════════╗ 
+╔═════════════════════════════════════════════════════════════════════════════╗
 ║                                                                             ║
 ║                          JSON (JavaScript Object Notation).                 ║
 ║                                                                             ║
@@ -173,7 +173,7 @@ archivo_de_json=open("JavaScript_Object_Notation.json","w")#		abre el archivo Ja
 json.dump(json_en_memoria,archivo_de_json);
 archivo_de_json.close();
 del archivo_de_json
-nuevo(7);
+nuevo(8);
 #################################################################
 #IO_ext Ej_08;
 print("Ingreso lectura de bloque de datos desde otro archivo JavaScript_Object_Notation read - rw");
@@ -182,7 +182,7 @@ json_en_memoria=json.load(archivo_de_json);
 print(json_en_memoria);
 archivo_de_json.close();
 del archivo_de_json
-nuevo(7);
+nuevo(9);
 #################################################################
 #IO_ext Ej_08;
 print("""
@@ -200,14 +200,14 @@ print("Salida de datos con metodo WITH a otro archivo binario write wr ");
 binario_en_memoria2="PICKLE_WITH\nLenguaje interpretado\n Un lenguaje interpretado es un lenguaje de programación para el que la mayoría de sus implementaciones ejecuta las instrucciones directamente, sin una previa compilación del programa a instrucciones en lenguaje máquina.\n El intérprete ejecuta el programa directamente, traduciendo cada sentencia en una secuencia de una o más subrutinas ya compiladas en código máquina.\n Los términos lenguaje interpretado y lenguaje compilado4​ no están bien definidos porque, en teoría, cualquier lenguaje de programación puede ser interpretado o compilado.\n Cada vez es más popular, en las implementaciones más modernas de un lenguaje de programación, ofrecer ambas opciones.\n Los lenguajes interpretados también pueden diferenciarse de los lenguajes de máquina.\n Funcionalmente, tanto la ejecución y la interpretación significan lo mismo -obtener la siguiente instrucción/sentencia del programa y su ejecución-.\n Aunque el bytecode (código byte) interpretado es además idéntico a su forma en código máquina y tiene una representación en ensamblador, el término 'interpretado' se reserva en la práctica para lenguajes 'procesados por software' (como las máquinas virtuales o emuladores) por encima del procesado nativo (por ejemplo, por hardware).\n En principio, los programas de muchos lenguajes se pueden compilar o interpretar, emular o ejecutar nativamente, así que esta designación se aplica solamente a la implementación práctica más usual, en vez de representar una propiedad esencial del lenguaje.\n De forma parecida al microcódigo del procesador, muchos intérpretes, internamente recaen en una compilación en tiempo de ejecución.\n Evitando la compilación, los programas interpretados son más fáciles de evolucionar durante el desarrollo y la ejecución (transformándose en ocasiones de uno en la otra).\n De otra parte, ya que la compilación implica una traducción a un formato más amigable con la máquina, los programas interpretados corren más lentamente y menos eficientemente (es decir, gastan considerablemente más energía).\n Esto es especialmente verdad para los lenguajes de guion, cuyas sentencias son más complejas de analizar comparadas con las instrucciones máquina.\n Muchos lenguajes se han implementado usando tanto compiladores como intérpretes, incluyendo BASIC, C, Lisp, Pascal y Python. Java y C# se compilan a código byte, el lenguaje interpretado específico para la máquina virtual.\n Muchas implementaciones de Lisp pueden mezclar libremente código interpretado y compilado. "
 with open("binario_metodo_with.dat","wb") as write_file:#			abre el archivo binario para escritura y si no existe lo crea
 	pickle.dump(binario_en_memoria2, write_file, pickle.HIGHEST_PROTOCOL)
-nuevo(7);
+nuevo(10);
 #################################################################
 #IO_ext Ej_08;
 print("Ingreso lectura de bloque de datos con metodo WITH desde otro archivo binario read - rw");
 with open("binario_metodo_with.dat", "rb") as read_file:#			abre el archivo binario para lectura en bloque  
-    binario_a_memoria2 = pickle.load(read_file)
+	binario_a_memoria2 = pickle.load(read_file)
 print(binario_a_memoria2);
-nuevo(7);
+nuevo(11);
 #################################################################
 #IO_ext Ej_08;
 
@@ -219,23 +219,40 @@ print("""
 ╚═════════════════════════════════════════════════════════════════════════════╝
 """);
 
-
 import json
-
-
 
 json_en_memoria2="JSON_WITH\nLenguaje interpretado\n Un lenguaje interpretado es un lenguaje de programación para el que la mayoría de sus implementaciones ejecuta las instrucciones directamente, sin una previa compilación del programa a instrucciones en lenguaje máquina.\n El intérprete ejecuta el programa directamente, traduciendo cada sentencia en una secuencia de una o más subrutinas ya compiladas en código máquina.\n Los términos lenguaje interpretado y lenguaje compilado4​ no están bien definidos porque, en teoría, cualquier lenguaje de programación puede ser interpretado o compilado.\n Cada vez es más popular, en las implementaciones más modernas de un lenguaje de programación, ofrecer ambas opciones.\n Los lenguajes interpretados también pueden diferenciarse de los lenguajes de máquina.\n Funcionalmente, tanto la ejecución y la interpretación significan lo mismo -obtener la siguiente instrucción/sentencia del programa y su ejecución-.\n Aunque el bytecode (código byte) interpretado es además idéntico a su forma en código máquina y tiene una representación en ensamblador, el término 'interpretado' se reserva en la práctica para lenguajes 'procesados por software' (como las máquinas virtuales o emuladores) por encima del procesado nativo (por ejemplo, por hardware).\n En principio, los programas de muchos lenguajes se pueden compilar o interpretar, emular o ejecutar nativamente, así que esta designación se aplica solamente a la implementación práctica más usual, en vez de representar una propiedad esencial del lenguaje.\n De forma parecida al microcódigo del procesador, muchos intérpretes, internamente recaen en una compilación en tiempo de ejecución.\n Evitando la compilación, los programas interpretados son más fáciles de evolucionar durante el desarrollo y la ejecución (transformándose en ocasiones de uno en la otra).\n De otra parte, ya que la compilación implica una traducción a un formato más amigable con la máquina, los programas interpretados corren más lentamente y menos eficientemente (es decir, gastan considerablemente más energía).\n Esto es especialmente verdad para los lenguajes de guion, cuyas sentencias son más complejas de analizar comparadas con las instrucciones máquina.\n Muchos lenguajes se han implementado usando tanto compiladores como intérpretes, incluyendo BASIC, C, Lisp, Pascal y Python. Java y C# se compilan a código byte, el lenguaje interpretado específico para la máquina virtual.\n Muchas implementaciones de Lisp pueden mezclar libremente código interpretado y compilado. "
 print("salida de datos con metodo WITH  a otro archivo JavaScript_Object_Notation write wr ");
 with open("JavaScript_Object_Notation_with.json", "w") as write_file:# abre el archivo JavaScript_Object_Notation para escritura y si no existe lo crea
 	json.dump(json_en_memoria2, write_file)
-nuevo(7);
+nuevo(12);
 #################################################################
 #IO_ext Ej_08;
 print("Ingreso lectura de bloque de datos con metodo WITH  desde otro archivo JavaScript_Object_Notation read - rw");
 with open("JavaScript_Object_Notation_with.json","r") as read_file:# abre el archivo JavaScript_Object_Notation para lectura en bloque
 	json_en_memoria2 = json.load(read_file);
 print(json_en_memoria2);
-nuevo(7,"fin");
+nuevo(13);
 #################################################################
 
+#################################################################
+#IO_ext Ej_08;
+####################                  CSV(texto separado por comas)
+print("""
+╔═════════════════════════════════════════════════════════════════════════════╗ 
+║                                                                             ║
+║                                       CVS                                   ║
+║                                                                             ║
+╚═════════════════════════════════════════════════════════════════════════════╝
+""");
+import pandas as pd
+ejemplo_desde_plan_calculo.csv
 
+
+#################################################################
+#IO_ext Ej_08;
+print("Ingreso lectura de bloque de datos desde otro archivo CSV read - rw");
+archivo_de_csv=pd.read_cvs("ejemplo_desde_plan_calculo.csv",header=0)#		abre el archivo JavaScript_Object_Notation para lectura en bloque
+print(archivo_de_csv);
+print(Dato_3);
+nuevo(14,"fin");

@@ -112,7 +112,7 @@ print("""
 ║                    fields for accepting values from a user.                 ║
 ║                                                                             ║
 ║       Radiobutton  The Radiobutton widget is used to display a number of    ║
-║                    options as radio buttons. The user can select only one   ║ 
+║                    options as radio buttons. The user can select only one   ║
 ║                    option at a time.                                        ║
 ║                                                                             ║
 ║       Scale        The Scale widget is used to provide a slider widget.     ║
@@ -146,6 +146,8 @@ print("""
 ╚═════════════════════════════════════════════════════════════════════════════╝
 https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_tutorials.html
 https://www.youtube.com/watch?v=CppgV8inf7g&pbjreload=10
+https://python-para-impacientes.blogspot.com/2015/12/tkinter-interfaces-graficas-en-python-i.html
+https://python-para-impacientes.blogspot.com/2015/12/tkinter-disenando-frame_pantalla_raizs-graficas.html
 """);
 nuevo(0,"inicio");
 #################################################################
@@ -653,7 +655,39 @@ if var.upper() =="S":
 	root.wm_title("Tkinter")
 	root.geometry("400x300")
 	root.mainloop()
-nuevo(15,"fin");
+nuevo(15);
 #################################################################
-print("https://python-para-impacientes.blogspot.com/2015/12/tkinter-interfaces-graficas-en-python-i.html")
-print("https://python-para-impacientes.blogspot.com/2015/12/tkinter-disenando-frame_pantalla_raizs-graficas.html")
+print("""
+╔═════════════════════════════════════════════════════════════════════════════╗
+║                                                                             ║
+║                               Pantallas graficas                            ║
+║                              -------------------                            ║
+╠═════════════════════════════════════════════════════════════════════════════╣
+║                                                                             ║
+║                              virtual enviroment                             ║
+║                                                                             ║
+╚═════════════════════════════════════════════════════════════════════════════╝
+Install Python
+Install Pip
+Install VirtualEnv
+pip install VirtualEnv
+Install VirtualEnvWrapper-win
+pip install VirtualEnvWrapper
+Install flask
+
+pip install flask
+
+https://djangocentral.com/how-to-a-create-virtual-environment-for-python/
+https://www.pythonforbeginners.com/basics/how-to-use-python-virtualenv
+https://docs.python.org/3/tutorial/venv.html
+https://docs.python-guide.org/dev/virtualenvs/
+https://code.visualstudio.com/docs/python/environments
+https://virtualenv.pypa.io/en/stable/
+https://towardsdatascience.com/python-virtual-environments-made-easy-fe0c603fe601
+https://www.geeksforgeeks.org/python-virtual-environment/
+https://rukbottoland.com/blog/tutorial-de-python-virtualenv/
+https://timmyreilly.azurewebsites.net/python-pip-virtualenv-installation-on-windows/
+
+https://www.youtube.com/watch?v=K_7viALbzqg
+https://www.youtube.com/watch?v=N5vscPTWKOk
+""")

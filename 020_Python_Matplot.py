@@ -15,22 +15,16 @@ flag R cmd/  flag x simbolo de sistem -> pythom // pythom3 -m pip install
 https://pythonbasics.org/matplotlib-line-chart/
 fuente     https://matplotlib.org/
 """)
-nuevo(0);
+nuevo(0,"inicio");
+'''
 #################################################################
-
+#Matplot_01
 import tkinter
 #from io import StringIO
 #import matplotlib
 from matplotlib import pyplot as plt
 import numpy as np
 #import imutils
-print("""
-
-                     Cerrar la pantalla para continuar 
-""")
-nuevo(1);
-#################################################################
-#Matplot_02
 
 # Data for plotting
 t = np.arange(0.0, 2.0, 0.01)
@@ -42,12 +36,13 @@ ax.plot(t, s)
 ax.set(xlabel='time (s)', ylabel='voltage (mV)',
        title='About as simple as it gets, folks')
 ax.grid()
-
-fig.savefig("test.png")
+plt.title('Hey UTN- que onda????') 
+print("\tCerrar la pantalla para continuar")
+fig.savefig("imagen_desde_Matplot.png")
 plt.show()
-nuevo(2);
+nuevo(1);
 #################################################################
-#Matplot_03
+#Matplot_02
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -60,27 +55,181 @@ y2 = np.cos(2 * np.pi * x2)
 
 plt.subplot(2, 1, 1)
 plt.plot(x1, y1, 'o-')
-plt.title('A tale of 2 subplots')
+plt.title('Hey UTN-unamos los puntos con lineas')
 plt.ylabel('Damped oscillation')
 
 plt.subplot(2, 1, 2)
 plt.plot(x2, y2, '.-')
 plt.xlabel('time (s)')
 plt.ylabel('Undamped')
-
+plt.title('Hey UTN-unamos los puntos con ondas') 
+print("\tCerrar la pantalla para continuar")
 plt.show()
+nuevo(2);
+#################################################################
+#Matplot_03
+import matplotlib.pyplot as plt 
+
+x = [1,2,3] 
+y = [2,4,1] 
+
+plt.plot(x, y) 
+plt.xlabel('x - axis') 
+plt.ylabel('y - axis') 
+  
+plt.title('Hey UTN -linea') 
+print("\tCerrar la pantalla para continuar")  
+plt.show() 
 nuevo(3);
 #################################################################
 #Matplot_04
+import matplotlib.pyplot as plt 
 
+x1 = [1,2,3] 
+y1 = [2,4,1] 
+plt.plot(x1, y1, label = "linea 1") 
 
+x2 = [1,2,3] 
+y2 = [4,1,3] 
+plt.plot(x2, y2, label = "linea 2") 
+  
 
-#############################################################################################################
-
-
+plt.xlabel('x - axis') 
+# naming the y axis 
+plt.ylabel('y - axis') 
+# giving a title to my graph 
+plt.title('Hey UTN- dos lineas') 
+plt.legend() 
+print("\tCerrar la pantalla para continuar")  
+plt.show() 
 nuevo(4);
 #################################################################
 #Matplot_05
+import matplotlib.pyplot as plt 
+x = [1,2,3,4,5,6] 
+y = [2,4,1,5,2,6] 
+
+plt.plot(x, y, color='green', linestyle='dashed', linewidth = 3, marker='o', markerfacecolor='blue', markersize=12) 
+
+plt.ylim(1,8) 
+plt.xlim(1,8) 
+
+plt.xlabel('x - axis') 
+plt.ylabel('y - axis') 
+  
+plt.title('Hey UTN-dashed') 
+print("\tCerrar la pantalla para continuar")  
+plt.show() 
+nuevo(5);
+#################################################################
+#Matplot_06
+import matplotlib.pyplot as plt 
+
+left = [1, 2, 3, 4, 5] 
+height = [10, 24, 36, 40, 5] 
+  
+tick_label = ['uno', 'dos', 'tres', 'cuatro', 'cinco'] 
+  
+plt.bar(left, height, tick_label = tick_label,  width = 0.8, color = ['red', 'green']) 
+
+plt.xlabel('x - axis') 
+plt.ylabel('y - axis') 
+plt.title('Hey UTN-barras') 
+print("\tCerrar la pantalla para continuar")  
+plt.show() 
+nuevo(6);
+#################################################################
+#Matplot_07
+import matplotlib.pyplot as plt 
+  
+# frequencies 
+ages = [2,5,70,40,30,45,50,45,43,40,44, 
+        60,7,13,57,18,90,77,32,21,20,40] 
+  
+# setting the ranges and no. of intervals 
+range = (0, 100) 
+bins = 10  
+  
+# plotting a histogram 
+plt.hist(ages, bins, range, color = 'green', histtype = 'bar', rwidth = 0.8) 
+  
+# x-axis label 
+plt.xlabel('age') 
+# frequency label 
+plt.ylabel('No. of people') 
+# plot title 
+plt.title('Hey UTN-histograma-barras') 
+print("\tCerrar la pantalla para continuar")  
+plt.show() 
+nuevo(7);
+#################################################################
+#Matplot_08
+import matplotlib.pyplot as plt 
+x = [1,2,3,4,5,6,7,8,9,10] 
+y = [2,4,5,7,6,8,9,11,12,12] 
+  
+plt.scatter(x, y, label= "stars", color= "green", marker= "*", s=30) 
+
+plt.xlabel('x - axis') 
+
+plt.ylabel('y - axis') 
+
+plt.title('Hey UTN-scatter plot!') 
+
+plt.legend() 
+
+print("\tCerrar la pantalla para continuar")  
+plt.show() 
+nuevo(8);
+#################################################################
+#Matplot_09
+import matplotlib.pyplot as plt 
+  
+# defining labels 
+activities = ['eat', 'sleep', 'work', 'play'] 
+  
+# portion covered by each label 
+slices = [3, 7, 8, 6] 
+  
+# color for each label 
+colors = ['r', 'y', 'g', 'b'] 
+  
+# plotting the pie chart 
+plt.pie(slices, labels = activities, colors=colors,  
+        startangle=90, shadow = True, explode = (0, 0, 0.1, 0), 
+        radius = 1.2, autopct = '%1.1f%%') 
+  
+# plotting legend 
+plt.legend()
+
+plt.title('Hey UTN-tortas!') 
+
+plt.legend() 
+
+print("\tCerrar la pantalla para continuar")  
+plt.show() 
+nuevo(9);
+#################################################################
+#Matplot_010
+# importing the required modules 
+import matplotlib.pyplot as plt 
+import numpy as np 
+  
+x = np.arange(0, 2*(np.pi), 0.1) 
+y = np.sin(x) 
+  
+
+plt.plot(x, y) 
+
+plt.title('Hey UTN-Seno!') 
+
+plt.legend() 
+
+print("\tCerrar la pantalla para continuar")  
+plt.show() 
+nuevo(10);
+#################################################################
+#Matplot_011
 import numpy as np
 import matplotlib.cm as cm
 import matplotlib.pyplot as plt
@@ -99,11 +248,14 @@ fig, ax = plt.subplots()
 im = ax.imshow(Z, interpolation='bilinear', cmap=cm.RdYlGn,
                origin='lower', extent=[-3, 3, -3, 3],
                vmax=abs(Z).max(), vmin=-abs(Z).max())
-plt.show()
 
-nuevo(5);
+plt.title('Hey UTN-Seno!') 
+print("\tCerrar la pantalla para continuar") 
+
+plt.show()
+nuevo(11);
 #################################################################
-#Matplot_06
+#Matplot_012
 
 import matplotlib
 import matplotlib.pyplot as plt
@@ -152,9 +304,9 @@ ax1.set_title('contourf with levels')
 fig.tight_layout()
 
 plt.show()
-nuevo(6);
+nuevo(12);
 #################################################################
-#Matplot_07
+#Matplot_013
 
 import matplotlib
 import numpy as np
@@ -186,9 +338,9 @@ ax.set_title(r'Histogram of IQ: $\mu=100$, $\sigma=15$')
 fig.tight_layout()
 plt.show()
 
-nuevo(7);
+nuevo(13);
 #################################################################
-#Matplot_08
+#Matplot_014
 import matplotlib.path as mpath
 import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
@@ -220,9 +372,9 @@ ax.grid()
 ax.axis('equal')
 plt.show()
 
-nuevo(8);
+nuevo(14);
 #################################################################
-#Matplot_09
+#Matplot_015
 
 # This import registers the 3D projection, but is otherwise unused.
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
@@ -257,9 +409,9 @@ fig.colorbar(surf, shrink=0.5, aspect=5)
 
 plt.show()
 
-nuevo(9);
+nuevo(15);
 #################################################################
-#Matplot_010
+#Matplot_016
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
@@ -320,9 +472,9 @@ ax4.set_aspect('equal')
 plt.tight_layout()
 plt.show()
 
-nuevo(10);
+nuevo(16);
 #################################################################
-#Matplot_011
+#Matplot_017
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -348,9 +500,9 @@ ax.set_ylim(0, 10)
 plt.show()
 
 
-nuevo(11);
+nuevo(17);
 #################################################################
-#Matplot_012
+#Matplot_018
 
 # Credit: Josh Hemann
 
@@ -397,32 +549,63 @@ fig.tight_layout()
 plt.show()
 
 
-nuevo(12);
+nuevo(18);
 #################################################################
-#Matplot_013
-
+#Matplot_019
+'''
 
 import matplotlib.pyplot as plt
 
 # Pie chart, where the slices will be ordered and plotted counter-clockwise:
-labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
-sizes = [15, 30, 45, 10]
-explode = (0, 0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
+labels = 'porcion_1', 'porcion_2', 'porcion_3', 'porcion_4'
+porcion_1=int(input("Ingrese el valor porcion 1 :"))
+porcion_2=int(input("Ingrese el valor porcion 2 :"))
+porcion_3=int(input("Ingrese el valor porcion 3 :"))
+porcion_4=int(input("Ingrese el valor porcion 4 :"))
+promedio = porcion_1+porcion_2+porcion_3+porcion_4
+sizes = [porcion_1, porcion_2, porcion_2, porcion_4]
+
+if porcion_1 > porcion_2 and porcion_1 > porcion_3 and porcion_1 > porcion_4 :
+	p1=2
+	p2=0
+	p3=0
+	p4=0
+else:
+	if porcion_2 > porcion_1 and porcion_2 > porcion_3 and porcion_2> porcion_4 :
+		p1=0
+		p2=2
+		p3=0
+		p4=0
+	else:
+		if porcion_3 > porcion_1 and porcion_3 > porcion_2 and porcion_3 > porcion_4 :
+			p1=0
+			p2=0
+			p3=2
+			p4=0	
+		else:
+			p1=0
+			p2=0
+			p3=0
+			p4=2	
+porcion_1=porcion_1/promedio
+porcion_2=porcion_2/promedio
+porcion_3=porcion_3/promedio
+porcion_4=porcion_4/promedio
+
+explode = (p1,p2,p3,p4)
 
 fig1, ax1 = plt.subplots()
-ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
-        shadow=True, startangle=90)
+ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%', shadow=True, startangle=90)
 ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
 plt.show()
 
-nuevo(13);
+nuevo(19);
 #################################################################
-#Matplot_014
+#Matplot_020
 
 import numpy as np
 import matplotlib.pyplot as plt
-
 
 data = [[ 66386, 174296,  75131, 577908,  32015],
         [ 58230, 381139,  78045,  99308, 160454],
@@ -473,9 +656,9 @@ plt.title('Loss by Disaster')
 
 plt.show()
 
-nuevo(14);
+nuevo(21);
 #################################################################
-#Matplot_015
+#Matplot_022
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -507,9 +690,9 @@ fig.tight_layout()
 plt.show()
 
 
-nuevo(15);
+nuevo(22);
 #################################################################
-#Matplot_016
+#Matplot_023
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -561,9 +744,9 @@ radio.on_clicked(colorfunc)
 
 plt.show()
 
-nuevo(16);
+nuevo(23);
 #################################################################
-#Matplot_017
+#Matplot_024
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -575,9 +758,9 @@ fig, ax = plt.subplots()
 ax.fill(x, y)
 plt.show()
 
-nuevo(17);
+nuevo(24);
 #################################################################
-#Matplot_018
+#Matplot_025
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -621,9 +804,9 @@ fig.autofmt_xdate()
 
 plt.show()
 
-nuevo(18);
+nuevo(25);
 #################################################################
-#Matplot_019
+#Matplot_026
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -664,9 +847,9 @@ ax4.set_ylim(bottom=0.1)
 fig.tight_layout()
 plt.show()
 
-nuevo(19);
+nuevo(26);
 #################################################################
-#Matplot_020
+#Matplot_027
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -686,9 +869,9 @@ ax.set_title("A line plot on a polar axis", va='bottom')
 plt.show()
 
 
-nuevo(20);
+nuevo(27);
 #################################################################
-#Matplot_021
+#Matplot_028
 
 
 import numpy as np
@@ -712,9 +895,9 @@ legend.get_frame().set_facecolor('C0')
 
 plt.show()
 
-nuevo(21);
+nuevo(28);
 #################################################################
-#Matplot_022
+#Matplot_029
 
 import matplotlib.pyplot as plt
 import subprocess
@@ -838,9 +1021,9 @@ if '--latex' in sys.argv:
 else:
     doall()
 
-nuevo(22);
+nuevo(29);
 #################################################################
-#Matplot_023
+#Matplot_030
 
 import numpy as np
 import matplotlib
@@ -860,13 +1043,12 @@ ax.set_title(r'\TeX\ is Number $\displaystyle\sum_{n=1}^\infty'
              r'\frac{-e^{i\pi}}{2^n}$!', fontsize=16, color='r')
 plt.show()
 
-nuevo(23);
+nuevo(30);
 #################################################################
-#Matplot_024
+#Matplot_031
 
 import numpy as np
 import matplotlib.pyplot as plt
-
 
 fig, (ax1, ax2) = plt.subplots(2, 1)
 # make a little extra space between the subplots
@@ -900,6 +1082,6 @@ cxy, f = ax2.csd(s1, s2, 256, 1. / dt)
 ax2.set_ylabel('CSD (db)')
 plt.show()
 
-nuevo(24,"fin");
+nuevo(32,"fin");
 #################################################################
 

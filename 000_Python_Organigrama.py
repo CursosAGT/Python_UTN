@@ -176,11 +176,9 @@ import numpy as np
 pip install opencv-python
 import cv2
 
-
 pip install matplotlib
 import math
 from matplotlib import pyplot as plt
-
 
 
 pip install Pillow==2.2.2
@@ -194,7 +192,6 @@ pip install schedule
 import schedule
 
 from collections import Counter
-
 
 python -m pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose
 sudo apt-get install python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose

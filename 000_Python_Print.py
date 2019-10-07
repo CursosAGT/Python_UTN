@@ -112,6 +112,10 @@ print("""
 ║                                                                             ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
 """);
+
+limpiar()
+
+
 #\033[cod_formato;cod_color_texto;cod_color_fondom
 print("https://python-para-impacientes.blogspot.com/2016/09/dar-color-las-salidas-en-la-consola.html")
 print(chr(27)+"[1;33m"+"Texto en negrita de color amarillo") 
