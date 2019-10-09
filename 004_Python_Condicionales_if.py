@@ -11,9 +11,12 @@ print("""
 ║                                Condicionales                                ║
 ║                                                                             ║
 ║                                    "if"                                     ║
+║                                 <,>,==,!=                                   ║
+║                                                                             ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
 """);
 dato = [99, 25, 50, 5];
+
 print (dato)
 print("Ejemplo de operador de comparación Igual:");
 
@@ -57,13 +60,6 @@ if (dato[3] >= dato[2]):
 else:
 	print ("'dato[3]' no es mayor o igual que 'dato[2]'.");
 
-
-if ((dato[0] >= dato[1])) or ((dato[2] >= dato[3])):
-	print ("(dato[0] >= dato[1])) or ((dato[2] >= dato[3]).");
-
-if ((dato[0] >= dato[1])) and ((dato[2] >= dato[3])):
-	print ("(dato[0] >= dato[1])) and ((dato[2] >= dato[3]).");
-
 if ((dato[0] >= dato[1])) != ((dato[2] >= dato[3])):
 	print ("(dato[0] >= dato[1])) != ((dato[2] >= dato[3]).");
 else:
@@ -72,15 +68,240 @@ else:
 if not ((dato[0] <= dato[1])):
 	print ("NOT (dato[0] <= dato[1])).");
 else:
-	print ("(dato[0] <= dato[1]))") 
+	print ("(dato[0] <= dato[1]))")
+limpiar()
+print("""
+╔═════════════════════════════════════════════════════════════════════════════╗
+║                                                                             ║
+║                                Condicionales                                ║
+║                                                                             ║
+║                                    "if"                                     ║
+║                               or , and , not                                ║
+╚═════════════════════════════════════════════════════════════════════════════╝
+""");
+if (dato[0] >= dato[1]) or (dato[2] >= dato[3]):
+	print ("VERDADERO: ((dato[0] >= dato[1]) or (dato[2] >= dato[3])).");
 
+if (dato[0] >= dato[1]) and (dato[2] >= dato[3]):
+	print ("VERDADERO: ((dato[0] >= dato[1]) and (dato[2] >= dato[3])).");
+
+if not ((dato[0] == dato[1]) or (dato[2] == dato[3])):
+	print ("VERDADERO: not ((dato[0] == dato[1]) or (dato[2] == dato[3])).");
+limpiar()
+x = 10
+if not x > 10:
+    print("not es True")
+else:
+    print("not es False")
+
+print("array :", dato)
+for item in dato:
+    if not item in (25,5):
+        print ("Items del Array 'not' en mi lista:(25 y 5) " ,item," en ",dato)
+limpiar()
+
+print("""
+╔═════════════════════════════════════════════════════════════════════════════╗
+║                                                                             ║
+║                                Condicionales                                ║
+║                                                                             ║
+║                                    "if"                                     ║
+║                                  in , not in                                ║
+╚═════════════════════════════════════════════════════════════════════════════╝
+""");
+
+print("""
+x = 'HOLA UTN'
+y = {1:'a',2:'b'}
+""")
+x = 'HOLA UTN'
+y = {1:'a',2:'b'}
+print("'H' in x:",'H' in x)#true
+print("'HOLA' not in x :",'HOLA' not in x)#true
+print(" 1 in y: ",1 in y)#true
+print("'a' in y: ",'a' in y)#false
+
+print(dato)
+
+if 5 in dato:
+	print("5 SI esta en el array")
+else:
+	print("5 NO esta en el array")
+
+
+if 66 not in dato:
+	print("66 NO esta en el array")
+else:
+	print("66 SI esta en el array")
 
 var = int(input ("ingrese un numero : "))
 if var not in dato:
 	print (f" {var} No esta en la lista de datos :{dato}")
 else:
 	print (f" {var} Si esta en la lista de datos :{dato}")
-nuevo(1);
+limpiar()
+
+
+lista_mails =["cursos.agt@gmail.com","cursos.agt_gmail.com","cursos.agt//gmail.com"]
+for mail in lista_mails:
+	if "@" not in mail:
+		#raise ValueError("Reemplace el mail")
+		print(f"Seguro que {mail} No es mail xq @ no esta en el array.")
+	else:
+		print(f"Probablemente {mail} sea un mail xq @ esta en el array.")
+
+limpiar()
+print("""
+╔═════════════════════════════════════════════════════════════════════════════╗
+║                                                                             ║
+║                                Condicionales                                ║
+║                                                                             ║
+║                                    "if"                                     ║
+║                                  is , not is                                ║
+╚═════════════════════════════════════════════════════════════════════════════╝
+
+What's the difference between is and ==?
+== and is are different comparison! As others already said:
+    == compares the values of the objects.
+    is compares the references of the objects.
+In Python names refer to objects, for example in this case value1 and value2 refer to an int instance storing the value 1000:
+value1 = 1000
+value2 = value1
+value2 refers to the same object is and == will give True:
+
+>>> value1 == value2
+True
+>>> value1 is value2
+True
+
+In the following example the names value1 and value2 refer to different int instances, even if both store the same integer:
+>>> value1 = 1000
+>>> value2 = 1000
+
+the same value (integer) is stored == will be True, that's why it's often called "value comparison". However is will return False because these are different objects:
+>>> value1 == value2
+True
+>>> value1 is value2
+False
+
+When to use which?
+Generally is is a much faster comparison. That's why CPython caches (or maybe reuses would be the better term) certain objects like small integers, some strings, etc. But this should be treated as implementation detail that could (even if unlikely) change at any point without warning.
+
+You should only use is if you:
+    want to check if two objects are really the same object (not just the same "value"). One example can be if you use a singleton object as constant.
+    want to compare a value to a Python constant. The constants in Python are:
+        None
+        True1
+        False1
+        NotImplemented
+        Ellipsis
+        __debug__
+        classes (for example int is int or int is float)
+        there could be additional constants in built-in modules or 3rd party modules. For example np.ma.masked from the NumPy module)
+
+
+
+'==' is an equality test. It checks whether the right hand side and the left hand side are equal objects (according to their __eq__ or __cmp__ methods.)
+'is' is an identity test. It checks whether the right hand side and the left hand side are the very same object. No methodcalls are done, objects can't influence the is operation.
+You use is (and is not) for singletons, like None, where you don't care about objects that might want to pretend to be None or where you want to protect against objects breaking when being compared against None.
+
+""");
+
+mail=input("Ingrese su email")
+
+if mail is not None and "@" not in mail:
+	print(f"Seguro que {mail} No es mail xq @ no esta en el array.")
+else:
+	print(f"Probablemente {mail} sea un mail xq @ esta en el array.")
+
+
+print("""
+x1 = 5
+y1 = 5
+x2 = 'Hola'
+y2 = 'Hola'
+x3 = [1,2,3]
+y3 = [1,2,3]
+""")
+x1 = 5
+y1 = 5
+x2 = 'Hola'
+y2 = 'Hola'
+x3 = [1,2,3]
+y3 = [1,2,3]
+# Output:
+print("x1 is not y1:",x1 is not y1)#False
+print("x2 is y2:",x2 is y2)#true
+print("x3 is y3:",x3 is y3)#False
+
+limpiar()
+
+print("""
+list1 = []
+list2 = []
+list3=list1
+""")
+list1 = []
+list2 = []
+list3=list1
+print("if (list1 == list2):")
+if (list1 == list2):#True
+    print("True")
+else:
+    print("False")
+print("if (list1 is list2):")
+if (list1 is list2):#false
+    print("True")
+else:
+    print("False")
+
+print("if (list1 == list3):")
+if (list1 is list3):#True
+    print("True")
+else:
+    print("False")
+
+
+limpiar()
+for i in range(250, 260): a = i; print ("%i: %s" % (i, a is int(str(i))));
+limpiar()
+dato2 = "Ariel"
+
+if dato2 is "Ariel":
+    print ('Si dato2 is "Ariel"')
+limpiar()
+
+print("""
+a = "algo_asi"
+b = "algo" + "_" + "asi"
+""")
+a = "some_string"
+b = "some" + "_" + "string"
+print("a is b:",a is b)
+limpiar()
+print("""
+a = "Ariel"
+b = "Ariel"
+""")
+a = "Ariel"
+b = "Ariel"
+print("a is b:",a is b)
+limpiar()
+print("""
+a = "Ariel!"
+b = "Ariel!"
+""")
+a = "Ariel!"
+b = "Ariel!"
+print("a is b:",a is b)
+
+print("""
+a, b = "Ariel!", "Ariel!"
+""")
+a, b = "Ariel!", "Ariel!"
+print("a is b:",a is b)
+
+limpiar()
 #################################################################
 #Condicional_Ej_02;
 print("Multiples condiciones en multiples lineas");
@@ -123,7 +344,7 @@ if nota_1<nota_2<nota_3<nota_4:
 elif nota_1>nota_2>nota_3>nota_4:
 	valoracion="DE MAL EN PEOR"
 else:
-	valoracion="Maso"	
+	valoracion="Maso"
 print (valoracion);
 nuevo(4);
 #################################################################
@@ -214,12 +435,12 @@ if 'Maidana' in jugadores:
 	jugadores.remove('Maidana')
 else:
 	print('Maidana no está en la lista de jugadores.')
- 
+
 if 'Driussi' in jugadores:
 	jugadores.remove('Driussi')
 else:
 	print('Driussi no está en la lista de jugadores.')
- 
+
 print(jugadores)
 jugadores.reverse()
 print(jugadores)
