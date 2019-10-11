@@ -11,15 +11,17 @@ print("""
 ║                 ------------                                                ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
 Los generadores son una forma sencilla y potente de iterador.
-Un generador es una función especial que produce secuencias completas de resultados en lugar de ofrecer un único valor. 
+Un generador es una función especial que produce secuencias completas de resultados en lugar de ofrecer un único valor.
 n apariencia es como una función típica pero en lugar de devolver los valores con return lo hace con la declaración yield.
 Hay que precisar que el término generador define tanto a la propia función como al resultado que produce.
 Una característica importante de los generadores es que tanto las variables locales como el punto de inicio de la ejecución se guardan automáticamente
 entre las llamadas sucesivas que se hagan al generador, es decir, a diferencia de una función común, una nueva llamada a un generador no inicia la ejecución al principio de la función,
-sino que la reanuda inmediatamente después del punto donde se encuentre la última declaración yield (que es donde terminó la función en la última llamada). 
+sino que la reanuda inmediatamente después del punto donde se encuentre la última declaración yield (que es donde terminó la función en la última llamada).
 
 """);
 nuevo(0,"inicio");
+
+
 #################################################################
 #Clase_yield_Ej_001
 
@@ -51,10 +53,10 @@ nuevo(2);
 # Declara generador
 
 def gen_basico():
-    yield "uno"   
+    yield "uno"
     yield "dos"
     yield "tres"
-   
+
 for valor in gen_basico():
     print(valor)  # uno, dos, tres
 
@@ -73,7 +75,7 @@ nuevo(3);
 #################################################################
 #Clase_yield_Ej_004
 def gen_diez_numeros(inicio):
-	fin = inicio + 10    
+	fin = inicio + 10
 	while inicio < fin:
 		inicio+=1
 		yield inicio, fin
@@ -143,10 +145,35 @@ print ([numero for numero in range(num+1) if numero % 2 == 0 ])
 
 nuevo(6,"fin");
 print("""
-Como vemos, en lugar de utilizar el return, la función generadora utiliza el yield, que significa ceder. 
+Como vemos, en lugar de utilizar el return, la función generadora utiliza el yield, que significa ceder.
 Tomando un número busca todos los pares desde 0 hasta el número+1 sirviéndonos de un range().
 Sin embargo, fijaros que al imprimir el resultado, éste nos devuelve un objeto de tipo generador.
 De la misma forma que recorremos un range() podemos utilizar el bucle for para recorrer todos los elementos que devuelve el generador:
 """);
 #################################################################
 #Clase_yield_Ej_007
+
+print ("""
+Generadores
+-----------
+Los generadores funcionan de forma parecida a la comprensión de listas pero no devuelven listas sino generadores. Un generador es una clase especial de función que genera valores sobre los que iterar. La sintaxis usada es como la usada en la comprensión de listas pero en vez de usar corchetes se utilizan paréntesis. Para devolver los valores se utiliza yield en vez de return.
+""")
+# Define generador
+def generador(inicio, fin, incremento):
+	while(inicio <= fin):
+		yield inicio  # devuelve valor
+		inicio += incremento
+
+# Recorre los valores del generador
+for valor in generador(0, 6, 1):
+	# Muestra valores, uno a uno:
+	print(valor)  # 0 1 2 3 4 5 6
+
+# Obtiene una lista del generador
+lista = list(generador(0, 8, 2))
+
+# Muestra lista
+print(lista)  # [0,2,4,6,8]
+nuevo(7);
+#################################################################
+#Clase_Funciones_Ej_021

@@ -53,7 +53,7 @@ print("""
 ║                                                                             ║
 ║       Text Data Types                                                       ║
 ║       As data type category name implies these are used to store text values║
-║       Always make sure you length of your textual data do not exceed        ║ 
+║       Always make sure you length of your textual data do not exceed        ║
 ║       maximum lengths.                                                      ║
 ║                    CHAR( )       A fixed section from 0 to 255 characters   ║
 ║                    VARCHAR( )    A variable section from 0 to 255 chrs      ║
@@ -86,38 +86,36 @@ print("""
 ║                   in binary format.                                         ║
 ║                                                                             ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
-	python -m pip install mysql-connector 
+	python -m pip install mysql-connector
               pip install mysql-connector-python
 https://www.w3schools.com/python/python_mysql_create_db.asp");
 http://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc36272.1550/html/commands/X72692.htm
 """)
 limpiar();
 #################################################################
-#Clase_BBDD_01 
+#Clase_BBDD_01
 import mysql.connector
 from mysql.connector import Error
 from mysql.connector import errorcode
 
 try:
-   connection = mysql.connector.connect(host='localhost', database='UTN_practica_2_2019', user='root',password='utn')
-#ALUMNO_APELLIDO VARCHAR(255) NOT NULL , ALUMNO_NOMBRE VARCHAR(255) NOT NULL, ALUMNO_MAIL VARCHAR(255), ALUMNO_CELULAR VARCHAR(255), ALUMNO_EDAD INT , ALUMNO_GENERO enum('M','F') , ALUMNO_HOY date, ALUMNO_NACIMIENTO date, ALUMNO_INGRESO date
-    mySql_insert_query = """INSERT INTO cuatrimestre_2 (Name, Price, Purchase_date) 
-                           VALUES 
-                           (1, 'Lenovo ThinkPad P71', 6459, '2019-08-14') """
-
-    cursor =connection.cursor()
+	connection = mysql.connector.connect(host='localhost', user='root',password='utn',database="UTN_practica_2_2019")
+	mySql_insert_query = """INSERT INTO cuatrimestre_2 (Name, Price, Purchase_date)
+						   VALUES
+						   (1, 'Lenovo ThinkPad P71', 6459, '2019-08-14') """
+	cursor =connection.cursor()
 	result = cursor.execute(mySql_insert_query)
 	connection.commit()
-    print("Datos ingresados en la tabla {}".format(error))
-    cursor.close()
+	print("Datos ingresados en la tabla {}".format(error))
+	cursor.close()
 
 except mysql.connector.Error as error:
-    print("Error en ingresar un dato en la tabla {}".format(error))
+	print("Error en ingresar un dato en la tabla {}".format(error))
 
 finally:
-    if (connection.is_connected()):
-       connection.close()
-        print("Ante un problema MySQLconnection se cierra")
+	if (connection.is_connected()):
+		connection.close()
+		print("Ante un problema MySQLconnection se cierra")
 
 def listar_bases():
 	print ("Conectamos con MySQL")
@@ -142,7 +140,7 @@ def listar_bases():
 mycursor.execute("SHOW TABLES")
 
 for x in mycursor:
-  print(x) 
+  print(x)
 #print(f"Hola {nombre_base_MySQL} se que tenes {edad} años.")
 
 #func_crear(nuevo_nombre_base_MySQL)
@@ -154,7 +152,7 @@ def check_base_existe(nombre_base_MySQL_input):
 	cursor = connection.cursor()
 	cursor.execute("SHOW DATABASES")
 	lista_de_bases=[]
-	
+
 	print ("cargamos el listado de nombres de bases")
 	for lista_bases in (cursor):
 		nombre_base_MySQL_para_chequear=str(lista_bases)

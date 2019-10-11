@@ -7,7 +7,7 @@ def Ej_ya_hechos():
 
 limpiar();
 #################################################################
-#Clase_Print_01 
+#Clase_Print_01
 print ("linea 1");
 print ("linea 2");
 print ("linea 3");
@@ -30,34 +30,34 @@ ej_02() #llamada a la funcion
 nuevo(2);
 #################################################################
 #Clase_Print_03
-cadena = "es hora de Segundo Apellidojar grupo 2019-UTN"
+cadena = "es hora de trabajar grupo 2019-UTN"
 print ("La Cadena original es : ", cadena);
 print(input("continuar?"));
 print(" print ('cadena',end=''); el, end=' ' genera que al final no se genere un final de linea por lo que siguiente printe sera seguido")
 print ("La Cadena original es : ", cadena, end="");
 print (cadena);
 print(input("continuar?"));
-# multiples lineas 
+# multiples lineas
 print ("# multiples lineas ")
 cadena2 = '''...Es hora
-            de Segundo Apellidojar grupo 2019
+            de trabajar grupo 2019
             ...UTN...'''
 print("Cadena 2 multilinea ", end="");
 print(cadena2);
 print(input("continuar?"));
 print ("La Cadena original es : ", cadena, "");
-# Impresion del primir caracter 
+# Impresion del primir caracter
 print("El primer caracter de la Cadena es: ", end="");
 print(cadena[0]);
-# Impresion del ultimo caracter 
+# Impresion del ultimo caracter
 print("El ultimo caracter de la Cadena es: ", end="");
 print(cadena[-1]);
-# Impresion del 3er al 12do caracter 
+# Impresion del 3er al 12do caracter
 print("Sector de la cadena ubicada entre los caracteres 3-19: ", end="");
 print(cadena[3:19]);
 print(input("continuar?"));
 print ("Rellena con 0 en un sector de 40 caracteres");
-print(cadena.zfill(40)) 
+print(cadena.zfill(40))
 # Impresion del Cadena alinecion centrada
 print ("Alinecion en un sector de 40 caracteres");
 print ("Alinecion centrada de la Cadena : ", end="");
@@ -118,26 +118,26 @@ limpiar()
 
 #\033[cod_formato;cod_color_texto;cod_color_fondom
 print("https://python-para-impacientes.blogspot.com/2016/09/dar-color-las-salidas-en-la-consola.html")
-print(chr(27)+"[1;33m"+"Texto en negrita de color amarillo") 
-print("\x1b[1;33m"+"Texto en negrita de color amarillo") 
-print("\033[4;35m"+"Texto en negrita y subrayado de color morado") 
+print(chr(27)+"[1;33m"+"Texto en negrita de color amarillo")
+print("\x1b[1;33m"+"Texto en negrita de color amarillo")
+print("\033[4;35m"+"Texto en negrita y subrayado de color morado")
 print("\033[4;35m"+"Texto en negrita y subrayado de color morado")
 print ("Cambios de formato añadiendo uno nuevo al final de cada línea:")
 print("\033[2J\033[1;1f") # Borrar pantalla y situar cursor
-print("\033[1;33m"+"Texto en negrita color amarillo"+'\033[0;m') 
+print("\033[1;33m"+"Texto en negrita color amarillo"+'\033[0;m')
 print("\033[;36m"+"Texto normal de color cian")
-print("\033[4;35;47m"+"Texto subr morado sobre blanco"+'\033[0;m') 
+print("\033[4;35;47m"+"Texto subr morado sobre blanco"+'\033[0;m')
 print("\033[4;35m"+"Texto normal subr color morado"+'\033[0;m')
 print ("\n\ntabla con todos los formatos posibles, recorriendo y cambiando estilos y colores:")
 def construye_tabla_formatos():
     for estilo in range(8):
         for color_texto    in range(30,38):
             cad_cod = ''
-            for color_fondo    in range(40,48): 
-                fmto = ';'.join([str(estilo), 
+            for color_fondo    in range(40,48):
+                fmto = ';'.join([str(estilo),
                                  str(color_texto   ),
-                                 str(color_fondo   )]) 
-                cad_cod+="\033["+fmto+"m "+fmto+" \033[0m" 
+                                 str(color_fondo   )])
+                cad_cod+="\033["+fmto+"m "+fmto+" \033[0m"
             print(cad_cod)
         print('\n')
 construye_tabla_formatos()
@@ -177,7 +177,7 @@ def ej001_6(var_entera_1_2,var_entera_2_2,var_entera_3_2):
 	respuesta2 = ((var_entera_1_2*var_entera_3_2+1)/var_entera_2_2);
 	return respuesta1
 
-operacion_N1 = ej001_6(var_entera_1,var_entera_2,var_entera_3) #llamada a la funcion 
+operacion_N1 = ej001_6(var_entera_1,var_entera_2,var_entera_3) #llamada a la funcion
 print ("operacion N 1 = "+ str(operacion_N1));
 nuevo(6);
 #################################################################
@@ -210,7 +210,7 @@ nuevo(9);
 #################################################################
 #Clase_Print_10
 print("leer\nhttp://pyspanishdoc.sourceforge.net/lib/string-methods.html");
-texto_en_memoria=" Un lenguaje interpretado es un lenguaje de programación para el que la mayoría de sus implementaciones ejecuta las instrucciones directamente, sin una previa compilación del programa a instrucciones en lenguaje máquina. El intérprete ejecuta el programa directamente, traduciendo cada sentencia en una secuencia de una o más subrutinas ya compiladas en código máquina. "
+texto_en_memoria="Un lenguaje interpretado es un lenguaje de programación para el que la mayoría de sus implementaciones ejecuta las instrucciones directamente, sin una previa compilación del programa a instrucciones en lenguaje máquina. El intérprete ejecuta el programa directamente, traduciendo cada sentencia en una secuencia de una o más subrutinas ya compiladas en código máquina. "
 print(texto_en_memoria);
 print("---------------------------------------------------------------------");
 print("Upper : "+str(texto_en_memoria.upper()));
@@ -228,6 +228,13 @@ print("---------------------------------------------------------------------");
 print("split : "+str(texto_en_memoria.split()));
 print("---------------------------------------------------------------------");
 print("strip : "+str(texto_en_memoria.strip("un")));
+print("""
+Python strip() method will remove all the leading and trailing whitespace characters such as \n, \r, \t, \f, space. Python strip() method returns the copy of the string in which all chars have been stripped from the beginning and the end of the string (default whitespace characters).
+    strip(): It returns a new string after removing any leading and trailing whitespaces including tabs (\t).
+    rstrip(): It returns the new string with trailing whitespace removed. It’s easier to remember as removing the white spaces from a “right” side of a string.
+    lstrip(): It returns the new string with leading whitespace removed, or removing whitespaces from the “left” side of the string.
+""")
+
 print("---------------------------------------------------------------------");
 print("replace : "+str(texto_en_memoria.replace("lenguaje", "l.de alto nivel")));
 print("---------------------------------------------------------------------");
@@ -245,7 +252,7 @@ edad = 13
 print ("Formateo de string con objetos dentro")
 print ("Hola {name} se que tenes {age} años.".format(name=nombre, age=edad))
 print ("Hola {} se que tenes {} años.".format(nombre, edad))
-print (f"Hola {nombre} se que tenes {edad} años.") 
+print (f"Hola {nombre} se que tenes {edad} años.")
 nuevo(11);
 #################################################################
 #Clase_Print_12
@@ -265,22 +272,22 @@ nuevo(12);
 print (" Uso de objeto.swapcase(), .title() en un string ")
 cadena_de_datos=" Un lenguaje interpretado es un lenguaje de programación para el que la mayoría de sus implementaciones ejecuta las instrucciones directamente, sin una previa compilación del programa a instrucciones en lenguaje máquina. El intérprete ejecuta el programa directamente, traduciendo cada sentencia en una secuencia de una o más subrutinas ya compiladas en código máquina."
 print("swapcase() :- invierte minusculas por mayosculas y viceversa")
-# Coverting string into its swapped case 
-print("Cadena_de_datos :\n"+cadena_de_datos.swapcase()); 
-print("title() :- coloca cada letra despues de un espacio en mayuscula, el resto en minuscula")  
-print("Cadena_de_datos :\n"+cadena_de_datos.title()); 
+# Coverting string into its swapped case
+print("Cadena_de_datos :\n"+cadena_de_datos.swapcase());
+print("title() :- coloca cada letra despues de un espacio en mayuscula, el resto en minuscula")
+print("Cadena_de_datos :\n"+cadena_de_datos.title());
 nuevo(13);
 #################################################################
 #Clase_Print_14
 print ("uso de libreria # datetime ")
-import datetime 
-fecha = datetime.datetime.today() 
-print(f"hoy es {fecha:%d %B, %Y}") 
+import datetime
+fecha = datetime.datetime.today()
+print(f"hoy es {fecha:%d %B, %Y}")
 nuevo(14);
 #################################################################
 #Clase_Print_15
-print (f"En {nombre} el caracter mas bajo es :"+(min(nombre))); 
-print (f"En {nombre} el caracter mas alto es :"+(max(nombre))); 
+print (f"En {nombre} el caracter mas bajo es :"+(min(nombre)));
+print (f"En {nombre} el caracter mas alto es :"+(max(nombre)));
 nuevo(15);
 #################################################################
 #Clase_Print_16);
@@ -305,15 +312,15 @@ print ("Join -"+lista)
 print ("rpartition convierte una lista en una cadena a partir de una cadena de corte.")
 busqueda="cia"
 print("Busqueda :"+busqueda+" en "+gracia+"  :",end= " ")
-print(gracia.rpartition(busqueda)) 
+print(gracia.rpartition(busqueda))
 print ("lstrip corta de una cadena la parte buscada de izquierda a derecha.")
 busqueda="Fac"
 print("Busqueda :"+busqueda+" en "+gracia+"  :",end= " ")
-print(gracia.lstrip('Fac')) 
+print(gracia.lstrip('Fac'))
 print ("rstrip corta de una cadena la parte buscada de derecha a izquierda.")
 busqueda="ti"
 print("Busqueda :"+busqueda+" en "+gracia+"  :",end= " ")
-print(gracia.rstrip('busqueda')) 
+print(gracia.rstrip('busqueda'))
 nuevo(16);
 #################################################################
 #Clase_Print_17
@@ -322,12 +329,12 @@ cadena_de_datos=" Un lenguaje interpretado es un lenguaje de programación para 
 busqueda = "lenguaje"
 print("cadena_de_datos : \n"+cadena_de_datos);
 print("busqueda : "+busqueda);
-# using find() to find first occurrence of busqueda 
-print ("Primer encuentro (desde la izquierda) Caracter nº: ", end="") 
-print (cadena_de_datos.find( busqueda, 4) ) 
-# using rfind() to find last occurrence of busqueda 
-print ("Primer encuentro (desde la derecha) o ultimo Caracter nº: ", end="") 
-print ( cadena_de_datos.rfind( busqueda, 4) ) 
+# using find() to find first occurrence of busqueda
+print ("Primer encuentro (desde la izquierda) Caracter nº: ", end="")
+print (cadena_de_datos.find( busqueda, 4) )
+# using rfind() to find last occurrence of busqueda
+print ("Primer encuentro (desde la derecha) o ultimo Caracter nº: ", end="")
+print ( cadena_de_datos.rfind( busqueda, 4) )
 nuevo(17);
 #################################################################
 #Clase_Print_18;
@@ -356,7 +363,7 @@ print (" Uso de objeto.isupper(), .islower() .isspace() .rstrip() .lstrip() en u
 print(gracia.casefold());
 nuevo(20);
 #################################################################
-
+#Clase_Print_20
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
 ║                                                                             ║
@@ -370,6 +377,20 @@ Nombre_diccionario_1 = {'Nombre': 'Juan X', 'Trabajo': 'Programador'}
 
 print(cadena.format_map(Nombre_diccionario_1))
 print(cadena.format(**Nombre_diccionario_1))
+
+
+nuevo(20);
+#################################################################
+#Clase_Print_21
+
+def suma_five(x):
+    return x + 5
+
+nums = [11, 25, 34, 100, 23]
+result = list(map(suma_five, nums))
+print(result)
+
+
 nuevo(21,"fin");
 #################################################################
 

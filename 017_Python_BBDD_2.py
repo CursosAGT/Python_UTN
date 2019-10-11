@@ -2,7 +2,7 @@ from Estructura import *
 nuevo(0,"inicio");
 #################################################################
 def Ej_ya_hechos():
-	#Con tab colocaremos aqui las precticas hechas
+	#Con tab colocaremos aqui las prácticas hechas
 	pass
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
@@ -53,7 +53,7 @@ print("""
 ║                                                                             ║
 ║       Text Data Types                                                       ║
 ║       As data type category name implies these are used to store text values║
-║       Always make sure you length of your textual data do not exceed        ║ 
+║       Always make sure you length of your textual data do not exceed        ║
 ║       maximum lengths.                                                      ║
 ║                    CHAR( )       A fixed section from 0 to 255 characters   ║
 ║                    VARCHAR( )    A variable section from 0 to 255 chrs      ║
@@ -104,7 +104,7 @@ http://www.mysqltutorial.org/mysql-datetime/
 """)
 limpiar();
 #################################################################
-#Clase_BBDD_01 
+#Clase_BBDD_01
 import mysql.connector
 import datetime
 #from datetime import date
@@ -124,7 +124,7 @@ def Iniciar_practica():
 	connection = mysql.connector.connect(host="localhost",user="root", passwd="utn", database="UTN_practica_2_2019")
 	cursor = connection.cursor()
 	cursor.execute("CREATE TABLE backup (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL)")
-	cursor.execute("CREATE TABLE viejo (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL)")	
+	cursor.execute("CREATE TABLE viejo (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL)")
 	cursor.execute("CREATE TABLE UTN_cuatrimestre (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL , ALUMNO_NOMBRE VARCHAR(255) NOT NULL, ALUMNO_MAIL VARCHAR(255), ALUMNO_CELULAR VARCHAR(255), ALUMNO_EDAD INT , ALUMNO_GENERO enum('M','F') , ALUMNO_HOY date, ALUMNO_NACIMIENTO date, ALUMNO_INGRESO date )")
 	columnas_mysql = "INSERT INTO UTN_cuatrimestre (ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD, ALUMNO_GENERO, ALUMNO_HOY, ALUMNO_NACIMIENTO, ALUMNO_INGRESO) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)"
 
@@ -220,7 +220,7 @@ cursor.execute(sql)
 resultados = cursor.fetchall()
 print("Datos encontrados con like")
 for cada_rec in resultados:
-	print(cada_rec) 
+	print(cada_rec)
 cursor.close
 
 limpiar();
@@ -233,7 +233,7 @@ adr = ("cursos.agt@gmail.com", )
 cursor.execute(sql, adr)
 resultados = cursor.fetchall()
 for cada_rec in resultados:
-	print(cada_rec) 
+	print(cada_rec)
 cursor.close
 limpiar();
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
@@ -321,7 +321,7 @@ cursor.execute("SELECT * FROM UTN_cuatrimestre WHERE ALUMNO_NOMBRE LIKE '%Nombre
 print ("\n\n  Listado original detodos los 'Nombres_' ");
 resultados = cursor.fetchall()
 for cada_rec in resultados:
-	print(cada_rec) 
+	print(cada_rec)
 
 sql = "UPDATE UTN_cuatrimestre SET ALUMNO_MAIL = 'zzzzz@yahoo.com' WHERE ALUMNO_MAIL = 'yyyyy@gmail.com' "
 cursor.execute(sql)
@@ -332,7 +332,7 @@ cursor.execute("SELECT * FROM UTN_cuatrimestre WHERE ALUMNO_MAIL LIKE '%yyyyy%'"
 resultados = cursor.fetchall()
 print ("\n\n  Listado modificado ");
 for cada_rec in resultados:
-	print(cada_rec) 
+	print(cada_rec)
 cursor.close
 limpiar();
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
@@ -366,7 +366,7 @@ cursor = connection.cursor()
 cursor.execute("SELECT * FROM UTN_cuatrimestre LIMIT 5")
 resultados = cursor.fetchall()
 for cada_rec in resultados:
-	print(cada_rec) 
+	print(cada_rec)
 cursor.close
 limpiar();
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
@@ -377,7 +377,7 @@ cursor.execute("SELECT * FROM UTN_cuatrimestre LIMIT 5 OFFSET 2")
 resultados = cursor.fetchall()
 for cada_rec in resultados:
 	print(cada_rec)
-Recargar_practica()  
+Recargar_practica()
 cursor.close
 print(input("continuo????"))
 limpiar();
@@ -394,7 +394,7 @@ print ("------------DROP-----------------------")
 
 cursor = connection.cursor()
 sql = "DROP TABLE UTN_cuatrimestre"
-cursor.execute(sql) 
+cursor.execute(sql)
 
 print ("------------Estado Final---------------")
 cursor = connection.cursor()
@@ -420,7 +420,7 @@ print ("------------DROP-----------------------")
 cursor = connection.cursor()
 sql = "DROP TABLE IF EXISTS 2020_Marzo"
 print( "Tabla a borrar"+str(sql))
-cursor.execute(sql) 
+cursor.execute(sql)
 
 print ("------------Estado Final---------------")
 cursor = connection.cursor()
@@ -430,13 +430,13 @@ for cada_rec in cursor:
 cursor = connection.cursor()
 sql = "DROP TABLE IF EXISTS UTN_cuatrimestre"
 print( "Tabla a borrar"+str(sql))
-cursor.execute(sql) 
+cursor.execute(sql)
 
 print ("------------Estado Final---------------")
 cursor = connection.cursor()
 cursor.execute("SHOW TABLES")
 for cada_rec in cursor:
 	print(cada_rec)
-	
+
 Iniciar_practica()
 cursor.close

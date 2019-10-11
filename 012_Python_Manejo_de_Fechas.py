@@ -2,7 +2,7 @@ from Estructura import *
 nuevo(0,"inicio");
 #################################################################
 def Ej_ya_hechos():
-	#Con tab colocaremos aqui las precticas hechas
+	#Con tab colocaremos aqui las prácticas hechas
 	pass
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
@@ -142,28 +142,28 @@ print(f"La hora es %I:%M:%S: %p   :"+str(fecha.strftime("%I:%M:%S: %p")));
 print(f"La hora es %I:%M          :"+str(fecha.strftime("%I:%M")));
 print (input("\n		continuar?"));
 print('''	%a  Locale’s abbreviated weekday name.
-	%A  Locale’s full weekday name.  
+	%A  Locale’s full weekday name.
 	%b  Locale’s abbreviated month name.
 	%B  Locale’s full month name.
 	%c  Locale’s appropriate date and time representation.
 	%d  Day of the month as a decimal number [01,31]./
 	%f  Microsecond as a decimal number [0,999999], zero-padded on the left
-	%H  Hour (24-hour clock) as a decimal number [00,23].    
-	%I  Hour (12-hour clock) as a decimal number [01,12].    
-	%j  Day of the year as a decimal number [001,366].   
-	%m  Month as a decimal number [01,12].   
-	%M  Minute as a decimal number [00,59].      
+	%H  Hour (24-hour clock) as a decimal number [00,23].
+	%I  Hour (12-hour clock) as a decimal number [01,12].
+	%j  Day of the year as a decimal number [001,366].
+	%m  Month as a decimal number [01,12].
+	%M  Minute as a decimal number [00,59].
 	%p  Locale’s equivalent of either AM or PM.
 	%S  Second as a decimal number [00,61].
 	%U  Week number of the year (Sunday as the first day of the week)
-	%w  Weekday as a decimal number [0(Sunday),6].   
+	%w  Weekday as a decimal number [0(Sunday),6].
 	%W  Week number of the year (Monday as the first day of the week)
-	%x  Locale’s appropriate date representation.    
-	%X  Locale’s appropriate time representation.    
-	%y  Year without century as a decimal number [00,99].    
-	%Y  Year with century as a decimal number.   
+	%x  Locale’s appropriate date representation.
+	%X  Locale’s appropriate time representation.
+	%y  Year without century as a decimal number [00,99].
+	%Y  Year with century as a decimal number.
 	%z  UTC offset in the form +HHMM or -HHMM.
-	%Z  Time zone name (empty string if the object is naive).    
+	%Z  Time zone name (empty string if the object is naive).
 	%%  A literal '%' character.''')
 limpiar();
 print(f".strftime( %a )			:"+str(fecha.strftime("%a")));
@@ -333,9 +333,9 @@ nuevo(8);
 #Clase_fechas_Ej_009
 from datetime import datetime
 from datetime import time
-hora_inicio = time(18,00,0) # 
-hora_finalizacion = time(22,00,00) # 
-print("hora_inicio ",hora_inicio) 
+hora_inicio = time(18,00,0) #
+hora_finalizacion = time(22,00,00) #
+print("hora_inicio ",hora_inicio)
 print("hora_finalizacion ",hora_finalizacion)
 while True:
 	actual = datetime.now()
@@ -406,10 +406,10 @@ hoy = datetime.today()  # Asigna fecha-hora
 print("Fecha en formato ISO 8601:", hoy)
 
 # Aplica formato ejemplo1
-cadena1 = hoy.strftime(formato1)  
+cadena1 = hoy.strftime(formato1)
 
 # Aplica formato ejemplo2
-cadena2 = hoy.strftime(formato2)  
+cadena2 = hoy.strftime(formato2)
 
 # Muestra fecha-hora según ejemplo1
 print("Formato1:", cadena1)
@@ -447,7 +447,7 @@ nuevo(12);
 print("Otros ejemplos de operaciones con otras unidades de tiempo")
 
 hoy_mas_1_millon_segundos = hoy + timedelta(seconds=1000000)
-ahora = datetime.now() 
+ahora = datetime.now()
 hora_actual = time(ahora.hour, ahora.minute, ahora.second)
 mas_5m = ahora + timedelta(seconds=300)
 mas_5m = time(mas_5m.hour, mas_5m.minute, mas_5m.second)
@@ -457,9 +457,9 @@ mas_5h = ahora + racion_de_5h
 print("Ayer:", ayer)
 print("Hoy:", hoy)
 print("Mañana:", mañana)
-print("Diferencia en días entre mañana y hoy:", 
+print("Diferencia en días entre mañana y hoy:",
       diferencia_en_dias.days)
-print("La fecha de hoy más 1 millón de segundos:", 
+print("La fecha de hoy más 1 millón de segundos:",
       hoy_mas_1_millon_segundos)
 print("Hora actual:", hora_actual)
 print("Hora actual + 5 minutos:", mas_5m)
@@ -478,10 +478,10 @@ diferencia = fecha1 - fecha2
 print("Fecha1:", fecha1)
 print("Fecha2:", fecha2)
 print("Diferencia:", diferencia)
-print("Entre las 2 fechas hay ", 
-      diferencia.days, 
-      "días y ", 
-      diferencia.seconds, 
+print("Entre las 2 fechas hay ",
+      diferencia.days,
+      "días y ",
+      diferencia.seconds,
       "seg.")
 nuevo(14);
 #################################################################
@@ -489,9 +489,9 @@ nuevo(14);
 print("Diferencia entre dos fechas en días (datetime y strptime)")
 
 formato_fecha = "%d-%m-%Y"
-fecha_inicial = datetime.strptime("01-10-2013", 
+fecha_inicial = datetime.strptime("01-10-2013",
                                   formato_fecha)
-fecha_final = datetime.strptime("25-12-2013", 
+fecha_final = datetime.strptime("25-12-2013",
                                 formato_fecha)
 diferencia = fecha_final - fecha_inicial
 print("Fecha inicial:", fecha_inicial)
@@ -507,17 +507,17 @@ from datetime import datetime
 def main():
 # Establecer formato de las fechas a introducir: dd/mm/aaaa
 	formato = "%d/%m/%Y"
-# Bucle 'sin fin' 
+# Bucle 'sin fin'
 	while True:
 		try:
 	# Introducir fecha inicial utilizando el formato definido
-			fecha_desde = input('Introducir fecha inicial (dd/mm/aaaa): ')   
-	# Si no se introduce ningún valor se fuerza el final del bucle 
+			fecha_desde = input('Introducir fecha inicial (dd/mm/aaaa): ')
+	# Si no se introduce ningún valor se fuerza el final del bucle
 			if fecha_desde == "":
 				break
-	# Introducir fecha final utilizando el formato definido   
-			fecha_hasta = input('Introducir fecha final   (dd/mm/aaaa): ') 
-	# Si no se introduce ningún valor se fuerza el final del bucle 
+	# Introducir fecha final utilizando el formato definido
+			fecha_hasta = input('Introducir fecha final   (dd/mm/aaaa): ')
+	# Si no se introduce ningún valor se fuerza el final del bucle
 			if fecha_hasta == "":
 				break
 	# Se evaluan las fechas según el formato dd/mm/aaaa
@@ -559,7 +559,7 @@ while True:
 		horas = hhmmss.hour
 		minutos = hhmmss.minute
 		segundos = hhmmss.second
-		hhmmss_seg = (horas * 60 * 60) + (minutos * 60) + segundos 
+		hhmmss_seg = (horas * 60 * 60) + (minutos * 60) + segundos
 		resultado = float(hhmmss_seg / 86400)
 		print("Resultado: ", resultado)
 	except:
@@ -580,8 +580,8 @@ print("Expresar una fecha en formato largo")
 print("Hoy es...", datetime.ctime(fecha1))
 print("A partir de una fecha se obtiene tupla con año, nº semana y día de semana")
 
-print("Fecha", fecha1, 
-      "Año, nº sem., día sem.:", 
+print("Fecha", fecha1,
+      "Año, nº sem., día sem.:",
       datetime.isocalendar(fecha1))
 print("A partir de una fecha se obtiene tupla con año, nº semana y día de semana")
 print("También, se muestra el día de la semana en letras (abreviado).")
@@ -592,7 +592,7 @@ tupla_valores = datetime.isocalendar(fecha2)
 tupla_diassem = ("Lun", "Mar", "Mié", "Jue","Vie", "Sáb","Dom")
 for mensaje,valor in zip(tupla_mensajes, tupla_valores):
  print(mensaje,"-->", valor)
- 
+
 print("Día de semana-->", tupla_diassem[tupla_valores[2]-1])
 nuevo(18,"inicio");
 #################################################################
@@ -602,7 +602,7 @@ print("Obtener día de la semana por su número ")
 print("La función weekday() devuelve el número de día de la semana a que corresponda la fecha indicada, según los siguientes valores por día:  0-Lunes, 1-Martes, 2-Miércoles, 3-Jueves, 4-Viernes , 5-Sábado y 6-Domingo")
 
 dia_semana = datetime.weekday(fecha1)
-print(fecha1, "->", dia_semana,"->", 
+print(fecha1, "->", dia_semana,"->",
       tupla_diassem[dia_semana])
 
 print("Obtener y contar los días que sean martes entre dos fechas")
@@ -612,25 +612,25 @@ nuevo(18);
 from datetime import datetime, timedelta
 
 formato = "%d/%m/%Y"
-contador = 0            
+contador = 0
 fechadesde = input('Fecha desde (dd/mm/aaaa): ')
 fechahasta = input('Fecha hasta (dd/mm/aaaa): ')
 if fechadesde == '' or fechahasta == '':
     exit()
 
-try:                    
+try:
     fechadesde = datetime.strptime(fechadesde, formato)
-    fechahasta = datetime.strptime(fechahasta, formato)    
+    fechahasta = datetime.strptime(fechahasta, formato)
     if fechadesde > fechahasta:
         print('Fecha desde debe ser menor o igual que hasta')
-    
+
     while fechadesde <= fechahasta:
-        if datetime.weekday(fechadesde) == 1: 
+        if datetime.weekday(fechadesde) == 1:
             contador +=1
             fechaactual = fechadesde.strftime(formato)
             print(contador, fechaactual, 'es martes')
         fechadesde = fechadesde + timedelta(days=1)
-                
+
 except:
 	print('Fecha incorrecta')
 nuevo(19);
@@ -639,7 +639,7 @@ nuevo(19);
 print("La función isoweekday() devuelve el número de día de la semana a que corresponda la fecha indicada, según los siguientes valores por día:  1-Lunes, 2-Martes, 3-Miércoles, 4-Jueves, 5-Viernes, 6-Sábado y 7-Domingo.")
 
 dia_semana = datetime.isoweekday(fecha1)
-print(fecha1, "->", dia_semana,"->", 
+print(fecha1, "->", dia_semana,"->",
 	tupla_diassem[dia_semana-1])
 nuevo(20);
 #################################################################
@@ -680,7 +680,7 @@ nuevo(24);
 #Clase_fechas_Ej_025
 print("Obtener calendario del mes actual (calendar.month)")
 
-año = date.today().year 
+año = date.today().year
 mes = date.today().month
 calendario_mes = calendar.month(año, mes)
 print(calendario_mes)
@@ -761,8 +761,8 @@ nuevo(29);
 #################################################################
 #Clase_fechas_Ej_030
 print ("""
-Con esto estamos sumando 15 meses a la fecha 2017,04,02 con lo que nos imprime 2016-01-02 00:00:00 
-y 2018-07-02 00:00:0 la primera para la resta de 15 meses y la segunda para la suma de 15 meses, 
+Con esto estamos sumando 15 meses a la fecha 2017,04,02 con lo que nos imprime 2016-01-02 00:00:00
+y 2018-07-02 00:00:0 la primera para la resta de 15 meses y la segunda para la suma de 15 meses,
 podríamos agregar un input para agregar manualmente los meses.
 """)
 fecha = datetime(2019, 4, 4)

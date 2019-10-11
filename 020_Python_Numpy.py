@@ -2,7 +2,7 @@ from Estructura import *
 nuevo(0,"inicio");
 #################################################################
 def Ej_ya_hechos():
-	#Con tab colocaremos aqui las precticas hechas
+	#Con tab colocaremos aquí las prácticas hechas
 	pass
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
@@ -48,8 +48,8 @@ print("""
     ndarray.data –> El buffer contiene los elementos actuales del array.
     ndarray.itemsize –> devuelve el tamaño del array en bytes.
     ndarray.size –> Es el número total de elementos del array.
-    
-    
+
+
 		import numpy as np # Importamos numpy como el alias np
 		miArray = np.arange(10) # Creamos un array de 0 a 9 separados de uno en uno
 		print(type(miArray))
@@ -58,7 +58,7 @@ print("""
 		tam= miArray.size
 		byte=miArray.itemsize
 
- 
+
 
     identity(n,dtype) –>Devuelve la matriz identidad, es decir, uma matriz cuadrada nula excepto en su diagonal principal que es unitaria. n es el número de filas (y columnas) que tendrá la matriz y dtype es el tipo de dato. Este argumento es opcional. Si no se establece, se toma por defecto como flotante.
     ones(shape,dtype) –>Crea un array de 1 compuesto de shape elementos.
@@ -77,14 +77,14 @@ print("""
 		X,Y=np.meshgrid([1,2,3],[7,9,34])
 		print(X)
 		print(Y)
-    
+
  """);
 limpiar();
 #################################################################
-#Clase_Numpy_Ej_01 
+#Clase_Numpy_Ej_01
 
 import numpy
- 
+
 a = numpy.array([[1, 2, 3], [4, 5, 6]])
 b = numpy.array([[400], [800]])
 print("antes\n",a)
@@ -94,33 +94,33 @@ print("+\n",c)
 c = a*b;
 print("*\n",c)
 newArray = numpy.append(a, b, axis = 1)
-print("despues\n",newArray)
+print("después\n",newArray)
 newArray = numpy.insert(a, 1, 90)
-print("despues\n",newArray)
+print("después\n",newArray)
 a = numpy.array([[1, 2, 3], [4, 5, 6]])
 nuevo(1);
 #################################################################
 #Clase_Numpy_Ej_02
 print("antes\n",a)
 newArray = numpy.append(a, [[50, 60, 70]], axis = 0)
-print("despues\n",newArray)
+print("después\n",newArray)
 a = numpy.array([1, 2, 3])
 newArray = numpy.delete(a, 1, axis = 0)
-print("despues\n",newArray)
+print("después\n",newArray)
 a = numpy.array([[1, 2, 3], [4, 5, 6], [10, 20, 30]])
 print("antes\n",a)
 newArray = numpy.delete(a, 1, axis = 0)
-print("despues\n",newArray)
+print("después\n",newArray)
 nuevo(2);
 #################################################################
-#Clase_Numpy_Ej_03 
+#Clase_Numpy_Ej_03
 a = numpy.array([1, 2, 3, 4, 5])
 print("original\n",a)
 index = numpy.where(a == 5)
 print("'5' se encuentra en index nº: ", index[0])
 nuevo(3);
 #################################################################
-#Clase_Numpy_Ej_04 
+#Clase_Numpy_Ej_04
 a = numpy.array([1, 2, 3, 4, 5, 6, 7, 8])
 print("original\n",a)
 print("Seccion del array = ", a[2:5])
@@ -156,13 +156,13 @@ print("original\n",a)
 print("genero un array NumPy desde una tuple de Python = ", a)
 nuevo(8);
 #################################################################
-#Clase_Numpy_Ej_09 
+#Clase_Numpy_Ej_09
 a = numpy.array([1, 2, 3, 4, 5])
 print("original\n",a)
 print("Array listado = ", a.tolist())
 nuevo(9);
 #################################################################
-#Clase_Numpy_Ej_010 
+#Clase_Numpy_Ej_010
 a = numpy.array([1, 2, 3, 4, 5])
 print("original\n",a)
 numpy.savetxt("mi_Array.csv", a)#modificar el nombre del archivo
@@ -170,7 +170,7 @@ a = numpy.array([16, 3, 2, 6, 8, 10, 1])
 print("Ordenar el array = ", numpy.sort(a))
 nuevo(10);
 #################################################################
-#Clase_Numpy_Ej_011 
+#Clase_Numpy_Ej_011
 x= numpy.array([400, 800, 200, 700, 1000, 2000, 300])
 print("original\n",x)
 xmax = x.max()
@@ -179,19 +179,19 @@ x = (x - xmin)/(xmax - xmin)
 print("Luego de la modificacion del array x = \n", x)
 nuevo(11);
 #################################################################
-#Clase_Numpy_Ej_012 
+#Clase_Numpy_Ej_012
 a = numpy.array([20, 13, 42, 86, 81, 9, 11])
 print("original\n",a)
 print("Element at index 3 = ", a[3])
 nuevo(12);
 #################################################################
-#Clase_Numpy_Ej_013 
+#Clase_Numpy_Ej_013
 a = numpy.array([[20, 13, 42], [86, 81, 9]])
 print("original\n",a)
 print("Elementos en el index a[1][2] = ", a[1][2])
 nuevo(13);
 #################################################################
-#Clase_Numpy_Ej_014 
+#Clase_Numpy_Ej_014
 a = numpy.array([1, 2, 3, 4, 5])
 print("original\n",a)
 b = numpy.array([10, 20, 30, 40, 50])
@@ -225,14 +225,14 @@ print("antes\n",a)
 b= numpy.array([[3, 7, 4]])
 print("antes\n",b)
 c= numpy.cross(a, b) # Producto vectorial
-print("\nProducto vectorial ",c)
+print("\n Producto vectorial ",c)
 d=numpy.outer(a, b) # Producto exterior
-print("\nProducto exterior ",d)
+print("\n Producto exterior ",d)
 nuevo(16);
 #################################################################
-#Clase_Numpy_Ej_017 
+#Clase_Numpy_Ej_017
 x=numpy.linspace(0,1,100)
 y=numpy.sin(x)
-print ("\nTransformada de Fourier:\n",numpy.fft.fft(y))
+print ("\n Transformada de Fourier:\n",numpy.fft.fft(y))
 nuevo(17,"fin");
 #################################################################

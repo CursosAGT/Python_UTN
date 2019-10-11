@@ -2,7 +2,7 @@ from Estructura import *
 nuevo(0,"inicio");
 #################################################################
 def Ej_ya_hechos():
-	#Con tab colocaremos aqui las precticas hechas
+	#Con tab colocaremos aqui las prácticas hechas
 	pass
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
@@ -61,14 +61,14 @@ print("""
 class Mascota:
 	def __init__(self,nombre, especie=None, raza=None, patas=4,  edad=None):
 		self.nombre=nombre;
-		self.especie=especie;	
+		self.especie=especie;
 		self.raza=raza;
 		self.patas=patas;
 		self.edad=edad;
 	def nombrar(self, dato_nombre):
 		self.nombre =dato_nombre;
 	def datar(self,especie=None, raza=None, patas=4, nombre=None, edad=None):
-		self.especie=especie;	
+		self.especie=especie;
 		self.raza=raza;
 		self.patas=patas;
 		self.nombre=nombre;

@@ -2,7 +2,7 @@ from Estructura import *
 nuevo(0,"inicio");
 #################################################################
 def Ej_ya_hechos():
-	#Con tab colocaremos aqui las precticas hechas
+	#Con tab colocaremos aqui las prácticas hechas
 	pass
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
@@ -165,7 +165,7 @@ print ("https://www.pythondiario.com")
 print ("https://www.tutorialspoint.com/python3/tk_button.htm")
 print ("/")
 
- 
+
 def iniciar_pantalla_raiz():
 	pantalla_raiz=Tk()
 	pantalla_raiz.title("Mi primer pantalla")
@@ -187,10 +187,10 @@ def iniciar2_pantalla_raiz():
 
 	pantalla_raiz = Tk()
 
-	# Define las dimensiones de la frame_pantalla_raiz, que se ubicará en 
+	# Define las dimensiones de la frame_pantalla_raiz, que se ubicará en
 	# el centro de la pantalla. Si se omite esta línea la
 	# frame_pantalla_raiz se adaptará a los widgets que se coloquen en
-	# ella. 
+	# ella.
 
 	pantalla_raiz.geometry('300x200') # anchura x altura
 
@@ -212,7 +212,7 @@ def iniciar2_pantalla_raiz():
 
 	# Después de definir la frame_pantalla_raiz principal y un widget botón
 	# la siguiente línea hará que cuando se ejecute el programa
-	# construya y muestre la frame_pantalla_raiz, quedando a la espera de 
+	# construya y muestre la frame_pantalla_raiz, quedando a la espera de
 	# que alguna persona interactúe con ella.
 
 	# Si la persona presiona sobre el botón Cerrar 'X', o bien,
@@ -259,14 +259,14 @@ def iniciar3_pantalla_raiz():
 		print("envio un dato desde programa a un cuadro de texto")
 		usuario_personal.set("mi_nombre_y_edad")
 		password_personal.set("mi perro")
-		
+
 	def codigo_btn1(usuario_,password_):
 		print("envio un dato desde un cuadro de texto a pantalla")
 		print ("Username: " + str(usuario_))
 		print ("Password: " + str(password_))
 		usuario_personal.set("ok")
 		password_personal.set("_*_")
-		
+
 	def codigo_btn2():
 		print("envio un dato desde archivo a un cuadro de texto")
 		archivo_de_texto=open("datos_pantalla.txt","r")# abre el archivo text.txt para lectura en bloque
@@ -276,7 +276,7 @@ def iniciar3_pantalla_raiz():
 		usuario_personal.set(linea_texto_a_memoria[0])
 		password_personal.set(linea_texto_a_memoria[1])
 		archivo_de_texto.close();
-		
+
 	def codigo_btn3(usuario_,password_):
 		datos_a_guardar = {}
 		print("envio un dato desde un cuadro de texto a archivo")
@@ -289,7 +289,7 @@ def iniciar3_pantalla_raiz():
 		archivo_de_texto.close();
 		usuario_personal.set("ok")
 		password_personal.set("_*_")
-			
+
 	btn0 = Button(frame_pantalla_raiz,text="recuerdame", bg="black", fg="red", command=codigo_btn0)
 	btn0.grid(column=0, row=0)
 	btn1 = Button(frame_pantalla_raiz,text="mandar a pantalla", bg="white", fg="red", command=lambda:codigo_btn1(usuario_personal.get(),password_personal.get()))
@@ -333,8 +333,8 @@ from tkinter import ttk
 
 # Crea una clase Python para definir el interfaz de usuario de
 # la aplicación. Cuando se cree un objeto del tipo 'Aplicacion'
-# se ejecutará automáticamente el método __init__() qué 
-# construye y muestra la frame_pantalla_raiz con todos sus widgets: 
+# se ejecutará automáticamente el método __init__() qué
+# construye y muestra la frame_pantalla_raiz con todos sus widgets:
 
 class C5_pantalla_raiz():
 
@@ -359,7 +359,7 @@ class C5_pantalla_raiz():
 		etiqueta.grid(column=1,row=2)
 		ingreso=Entry(frame_pantalla_raiz,width=15,textvariable=texto_ingreso)
 		ingreso.grid(column=3,row=2)
-		btn0=Button(frame_pantalla_raiz, text='ok',command=ok_dato)	
+		btn0=Button(frame_pantalla_raiz, text='ok',command=ok_dato)
 		btn0.grid(column=3,row=4)
 		btn1=Button(frame_pantalla_raiz, text='salir',command=pantalla_raiz.destroy)
 		btn1.grid(column=2,row=4)
@@ -373,7 +373,7 @@ def iniciar5_pantalla_raiz():
 # Mediante el atributo __name__ tenemos acceso al nombre de un
 # un módulo. Python utiliza este atributo cuando se ejecuta
 # un programa para conocer si el módulo es ejecutado de forma
-# independiente (en ese caso __name__ = '__main__') o es 
+# independiente (en ese caso __name__ = '__main__') o es
 # importado:
 
 if __name__ == '__main__':
@@ -428,8 +428,8 @@ class iniciar7_pantalla_raiz( Frame ):
     def windows_cerrar(self):
         self.destroy()
         return (0)
-        
-class funcion_2(Frame): 
+
+class funcion_2(Frame):
 	def __init__(self):
 		new =tk.Frame.__init__(self)
 		new = Toplevel(self)
@@ -439,7 +439,7 @@ class funcion_2(Frame):
 	def windows_cerrar(self):
 		self.destroy()
 		return (0)
- 
+
 def main():
 	var = input ("inicio pantalla grafica '7'(S/N)")
 	if var.upper() =="S":
@@ -517,7 +517,7 @@ def iniciar11_pantalla_raiz():
 	mb.grid()
 	mb.menu  =  Menu ( mb, tearoff = 0 )
 	mb["menu"]  =  mb.menu
-		
+
 	elemento_1  = IntVar()
 	elemento_2 = IntVar()
 
@@ -605,7 +605,7 @@ def iniciar14_pantalla_raiz():
 	Item_Menu.add_separator()
 	Item_Menu.add_command(label = "Salir", command = pantalla_raiz.destroy)
 	Barra_menu.add_cascade(label = "Archivo", menu = Item_Menu)
-	
+
 	Edit_Menu = Menu(Barra_menu, tearoff=0)
 	Edit_Menu.add_command(label = "Deshacer", command = donothing)
 	Edit_Menu.add_separator()
@@ -640,7 +640,7 @@ class Window(Frame):
         Frame.__init__(self, master)
         self.master = master
         self.pack(fill=BOTH, expand=1)
-        
+
         load = Image.open("brazo_robotico.jpg")
         render = ImageTk.PhotoImage(load)
         img = Label(self, image=render)

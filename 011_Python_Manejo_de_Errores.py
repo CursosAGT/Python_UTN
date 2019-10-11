@@ -2,7 +2,7 @@ from Estructura import *
 nuevo(0,"inicio");
 #################################################################
 def Ej_ya_hechos():
-	#Con tab colocaremos aqui las precticas hechas
+	#Con tab colocaremos aqui las prácticas hechas
 	pass
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
@@ -40,15 +40,14 @@ finally:
    if not(archivo.closed):
 	archivo.close()
 """)
-
-
 nuevo(0,"inicio");
 #################################################################
 #Clase_Errores_Ej_001
+print("Ingresa los datos con errores Ej números en string")
 try:
 	maximo = int(input("ingrese la cantidad de numeros :"));
 except:
-	print ("ha ocurrio un Error. pero sigo von un valor = 10");
+	print ("ha ocurrido un Error. pero sigo con un valor = 10");
 	maximo = 10
 if maximo>0:
 	def numeros_pares(maximo):
@@ -63,11 +62,16 @@ nuevo(1);
 #################################################################
 #Clase_Errores_Ej_002
 try:
+	print("""
 	x = 10
 	y = 0
-	print(x/y)
-except Exception as e:
-	print("Exeception occured:{}".format(e))
+	print(x/y)##nunca dividirás por cero
+	""")
+	x = 10
+	y = 0
+	print(x/y)##nunca dividirás por cero
+except Exception as dato_error:
+	print("Ocurrió un error o excepción // Exeception occured:{}".format(dato_error))
 finally:
 	x = 10
 	y = 2
@@ -76,15 +80,14 @@ print ("continuo")
 nuevo(2);
 #################################################################
 #Clase_Errores_Ej_003
-
 import math
-
-
-valor1=0,1
-valor2=0,1
-print("Ingrese valores numericos para funcionar y no numericos par generar un error");
+print("Ingrese valores numéricos para funcionar y no numéricos par generar un error");
 while True:
 	try:
+		print("""
+		valor1=float(input("valor 1 : "));
+		valor2=float(input("valor 2 : "));
+		""")
 		valor1=float(input("valor 1 : "));
 		valor2=float(input("valor 2 : "));
 		break
@@ -107,11 +110,23 @@ def resultado_portenciacion(valor_1,valor_2):
 def resultado_radicacion2(valor_1,valor_2):
 	return  math.sqrt(valor_2);
 def resultado_porcentage(valor_1,valor_2):
-	return valor_1/valor_2*100
+	try:
+		return valor_1/valor_2*100
+	except ZeroDivisionError:
+		print ("No dividiras por 0");
+		return ("error...... pero sigo");
 def resultado_cociente(valor_1,valor_2):
-	return valor_1//valor_2
+	try:
+		return valor_1//valor_2
+	except ZeroDivisionError:
+		print ("No dividiras por 0");
+		return ("error...... pero sigo");
 def resultado_resto(valor_1,valor_2):
-	return valor_1%valor_2
+	try:
+		return valor_1%valor_2
+	except ZeroDivisionError:
+		print ("No dividiras por 0");
+		return ("error...... pero sigo");
 print ("resultado suma : "+str(resultado_suma(valor1,valor2)));
 print ("resultado resta : "+str(resultado_resta(valor1,valor2)));
 print ("resultado multiplicacion : "+str(resultado_multiplica(valor1,valor2)));
@@ -126,34 +141,14 @@ nuevo(3);
 #Clase_Errores_Ej_004
 from Python_Metodos_propia import *#<-------------------------------------------------------------via archivo externo
 
-
-
-valor1=0,1
-valor2=0,1
-while True:
-	try:
-		valor1=float(input("valor 1 : "));
-		valor2=float(input("valor 2 : "));
-		break
-	except ValueError:
-		print("Error. solo nomeros");
-print ("resultado suma : "+str(resultado_suma_metodo(valor1,valor2)));#<--------------------------via archivo externo
-print ("resultado resta : "+str(resultado_resta_metodo(valor1,valor2)));
-print ("resultado multiplicacion : "+str(resultado_multiplica_metodo(valor1,valor2)));
-print ("resultado divicion : "+str(resultado_divide_metodo(valor1,valor2)));
-print ("resultado portenciacion : "+str(resultado_portenciacion_metodo(valor1,valor2)));
-print ("resultado radicacion2 : "+str(resultado_radicacion2_metodo(valor1,valor2)));
-print ("resultado porcentage : "+str(resultado_porcentage_metodo(valor1,valor2)));
-print ("resultado cociente : "+str(resultado_cociente_metodo(valor1,valor2)));
-print ("resultado resto : "+str(resultado_resto_metodo(valor1,valor2)));
 nuevo(4);
 #################################################################
 #Clase_Errores_Ej_004
-lista = [10, 100, 1000, 10000]
+lista = [1, 2, 3, 4, 5, 6, 7, 8]
 iterador = iter(lista)
 try:
     while True:
-        print(iterador.__next__())        
+        print("DATO DEL ITERADOR",iterador.__next__())
 except StopIteration:
     print("Se ha alcanzado el final de la lista")
 nuevo(4);
@@ -192,17 +187,17 @@ from datetime import datetime
 def main():
 # Establecer formato de las fechas a introducir: dd/mm/aaaa
 	formato = "%d/%m/%Y"
-# Bucle 'sin fin' 
+# Bucle 'sin fin'
 	while True:
 		try:
 	# Introducir fecha inicial utilizando el formato definido
-			fecha_desde = input('Introducir fecha inicial (dd/mm/aaaa): ')   
-	# Si no se introduce ningún valor se fuerza el final del bucle 
+			fecha_desde = input('Introducir fecha inicial en formato (dd/mm/aaaa): ')
+	# Si no se introduce ningún valor se fuerza el final del bucle
 			if fecha_desde == "":
 				break
-	# Introducir fecha final utilizando el formato definido   
-			fecha_hasta = input('Introducir fecha final   (dd/mm/aaaa): ') 
-	# Si no se introduce ningún valor se fuerza el final del bucle 
+	# Introducir fecha final utilizando el formato definido
+			fecha_hasta = input('Introducir fecha final en formato  (dd/mm/aaaa): ')
+	# Si no se introduce ningún valor se fuerza el final del bucle
 			if fecha_hasta == "":
 				break
 	# Se evaluan las fechas según el formato dd/mm/aaaa
@@ -224,12 +219,12 @@ if __name__ == '__main__':
 	main()
 nuevo(8);
 #################################################################
-#Clase_Errores_Ej_008
-
+#Clase_Errores_Ej_009
+""""""
 nuevo(9);
 #################################################################
 #Clase_Errores_Ej_010
-
+"""inventa un ejercicio donde ingreses una fecha y chequees el contenido para validarlo """
 nuevo(10);
 #################################################################
 #Clase_Errores_Ej_011

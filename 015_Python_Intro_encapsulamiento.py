@@ -2,7 +2,7 @@ from Estructura import *
 nuevo(0,"inicio");
 #################################################################
 def Ej_ya_hechos():
-	#Con tab colocaremos aqui las precticas hechas
+	#Con tab colocaremos aqui las prácticas hechas
 	pass
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
@@ -60,18 +60,18 @@ print("""
 """)
 nuevo(0,"inicio");
 #################################################################
-#Clase_Clases_01 
+#Clase_Clases_01
 class Mascota:
 	def __init__(self,nombre, especie=None, raza=None, patas=4,  edad=None):
 		self.nombre=nombre;
-		self.especie=especie;	
+		self.especie=especie;
 		self.raza=raza;
 		self.patas=patas;#self.__patas=patas;-------------------------------------cambios
 		self.edad=edad;
 	def nombrar(self, dato_nombre):
 		self.nombre =dato_nombre;
 	def datar(self,especie=None, raza=None, patas=4, nombre=None, edad=None):
-		self.especie=especie;	
+		self.especie=especie;
 		self.raza=raza;
 		self.patas=patas;#self.__patas=patas;-------------------------------------cambios
 		self.nombre=nombre;
@@ -103,24 +103,24 @@ x=input("cuntinuar?")
 gato2.datar (nombre="Grey", especie="Felino", raza="calle", patas=4,  edad=2)#esta modificacion se hace desde un metodo interno de la clase
 gato2.mostrar()
 gato2.datar (nombre="Grey", especie="Felino", raza="angora", patas=8,  edad=2)#esta modificacion se hace desde un metodo interno de la clase
-#                                                                  ^      
+#                                                                  ^
 #                                                                  |______________¿como?
 gato2.mostrar()
 
 nuevo(1);
 #################################################################
-#Clase_Clases_02 
+#Clase_Clases_02
 class Mascota2:
 	def __init__(self,nombre, especie=None, raza=None, patas=4,  edad=None):
 		self.nombre=nombre;
-		self.especie=especie;	
+		self.especie=especie;
 		self.raza=raza;
 		self.__patas=patas;#self.patas=patas------------------------------encapsulado
 		self.edad=edad;
 	def nombrar2(self, dato_nombre):
 		self.nombre =dato_nombre;
 	def datar2(self,especie=None, raza=None, patas=4, nombre=None, edad=None):
-		self.especie=especie;	
+		self.especie=especie;
 		self.raza=raza;
 		self.__patas=patas;#self.patas=patas------------------------------encapsulado
 		self.nombre=nombre;
@@ -152,7 +152,7 @@ x=input("cuntinuar?")
 gato2.datar2 (nombre="Grey", especie="Felino", raza="calle", patas=4,  edad=2)#esta modificacion se hace desde un metodo interno de la clase
 gato2.mostrar2()
 gato2.datar2 (nombre="Grey", especie="Felino", raza="angora", patas=8,  edad=2)#esta modificacion se hace desde un metodo interno de la clase
-#                                                                  ^      
+#                                                                  ^
 #                                                                  |______________¿como?
 gato2.mostrar2()
 

@@ -2,7 +2,7 @@ from Estructura import *
 nuevo(0,"inicio");
 #################################################################
 def Ej_ya_hechos():
-	#Con tab colocaremos aqui las precticas hechas
+	#Con tab colocaremos aqui las prácticas hechas
 	pass
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
@@ -91,24 +91,24 @@ print("---------------------")
 c.c()
 nuevo(0);
 #################################################################
-#Clase_Clases_01 
+#Clase_Clases_01
 
 class Padre(object): 									#Creamos la clase Padre
 	def __init__(self, ojos, cejas): 					#Definimos los Atributos
 		self.ojos = ojos
 		self.cejas = cejas
- 
-		
+
+
 class Hijo(Padre): 										#Creamos clase hija que hereda de Padre
 	def __init__(self, ojos, cejas, cara): 				#creamos el constructor de la clase especificando atributos
 		Padre.__init__(self, ojos, cejas) 				#Especificamos la clase y llamamos a su constructor + Atributos
 		self.cara = cara 								#Especificamos el nuevo atributo para Hijo
- 
-		
+
+
 Tomas = Hijo('Marrones', 'Negras', 'Larga')
 print (Tomas.ojos, Tomas.cejas, Tomas.cara)
 
-print ("""De estas ultimas dos formas llamamos al Padre de la clase Hijo para no perder su código y ademas agregamos un atributo nuevo “cara” para la clase Hija. 
+print ("""De estas ultimas dos formas llamamos al Padre de la clase Hijo para no perder su código y ademas agregamos un atributo nuevo “cara” para la clase Hija.
 Recomiendo en caso de herencia simple utilizar Super()""")
 
 nuevo(1);
@@ -175,7 +175,7 @@ class Europeo(Terraqueo):#									 		clases nieta
 		self.continente_origen="Europa"
 		Europeo,self.__init__(pais_origen)#						se define a partir del hijo
 		Europeo,self.__init__(ciudad_origen)#					se define a partir del hijo
-		Europeo,self.__init__(ano_origen)#						se define a partir del hijo	
+		Europeo,self.__init__(ano_origen)#						se define a partir del hijo
 	pass
 class Americano(Terraqueo):#									 	clases nieta
 	pass

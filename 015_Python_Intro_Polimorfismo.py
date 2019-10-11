@@ -2,7 +2,7 @@ from Estructura import *
 nuevo(0,"inicio");
 #################################################################
 def Ej_ya_hechos():
-	#Con tab colocaremos aqui las precticas hechas
+	#Con tab colocaremos aqui las prácticas hechas
 	pass
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
@@ -96,7 +96,7 @@ class Monociclo():
 	ejes = 1
 	def desplazamiento(self):
 		print("no voy, me caigo");
-		
+
 def calcular_ruedas_en_el_camino(vehiculo):#<----------------------aca defino a la funcion a la que llamar y tranformo el dato en un objeto
 	vehiculo.desplazamiento()#      ^
 #       ^---------------------------+                  lo llamo desde un dato cargado en una variable
@@ -115,10 +115,10 @@ while var:
 		break
 	else:
 		print ("dato no valido :", ingreso.upper())
-		
+
 print("""
 El polimorfismo es una propiedad de la herencia por la que objetos de distintas subclases pueden responder a una misma acción.
-La polimorfia es implícita en Python, ya que todas las clases son subclases de una superclase común llamada Object. 
+La polimorfia es implícita en Python, ya que todas las clases son subclases de una superclase común llamada Object.
 """)
 def rueda_auxilio(vehiculo, auxilio):
 	if auxilio:
@@ -134,7 +134,7 @@ def calcular_ruedas_auxilio(vehiculo,auxilio):#<----------------------aca defino
 		vehiculo.ruedas = vehiculo.ruedas +1
 		print("Ahora"+str(vehiculo.ruedas)+" ruedas");
 		#                   ^---------------------------es una variable que carga un dato, nombre de un objeto
-		
+
 while var:
 	ingreso=input ("Y la rueda de auxilio. modificar (Coche, Moto, Camion o Monociclo 'z para salir') ?:")
 	if ingreso.upper()=="COCHE":

@@ -2,7 +2,7 @@ from Estructura import *
 nuevo(0,"inicio");
 #################################################################
 def Ej_ya_hechos():
-	#Con tab colocaremos aqui las precticas hechas
+	#Con tab colocaremos aqui las prácticas hechas
 	pass
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
@@ -12,7 +12,7 @@ print("""
 ║                 * Manejo de fechas y horas                                  ║
 ║                 * Operaciones con archivos                                  ║
 ║                                                                             ║
-╠═════════════════════════════════════════════════════════════════════════════╣   
+╠═════════════════════════════════════════════════════════════════════════════╣
 ║                                                                             ║
 ║                                     archivar                                ║
 ║                                                                             ║
@@ -51,7 +51,7 @@ from tkinter import ttk  # Carga ttk (para widgets nuevos 8.5+)
 def iniciar_pantalla_raiz():
 	iniciar_pantalla_raiz=Tk()#                                Define la ventana principal de la aplicación
 	iniciar_pantalla_raiz.title("Mi primer pantalla")#         ancho   x alto
-	iniciar_pantalla_raiz.geometry("640x480")#                 Define las dimensiones de la ventana, que se ubicará en el centro de la pantalla. Si se omite esta línea la # ventana se adaptará a los widgets que se coloquen en ella. 
+	iniciar_pantalla_raiz.geometry("640x640")#                 Define las dimensiones de la ventana, que se ubicará en el centro de la pantalla. Si se omite esta línea la # ventana se adaptará a los widgets que se coloquen en ella.
 	iniciar_pantalla_raiz.configure(bg = "white")#				 Asigna un color de fondo a la ventana.
 	#ttk.Button(iniciar_pantalla_raiz, text='Exit', command=quit).pack(side=BOTTOM)
 	#iniciar_pantalla_raiz.iconbitmap("icono.png")
@@ -94,7 +94,7 @@ def iniciar_pantalla_raiz():
 
 	# Después de definir la frame_iniciar_pantalla_raiz principal y un widget botón
 	# la siguiente línea hará que cuando se ejecute el programa
-	# construya y muestre la frame_iniciar_pantalla_raiz, quedando a la espera de 
+	# construya y muestre la frame_iniciar_pantalla_raiz, quedando a la espera de
 	# que alguna persona interactúe con ella.
 
 	# Si la persona presiona sobre el botón Cerrar 'X', o bien,

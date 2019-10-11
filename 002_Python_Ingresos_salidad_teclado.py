@@ -21,7 +21,7 @@ print ("2do parcial : "+str(nota_alumno_2));
 print ("promedio : "+str((nota_alumno_1+nota_alumno_2)/2));
 nuevo(1);
 #################################################################
-#IO Ej_02 
+#IO Ej_02
 valor1=0.1;
 
 valor2=0.1;
@@ -39,7 +39,7 @@ print ("la multiplicacion de ambos valores es de " +str(resultado_multiplica)+" 
 print (" y la deivion es de "+str(resultado_divide)+" aunque esto no sirve para nada");
 nuevo(2);
 #################################################################
-#IO Ej_03 
+#IO Ej_03
 edad=int(input("Ingere su edad : "));
 if edad<0:
 	print("error");
@@ -57,7 +57,7 @@ if edad>=40:
 	print("te crece la panza y se cae todo, hasta el pelo");
 nuevo(3);
 #################################################################
-#IO Ej_04 
+#IO Ej_04
 print ("rehacer IO Ej_03  con  'elif y else>'");
 print ("rehacer IO Ej_03  con parametros de '>'");
 nuevo(4);
@@ -105,7 +105,7 @@ if nota_1<nota_2<nota_3<nota_4:
 elif nota_1>nota_2>nota_3>nota_4:
 	valoracion="DE MAL EN PEOR"
 else:
-	valoracion="Maso"	
+	valoracion="Maso"
 print (valoracion);
 nuevo(7);
 #################################################################

@@ -39,14 +39,14 @@ print("""
 ║                                                                             ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
 """)
-#                          como funcion
+#                          como función
 def funcion (var_1, var_2):
 	return  (var_1 * var_2)
 print ("Función directa :",funcion (3,6))
 mi_array=(3,6)
 print ("Función con array :",funcion (*mi_array))# ver el "*"
-#                          como Metodo
-class Clase1:# ver el nombre con mayuscula en su primer caracter que no debe ser numerico
+#                          como Método
+class Clase1:# ver el nombre con mayúscula en su primer carácter que no debe ser numérico
 	resultado= 0
 	def metodo(self,var_1,var_2):
 		self.var_1=  var_1
@@ -61,24 +61,24 @@ nuevo(1);
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
 ║                                                                             ║
-║                                     Metodos                                 ║
+║                                     Métodos                                 ║
 ║                                                                             ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
 """)
-class Clase2:# ver el nombre con mayuscula en su primer caracter que no debe ser numerico
+class Clase2:# ver el nombre con mayúscula en su primer carácter que no debe ser numérico
 	resultado= 0
 	def __init__(self):#construye los objetos
 		self.var_1=  0
 		self.var_2=  0
-	def metodo(self,var_1,var_2):
+	def meto2(self,var_1,var_2):
 		self.var_1=  var_1
 		self.var_2=  var_2
 		self.resultado= (var_1 *var_2)
 
 ej=Clase2()
 print ("al inicio con valores 'self'",ej.resultado)
-ej.metodo(3,6)
-print ("al final con datos modificado por metodo",ej.resultado)
+ej.meto2(3,6)
+print ("al final con datos modificado por método",ej.resultado)
 nuevo(2);
 #################################################################
 
@@ -136,20 +136,18 @@ print("func_lambda(5, 6, 7) :",func_lambda(5, 6, 7))
 limpiar()
 
 print("Con strings")
-
-
 revertir = lambda cadena: cadena[::-1]
 print("ABCDEFGHIJKLMNOPQRSTUVWXYZ:",revertir("ABCDEFGHIJKLMNOPQRSTUVWXYZ"))
 print("BUEN DIA, ¿COMO VA LA VIDA?:",revertir("BUEN DIA, ¿COMO VA LA VIDA?"))
 print("Neuquen:",revertir("Neuquen"));print("Es un palíndromo")
 limpiar()
-abc = ['a','b','c']
+array = ['a','b','c']
 num = range(1,4)
-for e in map(lambda x, y: x*y, abc, num):
-	print(e)
+for contador in map(lambda x, y: x*y, array, num):
+	print(contador)
 #sin lambda con zip
-for e in (x*y for x,y in zip(abc, num)):
-    print(e)
+for contador in (x*y for x,y in zip(array, num)):
+    print(contador)
 limpiar()
 print ("Ver \nhttps://es.quora.com/Qu%C3%A9-hace-realmente-la-funci%C3%B3n-lambda-de-Python-Quiero-dominarle-pero-no-la-entiendo")
 
@@ -157,13 +155,11 @@ resultado = lambda s: s.strip().upper()
 
 print(resultado("  hOlA CoMo EsTaS   "))
 
-
 print("Con funciones")
 def imprimir_si(lista, fn):
 	for elemento in lista:
 		if fn(elemento):
 			print(elemento)
-
 
 lista1=[9, 20, 70, 60, 19]
 print("Valores pares de la lista")
@@ -198,7 +194,7 @@ print("array = [11, 25, 34, 100, 23]")
 array = [11, 25, 34, 100, 23]
 resultado = list(map(add_five, array))
 print("función normal + 5",resultado)
-#        lo mismo pero en lambada
+#        lo mismo pero en lambda
 
 
 resultado = list(map(lambda x:x+5, array))
@@ -249,7 +245,6 @@ def doblar(num): return num*2
 valor = int(input("Valor : "))
 print("el doble es :",doblar(valor))
 
-
 print(""" y ahora......
 Esta notación simple es la que una función lambda intenta replicar, fijaros, vamos a convertir la función en una función anónima:
 doblar = (lambda num: num*2)
@@ -262,7 +257,6 @@ doblar = lambda num: num*2
 valor = int(input("Valor : "))
 print("el doble es :",doblar(valor))
 print(""" Ejemplo""")
-
 
 impar = lambda num: num%2 != 0
 valor = int(input("Valor : "))
@@ -330,22 +324,23 @@ print("""
 ║                                                                             ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
 """)
-class Contador:#
+class Funcion_Contador:#
 	Valor = 0   # This represents the Valor of objects of this class
 	def __init__(self, nombre_objeto):
 		self.nombre_objeto = nombre_objeto
 		print (nombre_objeto, 'creado')
-		Contador.Valor += 1
+		Funcion_Contador.Valor += 1
 	def __del__(self):
 		print (self.nombre_objeto, 'borrado')
-		Contador.Valor -= 1
-		if Contador.Valor == 0:
+		Funcion_Contador.Valor -= 1
+		if Funcion_Contador.Valor == 0:
 			print ('Se borro el ultimo objeto')
 		else:
-			print (Contador.Valor, 'Objetos remanentes')
-objerto_x = Contador("Primer objeto")
-objerto_y = Contador("Segundo  objeto")
-del objerto_x
+			print (Funcion_Contador.Valor, 'Objetos remanentes')
+objerto_1 = Funcion_Contador("Primer objeto")
+objerto_2 = Funcion_Contador("Segundo objeto")
+objerto_3 = Funcion_Contador("Tercer objeto")
+del objerto_2
 nuevo(8);
 """
 Without the final del, you get an exception. Shouldn’t the normal cleanup process take care of this?

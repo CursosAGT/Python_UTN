@@ -2,23 +2,23 @@ from Estructura import *
 nuevo(0,"inicio");
 #################################################################
 def Ej_ya_hechos():
-	#Con tab colocaremos aqui las precticas hechas
+	#Con tab colocaremos aquí las practicas hechas
 	pass
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
 ║                                                                             ║
-║                                AMBITOS                                      ║
+║                                ÁMBITOS                                      ║
 ║                               ---------                                     ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
- * Ambito, es una region en el espacio donde los nombres (cuyos datos busco) son accesibles directamente.(Recordad que puede haber el mismo nombre como atributo como accion y en distintos ambitos");
- * Ambito, es observable por estructuras de tabulacion")
- * Un espacio con un nombre hereda del Nombre ser la referencia a un dato en un tiempo y espàcio.");
-	 Si en el espacio nombrado su dato No cambia durante el tiempo de ejecucion se denomina * constante (constantes, tuple etc)");
-	 Si en el espacio nombrado su dato Si cambia durante el tiempo de ejecucion se denomina * variable (variable, lista, diccionario, etc");
-	 puede haber muchos espacio nombrado igual en distintos ambitos y sus datos podran ser distintos o no");
+ * Ámbito, es una región en el espacio donde los nombres (cuyos datos busco) son accesibles directamente.(Recordad que puede haber el mismo nombre como atributo como acción y en distintos ámbitos");
+ * Ámbito, es observable por estructuras de tabulacion")
+ * Un espacio con un nombre hereda del Nombre ser la referencia a un dato en un tiempo y espacio.");
+	 Si en el espacio nombrado su dato No cambia durante el tiempo de ejecución se denomina * constante (constantes, tuple etc)");
+	 Si en el espacio nombrado su dato Si cambia durante el tiempo de ejecución se denomina * variable (variable, lista, diccionario, etc");
+	 puede haber muchos espacio nombrado igual en distintos ámbitos y sus datos podrán ser distintos o no");
 	 Mutable: su contenido (o dicho valor) puede cambiarse en tiempo de ejecución.");
 	 Inmutable: su contenido (o dicho valor) no puede cambiarse en tiempo de ejecución.\n");
- * Una variable es espacio que tendra un nombre para poder acceder a ella y sus caracteristicas seran dadas por el dato que se incorpore (* tipeado dinamico)");
+ * Una variable es espacio que tendrá un nombre para poder acceder a ella y sus características serán dadas por el dato que se incorpore (* tipeado dinámico)");
  * Una variable de clase es compartida por todas las instancias de una clase. Se definen dentro de la clase (después del encabezado de la clase) pero nunca dentro de un método.
 	Este tipo de variables no se utilizan con tanta frecuencia como las variables de instancia.");
  * Una variable de instancia se define dentro de un método y pertenece a un objeto determinado de la clase instanciada. ");
@@ -34,10 +34,10 @@ print("""
 ║                              programa lineal/por objetos                    ║
 ║                                                                             ║
 ║                         * linealidad  sentencia de disrupcion               ║
-║                         * llamados a metodos internos                       ║
-║                         * llamados a metodos externos                       ║
+║                         * llamados a métodos internos                       ║
+║                         * llamados a métodos externos                       ║
 ║                                  * propios                                  ║
-║                                  * ajenos Librerias                         ║
+║                                  * ajenos Librerías                         ║
 ║                                                                             ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
 http://docs.python.org.ar/tutorial/3/classes.html
@@ -97,11 +97,11 @@ nuevo(2);
 #################################################################
 #IO Ej_AMBITOS_3");
 lista_datos_ingresados=[]
-pares = [];
-impares = [];
+pares = ["no","existe","en","este","ámbito"];
+impares = ["no","existe","en","este","ámbito"];
 def funcion():
-	print("10' datos minimo, 0 para salir");
-	ingreso_num=input("ingrese un dato numerico entero > 0  :");
+	print("10' datos mínimo, 0 para salir");
+	ingreso_num=input("ingrese un dato numérico entero > 0  :");
 	ingreso_num=int(ingreso_num);
 	if ingreso_num==0:
 		return("nada")
@@ -117,12 +117,12 @@ def funcion():
 		ingreso_num=int(input("ingrese un dato numerico entero > 0  :"));
 	print ("lista : "+str(lista_datos_ingresados));
 	print ("lista lugar 2 : "+str(lista_datos_ingresados[2]));
-	print ("maximo: "+str(max(lista_datos_ingresados))+" de la lista");
-	print ("minimo: %d de lo la lista" % min(lista_datos_ingresados));
+	print ("máximo: "+str(max(lista_datos_ingresados))+" de la lista");
+	print ("mínimo: %d de lo la lista" % min(lista_datos_ingresados));
 	print ("datos: %d en la lista" % len(lista_datos_ingresados));
 	print ("lista original: "+str(lista_datos_ingresados));
 	lista_datos_ingresados.append("999999")  # Agrega elemento al final de lista con append();
-	print ("Agrege elemento al final de lista con append ('9999'): "+str(lista_datos_ingresados));
+	print ("Agregue elemento al final de lista con append ('9999'): "+str(lista_datos_ingresados));
 	lista_datos_ingresados.pop()  # Borra último elemento de lista con método pop();
 	print ("Borre último elemento de lista con método pop(): "+str(lista_datos_ingresados));
 	lista_datos_ingresados.sort()  # Ordena la lista con el método sort();
@@ -139,7 +139,7 @@ def funcion():
 	return (lista_datos_ingresados)
 print (funcion());
 print ((lista_datos_ingresados));
-print (pares);
+print (pares);#este no es una variable que existe en esta ámbito
 print (impares);
 nuevo(3);
 #################################################################
@@ -157,7 +157,7 @@ exterior();
 nuevo(4);
 #################################################################
 #IO Ej_AMBITOS_5");
-print ("La variablo `global` puede ser usada dentro y fuera de una funcion",);
+print ("La variable `global` puede ser usada dentro y fuera de una funcion",);
 def funcion_ext():
 	variable = 20
 	print("Antes de llamar a la funcion_int : ", variable);
@@ -165,10 +165,10 @@ def funcion_ext():
 	def funcion_int():
 		global variable
 		variable = 25
-		print("Desntro de la funcion_int: ", variable);
+		print("Dentro de la funcion_int: ", variable);
 	funcion_int();
 	print("Salimos de la funcion_int");
-	print("Despues de llamar a la funcion_int: ", variable);
+	print("Después de llamar a la funcion_int: ", variable);
 funcion_ext();
 print("variable en funcion_ext : ", variable);
 nuevo(5);
@@ -206,7 +206,7 @@ def acelerar():
     distancia=distancia+5# 		Se incrementa la velocidad en 5 distancia
     velocidad=distancia/tiempo
     print('Tiempo:', tiempo);
-	# 
+	#
 print("velocidad=distancia/tiempo")
 print("distancia= "+ str(distancia));
 print("tiempo inicial = 1 ");

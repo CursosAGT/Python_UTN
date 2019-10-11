@@ -2,7 +2,7 @@ from Estructura import *
 nuevo(0,"inicio");
 #################################################################
 def Ej_ya_hechos():
-	#Con tab colocaremos aqui las precticas hechas
+	#Con tab colocaremos aqui las prácticas hechas
 	pass
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
@@ -123,7 +123,7 @@ Declarar un programador
 -----------------------
 Para declarar un programador se utiliza el método constructor scheduler() que tiene como primer argumento una función para obtener la hora actual -que por defecto es monotonic()- y una función para introducir los tiempos de espera -que de forma predeterminada es sleep()-. Las dos funciones son del módulo time:
 sched.scheduler(timefunc=time.monotonic, delayfunc=time.sleep)
-Se pueden utilizar otras funciones para los argumentos de scheduler() pero las dos deben Segundo Apellidojar con la misma escala temporal.
+Se pueden utilizar otras funciones para los argumentos de scheduler() pero las dos deben trabajar con la misma escala temporal.
 
 # Declarar un programador con los valores por defecto:
 programador1 = sched.scheduler()
@@ -150,7 +150,7 @@ Los métodos enterabs() y enter() devuelven un valor que se puede utilizar para 
 Después de definir los eventos hay que poner en marcha el programador con el método run(). Este método hace que el programador espere (valiéndose de la función de retardo especificada en el método constructor) a que los eventos se vayan ejecutando, uno a uno, en el tiempo establecido y hasta que no quede ninguno pendiente. El método run() espera la ejecución porque tiene el argumento blocking con el valor True, por defecto. Si el valor de este argumento es False se ejecutarán sólo los eventos que vencen inmediatamente (por ejemplo, eventos con tiempo de espera en 0), devolviendo run(), si existe, el momento límite de la siguiente ejecución programada. Este argumento está disponible a partir de Python 3.3.
 
 Programar eventos para ejecutar en un momento determinado
-En el siguiente ejemplo se declara un programador con dos eventos para ejecutar una tarea 1 segundo después de poner en marcha el programador y la misma tarea cinco segundos después. El programador se crea con la función time.time() que devuelve el tiempo expresado en segundos. (Cualquier fecha-hora se puede expresar en segundos y viceversa. Ver: El módulo time) 
+En el siguiente ejemplo se declara un programador con dos eventos para ejecutar una tarea 1 segundo después de poner en marcha el programador y la misma tarea cinco segundos después. El programador se crea con la función time.time() que devuelve el tiempo expresado en segundos. (Cualquier fecha-hora se puede expresar en segundos y viceversa. Ver: El módulo time)
 """);
 limpiar();
 #################################################################
@@ -168,7 +168,7 @@ def abrir_cerrar(estado):
 	print ('TIEMPO:',time.asctime( time.localtime(time.time()) ))
 	if estado:
 		print("Abriendo compuertas...")
-		# Obtiene fecha/hora local como tupla struct_time    
+		# Obtiene fecha/hora local como tupla struct_time
 		st_tiempo = time.localtime()
 
 		# Convierte fecha/hora a segundos
@@ -195,7 +195,7 @@ comienzo = int(time.time())
 tiempo_inicio = comienzo + 1   # Tiempo para abrir compuertas (1")
 tiempo_cierre = comienzo + 5   # Tiempo para cerrar compuertas (5")
 print('PROGRAMADOR INICIADO:',time.strftime('%d-%m-%Y %H:%M:%S', time.localtime(comienzo)))
-# Definir los dos eventos indicando: momento de ejecución, 
+# Definir los dos eventos indicando: momento de ejecución,
 # prioridad, función a la que se llama y el valor que se
 # pasa al argumento de la función:
 programador.enterabs(tiempo_inicio, 1, abrir_cerrar, (1,))
@@ -236,7 +236,7 @@ nuevo(1);
 #Clase_Scheduler_Ej_02
 print("""
 Programar eventos con posibilidad de cancelación
-Se declara un programador con dos eventos de las mismas características que en el ejemplo anterior. En este caso se utiliza el valor de retorno del método enterabs() para cancelar el segundo evento cuando el número aleatorio devuelto por la función randint() es impar. 
+Se declara un programador con dos eventos de las mismas características que en el ejemplo anterior. En este caso se utiliza el valor de retorno del método enterabs() para cancelar el segundo evento cuando el número aleatorio devuelto por la función randint() es impar.
 """);
 import sched
 import time
@@ -247,12 +247,12 @@ def abrir_cerrar(estado, mantener):
     print ('TIEMPO:',time.asctime( time.localtime(time.time()) ))
     if mantener and not programador.empty():
         programador.cancel(ev2)
-        
+
     if estado:
         print("Abriendo compuertas...")
     else:
         print("Cerrando compuertas...")
-    
+
 # Obtener un número aleatorio entre 1 y 5
 # Si el valor es impar: no cerrar compuertas
 valor = random.randint(1, 5)
@@ -260,7 +260,7 @@ if valor % 2:
     print("No mantener compuertas abiertas")
     mantener_abiertas = False
 else:
-    print("Mantener compuertas abiertas")   
+    print("Mantener compuertas abiertas")
     mantener_abiertas = True
 
 # Declarar el programador
@@ -272,7 +272,7 @@ tiempo_inicio = comienzo + 1   # Tiempo para abrir compuertas
 tiempo_cierre = comienzo + 5         # Tiempo para cerrar compuertas
 print('PROGRAMADOR INICIADO:',time.strftime('%d-%m-%Y %H:%M:%S', time.localtime(comienzo)))
 
-# Definir los dos eventos indicando: momento de ejecución, 
+# Definir los dos eventos indicando: momento de ejecución,
 # prioridad, función a la que se llama y valores que se
 # pasan a los argumentos de la función:
 ev1 = programador.enterabs(tiempo_inicio, 1, abrir_cerrar, (1, mantener_abiertas))
@@ -315,9 +315,9 @@ Programamor con tres eventos para ejecutar la misma tarea después de esperar 1,
 def tarea(nombre, comienzo):
     ahora = time.time()
     diferencia = int(ahora - comienzo)
-    
-    print('MOMENTO :', (time.strftime('%d-%m-%Y %H:%M:%S', time.localtime(ahora))), 
-          'Diferencia:', diferencia, 'segundos', 
+
+    print('MOMENTO :', (time.strftime('%d-%m-%Y %H:%M:%S', time.localtime(ahora))),
+          'Diferencia:', diferencia, 'segundos',
           'Tarea:', nombre)
 
 programador = sched.scheduler()
@@ -353,22 +353,22 @@ import time
 
 def tiempo():
     formato = '%d-%m-%Y %H:%M:%S'
-    
-    # Obtiene fecha/hora local como tupla struct_time    
+
+    # Obtiene fecha/hora local como tupla struct_time
     st_tiempo = time.localtime()
-    
+
     # Convierte fecha/hora a segundos
     tiempo = time.mktime(st_tiempo)
-    
+
     # Convierte fecha/hora a cadena
     str_tiempo = time.strftime(formato, st_tiempo)
-    return tiempo, str_tiempo    
+    return tiempo, str_tiempo
 
 def tarea(nombre, comienzo):
     ahora, str_ahora = tiempo()
     diferencia = int(ahora - comienzo)
-    print('MOMENTO :', (time.strftime('%d-%m-%Y %H:%M:%S', time.localtime(ahora))), 
-          'Diferencia:', diferencia, 'segundos', 
+    print('MOMENTO :', (time.strftime('%d-%m-%Y %H:%M:%S', time.localtime(ahora))),
+          'Diferencia:', diferencia, 'segundos',
           'Tarea:', nombre)
 
 programador = sched.scheduler(time.time, time.sleep)
@@ -410,22 +410,22 @@ import random
 
 def tiempo():
     formato = '%d-%m-%Y %H:%M:%S'
-    
-    # Obtiene fecha/hora local como tupla struct_time    
+
+    # Obtiene fecha/hora local como tupla struct_time
     st_tiempo = time.localtime()
-    
+
     # Convierte fecha/hora a segundos
     tiempo = time.mktime(st_tiempo)
-    
+
     # Convierte fecha/hora a cadena
     str_tiempo = time.strftime(formato, st_tiempo)
-    return tiempo, str_tiempo    
+    return tiempo, str_tiempo
 
 def tarea(nombre, comienzo):
     ahora, str_ahora = tiempo()
     diferencia = int(ahora - comienzo)
-    print('MOMENTO :', (time.strftime('%d-%m-%Y %H:%M:%S', time.localtime(ahora))), 
-          'Diferencia:', diferencia, 'segundos', 
+    print('MOMENTO :', (time.strftime('%d-%m-%Y %H:%M:%S', time.localtime(ahora))),
+          'Diferencia:', diferencia, 'segundos',
           'Tarea:', nombre)
 
 # Obtener un número aleatorio entre 1 y 5
@@ -435,7 +435,7 @@ if valor % 2:
     print("Ejecutar todos los eventos")
     bloquear = True
 else:
-    print("Ejecutar sólo eventos inmediatos")   
+    print("Ejecutar sólo eventos inmediatos")
     bloquear = False
 
 programador = sched.scheduler(time.time, time.sleep)

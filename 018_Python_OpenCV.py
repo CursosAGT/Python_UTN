@@ -2,7 +2,7 @@ from Estructura import *
 nuevo(0,"inicio");
 #################################################################
 def Ej_ya_hechos():
-	#Con tab colocaremos aqui las precticas hechas
+	#Con tab colocaremos aqui las prácticas hechas
 	pass
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
@@ -74,6 +74,7 @@ from matplotlib import pyplot as plt
 import imutils
 import os
 limpiar();
+
 #################################################################
 #Clase_openCV_01
 # Make an array of 120,000 random bytes.
@@ -130,7 +131,7 @@ nuevo(4);
 frame = cv2.imread("brazo_robotico.png")
 if frame is None:
     print('Error no encontre la imagen brazo_robotico.png')
-    exit()    
+    exit()
 rows = frame.shape[0]
 cols = frame.shape[1]
 hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV);
@@ -166,50 +167,50 @@ nuevo(7);
 #Clase_openCV_08
 
 img = cv2.imread("brazo_robotico.png")
-# make sure that you have saved it in the same folder 
-# Averaging 
-# You can change the kernel size as you want 
-avging = cv2.blur(img,(10,10)) 
-   
-cv2.imshow('Averaging',avging) 
-cv2.waitKey(1500) 
-  
-# Gaussian Blurring 
-# Again, you can change the kernel size 
-gausBlur = cv2.GaussianBlur(img, (5,5),0)  
-cv2.imshow('Gaussian Blurring', gausBlur) 
-cv2.waitKey(1500) 
+# make sure that you have saved it in the same folder
+# Averaging
+# You can change the kernel size as you want
+avging = cv2.blur(img,(10,10))
 
-# Median blurring 
-medBlur = cv2.medianBlur(img,5) 
-cv2.imshow('Media Blurring', medBlur) 
-cv2.waitKey(1500) 
-  
-# Bilateral Filtering 
-bilFilter = cv2.bilateralFilter(img,9,75,75) 
-cv2.imshow('Bilateral Filtering', bilFilter) 
-cv2.waitKey(1500) 
-cv2.destroyAllWindows() 
+cv2.imshow('Averaging',avging)
+cv2.waitKey(1500)
+
+# Gaussian Blurring
+# Again, you can change the kernel size
+gausBlur = cv2.GaussianBlur(img, (5,5),0)
+cv2.imshow('Gaussian Blurring', gausBlur)
+cv2.waitKey(1500)
+
+# Median blurring
+medBlur = cv2.medianBlur(img,5)
+cv2.imshow('Media Blurring', medBlur)
+cv2.waitKey(1500)
+
+# Bilateral Filtering
+bilFilter = cv2.bilateralFilter(img,9,75,75)
+cv2.imshow('Bilateral Filtering', bilFilter)
+cv2.waitKey(1500)
+cv2.destroyAllWindows()
 nuevo(8);
 #################################################################
 #Clase_openCV_09
 img = cv2.imread("brazo_robotico.png")
 nemo = cv2.imread('nemo.png')
 cv2.imshow("masked", nemo)
-cv2.waitKey(1000) 
-cv2.destroyAllWindows() 
+cv2.waitKey(1000)
+cv2.destroyAllWindows()
 nemo = cv2.cvtColor(nemo, cv2.COLOR_BGR2RGB)
 cv2.imshow("masked", nemo)
-cv2.waitKey(1500) 
-cv2.destroyAllWindows() 
+cv2.waitKey(1500)
+cv2.destroyAllWindows()
 nuevo(9);
 #################################################################
 #Clase_openCV_010
 imagen = cv2.imread('opencv_logo.png')
 imagenA =  cv2.cvtColor(imagen, cv2.COLOR_BGR2HSV)
-cv2.imshow('Ej 016_9 Amarillo', imagenA) 
+cv2.imshow('Ej 016_9 Amarillo', imagenA)
 cv2.waitKey(1500)
-cv2.destroyAllWindows() 
+cv2.destroyAllWindows()
 nuevo(10);
 #################################################################
 #Clase_openCV_011
@@ -218,11 +219,11 @@ nuevo(10);
 # www.robologs.net
 #
 # Busca los píxeles rojos, verdes y azules de una imagen
- 
+
 
 imagen = cv2.imread('opencv_logo.png')
 imagen_copy = cv2.cvtColor(imagen, cv2.COLOR_BGR2HSV)
- 
+
 #Rango de colores detectados:
 #Verdes:
 verde_bajos = np.array([49,50,50])
@@ -235,13 +236,13 @@ rojo_bajos1 = np.array([0,65,75], dtype=np.uint8)
 rojo_altos1 = np.array([12, 255, 255], dtype=np.uint8)
 rojo_bajos2 = np.array([240,65,75], dtype=np.uint8)
 rojo_altos2 = np.array([256, 255, 255], dtype=np.uint8)
- 
+
 #Crear las mascaras
 mascara_verde = cv2.inRange(imagen_copy, verde_bajos, verde_altos)
 mascara_rojo1 = cv2.inRange(imagen_copy, rojo_bajos1, rojo_altos1)
 mascara_rojo2 = cv2.inRange(imagen_copy, rojo_bajos2, rojo_altos2)
 mascara_azul = cv2.inRange(imagen_copy, azul_bajos, azul_altos)
- 
+
 #Juntar todas las mascaras
 mask = cv2.add(mascara_rojo1, mascara_rojo2)
 mask = cv2.add(mask, mascara_verde)
@@ -250,7 +251,7 @@ mask = cv2.add(mask, mascara_azul)
 #Mostrar la mascara final y la imagen
 cv2.imshow('Finale', mask)
 cv2.imshow('Imagen', imagen)
- 
+
 #Salir con ESC
 cv2.waitKey(1500)
 cv2.destroyAllWindows()
@@ -407,7 +408,7 @@ nuevo(24);
 #################################################################
 #Clase_openCV_025
 output = imagen.copy()
-cv2.putText(output, "UTN 2019 en Opencv2!!!", (10, 25), 
+cv2.putText(output, "UTN 2019 en Opencv2!!!", (10, 25),
 cv2.FONT_HERSHEY_SIMPLEX, 0.7, (55, 55, 255), 2)
 cv2.imshow("Texto", output)
 cv2.waitKey(1500)
@@ -489,6 +490,7 @@ cv2.waitKey(1500)
 cv2.destroyAllWindows()
 nuevo(31);
 #################################################################
+
 #Clase_openCV_032
 print("Inicio ej016_30 - ");
 print("1. Umbral binario (THRESH_BINARY)");
@@ -501,12 +503,14 @@ cv2.waitKey(1500)
 cv2.destroyAllWindows()
 print("2. Umbral binario invertido (THRESH_BINARY_INV)");
 print("Similar al anterior, solo que aplicado al inverso, si la intensidad supera el umbral definido el valor resultante será establecido a cero, en caso contrario se establecerá al máximo valor definido.");
+
 gray = cv2.imread("brazo_robotico.png")
 t, dst = cv2.threshold(gray, 170, 255, cv2.THRESH_BINARY_INV)
 cv2.imshow('umbral', gray)
 cv2.imshow('result', dst)
 cv2.waitKey(1500)
 cv2.destroyAllWindows()
+
 print("3. Truncar (THRESH_TRUNC)");
 print("En este caso si la intensidad del pixel es superior al umbral entonces el pixel destino se establece a el valor del umbral, en caso contrario el valor será igual al original, en otras palabras, cualquier pixel que supere el umbral tomará el valor del mismo, los demás permanecen igual.");
 gray = cv2.imread("brazo_robotico.png", cv2.IMREAD_GRAYSCALE)
@@ -532,19 +536,15 @@ cv2.imshow('result', dst)
 cv2.waitKey(1500)
 cv2.destroyAllWindows()
 
-
-print("Ajuste a cero invertido (THRESH_TOZERO_INV)");
-print("Para finalizar veremos como calcular el umbral más optimo de manera automática, la elección del mismo suele ser una tarea difícil, OpenCV nos facilita el Segundo Apellidojo implementando los métodos: THRESH_OTSU o THRESH_TRIANGLE, veamos como se utiliza esta opción.");
-print("t, dst = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_TRIANGLE)");
-print("El parámetro devuelto t contiene el valor del umbral calculado con el método indicado.");
-gray = cv2.imread("brazo_robotico.png")
-t, dst = cv2.threshold(gray, 0, 200, cv2.THRESH_BINARY | cv2.THRESH_TRIANGLE)
-cv2.imshow('umbral', gray)
-cv2.imshow('result', dst)
-cv2.waitKey(1500)
-cv2.destroyAllWindows()
-
 nuevo(32);
+print("""
+╔═════════════════════════════════════════════════════════════════════════════╗
+║                                                                             ║
+║                    ver tema librerias y si finaliza mal,                    ║
+║                    reveer anulando el ejercicio                             ║
+║                                                                             ║
+║                                                                             ║
+╚═════════════════════════════════════════════════════════════════════════════╝""")
 #################################################################
 #Clase_openCV_033
 cap = cv2.VideoCapture('video-using-opencv.mp4',0)
@@ -557,6 +557,7 @@ while(cap.isOpened()):
 cap.release()
 cv2.destroyAllWindows()
 nuevo(33);
+
 #################################################################
 #Clase_openCV_034
 captura = cv2.VideoCapture('video-using-opencv.mp4')
@@ -569,28 +570,28 @@ while(1):
     #En este caso de verde oscuro a verde-azulado claro
     verde_bajos = np.array([49,50,50], dtype=np.uint8)
     verde_altos = np.array([80, 255, 255], dtype=np.uint8)
- 
+
     #Crear una mascara con solo los pixeles dentro del rango de verdes
     mask = cv2.inRange(hsv, verde_bajos, verde_altos)
- 
+
     #Encontrar el area de los objetos que detecta la camara
     moments = cv2.moments(mask)
     area = moments['m00']
- 
+
     #Descomentar para ver el area por pantalla
     #print area
     if(area > 2000000):
         #Buscamos el centro x, y del objeto
         x = int(moments['m10']/moments['m00'])
         y = int(moments['m01']/moments['m00'])
-         
+
         #Mostramos sus coordenadas por pantalla
         print ("x = ", x)
         print ("y = ", y)
- 
+
         #Dibujamos una marca en el centro del objeto
         cv2.rectangle(imagen, (x, y), (x+2, y+2),(0,0,255), 2)
-     
+
     #Mostramos la imagen original con la marca del centro y
     #la mascara
     cv2.imshow('mask', mask)
@@ -598,7 +599,7 @@ while(1):
     tecla = cv2.waitKey(5) & 0xFF
     if tecla == 27:
         break
- 
+
 cv2.destroyAllWindows()
 
 nuevo(34);
@@ -617,7 +618,7 @@ while (cap.isOpened()):
 
         # Display the resulting frame
         cv2.imshow('frame', gray)
-    
+
         # Exit?
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
@@ -638,7 +639,7 @@ color = (255,255,255)
 thickness = 1
 
 if cv2.__version__.startswith('2.4'):
-    height_prop = cv2.cv.CV_CAP_PROP_FRAME_HEIGHT 
+    height_prop = cv2.cv.CV_CAP_PROP_FRAME_HEIGHT
 else:
     height_prop = cv2.CAP_PROP_FRAME_HEIGHT
 
@@ -653,17 +654,17 @@ while(cap.isOpened()):
         # Text position
         height = int(cap.get(height_prop))
         position = (50, height - 50)
-        
+
         # Frames per second
         fps = "{0:.2f}".format(cap.get(fps_prop))
         text = "FPS: " + fps
-        
+
         # Put text
         cv2.putText(frame, text, position, font, font_scale, color, thickness)
 
         # Display
         cv2.imshow("Video", frame)
-        
+
         # Exit?
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
@@ -676,39 +677,39 @@ cv2.destroyAllWindows()
 nuevo(37);
 #################################################################
 #Clase_openCV_038
-# empty function called when 
-# any trackbar moves 
-def emptyFunction(): 
+# empty function called when
+# any trackbar moves
+def emptyFunction():
     pass
-def main(): 
-	# blackwindow having 3 color chanels 
-	image = np.zeros((512, 512, 3), np.uint8)  
+def main():
+	# blackwindow having 3 color chanels
+	image = np.zeros((512, 512, 3), np.uint8)
 	windowName ="Open CV Color Palette"
-	# window name 
-	cv2.namedWindow(windowName)  
-	# there trackbars which have the name 
-	# of trackbars min and max value  
-	cv2.createTrackbar('Blue', windowName, 0, 255, emptyFunction) 
-	cv2.createTrackbar('Green', windowName, 0, 255, emptyFunction) 
-	cv2.createTrackbar('Red', windowName, 0, 255, emptyFunction)  
-	# Used to open the window 
-	# till press the ESC key 
-	while(True): 
-		cv2.imshow(windowName, image) 
-		if cv2.waitKey(1) == 27: 
+	# window name
+	cv2.namedWindow(windowName)
+	# there trackbars which have the name
+	# of trackbars min and max value
+	cv2.createTrackbar('Blue', windowName, 0, 255, emptyFunction)
+	cv2.createTrackbar('Green', windowName, 0, 255, emptyFunction)
+	cv2.createTrackbar('Red', windowName, 0, 255, emptyFunction)
+	# Used to open the window
+	# till press the ESC key
+	while(True):
+		cv2.imshow(windowName, image)
+		if cv2.waitKey(1) == 27:
 			break
-		# values of blue, green, red 
-		blue = cv2.getTrackbarPos('Blue', windowName) 
-		green = cv2.getTrackbarPos('Green', windowName) 
-		red = cv2.getTrackbarPos('Red', windowName) 
-		# merge all three color chanels and 
-		# make the image composites image from rgb    
-		image[:] = [blue, green, red] 
-		#print(blue, green, red) 
+		# values of blue, green, red
+		blue = cv2.getTrackbarPos('Blue', windowName)
+		green = cv2.getTrackbarPos('Green', windowName)
+		red = cv2.getTrackbarPos('Red', windowName)
+		# merge all three color chanels and
+		# make the image composites image from rgb
+		image[:] = [blue, green, red]
+		#print(blue, green, red)
 	cv2.waitKey(3000)
-	cv2.destroyAllWindows() 
-# Calling main()          
-if __name__=="__main__": 
+	cv2.destroyAllWindows()
+# Calling main()
+if __name__=="__main__":
     main()
 nuevo(38,"fin");
 #################################################################

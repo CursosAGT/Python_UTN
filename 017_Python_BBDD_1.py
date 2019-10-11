@@ -2,7 +2,7 @@ from Estructura import *
 nuevo(0,"inicio");
 #################################################################
 def Ej_ya_hechos():
-	#Con tab colocaremos aqui las precticas hechas
+	#Con tab colocaremos aqui las prácticas hechas
 	pass
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
@@ -53,7 +53,7 @@ print("""
 ║                                                                             ║
 ║       Text Data Types                                                       ║
 ║       As data type category name implies these are used to store text values║
-║       Always make sure you length of your textual data do not exceed        ║ 
+║       Always make sure you length of your textual data do not exceed        ║
 ║       maximum lengths.                                                      ║
 ║                    CHAR( )       A fixed section from 0 to 255 characters   ║
 ║                    VARCHAR( )    A variable section from 0 to 255 chrs      ║
@@ -86,13 +86,13 @@ print("""
 ║                   in binary format.                                         ║
 ║                                                                             ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
-	python -m pip install mysql-connector 
+	python -m pip install mysql-connector
               pip install mysql-connector-python
 https://www.w3schools.com/python/python_mysql_create_db.asp");
 http://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc36272.1550/html/commands/X72692.htm
 """)
 #################################################################
-#Clase_BBDD_01 
+#Clase_BBDD_01
 import mysql.connector
 import json
 
@@ -152,7 +152,7 @@ def chequear_base_existe(nombre_base_MySQL_input):
 					print (f"Genial '{nombre_base_MySQL_input}' no existe. pasamos a crear la base de datos en MySQL")
 					base_nueva=True
 	return (nombre_base_MySQL_input)
-	
+
 def listar_tablas(nombre_base_MySQL_input):
 	print ("Conectamos con MySQL")
 	print (nombre_base_MySQL_input)
@@ -181,12 +181,12 @@ def borrar_base(nombre_base_MySQL_input):
 #################################################################
 while True:
 	limpiar();
-	print ("----------------------------------------------------------------------");	
-	print ("\n\n\n");	
+	print ("----------------------------------------------------------------------");
+	print ("\n\n\n");
 	print ("L) listar Base");
 	print ("C) Crear Base");
 	print ("A) Abrir Base");
-	print ("B) Borrar Base");	
+	print ("B) Borrar Base");
 	print ("Z) Salir del programa")
 	opcion= input("Opcion : ")
 	opcion=opcion.upper()
@@ -197,36 +197,36 @@ while True:
 		nombre_base_MySQL= input("Ingrese el nombre de la base de datos a CREAR : ")
 		crear_base(nombre_base_MySQL)
 		print("Ahora")
-		listar_bases()	
+		listar_bases()
 	elif opcion =="L":
 		limpiar();
 		print("Listado")
 		listar_bases()
 	elif opcion =="A":
 		limpiar();
-		listar_bases()		
+		listar_bases()
 		nombre_base_MySQL= input("Ingrese el nombre de la base de datos a ABRIR : ")
 		listar_tablas(nombre_base_MySQL)
 	elif opcion =="B":
 		limpiar();
 		print("Antes")
-		listar_bases()	
+		listar_bases()
 		nombre_base_MySQL= input("Ingrese el nombre de la base de datos a BORRAR : ")
 		borrar_base(nombre_base_MySQL)
 		print("Ahora")
-		listar_bases()	
+		listar_bases()
 	elif opcion =="Z":
 		limpiar();
 		break
-		
-		
+
+
 
 """
 
 mycursor.execute("SHOW TABLES")
 
 for x in mycursor:
-  print(x) 
+  print(x)
 #print(f"Hola {nombre_base_MySQL} se que tenes {edad} años.")
 
 #func_crear(nuevo_nombre_base_MySQL)
@@ -238,7 +238,7 @@ def check_base_existe(nombre_base_MySQL_input):
 	cursor = connection.cursor()
 	cursor.execute("SHOW DATABASES")
 	lista_de_bases=[]
-	
+
 	print ("cargamos el listado de nombres de bases")
 	for lista_bases in (cursor):
 		nombre_base_MySQL_para_chequear=str(lista_bases)

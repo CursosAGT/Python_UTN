@@ -2,7 +2,7 @@ from Estructura import *
 nuevo(0,"inicio");
 #################################################################
 def Ej_ya_hechos():
-	#Con tab colocaremos aqui las precticas hechas
+	#Con tab colocaremos aqui las prácticas hechas
 	pass
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
@@ -69,7 +69,7 @@ Las referencias a nombres en módulos son referencias a atributos:
 Ej en la expresión modulo.funcion, modulo es un "objeto módulo" y funcion es un "atributo" de este objeto
 Un ámbito es una región textual de un programa en Python donde un espacio de nombres es accesible directamente.
 Cuando se ingresa una definición de clase, se crea un nuevo espacio de nombres, el cual se usa como ámbito local;
-por lo tanto, todas las asignaciones a variables locales van a este nuevo espacio de nombres. 
+por lo tanto, todas las asignaciones a variables locales van a este nuevo espacio de nombres.
 En particular, las definiciones de funciones asocian el nombre de las funciones nuevas allí.
 Una clase se finaliza normalmente se crea un objeto clase que envuelve los contenidos del espacio de nombres creado por la definición de la clase en el ambito
 Este objeto clase se asocia al ambito logal original bajo el nombre que se le puso a la clase en el encabezado de su definición (Class Clases_ejemplo).
@@ -90,12 +90,12 @@ variable = Clases_ejemplo()
 """)
 nuevo(0,"inicio");
 #################################################################
-#Clase_Clases_01 
+#Clase_Clases_01
 class Clases_ejemplo:
 	atributos = 1973
 	def instancia(self):
 		return 'UTN 2019'
-variable = Clases_ejemplo() 
+variable = Clases_ejemplo()
 print (variable.atributos)
 print (Clases_ejemplo.atributos)
 print (variable.instancia())
@@ -105,7 +105,7 @@ print(vi())
 print("""
 La única operación que es entendida por los objetos instancia es la referencia de atributos.
 Hay dos tipos de nombres de atributos válidos, atributos de datos y métodos.
-Los atributos de datos son creados la primera vez que se les asigna algo. 
+Los atributos de datos son creados la primera vez que se les asigna algo.
 Los atributos de método son funciones que “pertenecen a” un objeto instancia de clase.
 
 class Clases_ejemplo:
@@ -113,10 +113,10 @@ class Clases_ejemplo:
 	def instancia(self):
 		return 'UTN 2019'
 variable = Clases_ejemplo()
-print (variable.atributos) 
+print (variable.atributos)
 print (variable.instancia)
 print (input("		continuar?"));
-een nuestro ejemplo, variable.instancia es una referencia a un método válido, dado que Clases_ejemplo.instancia es una función, pero variable.atributos no lo es, dado que Clases_ejemplo.atributos no lo es. 
+een nuestro ejemplo, variable.instancia es una referencia a un método válido, dado que Clases_ejemplo.instancia es una función, pero variable.atributos no lo es, dado que Clases_ejemplo.atributos no lo es.
 Pero variable.instancia no es la misma cosa que Clases_ejemplo.instancia; es un objeto método, no un objeto función.
 """)
 nuevo(1);
@@ -151,22 +151,22 @@ El método __new__ sólo construye el objeto.
 nuevo(3);
 #################################################################
 #Clase_Clases_04
-class Piel(): 
-	color = "verde" 
-	textura = "pinchuda" 
+class Piel():
+	color = "verde"
+	textura = "pinchuda"
 
-class Pelo(): 
-	color = "azul" 
+class Pelo():
+	color = "azul"
 	largo = 100
 
-class Ojo(): 
-	forma = "oblicua" 
-	color = "purpura" 
+class Ojo():
+	forma = "oblicua"
+	color = "purpura"
 
-class Objeto_prog(): 
-	altura = 170 
+class Objeto_prog():
+	altura = 170
 	peso = 80
-	edad = 40 
+	edad = 40
 	piel_o = Piel() 	# propiedad compuesta por el objeto Objeto_prog piel
 	ojo_o = Ojo()       # propiedad compuesta por el objeto Objeto_prog Ojo
 	pelo_o = Pelo();
@@ -176,23 +176,23 @@ print (obj_desde_clase.altura);
 print (obj_desde_clase.pelo_o);
 print (obj_desde_clase.pelo_o.color);
 print (obj_desde_clase.pelo_o.largo);
-obj_desde_clase.pelo_o = "rosa" 
+obj_desde_clase.pelo_o = "rosa"
 print (obj_desde_clase.pelo_o);
 nuevo(4);
 #################################################################
 #Clase_Clases_05
 print ("""
-__init__ is called when ever an object of the class is constructed. 
-That means when ever we will create a student object we will see the message “A student object is created” in the prompt. 
-You can see the first argument to the method is self. It is a special variable which points to the current object (like this in C++). 
-The object is passed implicitly to every method available in it, but we have to get it explicitly in every method while writing the methods. 
+__init__ is called when ever an object of the class is constructed.
+That means when ever we will create a student object we will see the message “A student object is created” in the prompt.
+You can see the first argument to the method is self. It is a special variable which points to the current object (like this in C++).
+The object is passed implicitly to every method available in it, but we have to get it explicitly in every method while writing the methods.
 Example shown below. Remember to declare all the possible attributes in the __init__ method itself.
 Even if you are not using them right away, you can always assign them as None.""")
 class Alumno():
 #    'Clase para alumnos'
 	numalumnos = 0
 	sumanotas = 0
-	
+
 #	print("__init__ is a special method in Python classes, it is the constructor method for a class.")
 	def __init__(self, nombre, nota):
 		self.nombre = nombre
@@ -214,7 +214,7 @@ class Alumno():
 			return(Alumno.sumanotas/Alumno.numalumnos);
 		else:
 			return("Sin alumnos");
-			
+
 print("Crear objetos (instancias) de una clase");
 print("#Para crear instancias de una clase se llama a la clase por su propio nombre pasando los argumentos que requiera el método constructor __init__ si existe.");
 alumno1 = Alumno("Maria", 8);
@@ -255,7 +255,7 @@ class Box:
 		return (self.val_volumen)
 	def base(self):
 		self.val_base =  self.largo *self.ancho;
-		return (self.val_base)                          
+		return (self.val_base)
 ejemplo1= Box(20,20,30)#<--------------------------------ejemplo1 sera self al entrar a la funcion
 print (f"El volumen que ocupla la unidad buscada es de "+ str(ejemplo1.volumen())+" cm^3");
 print (f"La superficie que ocupla la unidad buscada es de "+ str(ejemplo1.base())+" cm^2");
@@ -304,7 +304,7 @@ for prod in prod:
 nuevo(7);
 #################################################################
 #Clase_Clases_08
-from copy import copy	
+from copy import copy
 class Test:
     pass
 
@@ -355,6 +355,6 @@ try:
     print("test2",test2.algo)
 except Exception as e:
     print(e)
-    
+
 nuevo(6,"fin");
 #################################################################
