@@ -90,14 +90,14 @@ if not ((dato[0] == dato[1]) or (dato[2] == dato[3])):
 limpiar()
 x = 10
 if not x > 10:
-    print("not es True")
+	print("not es True")
 else:
-    print("not es False")
+	print("not es False")
 
 print("array :", dato)
 for item in dato:
-    if not item in (25,5):
-        print ("Items del Array 'not' en mi lista:(25 y 5) " ,item," en ",dato)
+	if not item in (25,5):
+		print ("Items del Array 'not' en mi lista:(25 y 5) " ,item," en ",dato)
 limpiar()
 
 print("""
@@ -162,8 +162,8 @@ print("""
 
 What's the difference between is and ==?
 == and is are different comparison! As others already said:
-    == compares the values of the objects.
-    is compares the references of the objects.
+	== compares the values of the objects.
+	is compares the references of the objects.
 In Python names refer to objects, for example in this case value1 and value2 refer to an int instance storing the value 1000:
 value1 = 1000
 value2 = value1
@@ -188,16 +188,16 @@ When to use which?
 Generally is is a much faster comparison. That's why CPython caches (or maybe reuses would be the better term) certain objects like small integers, some strings, etc. But this should be treated as implementation detail that could (even if unlikely) change at any point without warning.
 
 You should only use is if you:
-    want to check if two objects are really the same object (not just the same "value"). One example can be if you use a singleton object as constant.
-    want to compare a value to a Python constant. The constants in Python are:
-        None
-        True1
-        False1
-        NotImplemented
-        Ellipsis
-        __debug__
-        classes (for example int is int or int is float)
-        there could be additional constants in built-in modules or 3rd party modules. For example np.ma.masked from the NumPy module)
+	want to check if two objects are really the same object (not just the same "value"). One example can be if you use a singleton object as constant.
+	want to compare a value to a Python constant. The constants in Python are:
+		None
+		True1
+		False1
+		NotImplemented
+		Ellipsis
+		__debug__
+		classes (for example int is int or int is float)
+		there could be additional constants in built-in modules or 3rd party modules. For example np.ma.masked from the NumPy module)
 
 
 
@@ -246,20 +246,20 @@ list2 = []
 list3=list1
 print("if (list1 == list2):")
 if (list1 == list2):#True
-    print("True")
+	print("True")
 else:
-    print("False")
+	print("False")
 print("if (list1 is list2):")
 if (list1 is list2):#false
-    print("True")
+	print("True")
 else:
-    print("False")
+	print("False")
 
 print("if (list1 == list3):")
 if (list1 is list3):#True
-    print("True")
+	print("True")
 else:
-    print("False")
+	print("False")
 
 
 limpiar()
@@ -268,7 +268,7 @@ limpiar()
 dato2 = "Ariel"
 
 if dato2 is "Ariel":
-    print ('Si dato2 is "Ariel"')
+	print ('Si dato2 is "Ariel"')
 limpiar()
 
 print("""
@@ -459,5 +459,14 @@ if 'y' in cadena: print('“y” está en “Python”') 			# contiene
 if 6 not in lista: print('6 no está en la lista')			# no contiene
 print("'abcabc' <---> 'abc' * 2:")
 if 'abcabc' is 'abc' * 2: print('Son iguales')				# son iguales
+nuevo(12);
+#################################################################
+#Condicional_Ej_13;
+num = int(input("Ingrese un valor :"))
+var = "par" if (num % 2 == 0) else "impar"
+print (var)
 nuevo(13,"fin");
 #################################################################
+#Condicional_Ej_13;
+
+

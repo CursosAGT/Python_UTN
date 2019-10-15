@@ -4,85 +4,167 @@ nuevo(0,"inicio");
 def Ej_ya_hechos():
 	#Con tab colocaremos aqui las precticas hechas
 	pass
+	print("""
+	╔═════════════════════════════════════════════════════════════════════════════╗
+	║                                                                             ║
+	║                              Funciones y Metodos                            ║
+	║                              -------------------                            ║
+	║                                                                             ║
+	║          Funciones    Description                                           ║
+	║                   lambda                                                    ║
+	║                                                                             ║
+	║                                                                             ║
+	║          Metodos son finciones dentro de clases donde se deberia instanciar ║
+	║                   a la clase con self nombre_objeto                         ║
+	║                                                                             ║
+	╠═════════════════════════════════════════════════════════════════════════════╣
+	║                                                                             ║
+	║                              Funciones,  Metodos                            ║
+	║                                  y Generadores                              ║
+	║                                                                             ║
+	╚═════════════════════════════════════════════════════════════════════════════╝
+
+	https://www.w3schools.com/python/python_ref_list.asp
+	https://www.w3schools.com/python/python_lists.asp
+	https://python-para-impacientes.blogspot.com/2014/02/programacion-funcional-funciones-de.html
+	https://python-para-impacientes.blogspot.com/2014/02/funciones.html
+	""")
+	nuevo(0,"inicio");
+	#################################################################
+	#Ejercicio_Funciones_Ej_001
+	print("""
+	╔═════════════════════════════════════════════════════════════════════════════╗
+	║                                                                             ║
+	║                              Funciones,  Metodos                            ║
+	║                                                                             ║
+	╚═════════════════════════════════════════════════════════════════════════════╝
+	""")
+	#                          como función
+	def funcion (var_1, var_2):
+		return  (var_1 * var_2)
+	print ("Función directa :",funcion (3,6))
+	mi_array=(3,6)
+	print ("Función con array :",funcion (*mi_array))# ver el "*"
+	#                          como Método
+	class Clase1:# ver el nombre con mayúscula en su primer carácter que no debe ser numérico
+		resultado= 0
+		def metodo(self,var_1,var_2):
+			self.var_1=  var_1
+			self.var_2=  var_2
+			self.resultado= (var_1 *var_2)
+	ej=Clase1()
+	ej.metodo(3,6)
+	print ("Método de clase:",ej.resultado)
+	nuevo(1);
+	#################################################################
+	#Ejercicio_Funciones_Ej_002
+	print("""
+	╔═════════════════════════════════════════════════════════════════════════════╗
+	║                                                                             ║
+	║                                     Métodos                                 ║
+	║                                                                             ║
+	╚═════════════════════════════════════════════════════════════════════════════╝
+	""")
+	class Clase2:# ver el nombre con mayúscula en su primer carácter que no debe ser numérico
+		resultado= 0
+		def __init__(self):#construye los objetos
+			self.var_1=  0
+			self.var_2=  0
+		def meto2(self,var_1,var_2):
+			self.var_1=  var_1
+			self.var_2=  var_2
+			self.resultado= (var_1 *var_2)
+
+	ej=Clase2()
+	print ("al inicio con valores 'self'",ej.resultado)
+	ej.meto2(3,6)
+	print ("al final con datos modificado por método",ej.resultado)
+	nuevo(2);
+	#################################################################
+	#Ejercicio_Funciones_Ej_003
+	def varios(param1, param2, **diccionario):
+		for dato in diccionario.items():
+			print ("Datos en el diccionario",dato)
+	varios(1, 2, tercero = 3, cuarto = 4, quinto = 5)
+
+
+	def saludar(lenguaje_elejido):
+		def saludar_es():
+			print ("Hola")
+		def saludar_en():
+			print ("Hi")
+		def saludar_fr():
+			print ("Salut")
+		def saludar_it():
+			print ("Ciao")
+		def saludar_ge():
+			print ("Hallo")
+		Saludar_en_su_leng = {"es": saludar_es,"en": saludar_en,"fr": saludar_fr,"it": saludar_it,"ge": saludar_ge}
+		return Saludar_en_su_leng[lenguaje_elejido]
+	saludar("es")()
+	saludar("it")()
+	saludar("fr")()
+
+	nuevo(3);
+#################################################################
+#Ejercicio_Funciones_Ej_004
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
 ║                                                                             ║
-║                              Funciones y Metodos                            ║
-║                              -------------------                            ║
-║                                                                             ║
-║          Funciones    Description                                           ║
-║                   lambda                                                    ║
-║                                                                             ║
-║                                                                             ║
-║          Metodos son finciones dentro de clases donde se deberia instanciar ║
-║                   a la clase con self nombre_objeto                         ║
-║                                                                             ║
-╠═════════════════════════════════════════════════════════════════════════════╣
-║                                                                             ║
-║                              Funciones,  Metodos                            ║
-║                                  y Generadores                              ║
+║                                   Generadores                               ║
 ║                                                                             ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
+Las expresiones generadoras funcionan de forma muy similar a la comprensión de listas. De hecho su sintaxis es exactamente igual, a
+excepción de que se utilizan paréntesis en lugar de corchetes:
 
-https://www.w3schools.com/python/python_ref_list.asp
-https://www.w3schools.com/python/python_lists.asp
-https://python-para-impacientes.blogspot.com/2014/02/programacion-funcional-funciones-de.html
-https://python-para-impacientes.blogspot.com/2014/02/funciones.html
-""")
-nuevo(0,"inicio");
-#################################################################
-#Clase_Funciones_Ej_001
-print("""
-╔═════════════════════════════════════════════════════════════════════════════╗
-║                                                                             ║
-║                              Funciones,  Metodos                            ║
-║                                                                             ║
-╚═════════════════════════════════════════════════════════════════════════════╝
-""")
-#                          como función
-def funcion (var_1, var_2):
-	return  (var_1 * var_2)
-print ("Función directa :",funcion (3,6))
-mi_array=(3,6)
-print ("Función con array :",funcion (*mi_array))# ver el "*"
-#                          como Método
-class Clase1:# ver el nombre con mayúscula en su primer carácter que no debe ser numérico
-	resultado= 0
-	def metodo(self,var_1,var_2):
-		self.var_1=  var_1
-		self.var_2=  var_2
-		self.resultado= (var_1 *var_2)
-ej=Clase1()
-ej.metodo(3,6)
-print ("Método de clase:",ej.resultado)
-nuevo(1);
-#################################################################
-#Clase_Funciones_Ej_002
-print("""
-╔═════════════════════════════════════════════════════════════════════════════╗
-║                                                                             ║
-║                                     Métodos                                 ║
-║                                                                             ║
-╚═════════════════════════════════════════════════════════════════════════════╝
-""")
-class Clase2:# ver el nombre con mayúscula en su primer carácter que no debe ser numérico
-	resultado= 0
-	def __init__(self):#construye los objetos
-		self.var_1=  0
-		self.var_2=  0
-	def meto2(self,var_1,var_2):
-		self.var_1=  var_1
-		self.var_2=  var_2
-		self.resultado= (var_1 *var_2)
 
-ej=Clase2()
-print ("al inicio con valores 'self'",ej.resultado)
-ej.meto2(3,6)
-print ("al final con datos modificado por método",ej.resultado)
-nuevo(2);
-#################################################################
+Un generador es una clase especial de función que genera valores sobre los que iterar. Para devolver el siguiente valor sobre el que iterar se
+utiliza la palabra clave yield en lugar de return .
+def mi_generador(n, m, s):
+	while(n <= m):
+		yield n
+		n += s
+lista = list( mi_generador(0, 5, 1))
+print(lista)
+El generador se puede utilizar en cualquier lugar donde se necesite un objeto iterable.
 
-#Clase_Funciones_Ej_003
+No generamos un solo valor cada vez que se necesita, en situaciones en las que no sea necesario tener la lista completa el uso de generadores puede
+suponer una gran diferencia de memoria. En todo caso siempre es posible crear una lista a partir de un generador mediante la función list :
+lista = list(mi_generador)
+""")
+def mi_generador(n, m, s):
+	while(n <= m):
+		yield n
+		n += s
+lista = list( mi_generador(0, 5, 1))
+print(lista)
+limpiar()
+print("\n# Fibonacci version 1")
+# Fibonacci version 1
+def fibonacci():
+	Limit = 10
+	count = 0
+	a, b = 0, 1
+	while True:
+		yield a
+		a, b = b, a+b
+		if (count == Limit):
+			break
+		count += 1
+for n in fibonacci():
+	print(n, end=' ')
+print("\n# Fibonacci version 2")
+# Fibonacci version 2
+def fibonacci(max):
+    a, b = 0, 1
+    while a < max:
+        yield a
+        a, b = b, a + b
+for n in fibonacci(500):
+	print(n, end=' ')
+nuevo(4);
+#################################################################
+#Ejercicio_Funciones_Ej_005
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
 ║                                                                             ║
@@ -112,9 +194,9 @@ while True:
 	except ValueError:
 		print ("Error de entrada/salida.")
 print(area_triangulo(base,altura))
-nuevo(3);
+nuevo(5);
 #################################################################
-#Clase_Funciones_Ej_004
+#Ejercicio_Funciones_Ej_006
 #Función lambda que devuelve la suma de sus dos argumentos:
 func_lambda = lambda x, y : x + y
 print("func_lambda(2 , 6)",func_lambda(2 , 6))
@@ -133,7 +215,9 @@ func_lambda =  lambda x, y, z=1: (x+y) * z
 print("func_lambda(5, 6) :",func_lambda(5, 6))
 print("func_lambda(5, 6, 7) :",func_lambda(5, 6, 7))
 
-limpiar()
+nuevo(6);
+#################################################################
+#Ejercicio_Funciones_Ej_007
 
 print("Con strings")
 revertir = lambda cadena: cadena[::-1]
@@ -148,7 +232,9 @@ for contador in map(lambda x, y: x*y, array, num):
 #sin lambda con zip
 for contador in (x*y for x,y in zip(array, num)):
     print(contador)
-limpiar()
+nuevo(7);
+#################################################################
+#Ejercicio_Funciones_Ej_008
 print ("Ver \nhttps://es.quora.com/Qu%C3%A9-hace-realmente-la-funci%C3%B3n-lambda-de-Python-Quiero-dominarle-pero-no-la-entiendo")
 
 resultado = lambda s: s.strip().upper()
@@ -173,9 +259,9 @@ imprimir_si(lista1, lambda x: x>=10 and x<=50 or x>=70 and x<=100)
 print("Imprimir la lista completa")
 imprimir_si(lista1, lambda x: True )
 
-nuevo(4);
+nuevo(8);
 #################################################################
-#Clase_Funciones_Ej_005
+#Ejercicio_Funciones_Ej_009
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
 ║                                                                             ║
@@ -205,9 +291,9 @@ print(resultado)
 
 
 
-nuevo(5);
+nuevo(9);
 #################################################################
-#Clase_Funciones_Ej_006
+#Ejercicio_Funciones_Ej_010
 
 print("""Vamos a hacer una función
 def doblar(num):
@@ -262,9 +348,9 @@ impar = lambda num: num%2 != 0
 valor = int(input("Valor : "))
 print("es impar :",impar(valor))
 
-nuevo(6);
+nuevo(10);
 #################################################################
-#Clase_Funciones_Ej_07
+#Ejercicio_Funciones_Ej_011
 print ("""
 Función lambda
 --------------
@@ -284,9 +370,9 @@ for datos in medidas:
 	base = datos[0]
 	altura = datos[1]
 	print(area_triangulo(base, altura))
-nuevo(7);
+nuevo(11);
 #################################################################
-#Clase_Funciones_Ej_008
+#Ejercicio_Funciones_Ej_012
 
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
@@ -316,7 +402,9 @@ print("x % 3 != 0 :",resultado)
 resultado = list(filter(lambda x: x % 3 <= 5, array)) # list()' convierte el iterable
 print("x % 3 <= 5 :",resultado)
 
-
+nuevo(12);
+#################################################################
+#Ejercicio_Funciones_Ej_013
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
 ║                                                                             ║
@@ -341,8 +429,8 @@ objerto_1 = Funcion_Contador("Primer objeto")
 objerto_2 = Funcion_Contador("Segundo objeto")
 objerto_3 = Funcion_Contador("Tercer objeto")
 del objerto_2
-nuevo(8);
-"""
+
+print("""
 Without the final del, you get an exception. Shouldn’t the normal cleanup process take care of this?
 
 From the Python docs regarding __del__:
@@ -356,6 +444,6 @@ There are two possible solutions here.
 	1. Use an explicit finalizer method, such as close() for file objects.
 
 		Use weak references.
-"""
+""")
+nuevo(13,"fin");
 #################################################################
-

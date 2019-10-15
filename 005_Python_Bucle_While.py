@@ -14,7 +14,7 @@ print("""
 """);
 nuevo(0,"inicio");
 #################################################################
-#Clase_While_Ej_01 
+#Clase_While_Ej_01
 contador = 1
 while contador<10:
 	print (contador);
@@ -61,3 +61,23 @@ resultado = math.sqrt(valor);
 print ("la raiz cuadrada de :"+str(valor));
 print ("son : + -"+str(resultado));
 nuevo(5);
+
+#################################################################
+#Clase_While_Ej_06
+
+print("""
+╔═════════════════════════════════════════════════════════════════════════════╗
+║                                                                             ║
+║                                   while                                     ║
+║                                                                             ║
+║                               or , and , not                                ║
+╚═════════════════════════════════════════════════════════════════════════════╝
+""");
+salir = False
+while not salir:
+	entrada = input("ingrese un string o zz para salir :")
+	if entrada.lower() == "zz":
+		salir = True
+		print("Chau")
+	else:
+		print ("Ud.ingreso :",entrada)

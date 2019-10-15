@@ -66,12 +66,25 @@ https://www.youtube.com/watch?v=2UNrSiKEI8w
 https://www.youtube.com/watch?v=Y_SiIgxc-xI
 
 Un conjunto de caracteres que forman palabras, verbos, etc pueden generar oraciones,
-estas parrafos, textos muy grandes divididos en capitulos, en libro, tomos, etc.
-Todo depende de como lo reconozcamos. Como python toma la caracteristica del objeto
+estas párrafos, textos muy grandes divididos en capítulos, en libro, tomos, etc.
+Todo depende de como lo reconozcamos. Como python toma la característica del objeto
 a partir de que contenga este y de alguna manera esto es subjetivo, dependiendo de como
 lo tomo puedo aplicarle distintas acciones+
 Un espacio de nombres es una relación de nombres a objetos.
 Los objetos tienen individualidad, y múltiples nombres (en muchos ámbitos) pueden vincularse al mismo objeto. Esto se conoce como aliasing en otros lenguajes
+
+
+
+
+La palabra polimorfismo, del latín polys morphos (varias formas), se refiere a la habilidad de objetos de distintas clases de responder al mismo mensaje.
+Esto se puede conseguir a través de la herencia: un objeto de una clase derivada es al mismo tiempo un objeto de la clase padre,
+de forma que allí donde se requiere un objeto de la clase padre también se puede utilizar uno de la clase hija.
+Python, al ser de tipado dinámico, no impone restricciones a los tipos que se le pueden pasar a una función, por ejemplo, más allá de que el
+objeto se comporte como se espera: si se va a llamar a un método f() del objeto pasado como parámetro, por ejemplo, evidentemente el
+objeto tendrá que contar con ese método.
+
+
+
 
 Ejemplo pildoras informaticas video 32
 https://www.youtube.com/watch?v=kV1cN_bqcSw&list=PLU8oAlHdN5BlvPxziopYZRd55pdqFwkeS&index=32

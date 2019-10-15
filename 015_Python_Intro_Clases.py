@@ -62,6 +62,13 @@ print("""
 https://python-para-impacientes.blogspot.com/2014/02/programacion-orientada-objetos.html
 https://www.youtube.com/watch?v=2UNrSiKEI8w
 https://www.youtube.com/watch?v=Y_SiIgxc-xI
+
+
+Para entender este paradigma primero tenemos que comprender qué es una clase y qué es un objeto. Un objeto es una entidad que agrupa un
+estado y una funcionalidad relacionadas. El estado del objeto se define a través de variables llamadas 'atributos', mientras que la funcionalidad
+se modela a través de funciones a las que se les conoce con el nombre de 'métodos' del objeto.
+
+
 TIPS
 Un espacio de nombres es una relación de nombres a objetos.
 Cualquier cosa después de un punto es un atributo
@@ -90,7 +97,7 @@ variable = Clases_ejemplo()
 """)
 nuevo(0,"inicio");
 #################################################################
-#Clase_Clases_01
+#Ejercicio_Clases_01
 class Clases_ejemplo:
 	atributos = 1973
 	def instancia(self):
@@ -106,7 +113,7 @@ print("""
 La única operación que es entendida por los objetos instancia es la referencia de atributos.
 Hay dos tipos de nombres de atributos válidos, atributos de datos y métodos.
 Los atributos de datos son creados la primera vez que se les asigna algo.
-Los atributos de método son funciones que “pertenecen a” un objeto instancia de clase.
+Los atributos de método son funciones que "pertenecen a" un objeto instancia de clase.
 
 class Clases_ejemplo:
 	atributos = 1973
@@ -114,14 +121,98 @@ class Clases_ejemplo:
 		return 'UTN 2019'
 variable = Clases_ejemplo()
 print (variable.atributos)
-print (variable.instancia)
-print (input("		continuar?"));
-een nuestro ejemplo, variable.instancia es una referencia a un método válido, dado que Clases_ejemplo.instancia es una función, pero variable.atributos no lo es, dado que Clases_ejemplo.atributos no lo es.
+print (Clases_ejemplo.atributos)
+print (variable.instancia())
+print (Clases_ejemplo.instancia(0))
+vi = variable.instancia
+print(vi())
+En nuestro ejemplo, variable.instancia es una referencia a un método válido, dado que Clases_ejemplo.instancia es una función, pero variable.atributos no lo es, dado que Clases_ejemplo.atributos no lo es.
 Pero variable.instancia no es la misma cosa que Clases_ejemplo.instancia; es un objeto método, no un objeto función.
 """)
 nuevo(1);
 #################################################################
-#Clase_Clases_02
+#Ejercicio_Clases_02
+
+print("""
+Las clases las definimosn mediante la palabra clave class seguida del nombre de la clase con la primera letra en mayúscula y nunca un numero al comienzo.
+class Trabajo:
+	def __init__(self, entrenamiento):
+		self.entrenamiento = entrenamiento
+		print ("Tenemos un empleado con ", entrenamiento, " horas de entrenamiento")
+	def Iniciar_trabajo(self):
+		if self.entrenamiento >= 20:
+			print ("Empieza a trabajar")
+		else:
+			print ("etapa de aprendizaje")
+	def Definir_estado(self):
+		if self.entrenamiento < 20:
+			self.entrenamiento += 1
+			print ("Quedan ", 20- self.entrenamiento, " de entrenamiento")
+		else:
+			print ("Colocar al empleado en un cargo")
+El método __init__ (nombre por convención) se ejecuta al instanciar, crear un nuevo objeto desde una clase
+Este se realiza automáticamente sin tener que llamarlo, su primer parámetro es siempre self. E indica que se referiere al objeto actual.
+Imprescindible para luego poder acceder a los atributos y métodos del objeto diferenciando.
+En este caso al ejecutarse inmediatamente al ingresar un objeto a la clase pide el método que enviemos el valor de entrenamiento del trabajador como parámetro obligatorio.
+
+Para crear un objeto se escribiría el nombre de la clase seguido de cualquier parámetro que sea necesario entre paréntesis.
+Estos parámetros son los que se pasarán al método __init__ , que como decíamos es el método que se llama al instanciar la clase.
+Juan = Trabajo(15)# creo el objeto Juan con la clase trabajo y un valor de entrenamiento de 15 que es requerido por__init__
+pero en def __init__(self, entrenamiento): hay 2 parámetros, self es el nombre del objeto que se crea y lo enviá python directamente sin tener que añadirlo entre los argumentos enviados a la clase y/o metodo
+
+Ahora que ya hemos creado nuestro objeto, podemos acceder a sus
+atributos y métodos mediante la sintaxis objeto.atributo y objeto.
+metodo() :
+>>> print mi_coche.gasolina
+3
+>>> mi_coche.arrancar()
+Arranca
+>>> mi_coche.conducir()
+Quedan 2 litros
+>>> mi_coche.conducir()
+Quedan 1 litros
+>>> mi_coche.conducir()
+Quedan 0 litros
+>>> mi_coche.conducir()
+
+
+""")
+
+class Trabajo:
+	def __init__(self,nombre, entrenamiento):
+		self.nombre = nombre
+		self.entrenamiento = entrenamiento
+		print (f"{self.nombre} es un empleado con {entrenamiento} horas de entrenamiento")
+	def Iniciar_trabajo(self):
+		if self.entrenamiento >= 20:
+			print (f"{self.nombre} es un empleado que termino sus hs de aprendizaje. Empieza a trabajar")
+		else:
+			print ("etapa de aprendizaje")
+	def Definir_estado(self):
+		print("--------------Definir_estado-----------------")
+		if self.entrenamiento < 20:
+			self.entrenamiento += 5
+			print ("A ",self.nombre, " le quedan ", 20- self.entrenamiento, " horas de entrenamiento, ya tiene", self.entrenamiento, "hs")
+		else:
+			print ("Colocar al empleado en un cargo")
+		self.Iniciar_trabajo()
+print("intanciamos 3 objetos")
+Juan=Trabajo("Juan XX",15)
+Pedro=Trabajo("Pedro YY",1)
+Luis=Trabajo("Luis ZZ",21)
+print("Definimos los 3 estados")
+Juan.Definir_estado()
+Pedro.Definir_estado()
+Luis.Definir_estado()
+print("Definimos los 3 estados")
+Juan.Definir_estado()
+Pedro.Definir_estado()
+Luis.Definir_estado()
+
+
+
+limpiar()
+
 class Complejo:
 	def __init__(self, parte_real, parte_imaginaria):
 		self.real = parte_real
@@ -134,7 +225,7 @@ Si aún no comprendés como funcionan los métodos, un vistazo a la implementaci
 """)
 nuevo(2);
 #################################################################
-#Clase_Clases_03
+#Ejercicio_Clases_03
 class Bolsa:
 	def __init__(self):
 		self.datos = []
@@ -150,7 +241,7 @@ El método __new__ sólo construye el objeto.
 """)
 nuevo(3);
 #################################################################
-#Clase_Clases_04
+#Ejercicio_Clases_04
 class Piel():
 	color = "verde"
 	textura = "pinchuda"
@@ -180,10 +271,10 @@ obj_desde_clase.pelo_o = "rosa"
 print (obj_desde_clase.pelo_o);
 nuevo(4);
 #################################################################
-#Clase_Clases_05
+#Ejercicio_Clases_05
 print ("""
 __init__ is called when ever an object of the class is constructed.
-That means when ever we will create a student object we will see the message “A student object is created” in the prompt.
+That means when ever we will create a student object we will see the message "A student object is created" in the prompt.
 You can see the first argument to the method is self. It is a special variable which points to the current object (like this in C++).
 The object is passed implicitly to every method available in it, but we have to get it explicitly in every method while writing the methods.
 Example shown below. Remember to declare all the possible attributes in the __init__ method itself.
@@ -241,7 +332,7 @@ print("Pare crear nuevamente el atributo realizar una nueva asignación:");
 alumno1.nombre = "Carmen"
 nuevo(5);
 #################################################################
-#Clase_Clases_06
+#Ejercicio_Clases_06
 
 class Box:
 	def __init__(self, altura, largo, ancho):
@@ -271,7 +362,7 @@ print (f"La superficie que ocupla la unidad buscada es de "+ str(ejemplo3.base()
 
 nuevo(6);
 #################################################################
-#Clase_Clases_07
+#Ejercicio_Clases_07
 
 class Producto:
 	def __init__(self,codigo,nombre,stock,descripcion):
@@ -303,7 +394,7 @@ for prod in prod:
 		print(prod.codigo, prod.nombre, "\n----------------------------")
 nuevo(7);
 #################################################################
-#Clase_Clases_08
+#Ejercicio_Clases_08
 from copy import copy
 class Test:
     pass

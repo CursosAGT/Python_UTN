@@ -7,7 +7,7 @@ def Ej_ya_hechos():
 
 limpiar();
 #################################################################
-#Clase_Print_01
+#Ejercicio_Print_01
 print ("linea 1");
 print ("linea 2");
 print ("linea 3");
@@ -18,7 +18,7 @@ print (r"c:\nicolas");
 print ("c:\\nicolas");
 nuevo(1);
 #################################################################
-#Clase_Print_02
+#Ejercicio_Print_02
 def ej_02():
 	print ("\nlinea 1");
 	print ("linea 2");
@@ -29,7 +29,7 @@ ej_02() #llamada a la funcion
 ej_02() #llamada a la funcion
 nuevo(2);
 #################################################################
-#Clase_Print_03
+#Ejercicio_Print_03
 cadena = "es hora de trabajar grupo 2019-UTN"
 print ("La Cadena original es : ", cadena);
 print(input("continuar?"));
@@ -81,7 +81,7 @@ print ("Alinecion derecha de la Cadena adregando #: ", end="");
 print (cadena.rjust(40, '#'));
 nuevo(2);
 #################################################################
-#Clase_Print_03
+#Ejercicio_Print_03
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
 ║                                                                             ║
@@ -143,7 +143,7 @@ def construye_tabla_formatos():
 construye_tabla_formatos()
 nuevo(3);
 #################################################################
-#Clase_Print_04
+#Ejercicio_Print_04
 def ej001_4():
 	var_entera_1 = 5
 	var_entera_2 = 3
@@ -155,7 +155,7 @@ def ej001_4():
 	print ((var_entera_1*var_entera_3+1)/var_entera_2);
 nuevo(4);
 #################################################################
-#Clase_Print_05
+#Ejercicio_Print_05
 def ej001_5(var_entera_1,var_entera_2,var_entera_3):
 	print ("var_entera_1 = "+ str(var_entera_1));
 	print ("var_entera_2 = "+ str(var_entera_2));
@@ -165,7 +165,7 @@ def ej001_5(var_entera_1,var_entera_2,var_entera_3):
 ej001_5(4,5,6) #llamada a la funcion
 nuevo(5);
 #################################################################
-#Clase_Print_06
+#Ejercicio_Print_06
 var_entera_1 = 4
 var_entera_2 = 5
 var_entera_3 = 6
@@ -181,7 +181,7 @@ operacion_N1 = ej001_6(var_entera_1,var_entera_2,var_entera_3) #llamada a la fun
 print ("operacion N 1 = "+ str(operacion_N1));
 nuevo(6);
 #################################################################
-#Clase_Print_07
+#Ejercicio_Print_07
 var_entera_1 = 4.5
 var_entera_2 = 5.5
 var_entera_3 = 6.5
@@ -198,17 +198,17 @@ print ("operacion N 1 = "+ str(operacion_N1));
 print("largo de la cadena :"+str(len(str(operacion_N1))));
 nuevo(7);
 #################################################################
-#Clase_Print_08
+#Ejercicio_Print_08
 print ("Solos");
 print ("llamada a la funcion cambiando el orden de las variables en el llamado luego en la definicion");
 nuevo(8);
 #################################################################
-#Clase_Print_09
+#Ejercicio_Print_09
 print ("Solos");
 print ("llamada a la funcion para que la devolucion sea la respuesta 2");
 nuevo(9);
 #################################################################
-#Clase_Print_10
+#Ejercicio_Print_10
 print("leer\nhttp://pyspanishdoc.sourceforge.net/lib/string-methods.html");
 texto_en_memoria="Un lenguaje interpretado es un lenguaje de programación para el que la mayoría de sus implementaciones ejecuta las instrucciones directamente, sin una previa compilación del programa a instrucciones en lenguaje máquina. El intérprete ejecuta el programa directamente, traduciendo cada sentencia en una secuencia de una o más subrutinas ya compiladas en código máquina. "
 print(texto_en_memoria);
@@ -231,8 +231,8 @@ print("strip : "+str(texto_en_memoria.strip("un")));
 print("""
 Python strip() method will remove all the leading and trailing whitespace characters such as \n, \r, \t, \f, space. Python strip() method returns the copy of the string in which all chars have been stripped from the beginning and the end of the string (default whitespace characters).
     strip(): It returns a new string after removing any leading and trailing whitespaces including tabs (\t).
-    rstrip(): It returns the new string with trailing whitespace removed. It’s easier to remember as removing the white spaces from a “right” side of a string.
-    lstrip(): It returns the new string with leading whitespace removed, or removing whitespaces from the “left” side of the string.
+    rstrip(): It returns the new string with trailing whitespace removed. It’s easier to remember as removing the white spaces from a "right" side of a string.
+    lstrip(): It returns the new string with leading whitespace removed, or removing whitespaces from the "left" side of the string.
 """)
 
 print("---------------------------------------------------------------------");
@@ -245,7 +245,7 @@ contador_texto_buscado_der=texto_en_memoria.rfind(texto_buscado);
 print("Cantidad de caracteres en texto buscado desde la derecha  "+str(caracter_buscado)+" : "+str(contador_texto_buscado_der));
 nuevo(10);
 #################################################################
-#Clase_Print_11
+#Ejercicio_Print_11
 nombre = "Name"
 apellido=["APELLIDO","Apellido_2"]
 edad = 13
@@ -255,7 +255,7 @@ print ("Hola {} se que tenes {} años.".format(nombre, edad))
 print (f"Hola {nombre} se que tenes {edad} años.")
 nuevo(11);
 #################################################################
-#Clase_Print_12
+#Ejercicio_Print_12
 print ("Formateo de string con objetos y funciones dentro")
 nombre = "Name"
 apellido=["APELLIDO","Apellido_2"]
@@ -268,7 +268,7 @@ print (f"Hola {nombre.upper()} se que vivis en {barrio.lower()}, que cumpliras {
 print (f"{nombre.upper()} tus apellidos son {apellido[0].capitalize()} y {apellido[1].capitalize()} se que vivis en {barrio.lower()}")
 nuevo(12);
 #################################################################
-#Clase_Print_13
+#Ejercicio_Print_13
 print (" Uso de objeto.swapcase(), .title() en un string ")
 cadena_de_datos=" Un lenguaje interpretado es un lenguaje de programación para el que la mayoría de sus implementaciones ejecuta las instrucciones directamente, sin una previa compilación del programa a instrucciones en lenguaje máquina. El intérprete ejecuta el programa directamente, traduciendo cada sentencia en una secuencia de una o más subrutinas ya compiladas en código máquina."
 print("swapcase() :- invierte minusculas por mayosculas y viceversa")
@@ -278,19 +278,19 @@ print("title() :- coloca cada letra despues de un espacio en mayuscula, el resto
 print("Cadena_de_datos :\n"+cadena_de_datos.title());
 nuevo(13);
 #################################################################
-#Clase_Print_14
+#Ejercicio_Print_14
 print ("uso de libreria # datetime ")
 import datetime
 fecha = datetime.datetime.today()
 print(f"hoy es {fecha:%d %B, %Y}")
 nuevo(14);
 #################################################################
-#Clase_Print_15
+#Ejercicio_Print_15
 print (f"En {nombre} el caracter mas bajo es :"+(min(nombre)));
 print (f"En {nombre} el caracter mas alto es :"+(max(nombre)));
 nuevo(15);
 #################################################################
-#Clase_Print_16);
+#Ejercicio_Print_16);
 print (" Uso de objeto.split(), .rsplit() .join() .rstrip() .lstrip() en un string ")
 print ("split convierte una cadena de texto en una lista. Por defecto al separarse por espacios, los elementos de dicha lista serán las palabras de la cadena.")
 print ("join convierte una lista en una cadena formada por los elementos de la lista separados por comas.")
@@ -323,7 +323,7 @@ print("Busqueda :"+busqueda+" en "+gracia+"  :",end= " ")
 print(gracia.rstrip('busqueda'))
 nuevo(16);
 #################################################################
-#Clase_Print_17
+#Ejercicio_Print_17
 print (" Uso de objeto.rfind(), .find()  en un string ")
 cadena_de_datos=" Un lenguaje interpretado es un lenguaje de programación para el que la mayoría de sus implementaciones ejecuta las instrucciones directamente, sin una previa compilación del programa a instrucciones en lenguaje máquina. El intérprete ejecuta el programa directamente, traduciendo cada sentencia en una secuencia de una o más subrutinas ya compiladas en código máquina."
 busqueda = "lenguaje"
@@ -337,7 +337,7 @@ print ("Primer encuentro (desde la derecha) o ultimo Caracter nº: ", end="")
 print ( cadena_de_datos.rfind( busqueda, 4) )
 nuevo(17);
 #################################################################
-#Clase_Print_18;
+#Ejercicio_Print_18;
 print (" Uso de objeto.isupper(), .islower() .isspace() .rstrip() .lstrip() en un string ")
 string = input("Escriba una palabra  :")
 if string.isupper() == True:
@@ -350,7 +350,7 @@ else:
 	print ("mezclado")
 nuevo(18);
 #################################################################
-#Clase_Print_19
+#Ejercicio_Print_19
 print (" Uso de objeto.isupper(), .islower() .isspace() .rstrip() .lstrip() en un string ")
 cadena_de_datos="abcdefg1234567890hijk"
 print("cadena_de_datos : "+cadena_de_datos);
@@ -361,37 +361,90 @@ print("cadena_de_datos : "+cadena_de_datos);
 print("isalnum - es alfanumerica :"+str(cadena_de_datos.isalnum()));
 print (" Uso de objeto.isupper(), .islower() .isspace() .rstrip() .lstrip() en un string ")
 print(gracia.casefold());
-nuevo(20);
+nuevo(19);
 #################################################################
-#Clase_Print_20
+#Ejercicio_Print_20
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
 ║                                                                             ║
-║                                 format_map                                  ║
+║                   Ver después de listas, tuplas y diccionarios              ║
 ║                                                                             ║
+║                        format_map / filter / reduce                         ║
+║                                                                             ║
+║                Iteraciones de orden superior sobre listas                   ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
-""")
 
 cadena = 'Empleado {Nombre} esta en la empresa como {Trabajo}'
 Nombre_diccionario_1 = {'Nombre': 'Juan X', 'Trabajo': 'Programador'}
 
 print(cadena.format_map(Nombre_diccionario_1))
 print(cadena.format(**Nombre_diccionario_1))
+""")
+cadena = 'Empleado {Nombre} esta en la empresa como {Trabajo}'
+Nombre_diccionario_1 = {'Nombre': 'Juan X', 'Trabajo': 'Programador'}
 
+print(cadena.format_map(Nombre_diccionario_1))
+print(cadena.format(**Nombre_diccionario_1))
+print("""
+Funciones de orden superior resulta del pasar iterando los distintos elementos de una lista, tupla, diccionarion, etc como argumentos de las funciones map , filter y reduce .
+Estas funciones nos permiten sustituir los bucles típicos de los lenguajes imperativos mediante construcciones equivalentes.
+map(function, sequence[, sequence, ...])
+La función map aplica una función a cada elemento de una secuencia y devuelve una lista con el resultado de aplicar la función a cada elemento.
+Si se pasan como parámetros 'n' número de argumentos el la secuencia, la función tendrá que aceptar la misma cantidad de 'n' argumentos.
 
+def cuadrado(dato_desde_lista_via_map):
+	return (dato_desde_lista_via_map ** 2)
+lista_origen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+lista_destino = list(map(cuadrado, lista_origen))
+print("Resultado :",lista_destino)
+""")
+def cuadrado(dato_desde_lista_via_map):
+	return (dato_desde_lista_via_map ** 2)
+lista_origen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+lista_destino = list(map(cuadrado, lista_origen))
+print("Resultado :",lista_destino)
+limpiar()
+print(""""
+filter(function, sequence)
+La funcion filter verifica que los elementos de una secuencia cumplan una determinada condición, devolviendo una secuencia con los
+elementos que cumplen esa condición. Es decir, para cada elemento de sequence se aplica la función function ; si el resultado es True se añade
+a la lista y en caso contrario se descarta.
+
+def es_par(n):
+	return (n % 2.0 == 0)
+lista_origen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+lista_destino = list(filter(es_par, lista_origen))
+print("Resultado :",lista_destino)
+""")
+def es_par(n):
+	return (n % 2.0 == 0)
+lista_origen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+lista_destino = list(filter(es_par, lista_origen))
+print("Resultado :",lista_destino)
 nuevo(20);
 #################################################################
-#Clase_Print_21
-
+#Ejercicio_Print_21
+print("""
 def suma_five(x):
     return x + 5
 
 nums = [11, 25, 34, 100, 23]
-result = list(map(suma_five, nums))
-print(result)
+resultado = list(map(suma_five, nums))
+print(resultado)
+""")
+def suma_five(x):
+    return x + 5
 
+nums = [11, 25, 34, 100, 23]
+resultado = list(map(suma_five, nums))
+print(resultado)
 
-nuevo(21,"fin");
+limpiar()
+
+print("""print(list(map(pow, [2, 3, 4], [10, 2, 3])))""")
+
+print(list(map(pow, [2, 3, 4], [10, 2, 3])))
+nuevo(21);
 #################################################################
 
 print("""
@@ -401,7 +454,7 @@ print("""
 ║                                                                             ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
 https://docs.python.org/3/library/pprint.html
-The pprint module provides a capability to “pretty-print” arbitrary Python data structures in a form which can be used as input to the interpreter. If the formatted structures include objects which are not fundamental Python types, the representation may not be loadable. This may be the case if objects such as files, sockets or classes are included, as well as many other objects which are not representable as Python literals.
+The pprint module provides a capability to "pretty-print" arbitrary Python data structures in a form which can be used as input to the interpreter. If the formatted structures include objects which are not fundamental Python types, the representation may not be loadable. This may be the case if objects such as files, sockets or classes are included, as well as many other objects which are not representable as Python literals.
 The formatted representation keeps objects on a single line if it can, and breaks them onto multiple lines if they don’t fit within the allowed width. Construct PrettyPrinter objects explicitly if you need to adjust the width constraint.
 Dictionaries are sorted by key before the display is computed.
 The pprint module defines one class:
@@ -436,7 +489,7 @@ stuff.insert(0, stuff)
 pprint.pprint(stuff)
 print("""
 pprint.isreadable(object)
-    Determine if the formatted representation of object is “readable,” or can be used to reconstruct the value using eval(). This always returns False for recursive objects.
+    Determine if the formatted representation of object is "readable," or can be used to reconstruct the value using eval(). This always returns False for recursive objects.
 """)
 pprint.isreadable(stuff)
 print("""

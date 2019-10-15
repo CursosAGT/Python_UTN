@@ -59,6 +59,11 @@ print("""
 ╚═════════════════════════════════════════════════════════════════════════════╝
 https://www.youtube.com/watch?v=2UNrSiKEI8w
 https://www.youtube.com/watch?v=Y_SiIgxc-xI
+
+
+En un lenguaje orientado a objetos cuando hacemos que una clase(subclase) herede de otra clase (superclase) estamos haciendo que la
+subclase contenga todos los atributos y métodos que tenía la superclase.
+
 """)
 nuevo(0,"inicio");
 
@@ -91,7 +96,7 @@ print("---------------------")
 c.c()
 nuevo(0);
 #################################################################
-#Clase_Clases_01
+#Ejercicio_Clases_01
 
 class Padre(object): 									#Creamos la clase Padre
 	def __init__(self, ojos, cejas): 					#Definimos los Atributos
@@ -108,12 +113,12 @@ class Hijo(Padre): 										#Creamos clase hija que hereda de Padre
 Tomas = Hijo('Marrones', 'Negras', 'Larga')
 print (Tomas.ojos, Tomas.cejas, Tomas.cara)
 
-print ("""De estas ultimas dos formas llamamos al Padre de la clase Hijo para no perder su código y ademas agregamos un atributo nuevo “cara” para la clase Hija.
+print ("""De estas ultimas dos formas llamamos al Padre de la clase Hijo para no perder su código y ademas agregamos un atributo nuevo "cara" para la clase Hija.
 Recomiendo en caso de herencia simple utilizar Super()""")
 
 nuevo(1);
 #################################################################
-#Clase_Clases_02
+#Ejercicio_Clases_02
 
 class Humanoide(object):#				clases padre
 	def __init__(self):#					Constructor de estado inicial

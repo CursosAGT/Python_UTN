@@ -57,10 +57,30 @@ print("""
 ║                           def metodo (clase)                                ║
 ║                                                                             ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
+La encapsulación se refiere a impedir el acceso a determinados métodos y atributos de los objetos estableciendo así qué puede utilizarse
+desde fuera de la clase.
+
+En Python suele hacer es que el acceso a una variable o función sea privada o pública si viene determinado por
+su nombre si es o no precedido con dos guiones bajos "__xxxxxxx o __yyyyyy():"
+(NOTA: no debe terminar también con otros dos guiones bajos ya que los métodos cuyo nombre comienza y termina con dos guiones bajos
+(__init__(self, args), __del__(self),__new__(cls, args),__str__(self),__cmp__(self, otro),__len__(self),etc.)
+son métodos especiales que Python llama automáticamente bajo ciertas circunstancias.)
+
+
+class Ejemplo:
+	def publico(self):
+		print ("Publico")
+	def __privado(self):
+		print ("Privado")
+ej = Ejemplo()
+ej.publico()
+ej.__privado()#<---------------------------error
+
 """)
+
 nuevo(0,"inicio");
 #################################################################
-#Clase_Clases_01
+#Ejercicio_Clases_01
 class Mascota:
 	def __init__(self,nombre, especie=None, raza=None, patas=4,  edad=None):
 		self.nombre=nombre;
@@ -109,7 +129,7 @@ gato2.mostrar()
 
 nuevo(1);
 #################################################################
-#Clase_Clases_02
+#Ejercicio_Clases_02
 class Mascota2:
 	def __init__(self,nombre, especie=None, raza=None, patas=4,  edad=None):
 		self.nombre=nombre;
