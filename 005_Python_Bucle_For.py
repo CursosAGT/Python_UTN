@@ -2,7 +2,7 @@ from Estructura import *
 nuevo(0,"inicio");
 #################################################################
 def Ej_ya_hechos():
-	#Con tab colocaremos aqui las precticas hechas
+	#Con tab colocaremos aquí las prácticas hechas
 	pass
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
@@ -12,10 +12,10 @@ print("""
 ╚═════════════════════════════════════════════════════════════════════════════╝
 for i in range(10):<------------recordar los dos puntos ':'
 Range - rango   ╚════════  10 valores, sin otro dato empieza en 0 y termina en 9
-			   
+
 for i in range(5,20):<------------recordar los dos puntos ':'
 			   ║  ╚════════ 20 valor final termina en 19
-			   ╚═══════════ 5 valor inicial empieza 5 
+			   ╚═══════════ 5 valor inicial empieza 5
 
 for i in range(3,300,10):
 			   ║  ║   ═════ Step incremento 10, ira de 10 en 10
@@ -25,7 +25,7 @@ for i in range(3,300,10):
 """);
 nuevo(0,"inicio");
 #################################################################
-#Clase_For_Ej_01 
+#Clase_For_Ej_01
 
 for i in range(5):
 	print ("Valor "+str(i));
@@ -45,14 +45,14 @@ print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
 ║                                   Bucles // for                             ║
 ╠═════════════════════════════════════════════════════════════════════════════╣
-║                        Array:  limites no numericos                         ║
+║                        Array:  limites no numéricos                         ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
 for i in [1,2,3,4,5]:<------------recordar los dos puntos ':'
 lista         ╚════════  5 valores ordenados
-			   
+
 for i in [6,2,5,4,8]:<------------recordar los dos puntos ':'
 lista         ╚════════  5 valores sin orden
-			   
+
 for i in ["Nombre_1","Nombre_2","Nombre_3","Nombre_4"]:<-recordar los dos puntos ':'
 lista         ╚════════  lista[], tupla (), etc
 
@@ -120,7 +120,7 @@ print ("verificar si tiene mas de un @ y como minimo un punto.");
 nuevo(10);
 #################################################################
 #Clase_For_Ej_11
-print ("verificar si tiene mas de un @ y como minimo un punto. y caracteres alfanumericos");
+print ("verificar si tiene mas de un @ y como minimo un punto. y caracteres alfanuméricos");
 nuevo(11);
 #################################################################
 #Clase_For_Ej_12
@@ -190,12 +190,12 @@ recorre la lista enumarada""");
 print("#################################################################")
 valor =  len(paises);
 for o in range(valor):
-	print('original :',paises[o],capitales[o],)	
+	print('original :',paises[o],capitales[o],)
 for p, c in zip(paises, capitales):
 	print('zip :',c,' ',p)											# recorre listas
 print("""
 for p, c in zip(lista_1, lista_2):
-	print('zip :',c,' ',p)		
+	print('zip :',c,' ',p)
 recorre dos listas a la par""");
 print("#################################################################")
 for o in (paises):
@@ -213,7 +213,7 @@ for c in sorted(paises):
 	print("sorted :",c,)  											# recorre secuencia ordenada
 print("""
 for c in sorted(lista_1):
-	print("sorted",c,) 
+	print("sorted",c,)
 recorre la lista ordenada alfabeticamente""");
 print("#################################################################")
 nuevo(13);
@@ -242,7 +242,7 @@ Devuelve un objeto iterable con los elementos (de principio a fin) del iterable 
 cycle() con una cadena:
 -----------------------
 """);
-contador = 0 
+contador = 0
 for elemento in cycle("Python"):
     print(elemento, end = ' ')
     contador += 1
@@ -338,16 +338,16 @@ dropwhile()
 Construye un iterable a partir del iterable de entrada sin devolver ningún elemento hasta que la condición del predicado sea falsa. Después de ese momento se devuelven todos los elementos que resten.
 
 									dropwhile(predicate, iterable)""");
-for elemento in dropwhile(lambda valor: valor == 'x', 
+for elemento in dropwhile(lambda valor: valor == 'x',
                           ['x','x','y','z','x','x']):
-    print(elemento, end = ' ')    
+    print(elemento, end = ' ')
 print("""
 filterfalse()
 -------------
 Esta función devuelve un iterable con los elementos del iterable de entrada que no cumplan la condición expresada en el predicado. Si el predicado es None devuelve los elementos con valor False o 0.
 
 									itertools.filterfalse(predicate, iterable)""");
-for elemento in filterfalse(lambda valor: valor == 'x', 
+for elemento in filterfalse(lambda valor: valor == 'x',
                             ['x','x','y','z','x','x']):
     print(elemento, end = ' ')
 print("""
@@ -358,9 +358,9 @@ Devuelve un iterable con los elementos del iterable de entrada agrupados por el 
 groupby() con lista ordenada:
 ----------------------------
 En el siguiente ejemplo la lista de tuplas contiene ciudades de diferentes países ordenados alfabéticamente:""");
-ciudades = [("Bolivia", "Sucre"), ("Bolivia", "La Paz"), 
-            ("Chile", "Valdivia"), ("Chile", "Arica"), 
-            ("España", "Cádiz"), ("Perú", "Cusco"), 
+ciudades = [("Bolivia", "Sucre"), ("Bolivia", "La Paz"),
+            ("Chile", "Valdivia"), ("Chile", "Arica"),
+            ("España", "Cádiz"), ("Perú", "Cusco"),
             ("Perú", "Lima")]
 for clave, grupo in groupby(ciudades, lambda x: x[0]):
     print(clave, list(grupo))
@@ -378,9 +378,9 @@ En el siguiente ejemplo la lista de tuplas contiene ciudades de diferentes país
 Para que se pueda agrupar la información de cada país es necesario ordenar la lista. Para ello se utiliza la función sorted() con la función itemgetter() del módulo operator. Esta función permite establecer el criterio de ordenación. En el ejemplo, como cada tupla contiene dos elementos (país, ciudad) itemgetter(0) establece que el criterio de orden será el primer elemento de la tupla, es decir, el país.
 """);
 from operator import itemgetter
-ciudades = [("Perú", "Cusco"), ("Chile", "Valdivia"), 
-            ("Bolivia", "Sucre"), ("Bolivia", "La Paz"), 
-            ("España", "Cádiz"), ("Chile", "Arica"), 
+ciudades = [("Perú", "Cusco"), ("Chile", "Valdivia"),
+            ("Bolivia", "Sucre"), ("Bolivia", "La Paz"),
+            ("España", "Cádiz"), ("Chile", "Arica"),
             ("Perú", "Lima")]
 
 ciudades = sorted(ciudades, key=itemgetter(0))
@@ -409,13 +409,13 @@ print("""
 Devuelve los elementos que hay desde una posición inicial a una final:
 """);
 for elemento in islice("KLMNOPQRST", 5, 7):
-    print(elemento, end = ' ') 
+    print(elemento, end = ' ')
 
 print("""
 Devuelve los elementos que hay desde una posición inicial a una final, separados entre sí por un valor fijo de elementos:
 """);
 for elemento in islice("1234567890", 0, 8, 2):
-    print(elemento, end = ' ') 
+    print(elemento, end = ' ')
 
 print("""
 starmap()
@@ -423,16 +423,16 @@ starmap()
 Construye un objeto iterable aplicando una función que utiliza como argumentos los elementos del iterable de entrada, devolviendo una secuencia con los resultados obtenidos.
 									itertools.starmap(function, iterable)
 En el ejemplo se recorre una lista de tuplas y se construye el iterable a devolver con el valor más alto de los elementos que hay en cada una de ellas:""");
-for elemento in starmap(max, 
+for elemento in starmap(max,
                         [(10,2),(2,32),(63,54),(4,45)]):
-    print(elemento, end = ' ') 
+    print(elemento, end = ' ')
 print("""
 takewhile()
 -----------
 Construye un iterable a partir del iterable de entrada devolviendo elementos mientras la condición del predicado es verdadera. En el momento que cambie a falsa no devolverá más elementos aunque exista alguno que cumpla la condición.
 									itertools.takewhile(predicate, iterable)
 En el ejemplo se recorre una lista de cadenas comprobando si su longitud es igual a 1:""");
-for elemento in takewhile(lambda x: len(x) == 1, 
+for elemento in takewhile(lambda x: len(x) == 1,
                           ['a','b','ab','bc','c']):
     print(elemento, end = ' ')
 print("""
@@ -451,7 +451,7 @@ zip_longest()
 Devuelve un iterable que agrega elementos de cada uno de los iterables de entrada. Si los iterables de entrada tienen distinta longitud se completará utilizando el valor de fillvalue, hasta que se alcance el final del iterable que tenga una longitud mayor.
 									itertools.zip_longest(*iterables, fillvalue=None)""");
 
-for elemento in zip_longest(['x','y','z'], ['0','1'], 
+for elemento in zip_longest(['x','y','z'], ['0','1'],
                             fillvalue='#'):
     print(elemento, end = ' ')
 nuevo(15);

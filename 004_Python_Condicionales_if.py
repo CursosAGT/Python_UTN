@@ -3,7 +3,7 @@ nuevo(0,"inicio");
 #################################################################
 #Condicional_Ej_01;
 def Ej_ya_hechos():
-	#Con tab colocaremos aqui las precticas hechas
+	#Con tab colocaremos aquí las prácticas hechas
 	pass
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
@@ -233,7 +233,7 @@ y3 = [1,2,3]
 print("x1 is not y1:",x1 is not y1)#False
 print("x2 is y2:",x2 is y2)#true
 print("x3 is y3:",x3 is y3)#False
-
+#################################################################
 limpiar()
 
 print("""
@@ -261,7 +261,7 @@ if (list1 is list3):#True
 else:
 	print("False")
 
-
+#################################################################
 limpiar()
 for i in range(250, 260): a = i; print ("%i: %s" % (i, a is int(str(i))));
 limpiar()
@@ -269,6 +269,7 @@ dato2 = "Ariel"
 
 if dato2 is "Ariel":
 	print ('Si dato2 is "Ariel"')
+#################################################################
 limpiar()
 
 print("""

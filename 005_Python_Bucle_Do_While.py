@@ -3,7 +3,7 @@ nuevo(0,"inicio");
 #################################################################
 import math
 def Ej_ya_hechos():
-	#Con tab colocaremos aqui las precticas hechas
+	#Con tab colocaremos aquí las prácticas hechas
 	pass
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
@@ -13,10 +13,10 @@ print("""
 ║                             "NO EXISTE EN Python"                           ║
 ║                                                                             ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
-"""); 
+""");
 limpiar();
 #################################################################
-#Clase_While_Ej_01 
+#Clase_While_Ej_01
 contador = 1
 while contador<10:
 	print (contador);

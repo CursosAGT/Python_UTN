@@ -57,22 +57,28 @@ Al igual que sqlAlchemy, Peewee es un ORM que nos permite trabajar con diferente
 Si eres nuevo en el mundo de base de datos y python te recomiendo comiences con este ORM. De forma personal considero que Peewee tiene una curva de aprendizaje muy baja. Además que si tu objetivo es utilizar un Framework Web como Django trasladar los conocimientos de Peewee se te será muy sencillo.
 A Diferencia de las librerías mencionadas anteriormente, re no necesita instalación alguna, ya que esta, se encuentra lista para ser usada con un simple import, claro, siempre y cuando hayas instalado Python.
 
+
 \033[4;35m import re \033[0m
 con re podemos trabajar con expresiones regulares, podemos crearlas y aplicarlas.
 Si necesitas validar algun formato, quizás un correo electronico, que mejor que hacerlo con una expresión regular.
-El tema de expresiones regulares es muy amplio, si te interesa puedes leer más en la documentación oficial.
+
+El tema de expresiones regulares es muy amplio, si te interesa puedes leer más
+ en la documentación oficial.
 
 \033[4;35m collections \033[0m
 Al igual que re, collections es una librería la cual ya se encuentra lista para usar. Esta librería nos permite trabajar con listas, tuplas, diccionarios entre otras estructuras de datos.
 Las acciones que podemos realizar con esta librería son muchas así como variadas, desde ordenar diccionarios, agrupar objetos hasta combinar estructuras y concatenarlas.
+
 >>> import collections
 >>> c = collections.Counter('helloworld')
 >>> c
 
 Counter({'l': 3, 'o': 2, 'e': 1, 'd': 1, 'h': 1, 'r': 1, 'w': 1})
+
 """)
 import math
 print(dir(math));
+limpiar()
 print(help(math));
 print(math.pi);
 

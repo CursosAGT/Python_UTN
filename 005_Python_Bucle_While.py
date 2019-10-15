@@ -3,7 +3,7 @@ nuevo(0,"inicio");
 #################################################################
 import math
 def Ej_ya_hechos():
-	#Con tab colocaremos aqui las precticas hechas
+	#Con tab colocaremos aquí las prácticas hechas
 	pass
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
@@ -27,7 +27,7 @@ edad=0
 print ("venta de alcohol en boliches");
 edad=int(input("ingrese su edad :"));
 while edad<18:
-	print ("Cometio un error al ingresar la edad o es menor y debe retirarse");
+	print ("Cometió un error al ingresar la edad o es menor y debe retirarse");
 	edad=int(input("ingrese su edad :"));
 else:
 	print("que desea beber.......fin....");
@@ -38,7 +38,7 @@ print(" break" );
 print ("venta de alcohol en boliches");
 edad=int(input("ingrese su edad :"));
 while edad<18:
-	print ("Cometio un error al ingresar la edad o es menor debe ingresar un valor'<10' y retirarse");
+	print ("Cometió un error al ingresar la edad o es menor debe ingresar un valor'<10' y retirarse");
 	edad=int(input("ingrese su edad :"));
 	if edad<=10:
 		print ("toma una cindor y Adios");
@@ -53,10 +53,10 @@ nuevo(4);
 #################################################################
 #Clase_While_Ej_05
 valor=0
-print("libreria math");
-valor=int(input("Ingrese numero para sacar raiz cuadrada:"));
+print("librería math");
+valor=int(input("Ingrese numero para sacar raíz cuadrada:"));
 while valor<0:
-	valor=int(input("Ingreso un numero negativo. Ingrese un numero para sacar raiz cuadrada:"));
+	valor=int(input("Ingreso un numero negativo. Ingrese un numero para sacar raíz cuadrada:"));
 resultado = math.sqrt(valor);
 print ("la raiz cuadrada de :"+str(valor));
 print ("son : + -"+str(resultado));

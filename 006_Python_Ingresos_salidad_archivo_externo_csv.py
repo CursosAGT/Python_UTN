@@ -2,12 +2,12 @@ from Estructura import *
 nuevo(0,"inicio");
 #################################################################
 def Ej_ya_hechos(x):
-	#Con tab colocaremos aqui las precticas hechas
+	#Con tab colocaremos aquí las practicas hechas
 	pass
 
 ####################                  CSV(texto separado por comas)
 print("""
-╔═════════════════════════════════════════════════════════════════════════════╗ 
+╔═════════════════════════════════════════════════════════════════════════════╗
 ║                                                                             ║
 ║                                       CVS                                   ║
 ║                                                                             ║
@@ -18,13 +18,13 @@ aguarde""");
 #IO_ext Ej_01;
 
 import csv
- 
-with open('desde_plan_calculo.csv', newline='') as archivo_de_csv:  
+
+with open('desde_plan_calculo.csv', newline='') as archivo_de_csv:
 	csv_a_memoria = csv.reader(archivo_de_csv)
 	for row in csv_a_memoria:
 		print(row)
 nuevo(1);
-with open('desde_plan_calculo.csv', newline='') as archivo_de_csv:  
+with open('desde_plan_calculo.csv', newline='') as archivo_de_csv:
 	csv_a_memoria = csv.reader(archivo_de_csv, delimiter=',', quotechar=',',
 						quoting=csv.QUOTE_MINIMAL)
 	for row in csv_a_memoria:
@@ -56,7 +56,7 @@ with archivo:
 print("grabamos el archivo 'salida_a_csv3.csv' ver en el directorio y abrir con la planilla de calculo")
 nuevo(3);
 print("""
-╔═════════════════════════════════════════════════════════════════════════════╗ 
+╔═════════════════════════════════════════════════════════════════════════════╗
 ║                                                                             ║
 ║                                     Pandas                                  ║
 ║          https://www.doctormetrics.com/importando-datos-en-python/          ║
@@ -66,7 +66,7 @@ aguarde""");
 
 import pandas as pd
 df = pd.read_csv('desde_plan_calculo.csv')
-print("Habro el archivo 'desde_plan_calculo.csv'" )
+print("Abro el archivo 'desde_plan_calculo.csv'" )
 print("dataframe = df")
 for row in df:
 	print(row)
@@ -104,7 +104,7 @@ limpiar()
 print("Imprimo la columna Dato4 ordenada ascendente")
 print(df.sort_values(by='Dato4'))
 limpiar()
-print("Imprimo la columna Dato4 ordenada decendente")
+print("Imprimo la columna Dato4 ordenada descendente")
 print(df.sort_values(by='Dato4',ascending=False))
 limpiar()
 print("Imprimo la 5ta columna Datos >50 %")
@@ -119,14 +119,14 @@ print("Antes\n",df.head())
 cabecera = ["ID", "Columna_1", "Columna_2", "Columna_3", "Columna_4", "Columna_5", "Columna_6"]
 df.columns = cabecera
 df.head()
-print("Despues\n",df.head())
+print("Después\n",df.head())
 salida='salida_a_csv.csv'
 df.to_csv(salida)
 
 nuevo(5);
 
 print("""
-╔═════════════════════════════════════════════════════════════════════════════╗ 
+╔═════════════════════════════════════════════════════════════════════════════╗
 ║                                                                             ║
 ║                                   Plotly                                    ║
 ║                             pip install plotly                              ║
@@ -160,14 +160,14 @@ nuevo(7);
 
 
 print("""
-╔═════════════════════════════════════════════════════════════════════════════╗ 
+╔═════════════════════════════════════════════════════════════════════════════╗
 ║                                                                             ║
 ║                                    Numpy                                    ║
 ║          https://www.doctormetrics.com/importando-datos-en-python/          ║
 ║                           pip install -U numpy                              ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
 aguarde""");
-	
+
 import numpy as np
 print("""
 Si en nuestro archivo tenemos datos de diferentes tipos, podemos usar dos funciones: genfromtext() y recfromcsv().
@@ -182,7 +182,7 @@ for row in df:
 	print(row)
 nuevo(8);
 print("""
-╔═════════════════════════════════════════════════════════════════════════════╗ 
+╔═════════════════════════════════════════════════════════════════════════════╗
 ║                                                                             ║
 ║                                 Matplotlib                                  ║
 ║                         pip install -U matplotlib                           ║
@@ -201,7 +201,7 @@ with open(data_path, 'r') as f:
     data = list(reader)
     # transform data into numpy array
     data = np.array(data).astype(float)
-    
+
 print(headers)
 print(data.shape)
 print(data[:3])

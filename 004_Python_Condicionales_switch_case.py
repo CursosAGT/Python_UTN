@@ -3,7 +3,7 @@ nuevo(0,"inicio");
 #################################################################
 #Condicional_Ej_01;
 def Ej_ya_hechos():
-	#Con tab colocaremos aqui las precticas hechas
+	#Con tab colocaremos aquí las prácticas hechas
 	pass
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
@@ -18,18 +18,18 @@ print("""
 
 def switch_mes(dato):
 	switcher = {
-				1: "Enero", 
-				2: "Febrero", 
+				1: "Enero",
+				2: "Febrero",
 				3: "Marzo",
-				4: "Abril", 
-				5: "Mayo", 
-				6: "Junio", 
-				7: "Julio", 
-				8: "Augosto", 
-				9: "Septimbre", 
-				10: "Octubre", 
-				11: "Novimbre", 
-				12: "Dicembre"
+				4: "Abril",
+				5: "Mayo",
+				6: "Junio",
+				7: "Julio",
+				8: "Agosto",
+				9: "Septiembre",
+				10: "Octubre",
+				11: "Noviembre",
+				12: "Diciembre"
 	}
 	return switcher.get(dato,"Mes Invalido")
 dato=int(input("Ingrese el mes entre 1 y 12 :"))
@@ -53,15 +53,15 @@ def sexto():
 def septimo():
 	return "Julio"
 def octavo():
-	return "Augosto"
+	return "Agosto"
 def noveno():
-	return "Septimbre"
+	return "Septiembre"
 def decimo():
 	return "Octubre"
 def decimoprimero():
-	return "Novimbre"
+	return "Noviembre"
 def decimosegundo():
-	return "Dicembre"
+	return "Diciembre"
 def meses(argumento):
 	switcher = {
 		1: primero,
@@ -93,9 +93,9 @@ switch_case = {
 	2 : "El jugador sube la cuesta",
 	4 : "El jugador gira a la izquierda",
 	6 : "El jugador gira a la derecha",
-	} 
+	}
 
-print(switch_case.get(int(input("usa el pad numerico del teclado (valores 8,2,4,6-5 para salir:)"))))
+print(switch_case.get(int(input("usa el pad numérico del teclado (valores 8,2,4,6-5 para salir:)"))))
 nuevo(3);
 #################################################################
 #Condicional_Ej_04;
