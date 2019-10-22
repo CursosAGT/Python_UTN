@@ -153,53 +153,68 @@ print("""
 ║        para esta cursada debemos instalar las siguientes librerías          ║
 ║                                                                             ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
+pip install --upgrade pip
 
-import datetime
-from datetime import date
-from datetime import time
-from datetime import datetime
-from datetime import time
-from datetime import timedelta
-from dateutil.relativedelta import relativedelta
+		import datetime
+		from datetime import date
+		from datetime import time
+		from datetime import datetime
+		from datetime import time
+		from datetime import timedelta
+		from dateutil.relativedelta import relativedelta
 
-import time
-import calendar
+		import time
+		import calendar
 
-pip install imutils
-import imutils
-import os
+		pip install imutils
+		import imutils
+		import os
 
+sudo zypper install python3-tk
 pip install tkintertable
-import tkinter
-from tkinter import *
-from tkinter import messagebox
-from tkinter import ttk
+		import tkinter
+		from tkinter import *
+		from tkinter import messagebox
+		from tkinter import ttk
 
 pip install numpy
-import numpy as np
+		import numpy as np
 
 
 pip install opencv-python
-import cv2
+		import cv2
 
 pip install matplotlib
-import math
-from matplotlib import pyplot as plt
+		import math
+		from matplotlib import pyplot as plt
 
 
 pip install Pillow==2.2.2
-from PIL import Image, ImageTk
+		from PIL import Image, ImageTk
 
 Instalar MySQL// maria db // workbench
+
 pip install mysql-connector
-import mysql.connector
+		import mysql.connector
 
 pip install schedule
-import schedule
+		import schedule
 
-from collections import Counter
+		from collections import Counter
 
-python -m pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose
-sudo apt-get install python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
+sudo zypper install python3-tk
+
+pip install --upgrade pip
+
+pip install plotly
+pip install scipy
+
+
+pip install imutils tkintertable numpy opencv-python matplotlib Pillow mysql-connector schedule scipy ipython jupyter pandas sympy nose pytz pip install plotly
+
+
+sudo apt-get install python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose plotly
 zypper -n in mysql mysql-administration mysql-client mysql-query-browser mysql-gui-tools
 """);
+
+

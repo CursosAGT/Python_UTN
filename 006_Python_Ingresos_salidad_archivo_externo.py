@@ -232,27 +232,4 @@ print("Ingreso lectura de bloque de datos con metodo WITH  desde otro archivo Ja
 with open("JavaScript_Object_Notation_with.json","r") as read_file:# abre el archivo JavaScript_Object_Notation para lectura en bloque
 	json_en_memoria2 = json.load(read_file);
 print(json_en_memoria2);
-nuevo(13);
-#################################################################
-
-#################################################################
-#IO_ext Ej_08;
-####################                  CSV(texto separado por comas)
-print("""
-╔═════════════════════════════════════════════════════════════════════════════╗
-║                                                                             ║
-║                                       CVS                                   ║
-║                                                                             ║
-╚═════════════════════════════════════════════════════════════════════════════╝
-""");
-import pandas as pd
-ejemplo_desde_plan_calculo.csv
-
-
-#################################################################
-#IO_ext Ej_08;
-print("Ingreso lectura de bloque de datos desde otro archivo CSV read - rw");
-archivo_de_csv=pd.read_cvs("ejemplo_desde_plan_calculo.csv",header=0)#		abre el archivo JavaScript_Object_Notation para lectura en bloque
-print(archivo_de_csv);
-print(Dato_3);
-nuevo(14,"fin");
+nuevo(13,"fin");

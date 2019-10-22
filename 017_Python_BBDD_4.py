@@ -2,7 +2,7 @@ from Estructura import *
 nuevo(0,"inicio");
 #################################################################
 def Ej_ya_hechos():
-	#Con tab colocaremos aqui las prácticas hechas
+	#Con tab colocaremos aqui las precticas hechas
 	pass
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
@@ -53,7 +53,7 @@ print("""
 ║                                                                             ║
 ║       Text Data Types                                                       ║
 ║       As data type category name implies these are used to store text values║
-║       Always make sure you length of your textual data do not exceed        ║
+║       Always make sure you length of your textual data do not exceed        ║ 
 ║       maximum lengths.                                                      ║
 ║                    CHAR( )       A fixed section from 0 to 255 characters   ║
 ║                    VARCHAR( )    A variable section from 0 to 255 chrs      ║
@@ -91,7 +91,7 @@ https://www.w3schools.com/python/python_mysql_create_db.asp
 """)
 limpiar();
 #################################################################
-#Clase_BBDD_01
+#Clase_BBDD_01 
 
 import mysql.connector
 def crear_base():
@@ -165,7 +165,7 @@ def crear_tablas():
 		nombre_columna_2 = nombre_columna_2.upper()
 		nombre_columna_3 = input("ingrese el nombre de la nombre de la COLUMNA 3 a crear : ")
 		nombre_columna_3 = nombre_columna_3.upper()
-
+		
 		print ("Conectamos con MySQL")
 		connection = mysql.connector.connect(host="localhost",user="root", passwd="utn",database=str(nombre_DDBB))
 		cursor = connection.cursor()
@@ -193,7 +193,7 @@ def agregar_id_tablas():
 		print ("Conectamos con MySQL ", nombre_DDBB )
 		connection = mysql.connector.connect(host="localhost",user="root", passwd="utn",database=str(nombre_DDBB))
 		cursor = connection.cursor()
-		cursor.execute("ALTER TABLE "+str(nombre_tabla)+" ADD COLUMN id INT AUTO_INCREMENT PRIMARY KEY")
+		cursor.execute("ALTER TABLE "+str(nombre_tabla)+" ADD COLUMN id INT AUTO_INCREMENT PRIMARY KEY") 
 		cursor.execute("SHOW TABLES")
 		print ("Mostramos las tablas de la bases de datos UTN_practica1_2019")
 		lista_de_tablas=[]
@@ -202,7 +202,7 @@ def agregar_id_tablas():
 			lista_nombres_tablas_largo=len(lista_tablas)-4
 			lista_nombres_tablas=lista_nombres_tablas[2:lista_nombres_tablas_largo]
 			print ("*"+lista_nombres_tablas+"*")
-
+			
 			lista_de_tablas.append(lista_nombres_tablas);
 		print (lista_de_tablas)
 		print("cerramos coneccion");
@@ -340,7 +340,7 @@ def modificar_datos_tabla():
 		cursor.execute("update UTN_cuatrimestre set ALUMNO_EDAD=99 where ALUMNO_NOMBRE='Ariel'")
 		connection.commit()
 		cursor.execute("select ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD from UTN_cuatrimestre")
-		print("------después de borrar-----------\n")
+		print("------Despues de borrar-----------\n")
 		for fila in cursor:
 			print(fila)
 			print("------------------------------\n")
@@ -365,7 +365,7 @@ def borrar_datos_tabla():
 		connection.commit()
 
 		cursor.execute("select ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD from UTN_cuatrimestre")
-		print("------después de borrar-----------\n")
+		print("------Despues de borrar-----------\n")
 		for fila in cursor:
 			print(fila)
 			print("------------------------------\n")
@@ -375,7 +375,7 @@ def borrar_datos_tabla():
 	except Exception as e:
 		print("Exeception occured:{}".format(e))
 	finally:
-		cursor.close
+		cursor.close	
 
 accion = input ("Borramos base de datos (S/N)"); limpiar();
 if accion.upper() =="S": borrar_base();
@@ -389,28 +389,28 @@ accion= input("Agrego columna ID en tabla (S/N)"); limpiar();
 if accion.upper() =="S": agregar_id_tablas();
 ################################################            segunda parte del ejercicio
 print ("segunda parte del ejercicio")
-accion= input("Inicio practica alumnos (S/N)");
+accion= input("Inicio practica alumnos (S/N)"); 
 if accion.upper() =="S": Iniciar_practica()
 accion= input("Listamos Tablas en la base de datos UTN_practica1_2019 (S/N)");
-if accion.upper() =="S": listar_tablas();
+if accion.upper() =="S": listar_tablas(); 
 accion= input("Agregar dato 1 en la base de datos UTN_practica1_2019 (S/N)");
-if accion.upper() =="S": agregar_datos_tabla();
+if accion.upper() =="S": agregar_datos_tabla(); 
 accion= input("Agregar dato 2 en la base de datos UTN_practica1_2019 (S/N)");
-if accion.upper() =="S": agregar_datos_tabla();
+if accion.upper() =="S": agregar_datos_tabla(); 
 accion= input("Agregar dato 3 en la base de datos UTN_practica1_2019 (S/N)");
-if accion.upper() =="S": agregar_datos_tabla();
+if accion.upper() =="S": agregar_datos_tabla(); 
 accion= input("Agregar dato 4 en la base de datos UTN_practica1_2019 (S/N)");
-if accion.upper() =="S": agregar_datos_tabla();
+if accion.upper() =="S": agregar_datos_tabla(); 
 accion= input("Agregar dato 5 en la base de datos UTN_practica1_2019 (S/N)");
-if accion.upper() =="S": agregar_datos_tabla();
+if accion.upper() =="S": agregar_datos_tabla(); 
 accion= input("Agregar dato 6 en la base de datos UTN_practica1_2019 (S/N)");
-if accion.upper() =="S": agregar_datos_tabla();
+if accion.upper() =="S": agregar_datos_tabla(); 
 accion= input("Listar datos en la base de datos UTN_practica1_2019 (S/N)");
-if accion.upper() =="S": listar_datos_tabla();
+if accion.upper() =="S": listar_datos_tabla(); 
 accion= input("Modificar datos en la base de datos UTN_practica1_2019 (S/N)");
-if accion.upper() =="S": modificar_datos_tabla();
+if accion.upper() =="S": modificar_datos_tabla(); 
 accion= input("Borrar datos en la base de datos UTN_practica1_2019 (S/N)");
-if accion.upper() =="S": borrar_datos_tabla();
+if accion.upper() =="S": borrar_datos_tabla(); 
 
 
 
@@ -422,10 +422,10 @@ if accion.upper() =="S": borrar_datos_tabla();
 '''
 import datetime
 import mysql.connector
-
+ 
 connection = mysql.connector.connect(user='user', password='password', database='database')
 cursor =connection.cursor()
-
+ 
 dni = 10
 nombre = 'George'
 apellido = 'Lopez'
@@ -433,7 +433,7 @@ fecha_nacimiento = datetime.date(1961, 4, 23)
 lugar_nacimiento = 'Mission Hills, California, Estados Unidos'
 domicilio = 'California'
 e_mail = 'george@lopez.com'
-
+ 
 sql = """
 	INSERT INTO alumno
 	(
@@ -458,7 +458,7 @@ sql = """
 datos = (dni, nombre, apellido, fecha_nacimiento, lugar_nacimiento, domicilio, e_mail)
 cursor.execute(sql, datos)
 cursor.commit()
-
+ 
 cursor.close()
 connection.close()
 '''

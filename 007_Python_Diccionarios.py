@@ -339,4 +339,3 @@ del Nombre_diccionario_3
 nuevo(15,"fin");
 #################################################################
 artistas = {'Lorca':'Escritor', 'Goya':'Pintor', 'Beethoven':'Musico', 'Freddie Mercury':'Cantante', 'Pablo Picasso':'Pintor', 'Leonardo Da Vinci':'genio total'}	# diccionario
-""")

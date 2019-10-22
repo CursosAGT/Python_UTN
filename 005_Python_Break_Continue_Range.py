@@ -90,3 +90,25 @@ if fin:
 else:
 	print("el programa llego al fin");
 nuevo(4);
+
+for letra in "Python-UTN":
+    if letra == "-":
+        break
+    print ("Letra actual : " + letra)
+
+# Segundo ejemplo
+for var in range(11,0,-1):
+    if var == 5:
+        break
+    print ("Valor actual de la variable : " + str(var))
+print ("fin del script")
+
+
+var = 10
+while var > 0:
+    var = var -1
+    if var == 5:
+        break
+    print ("Valor actual de la variable : " + str(var))
+
+print ("fin del script")
