@@ -15,28 +15,28 @@ https://www.w3schools.in/python-tutorial/gui-programming/
 
 
 try:
-     cociente = dividendo / divisor");
+	 cociente = dividendo / divisor");
  except:
-     print ("No se permite la división por cero");
+	 print ("No se permite la división por cero");
 #################################################################
 try:
-     aquí ponemos el código que puede lanzar excepciones
+	 aquí ponemos el código que puede lanzar excepciones
 except:
-     ERROR de sintaxis, esta sentencia no puede estar aquí,
-     sino que debería estar luego del except IOError.
+	 ERROR de sintaxis, esta sentencia no puede estar aquí,
+	 sino que debería estar luego del except IOError.
 except IOError:
-     Manejo de la excepción de entrada/salida
+	 Manejo de la excepción de entrada/salida
 #################################################################
 try:
-    archivo = open("miarchivo.txt")
-     procesar el archivo
+	archivo = open("miarchivo.txt")
+	 procesar el archivo
 except IOError:
-    print "Error de entrada/salida."
-     realizar procesamiento adicional
+	print "Error de entrada/salida."
+	 realizar procesamiento adicional
 except:
-     procesar la excepción
+	 procesar la excepción
 finally:
- 	si el archivo no está cerrado hay que cerrarlo
+	si el archivo no está cerrado hay que cerrarlo
    if not(archivo.closed):
 	archivo.close()
 """)
@@ -147,10 +147,10 @@ nuevo(4);
 lista = [1, 2, 3, 4, 5, 6, 7, 8]
 iterador = iter(lista)
 try:
-    while True:
-        print("DATO DEL ITERADOR",iterador.__next__())
+	while True:
+		print("DATO DEL ITERADOR",iterador.__next__())
 except StopIteration:
-    print("Se ha alcanzado el final de la lista")
+	print("Se ha alcanzado el final de la lista")
 nuevo(4);
 #################################################################
 #Clase_Errores_Ej_005
@@ -232,25 +232,39 @@ import mysql.connector#<------------------------------------------------debe est
 from mysql.connector import Error
 
 try:
-    connection = mysql.connector.connect(host='localhost',
-                                         database='utn_2019',
-                                         user='root',
-                                         password='utn')
+	connection = mysql.connector.connect(host='localhost',
+										 database='utn_2019',
+										 user='root',
+										 password='utn')
 
-    if connection.is_connected():
-        db_Info = connection.get_server_info()
-        print("Connected to MySQL Server version ", db_Info)
-        cursor = connection.cursor()
-        cursor.execute("select database();")
-        record = cursor.fetchone()
-        print("Your connected to database: ", record)
+	if connection.is_connected():
+		db_Info = connection.get_server_info()
+		print("Connected to MySQL Server version ", db_Info)
+		cursor = connection.cursor()
+		cursor.execute("select database();")
+		record = cursor.fetchone()
+		print("Your connected to database: ", record)
 
 except Error as e:
-    print("Error while connecting to MySQL", e)
+	print("Error while connecting to MySQL", e)
 finally:
-    if (connection.is_connected()):
-        cursor.close()
-        connection.close()
-        print("MySQL connection is closed")
-nuevo(11,"fin");
+	if (connection.is_connected()):
+		cursor.close()
+		connection.close()
+		print("MySQL connection is closed")
+
+nuevo(11);
 #################################################################
+#Clase_Errores_Ej_012
+class BreakIt(Exception): pass
+
+try:
+	for x in range(10):
+		for y in range(10):
+			print (x*y)
+			if x*y > 50:
+				print("se acabo")
+				raise BreakIt
+except BreakIt:
+    pass
+nuevo(12,"fin");
