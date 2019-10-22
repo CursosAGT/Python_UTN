@@ -1,0 +1,25 @@
+{
+    "clientes": [
+        {
+            "nombre": "Sigrid",
+            "apellido": "Mannock",
+            "edad": 27,
+            "monto": 7.17
+        },
+        {
+            "nombre": "Joe",
+            "apellido": "Hinners",
+            "edad": 31,
+            "monto": [
+                1.9,
+                5.5
+            ]
+        },
+        {
+            "nombre": "Theodoric",
+            "apellido": "Rivers",
+            "edad": 36,
+            "monto": 1.11
+        }
+    ]
+}

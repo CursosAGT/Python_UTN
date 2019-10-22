@@ -4,6 +4,7 @@ nuevo(0,"inicio");
 def Ej_ya_hechos(x):
 	#Con tab colocaremos aquí las prácticas hechas
 	pass
+'''
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
 ║                                                                             ║
@@ -184,7 +185,7 @@ archivo_de_json.close();
 del archivo_de_json
 nuevo(9);
 #################################################################
-#IO_ext Ej_08;
+#IO_ext Ej_09;
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
 ║                                                                             ║
@@ -202,14 +203,14 @@ with open("binario_metodo_with.dat","wb") as write_file:#			abre el archivo bina
 	pickle.dump(binario_en_memoria2, write_file, pickle.HIGHEST_PROTOCOL)
 nuevo(10);
 #################################################################
-#IO_ext Ej_08;
+#IO_ext Ej_10;
 print("Ingreso lectura de bloque de datos con metodo WITH desde otro archivo binario read - rw");
 with open("binario_metodo_with.dat", "rb") as read_file:#			abre el archivo binario para lectura en bloque
 	binario_a_memoria2 = pickle.load(read_file)
 print(binario_a_memoria2);
 nuevo(11);
 #################################################################
-#IO_ext Ej_08;
+#IO_ext Ej_11;
 
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
@@ -217,6 +218,7 @@ print("""
 ║                   metodo 'WITH' JSON (JavaScript Object Notation).          ║
 ║                  --------------------------------------------------         ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
+El JSON se construye anidando diccionarios (objetos) y listas según se necesite.
 """);
 
 import json
@@ -227,9 +229,93 @@ with open("JavaScript_Object_Notation_with.json", "w") as write_file:# abre el a
 	json.dump(json_en_memoria2, write_file)
 nuevo(12);
 #################################################################
-#IO_ext Ej_08;
+#IO_ext Ej_12;
 print("Ingreso lectura de bloque de datos con metodo WITH  desde otro archivo JavaScript_Object_Notation read - rw");
 with open("JavaScript_Object_Notation_with.json","r") as read_file:# abre el archivo JavaScript_Object_Notation para lectura en bloque
 	json_en_memoria2 = json.load(read_file);
 print(json_en_memoria2);
-nuevo(13,"fin");
+nuevo(13);
+#################################################################
+#IO_ext Ej_13;
+print("""
+El formato JSON es para el intercambio de datos basado en texto. Por lo que es fácil de leer para tanto para una persona como para una maquina. El nombre es un acrónimo de las siglas en inglés de JavaScript Object Notation. Lo que indica que su origen se encuentra vinculado al lenguaje JavaScript. Aunque hoy en día puede ser utilizado desde casi todos los lenguajes de programación.
+Los datos en los archivos JSON son pares de propiedad valor separados por dos puntos. Estos pares se separan mediante comas y se encierran entre llaves. El valor de una propiedad puede ser otro objeto JSON, lo que ofrece una gran flexibilidad a la hora de estructurar información. Esta estructura de datos recuerda mucho a los diccionarios de Python.
+on line json viewer "http://jsonviewer.stack.hu/"
+""")
+import json
+
+data = {"Fruteria": [  {"Fruta":   [    {"Nombre":"Manzana","Cantidad":10},    {"Nombre":"Pera","Cantidad":20},    {"Nombre":"Naranja","Cantidad":30}   ]  },  {"Verdura":   [    {"Nombre":"Lechuga","Cantidad":80},    {"Nombre":"Tomate","Cantidad":15},    {"Nombre":"Pepino","Cantidad":50}   ]  } ]}
+
+#Nos imprime en pantalla data como un tipo de dato nativo.
+print ('DATA:', repr(data))
+
+#Nos devuelve el String con el JSON
+data_string = json.dumps(data)
+print ('JSON ENCODED:', data_string)
+
+decoded = json.loads(data_string)
+print ('JSON DECODED:', decoded)
+
+
+
+print ("\n\n\n\n\n\nTenemos "+str(decoded["Fruteria"][1]["Verdura"][0]["Cantidad"])+" Lechugas.")
+nuevo(14);
+#################################################################
+#IO_ext Ej_14;
+import json
+data = {}
+data['clientes'] = []
+data['clientes'].append({
+	'nombre': 'Sigrid',
+	'apellido': 'Mannock',
+	'edad': 27,
+	'monto': 7.17})
+data['clientes'].append({
+	'nombre': 'Joe',
+	'apellido': 'Hinners',
+	'edad': 31,
+	'monto': [1.90, 5.50]})
+data['clientes'].append({
+	'nombre': 'Theodoric',
+	'apellido': 'Rivers',
+	'edad': 36,
+	'monto': 1.11})
+with open('salida_a_json.json', 'w') as file:
+	json.dump(data, file, indent=4)
+print('Grabado: salida_a_json.json')
+limpiar()
+with open('salida_a_json.json') as file:
+	data = json.load(file)
+	for client in data['clientes']:
+		print('nombre:', client['nombre'])
+		print('apellido:', client['apellido'])
+		print('Edad:', client['edad'])
+		print('Monto:', client['monto'])
+		print('')
+print('Leido: salida_a_json.json')
+nuevo(15);
+#################################################################
+#IO_ext Ej_15;
+
+import json
+estudiante = {'nombre completo': ['Juan', 'Perez', 'Sanchez'], 'rol': 'estudiante'}
+print(type(estudiante))
+print(estudiante['rol'])
+print(estudiante['nombre completo'])
+print(json.dumps(estudiante))
+estudiante_json = json.dumps(estudiante)
+print(json.loads(estudiante_json))
+nuevo(16);
+#################################################################
+'''
+#IO_ext Ej_17;
+import json
+with open("desde_json.json") as file:
+	json_en_memoria = json.load(file);
+#print(json_en_memoria);
+for json_en_memoria2 in json_en_memoria['results']:
+	for json_en_memoria3 in json_en_memoria2['address_components']:
+		print('long_name:', json_en_memoria3['long_name'])
+		print('short_name:', json_en_memoria3['short_name'])
+		print('types:', json_en_memoria3['types'])
+		print('')

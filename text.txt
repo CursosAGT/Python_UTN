@@ -14,4 +14,3 @@ Lenguaje interpretado
  Esto es especialmente verdad para los lenguajes de guion, cuyas sentencias son más complejas de analizar comparadas con las instrucciones máquina.
  Muchos lenguajes se han implementado usando tanto compiladores como intérpretes, incluyendo BASIC, C, Lisp, Pascal y Python. Java y C# se compilan a código byte, el lenguaje interpretado específico para la máquina virtual.
  Muchas implementaciones de Lisp pueden mezclar libremente código interpretado y compilado. 
- fuente wikipedia : https://es.wikipedia.org/wiki/Int%C3%A9rprete_(inform%C3%A1tica)#Eficiencia
