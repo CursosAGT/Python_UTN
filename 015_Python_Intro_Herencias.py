@@ -111,14 +111,87 @@ class Hijo(Padre): 										#Creamos clase hija que hereda de Padre
 
 
 Tomas = Hijo('Marrones', 'Negras', 'Larga')
+Pedro = Padre('Negros', 'Cortas')
 print (Tomas.ojos, Tomas.cejas, Tomas.cara)
 
 print ("""De estas ultimas dos formas llamamos al Padre de la clase Hijo para no perder su código y ademas agregamos un atributo nuevo "cara" para la clase Hija.
 Recomiendo en caso de herencia simple utilizar Super()""")
-
+print ("isinstance(Tomas, Hijo)",isinstance(Tomas, Hijo))		#imprime si es de una clase (objeto, clase que suponemos ==> true/ false)
+print ("isinstance(Tomas, Padre)",isinstance(Tomas, Padre))	#imprime si es de una clase (objeto, clase que suponemos ==> true/ false)
+print ("isinstance(Pedro, Hijo)",isinstance(Pedro, Hijo))		#imprime si es de una clase (objeto, clase que suponemos ==> true/ false)
+print ("isinstance(Pedro, Padre)",isinstance(Pedro, Padre))	#imprime si es de una clase (objeto, clase que suponemos ==> true/ false)
 nuevo(1);
+
+
+
 #################################################################
 #Ejercicio_Clases_02
+#desde Ejercicio_Clases_07
+
+class stock_general(object):
+	def __init__(self,codigo,nombre,stock,descripcion):
+		self.codigo = codigo
+		self.nombre = nombre
+		self.stock = stock
+		self.descripcion = descripcion
+	def __str__(self):
+		return f"LUGAR\t\t{self.__class__.__name__}\n" \
+				f"\nREFERENCIA\t {self.codigo}\n" \
+				f"NOMBRE\t\t {self.nombre}\n" \
+				f"STOCK\t\t {self.stock}\n" \
+				f"DESCRIPCIÓN\t {self.descripcion}\n"
+class almacen_1(stock_general):#creo una clase que hereda de productos
+	def __init__(self,codigo,nombre,stock,descripcion,costo_estibaje=100):
+		stock_general.__init__(self,codigo,nombre,stock,descripcion)
+		self.costo_estibaje=costo_estibaje
+class almacen_2(stock_general):#creo una clase que hereda de productos
+	def __init__(self,codigo,nombre,stock,descripcion,costo_estibaje=250):
+		stock_general.__init__(self,codigo,nombre,stock,descripcion)
+		self.costo_estibaje=costo_estibaje
+item1 = almacen_2("xx2034yy", "Vaso",15, "Vaso de porcelana 50 cc, color blanco con dibujos",50)
+item2 = almacen_2("25cc25cxc", "copa",50, "Copa cristal x 6 unidades, cristal",)
+item3 = almacen_2("sad122", "plato",25, "Plato  x 6 unidades, Blanco",200)
+item4 = almacen_1("ss123", "silla",600, "silla x 6 unidades, Negro",300)
+item5 = almacen_1("mm147", "mesa",500, "mesa  x 1 unidad, Negro")
+item6 = almacen_1("s258s", "sillon",250, "sillon  x 1 unidad, Negro",1000)
+prod=[item1,item2,item3,item4,item5,item6]
+for productos in prod:
+	print("\n--------------------------")
+	#print("\n",productos )
+	print("Item: ",productos.nombre)
+	if( isinstance(productos, stock_general) ):#pregunta si es de una clase (objeto, clase que suponemos ==> true/ false)
+		print(f"En stock_general hay {productos.stock} unidades de { productos.nombre} con codigo {productos.codigo}")
+	if( isinstance(productos, almacen_1) ):
+		print(F"Ubicadas en {productos.__class__.__name__,} direccion xxx\nCosto estibaje",productos.costo_estibaje)
+	elif( isinstance(productos, almacen_2) ):
+		print(F"Ubicadas en {productos.__class__.__name__,} direccion xxx\nCosto estibaje",productos.costo_estibaje)
+nuevo(2);
+#################################################################
+#Ejercicio_Clases_03
+
+class Animal():
+	def __init__(self,nombre,raza, color):
+		self.nombre=nombre
+		self.raza=raza
+		self.color=color
+	def mostrar(self):
+		print(f"{self.nombre} es el nombre de un {self.raza} color{self.color}")
+class Mascota(Animal):
+	def __init__(self,nombre,raza, color,dueno,codigo):
+		super().__init__(nombre,raza, color)#llamo al init del super y le paso el paquete de valores
+		self.raza=raza
+		self.color=color
+		self.dueno=dueno
+		self.codigo=codigo
+	def mostrar(self):
+		print(f"{self.nombre} es el nombre de un {self.raza} color {self.color} cuyo dueño es {self.dueno} registrado con el codigo {self.codigo}")
+objeto_1=Animal("white","oso","blanco")
+objeto_2=Mascota("wanda","algo parecido a u perro ","gris/marron/plata","Ariel","xxxx")
+objeto_1.mostrar()
+objeto_2.mostrar()
+nuevo(3);
+#################################################################
+#Ejercicio_Clases_04
 
 class Humanoide(object):#				clases padre
 	def __init__(self):#					Constructor de estado inicial
@@ -194,7 +267,7 @@ ferengi=Humanoide() #instancia desde clases
 trill=Humanoide() #instancia desde clases
 romuliano=Humanoide() #instancia desde clases
 
-#genero impresion
+#genero impresión
 terraqueo.estados("terraqueo",True);
 klingon.estados("klingon",False);
 vulcano.estados("vulcano",True);
@@ -227,5 +300,24 @@ bajoriano.estados("bajoriano",False);
 ferengi.estados("ferengi",True);
 trill.estados("trill",False);
 romuliano.estados("romuliano",True);
-nuevo(1,"fin");
+nuevo(3);
 #################################################################
+
+print("Herencias multiples, problemas a tener en cuenta")
+
+class fruta:#a/o
+	def tipo(self):
+		print("rodajas")
+class verdura:
+	def cortar(self):
+		print(" cubos")
+class ensalada(fruta,verdura):#El orden de prioridad de herencia múltiple siempre va de izquierda a derecha
+	pass
+
+tomate=ensalada()
+lechuga=ensalada()
+tomate.tipo()
+lechuga.tipo()
+print ()
+nuevo(3,"fin");
+
