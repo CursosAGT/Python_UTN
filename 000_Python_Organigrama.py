@@ -1,12 +1,12 @@
 from Estructura import *
 nuevo(0,"inicio");
-#################################################################
+##################################################################################################################################
 def Ej_ya_hechos():
 	#Con tab colocaremos aquí las practicas hechas
 	pass
 
 limpiar();
-#################################################################
+##################################################################################################################################
 print("""
 #http://docs.fabfile.org/en/2.4/
   Durante el siglo XX, científicos como Alan Turing y Lorenzo Church fundaron las bases del cómputo, la programación y sus lenguajes. Los lenguajes de programación actuales, a diferencia de los lenguajes humanos tienen una morfología rígida y simplificada con el fin de ejecutar instrucciones específicas en los sistemas de cómputo.
@@ -21,7 +21,7 @@ print("""
   Python es un lenguaje interpretado de alto nivel.
 """);
 limpiar();
-#################################################################
+##################################################################################################################################
 print("""
 * * * * * Sinoptico* * * * *
   * Programar, manipulación de datos(objetos) tras su ingreso hasta su salida
@@ -50,7 +50,7 @@ print("""
   * Ámbito, es observable por estructuras de tabulación
 """);
 limpiar();
-#################################################################
+##################################################################################################################################
 print("""
   * Un espacio con un nombre hereda del Nombre ser la referencia a un dato en un tiempo y espacio.
       Si en el espacio nombrado su dato No cambia durante el tiempo de ejecución se denomina * constante (constantes, tuple etc)
@@ -65,7 +65,7 @@ print("""
       Inmutable: su contenido (o dicho valor) no puede cambiarse en tiempo de ejecución.
 """);
 limpiar();
-#################################################################
+##################################################################################################################################
 print("""
 Categoría de tipo________Nombre______Descripción
 Números inmutables_______int_________entero
@@ -84,7 +84,7 @@ Conjuntos mutables_______set_________conjunto mutable
 Conjuntos inmutables_____frozenset___Conjunto inmutable
 """);
 limpiar();
-#################################################################
+##################################################################################################################################
 print("""
 https://pythonprogramming.net/
 http://docs.python.org.ar/tutorial/3/classes.html
@@ -105,7 +105,7 @@ Características de Python.
       Integrable dentro de las aplicaciones como una interfaz de scripting.
 """);
 limpiar();
-#################################################################
+##################################################################################################################################
 print("""
   Aplicaciones de Python.
 
@@ -124,7 +124,7 @@ print("""
       Aplicaciones móviles.
 """);
 limpiar();
-#################################################################
+##################################################################################################################################
 print("""
   Distribuciones:
  -----------------
@@ -145,7 +145,7 @@ print("""
 Gracias
 """);
 limpiar();
-#################################################################
+##################################################################################################################################
 
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗

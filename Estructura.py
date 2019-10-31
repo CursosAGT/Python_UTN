@@ -2,21 +2,19 @@
 # -*- coding: utf-8 -*-
 # AGT
 # Copyright 2019 Ariel H Apellido_1 Traba <cursos.arT@gmail.com>
-def nuevo(numero,estado=None):
+import os
+def limpiar():
 	import os
-	if estado!="inicio":
-		print(f"\n\t\tFin del ejercicio Nº {numero}")    
-		x=input("Presione una tecla para continuar")
-		if os.name == 'nt':
-			os.system('cls')
-		else:
-			os.system('clear');
-	if estado!="fin":
-		print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		print(f"\n\t\tInicio del ejercicio Nº {numero+1}")    
-	if estado=="inicio":#▒ ▓ ┌┐┤│├└┘┴┬─┼╔╗╠╬╣║╚╝╩╦═¤
+	if os.name == 'nt':
+		os.system('cls')
+	else:
+		os.system('clear');
+def pausa():
+	temp=input("Presione una tecla para continuar")
+def nuevo(numero,estado=None):
+	if estado=="inicio":#▒ ▓ ┌┐┤│├└ ┘┴ ┬ ─ ┼╔ ╗╠ ╬ ╣║╚ ╝╩ ╦ ═¤
 		print("""\n
-╔═════════════════════════════════════════════════════════════════════════════╗ 
+╔═════════════════════════════════════════════════════════════════════════════╗
 ║TEMARIO:                                                                     ║
 ║--------                                                                     ║
 ║Unidad 1 - Introducción                                                      ║
@@ -30,7 +28,7 @@ def nuevo(numero,estado=None):
 ║● GIT Colaborativo –Pair Programming                                         ║
 ║   o Introducción a GIT                                                      ║
 ║   o Creando un repositorio, clonar, branches                                ║
-║   o Borrar, guardar (STASH), requperar (POP)                                ║
+║   o Borrar, guardar (STASH), recuperar (POP)                                ║
 ╠═════════════════════════════════════════════════════════════════════════════╣
 ║Unidad 2 – Software                                                          ║
 ║Características de Python                                                    ║
@@ -163,11 +161,25 @@ def nuevo(numero,estado=None):
 ║● Protocolo MQTT                                                             ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
 		""");
-def limpiar():
-	import os
-	x=input("Presione una tecla para continuar")
-	if os.name == 'nt':
-		os.system('cls')
+		pausa()
+		limpiar()
 	else:
-		os.system('clear');
-nuevo(0,"inicio")
+		if numero == 0:
+			print(f"\n\t\tTeórico")
+			print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			pausa()
+		else:
+			print(f"\n\t\tFin del ejercicio Nº {numero}")
+			pausa()
+			limpiar()
+			print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			print(f"\n\t\tInicio del ejercicio Nº {numero+1}")
+		if estado=="fin":
+			limpiar()
+			print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			print(f"\n\t\tFin de la práctica")
+
+if __name__ == "__main__":
+    nuevo(0,"inicio")
+
+

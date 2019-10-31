@@ -1,6 +1,6 @@
 from Estructura import *
 nuevo(0,"inicio");
-#################################################################
+##################################################################################################################################
 def Ej_ya_hechos():
 	#Con tab colocaremos aqui las prácticas hechas
 	pass
@@ -34,7 +34,16 @@ print("""
 ║                                                                             ║
 ╠═════════════════════════════════════════════════════════════════════════════╣
 ║                                                                             ║
+║                           Objetos                                           ║
+║                                  self.                                      ║
+║                                                                             ║
 ║                           Clases                                            ║
+║                                  Atributos (del objeto)                     ║
+║                                  métodos (funciones del objeto)             ║
+║                                                                             ║
+║                           Constructor                                       ║
+║                                  __init__                                   ║
+║                                  __str__                                    ║
 ║                                                                             ║
 ║                           Class (object) Padre                              ║
 ║                                                                             ║
@@ -48,21 +57,26 @@ print("""
 ║                           Modularizacion                                    ║
 ║                                                                             ║
 ║                           Encapsulado                                       ║
+║                               _oculta                                       ║
+║                               __privada                                     ║
 ║                                                                             ║
-║                           Herencia                                          ║
+║                           Herencia Simple y múltiple                        ║
+║                           	Orden de herencia                             ║
+║                               super()                                       ║
+║                               isinstance                                    ║
 ║                                                                             ║
 ║                           Polimorfismo                                      ║
 ║                                                                             ║
-║                           def funcion (general)                             ║
-║                           def metodo (clase)                                ║
+║                           Abstracción                                       ║
 ║                                                                             ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
-
 
 https://python-para-impacientes.blogspot.com/2014/02/programacion-orientada-objetos.html
 https://www.youtube.com/watch?v=2UNrSiKEI8w
 https://www.youtube.com/watch?v=Y_SiIgxc-xI
-
+""")
+nuevo(0)
+print("""
 
 Para entender este paradigma primero tenemos que comprender qué es una clase y qué es un objeto. Un objeto es una entidad que agrupa un
 estado y una funcionalidad relacionadas. El estado del objeto se define a través de variables llamadas 'atributos', mientras que la funcionalidad
@@ -95,8 +109,8 @@ variable = Clases_ejemplo()
 ...crea una nueva instancia de la clase y asigna este objeto a la variable local "variable".
 
 """)
-nuevo(0,"inicio");
-#################################################################
+nuevo(0);
+##################################################################################################################################
 #Ejercicio_Clases_01
 
 print("""
@@ -112,25 +126,6 @@ class Clases_ejemplo:
 	def Hacer_Metodo(self):
 		en_metodo = "UTN_2019"
 		return (en_metodo)
-print("Desde la 'clases'  imprimo los atributos, aun no hay objetos instanciados")
-print (Clases_ejemplo.atributos_A)
-print (Clases_ejemplo.atributos_M)
-print (Clases_ejemplo.atributos_D)
-print("Desde la 'clases'  llamo al metodo y como aun no hay objetos instanciados paso 0 como self")
-print (Clases_ejemplo.Hacer_Metodo(0))
-
-
-print("Mi primer objeto instanciado")
-Obj_instanciado_1 = Clases_ejemplo()
-print("Atributos desde el objetos instanciado")
-print (Obj_instanciado_1.atributos_A)
-print (Obj_instanciado_1.atributos_M)
-print (Obj_instanciado_1.atributos_D)
-print("Metodo desde el objetos instanciado")
-print (Obj_instanciado_1.Hacer_Metodo())
-
-vi = Obj_instanciado_1.Hacer_Metodo
-print(vi())
 """)
 class Clases_ejemplo:
 	atributos_A = 1973
@@ -140,32 +135,61 @@ class Clases_ejemplo:
 		en_metodo = "UTN_2019"
 		return (en_metodo)
 print("Desde la 'clases'  imprimo los atributos, aun no hay objetos instanciados")
-print (Clases_ejemplo.atributos_A)
-print (Clases_ejemplo.atributos_M)
-print (Clases_ejemplo.atributos_D)
+print ("Clases_ejemplo.atributos_A",Clases_ejemplo.atributos_A)
+print ("Clases_ejemplo.atributos_M",Clases_ejemplo.atributos_M)
+print ("Clases_ejemplo.atributos_D",Clases_ejemplo.atributos_D)
 print("Desde la 'clases'  llamo al metodo y como aun no hay objetos instanciados paso 0 como self")
-print (Clases_ejemplo.Hacer_Metodo(0))
-
+print ("Clases_ejemplo.Hacer_Metodo(0)",Clases_ejemplo.Hacer_Metodo(0))
+print("\n\n")
 
 print("Mi primer objeto instanciado")
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 Obj_instanciado_1 = Clases_ejemplo()
-print("Atributos desde el objetos instanciado")
-print (Obj_instanciado_1.atributos_A)
-print (Obj_instanciado_1.atributos_M)
-print (Obj_instanciado_1.atributos_D)
-print("Metodo desde el objetos instanciado")
-print (Obj_instanciado_1.Hacer_Metodo())
+print("Atributos desde el objetos 1 instanciado")
+print ("Obj_instanciado_1.atributos_A",Obj_instanciado_1.atributos_A)
+print ("Obj_instanciado_1.atributos_M",Obj_instanciado_1.atributos_M)
+print ("Obj_instanciado_1.atributos_D",Obj_instanciado_1.atributos_D)
+print("Metodo desde el objetos 1 instanciado")
+print ("Obj_instanciado_1.Hacer_Metodo",Obj_instanciado_1.Hacer_Metodo())
 
 vi = Obj_instanciado_1.Hacer_Metodo
 print(vi())
+
+print("Mi segundo objeto instanciado")
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+Obj_instanciado_2 = Clases_ejemplo()
+print("Atributos desde el objetos 2 instanciado")
+print ("Obj_instanciado_2.atributos_A",Obj_instanciado_2.atributos_A)
+print ("Obj_instanciado_2.atributos_M",Obj_instanciado_2.atributos_M)
+print ("Obj_instanciado_2.atributos_D",Obj_instanciado_2.atributos_D)
+print("Metodo desde el objetos 2 instanciado")
+print ("Obj_instanciado_2.Hacer_Metodo",Obj_instanciado_2.Hacer_Metodo())
+pausa()
+print("""
+cambio x afuera de la funcion los valores de los atributos
+
+Obj_instanciado_2.atributos_A=1999
+Obj_instanciado_2.atributos_M=12
+Obj_instanciado_2.atributos_D=31
+""")
+Obj_instanciado_2.atributos_A=1999
+Obj_instanciado_2.atributos_M=12
+Obj_instanciado_2.atributos_D=31
+
+print("Mi segundo objeto modificado")
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+print("Atributos desde el objetos 2 instanciado")
+print ("Obj_instanciado_2.atributos_A",Obj_instanciado_2.atributos_A)
+print ("Obj_instanciado_2.atributos_M",Obj_instanciado_2.atributos_M)
+print ("Obj_instanciado_2.atributos_D",Obj_instanciado_2.atributos_D)
+
+pausa()
 print("""
 En nuestro ejemplo, variable.instancia es una referencia a un método válido, dado que Clases_ejemplo.instancia es una función, pero variable.atributos no lo es, dado que Clases_ejemplo.atributos no lo es.
 Pero variable.instancia no es la misma cosa que Clases_ejemplo.instancia; es un objeto método, no un objeto función.
 
 
- Características de la Programación Orientada a Objeto
-
-Características que definen a este modelo de programación:
+Características de la Programación Orientada a Objeto modelo de programación:
 
 Abstracción
 Se refiere a que un elemento pueda aislarse del resto de elementos y de su contexto para centrar el interés en lo qué hace y no en cómo lo hace (caja negra).
@@ -189,11 +213,8 @@ Una variable de instancia se define dentro de un método y pertenece a un objeto
 
 """)
 
-
-
-
 nuevo(1);
-#################################################################
+##################################################################################################################################
 #Ejercicio_Clases_02
 
 print("""
@@ -212,44 +233,33 @@ pero en def __init__(self, entrenamiento): hay 2 parámetros, self es el nombre 
 Ahora que ya hemos creado nuestro objeto, podemos acceder a sus
 atributos y métodos mediante la sintaxis objeto.atributo y objeto.
 metodo() :
-class Trabajo:
-	def __init__(self,nombre_y_apellido, practicas_realizadas):
-		self.gracia = nombre_y_apellido
-		self.entrenamiento = practicas_realizadas
-		print (f"{self.gracia} es un empleado con {self.entrenamiento} horas de entrenamiento")
-	def Iniciar_trabajo(self):
-		print("\tEtapa:")
-		if self.entrenamiento >= 20:
-			print (f"\t\t{self.gracia} es un empleado que termino sus hs de aprendizaje. Empieza a trabajar")
-		else:
-			print (f"\t\t{self.gracia} sigue en etapa de aprendizaje")
-	def Definir_estado(self):
-		print("---------------------------------------------")
-		print("--------------Definir_estado-----------------")
-		if self.entrenamiento < 20:
-			self.entrenamiento += 5
-			print ("A ",self.gracia, " le quedan ", 20- self.entrenamiento, " horas de entrenamiento, ya tiene", self.entrenamiento, "hs")
-		else:
-			print ("Colocar al empleado en un cargo")
-		self.Iniciar_trabajo()
-print("Ontanciamos 3 objetos con sus datos")
-Empleado_1=Trabajo("Juan XX",14)
-Empleado_2=Trabajo("Pedro YY",1)
-Empleado_3=Trabajo("Luis ZZ",21)
-print("Definimos los 3 estados")
-Empleado_1.Definir_estado()
-Empleado_2.Definir_estado()
-Empleado_3.Definir_estado()
-print("Definimos los 3 estados")
-Empleado_1.Definir_estado()
-Empleado_2.Definir_estado()
-Empleado_3.Definir_estado()
 
+	class Trabajo:
+		def __init__(self,nombre,apellido, practicas_realizadas):#constructor
+			self.gracia = nombre+","+apellido
+			self.entrenamiento = practicas_realizadas
+			print (f"{self.gracia} es un empleado con {self.entrenamiento} horas de entrenamiento")
+		def Iniciar_trabajo(self):
+			print("\tEtapa:")
+			if self.entrenamiento >= 20:
+				print (f"\t\t{self.gracia} es un empleado que termino sus hs de aprendizaje. Empieza a trabajar")
+			else:
+				print (f"\t\t{self.gracia} sigue en etapa de aprendizaje")
+		def Definir_estado(self):
+			print("---------------------------------------------")
+			print("--------------Definir_estado-----------------")
+			if self.entrenamiento < 20:
+				print ("A ",self.gracia, " le quedan ", 20- self.entrenamiento, " horas de entrenamiento, ya tiene", self.entrenamiento, "hs")
+				self.entrenamiento += 5
+				print ("Agrego 5 hs de entrenamiento quedan ", 20- self.entrenamiento, " horas.")
+			else:
+				print ("Colocar al empleado en un cargo")
+			self.Iniciar_trabajo()
 """)
 
 class Trabajo:
-	def __init__(self,nombre_y_apellido, practicas_realizadas):#constructor
-		self.gracia = nombre_y_apellido
+	def __init__(self,nombre,apellido, practicas_realizadas):#constructor
+		self.gracia = nombre+","+apellido
 		self.entrenamiento = practicas_realizadas
 		print (f"{self.gracia} es un empleado con {self.entrenamiento} horas de entrenamiento")
 	def Iniciar_trabajo(self):
@@ -262,15 +272,16 @@ class Trabajo:
 		print("---------------------------------------------")
 		print("--------------Definir_estado-----------------")
 		if self.entrenamiento < 20:
-			self.entrenamiento += 5
 			print ("A ",self.gracia, " le quedan ", 20- self.entrenamiento, " horas de entrenamiento, ya tiene", self.entrenamiento, "hs")
+			self.entrenamiento += 5
+			print ("Agrego 5 hs de entrenamiento quedan ", 20- self.entrenamiento, " horas.")
 		else:
 			print ("Colocar al empleado en un cargo")
 		self.Iniciar_trabajo()
-print("Ontanciamos 3 objetos con sus datos")
-Empleado_1=Trabajo("Juan XX",14)
-Empleado_2=Trabajo("Pedro YY",1)
-Empleado_3=Trabajo("Luis ZZ",21)
+print("Intanciamos 3 objetos con sus datos")
+Empleado_1=Trabajo("Juan","XX",14)
+Empleado_2=Trabajo("Pedro","YY",1)
+Empleado_3=Trabajo("Luis","ZZ",21)
 print("Definimos los 3 estados")
 Empleado_1.Definir_estado()
 Empleado_2.Definir_estado()
@@ -280,18 +291,18 @@ Empleado_1.Definir_estado()
 Empleado_2.Definir_estado()
 Empleado_3.Definir_estado()
 
-limpiar()
-#################################################################
-#Ejercicio_Clases_02b
+nuevo(2);
+##################################################################################################################################
+#Ejercicio_Clases_03
 print("""
-class Complejo:
-	def __init__(self, parte_real, parte_imaginaria):
-		self.real = parte_real
-		self.imag = parte_imaginaria
+	class Complejo:
+		def __init__(self, parte_real, parte_imaginaria):
+			self.real = parte_real
+			self.imag = parte_imaginaria
 
-variable = Complejo(3.0, -4.5)
-print ("raiz de -9 =",variable.real, variable.imag )
-""")
+	variable = Complejo(3, "i")
+	print ("raiz de -9 =",variable.real, variable.imag )
+	""")
 class Complejo:
 	def __init__(self, parte_real, parte_imaginaria):
 		self.real = parte_real
@@ -299,42 +310,43 @@ class Complejo:
 
 variable = Complejo(3, "i")
 print ("####################################")
-print ("raiz de -9 =",variable.real, variable.imag )
-
+print ("#\traiz de -9 =",variable.real, variable.imag )
+print ("####################################")
 print("""
 Si aún no comprendés como funcionan los métodos, un vistazo a la implementación puede ayudar a clarificar este tema. Cuando se hace referencia un atributo de instancia y no es un atributo de datos, se busca dentro de su clase. Si el nombre denota un atributo de clase válido que es un objeto función, se crea un objeto método juntando (punteros a) el objeto instancia y el objeto función que ha sido encontrado. Este objeto abstracto creado de esta unión es el objeto método. Cuando el objeto método es llamado con una lista de argumentos, una lista de argumentos nueva es construida a partir del objeto instancia y la lista de argumentos original, y el objeto función es llamado con esta nueva lista de argumentos.
 """)
-nuevo(2);
-#################################################################
-#Ejercicio_Clases_03
+nuevo(3);
+##################################################################################################################################
+#Ejercicio_Clases_04
 class Bolsa:
 	def __init__(self):
 		self.datos = []
 		self.cantidad=0
-	def agregar(self, x):
-		self.datos.append(x)
+	def agregar(self):
+		self.datos.append(1)
 		self.cantidad=self.cantidad+1
-	def dobleagregar(self, x):
-		self.agregar(x)
-		self.agregar(x)
+	def agregar_varios(self, cant):
+		for bucle in range (cant):
+			self.agregar()
+
 bags=Bolsa()
 
-print("Fui a la panaderia me dieron 1")
-bags.agregar(1)
-print("Fui al super y me dieron 2")
-bags.dobleagregar(1)
+print("Fui a la panadería me dieron 1")
+bags.agregar()
+print("Fui al súper y me dieron 3")
+bags.agregar_varios(3)
 print("Fui a la farmacia y me dieron 1")
-bags.agregar(1)
+bags.agregar()
 print("estructura de tipos de bolsas", bags.datos)
 print("Cantidad total",bags.cantidad)
 print("""
-
 El método __init__ crea el objeto y luego lo inicializa, no es el constructor como tal,
 El método __new__ sólo construye el objeto.
 """)
-nuevo(3);
-#################################################################
-#Ejercicio_Clases_04
+nuevo(4);
+##################################################################################################################################
+#Ejercicio_Clases_05
+print("""
 class Piel():
 	color = "verde"
 	textura = "pinchuda"
@@ -348,23 +360,50 @@ class Ojo():
 	color = "purpura"
 
 class Objeto_prog():
-	altura = 170
-	peso = 80
-	edad = 40
-	piel_o = Piel() 	# propiedad compuesta por el objeto Objeto_prog piel
-	ojo_o = Ojo()       # propiedad compuesta por el objeto Objeto_prog Ojo
-	pelo_o = Pelo();
+	altura_en_Objeto_prog = 170
+	peso_en_Objeto_prog = 80
+	edad_en_Objeto_prog = 40
+	piel_en_Objeto_prog = Piel() 		# Atributo de este objeto es otro objeto que posee varios atributos ( podría tener  métodos propios)
+	ojo_en_Objeto_prog = Ojo()			# Atributo de este objeto es otro objeto que posee varios atributos ( podría tener  métodos propios)
+	pelo_en_Objeto_prog = Pelo();
 obj_desde_clase = Objeto_prog();
-print (obj_desde_clase.edad);
-print (obj_desde_clase.altura);
-print (obj_desde_clase.pelo_o);# no es error es un objeto y este tienen no solo múltiples atributos sino que lleva métodos y no se pueden imprimir
-print (obj_desde_clase.pelo_o.color);
-print (obj_desde_clase.pelo_o.largo);
-obj_desde_clase.pelo_o = "rosa"# aca destruyo la herencia. impongo un valor al objeto
-print (obj_desde_clase.pelo_o);# ver q es igual a la linea del supuesto error
-nuevo(4);
-#################################################################
-#Ejercicio_Clases_05
+""")
+class Piel():
+	color = "verde"
+	textura = "pinchuda"
+
+class Pelo():
+	color = "azul"
+	largo = 100
+
+class Ojo():
+	forma = "oblicua"
+	color = "purpura"
+
+class Objeto_prog():
+	altura_en_Objeto_prog = 170
+	peso_en_Objeto_prog = 80
+	edad_en_Objeto_prog = 40
+	piel_en_Objeto_prog = Piel() 		# Atributo de este objeto es otro objeto que posee varios atributos ( podría tener  métodos propios)
+	ojo_en_Objeto_prog = Ojo()			# Atributo de este objeto es otro objeto que posee varios atributos ( podría tener  métodos propios)
+	pelo_en_Objeto_prog = Pelo();
+obj_desde_clase = Objeto_prog();
+print ("muestro obj_desde_clase.edad_en_Objeto_prog :",obj_desde_clase.edad_en_Objeto_prog);
+print ("muestro obj_desde_clase.altura_en_Objeto_prog :",obj_desde_clase.altura_en_Objeto_prog);
+print ("muestro obj_desde_clase.pelo_en_Objeto_prog :",obj_desde_clase.pelo_en_Objeto_prog);# no es error es un objeto y este tienen no solo múltiples atributos sino que lleva métodos y no se pueden imprimir
+print  ("muestro obj_desde_clase.pelo_en_Objeto_prog -  es un objeto dentro de un objeto que podría contener múltiples atributos y métodos por eso no se pueden mostrar")
+pausa()
+print  ("\nmuestro obj_desde_clase.pelo_en_Objeto_prog.color -  es un atributo de un objeto dentro de un objeto se pueden mostrar")
+print ("muestro obj_desde_clase.pelo_en_Objeto_prog.color :",obj_desde_clase.pelo_en_Objeto_prog.color);
+print ("muestro obj_desde_clase.pelo_en_Objeto_prog.largo :",obj_desde_clase.pelo_en_Objeto_prog.largo);
+print("\n")
+obj_desde_clase.pelo_en_Objeto_prog = "se pelo"# aca destruyo la herencia. impongo un valor al objeto
+print('grabo obj_desde_clase.pelo_en_Objeto_prog = "se pelo" \n')
+print ("muestro obj_desde_clase.pelo_en_Objeto_prog :",obj_desde_clase.pelo_en_Objeto_prog);# ver q es igual a la linea del supuesto error
+print('Ya no hereda de la clases pelo. ese dato es reemplazado por "se pelo" así que no hay mas color ni largo')
+nuevo(5);
+##################################################################################################################################
+#Ejercicio_Clases_06
 print ("""
 __init__ is called when ever an object of the class is constructed.
 That means when ever we will create a student object we will see the message "A student object is created" in the prompt.
@@ -372,27 +411,28 @@ You can see the first argument to the method is self. It is a special variable w
 The object is passed implicitly to every method available in it, but we have to get it explicitly in every method while writing the methods.
 Example shown below. Remember to declare all the possible attributes in the __init__ method itself.
 Even if you are not using them right away, you can always assign them as None.
-class Alumno():
-	numalumnos = 0
-	sumanotas = 0
+	class Alumno():
+		numalumnos = 0
+		sumanotas = 0
 
-	def __init__(self, nombre, nota):
-		self.nombre = nombre
-		self.nota = nota
-		Alumno.numalumnos += 1
-		Alumno.sumanotas += nota
-	def mostrarNombreNota(self):
-		return(self.nombre, self.nota);
-	def mostrarNumAlumnos(self):
-		return(Alumno.numalumnos);
-	def mostrarSumaNotas(self):
-		return(Alumno.sumanotas);
-	def mostrarNotaMedia(self):
-		if Alumno.numalumnos > 0:
-			return(Alumno.sumanotas/Alumno.numalumnos);
-		else:
-			return("Sin alumnos");
+		def __init__(self, nombre, nota):
+			self.nombre = nombre
+			self.nota = nota
+			Alumno.numalumnos += 1
+			Alumno.sumanotas += nota
+		def mostrarNombreNota(self):
+			return(self.nombre, self.nota);
+		def mostrarNumAlumnos(self):
+			return(Alumno.numalumnos);
+		def mostrarSumaNotas(self):
+			return(Alumno.sumanotas);
+		def mostrarNotaMedia(self):
+			if Alumno.numalumnos > 0:
+				return(Alumno.sumanotas/Alumno.numalumnos);
+			else:
+				return("Sin alumnos");
 """)
+nuevo(0)
 class Alumno():
 #    'Clase para alumnos'
 	numalumnos = 0
@@ -421,36 +461,38 @@ alumno2 = Alumno("Carlos", 6);
 print("Todos los argumentos se pasan escribiéndolos entre paréntesis y separados por comas ('',''). El primer argumento self se omite porque su valor es una referencia al objeto y es implícito para todos los métodos.");
 print("Accediendo a los atributos y llamando a los métodos");
 print("Para acceder a la variable de un objeto se indica el nombre del objeto, seguido de un punto y el nombre de la variable:");
-print(alumno1.nombre)  # María
-print(alumno1.nota)  # 8
+print(alumno1.nombre)  					# María
+print(alumno1.nota)  					# 8
 print("Para modificar la variable de un objeto se utiliza la misma notación para referirse al atributo y después del signo igual (=) se indica la nueva asignación:");
 alumno1.nombre = "Carmela"
 print("Para acceder a las variables de la clase se sigue la misma notación pero en vez de indicar el nombre del objeto se indica el nombre de la clase instanciada.");
 print("cantidad de alumnos: ",Alumno.numalumnos)  # 2
 print("promedio de notas: ",Alumno.sumanotas/Alumno.numalumnos, " o ", Alumno.mostrarNotaMedia)  #
 print("Para llamar a un método se indica el nombre de objeto, seguido de un punto y el nombre del método. Si se requieren varios argumentos se pasan escribiéndolos entre paréntesis, separados por comas (","). Si no es necesario pasar argumentos se añaden los paréntesis vacíos '()' al nombre del método.");
-print(alumno1.mostrarNombreNota())  # ('Carmela', 8);
-print(alumno2.mostrarNombreNota())  # ('Carlos', 6);
+print(alumno1.mostrarNombreNota())  	# ('Carmela', 8);
+print(alumno2.mostrarNombreNota())  	# ('Carlos', 6);
 print("Para suprimir un atributo:");
-del alumno1.nombre
-#print(alumno1.mostrarNombreNota())  # ('Carmela', 8); da un error
-print(alumno2.mostrarNombreNota())  # ('Carlos', 6);
+del alumno1.nombre						# Para suprimir un atributo
+#print(alumno1.mostrarNombreNota())		# ('Carmela', 8); da un error
+print(alumno2.mostrarNombreNota())  	# ('Carlos', 6);
 print("Si a continuación, se intenta acceder al valor del atributo borrado o se llama a algún método que lo utilice, se producirá la siguiente excepción:");
 print("print(alumno1.mostrarNombreNota())");
 print ("se generara el siguiente error 'AttributeError: 'Alumno' object has no attribute 'nombre'");
 print("Pare crear nuevamente el atributo realizar una nueva asignación:");
 alumno1.nombre = "Carmen"
 alumno1.nota = 10
-print(alumno1.mostrarNombreNota())  # ('Carmen', 10);
-print(alumno2.mostrarNombreNota())  # ('Carlos', 6);
+print(alumno1.mostrarNombreNota())		# ('Carmen', 10);
+print(alumno2.mostrarNombreNota())		# ('Carlos', 6);
 
 print("cantidad de alumnos: ",Alumno.numalumnos)  # 2
+
+
 print("promedio de notas: ",Alumno.sumanotas/Alumno.numalumnos, " o ", Alumno.mostrarNotaMedia)  #
 print("Esto es un error x q el promedio seria 8. Pero yo al no crear un nuevo alumno no actualice la suma de notas")
 
-nuevo(5);
-#################################################################
-#Ejercicio_Clases_06
+nuevo(6);
+##################################################################################################################################
+#Ejercicio_Clases_07
 
 class Box:
 	def __init__(self,nombre, altura, largo, ancho):
@@ -471,25 +513,28 @@ class Box:
 				f"\tEl volumen es de {self.val_volumen} cm^3 con una base de {self.val_base} cm^2")
 
 ejemplo1= Box("caja_med",20,20,30)#<--------------------------------ejemplo1 sera self al entrar a la funcion
-print (f"El volumen que ocupla la unidad buscada es de "+ str(ejemplo1.volumen())+" cm^3");
-print (f"La superficie que ocupla la unidad buscada es de "+ str(ejemplo1.base())+" cm^2");
-
+print (f"El volumen que ocupa la unidad buscada es de "+ str(ejemplo1.volumen())+" cm^3");
+print (f"La superficie que ocupa la unidad buscada es de "+ str(ejemplo1.base())+" cm^2");
+print("--------------------------")
 ejemplo2= Box("caja_chica",10,15,10)#<--------------------------------ejemplo2 sera self al entrar a la funcion
-print (f"El volumen que ocupla la unidad buscada es de "+ str(ejemplo2.volumen())+" cm^3");
-print (f"La superficie que ocupla la unidad buscada es de "+ str(ejemplo2.base())+" cm^2");
-
+print (f"El volumen que ocupa la unidad buscada es de "+ str(ejemplo2.volumen())+" cm^3");
+print (f"La superficie que ocupa la unidad buscada es de "+ str(ejemplo2.base())+" cm^2");
+print("--------------------------")
 ejemplo3= Box("caja_grande",50,30,20)#<--------------------------------ejemplo3 sera self al entrar a la funcion
-print (f"El volumen que ocupla la unidad buscada es de "+ str(ejemplo3.volumen())+" cm^3");
-print (f"La superficie que ocupla la unidad buscada es de "+ str(ejemplo3.base())+" cm^2");
+print (f"El volumen que ocupa la unidad buscada es de "+ str(ejemplo3.volumen())+" cm^3");
+print (f"La superficie que ocupa la unidad buscada es de "+ str(ejemplo3.base())+" cm^2");
 #cada ejemplo es ina instancia u objeto. aqui instanciamos 3 objetos
+print("--------------------------")
 
-
-print (ejemplo1.datos())
-print (ejemplo2.datos())
-print (ejemplo3.datos())
-nuevo(6);
-#################################################################
-#Ejercicio_Clases_07
+print ("ejemplo1.datos()",ejemplo1.datos())
+print("--------------------------")
+print ("ejemplo2.datos()",ejemplo2.datos())
+print("--------------------------")
+print ("ejemplo3.datos()",ejemplo3.datos())
+print("--------------------------")
+nuevo(7);
+##################################################################################################################################
+#Ejercicio_Clases_08
 import datetime
 class stock_general:
 	def __init__(self,codigo,nombre,stock,descripcion):
@@ -524,9 +569,7 @@ item5 = almacen_1("mm147", "mesa",500, "mesa  x 1 unidad, Negro")
 prod.append(item5)
 item6 = almacen_1("s258s", "sillon",250, "sillon  x 1 unidad, Negro")
 prod.append(item6)
-#print(repr,"rfffs")
 for productos in prod:
-	print("\n--------------------------\n")
 	print(productos )#ver def __str__ en class productos
 	print("Item: ",productos.nombre)
 	if( isinstance(productos, stock_general) ):
@@ -538,10 +581,9 @@ for productos in prod:
 	print("\n==========================")
 #veremos este ejercicio mejorado con herencias
 print("veremos este ejercicio mejorado con herencias")
-nuevo(7);
-#################################################################
-#Ejercicio_Clases_08
-
+nuevo(8);
+##################################################################################################################################
+#Ejercicio_Clases_09
 
 from copy import copy
 class Test:
@@ -594,5 +636,5 @@ try:
 except Exception as e:
     print(e)
 
-nuevo(6,"fin");
-#################################################################
+nuevo(9,"fin");
+##################################################################################################################################

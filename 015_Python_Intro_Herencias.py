@@ -1,6 +1,6 @@
 from Estructura import *
 nuevo(0,"inicio");
-#################################################################
+##################################################################################################################################
 def Ej_ya_hechos():
 	#Con tab colocaremos aqui las prácticas hechas
 	pass
@@ -34,7 +34,16 @@ print("""
 ║                                                                             ║
 ╠═════════════════════════════════════════════════════════════════════════════╣
 ║                                                                             ║
+║                           Objetos                                           ║
+║                                  self.                                      ║
+║                                                                             ║
 ║                           Clases                                            ║
+║                                  Atributos (del objeto)                     ║
+║                                  métodos (funciones del objeto)             ║
+║                                                                             ║
+║                           Constructor                                       ║
+║                                  __init__                                   ║
+║                                  __str__                                    ║
 ║                                                                             ║
 ║                           Class (object) Padre                              ║
 ║                                                                             ║
@@ -48,13 +57,17 @@ print("""
 ║                           Modularizacion                                    ║
 ║                                                                             ║
 ║                           Encapsulado                                       ║
+║                               _oculta                                       ║
+║                               __privada                                     ║
 ║                                                                             ║
-║                           Herencia                                          ║
+║                           Herencia Simple y múltiple                        ║
+║                           	Orden de herencia                             ║
+║                               super()                                       ║
+║                               isinstance                                    ║
 ║                                                                             ║
 ║                           Polimorfismo                                      ║
 ║                                                                             ║
-║                           def funcion (general)                             ║
-║                           def metodo (clase)                                ║
+║                           Abstracción                                       ║
 ║                                                                             ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
 https://www.youtube.com/watch?v=2UNrSiKEI8w
@@ -68,47 +81,67 @@ subclase contenga todos los atributos y métodos que tenía la superclase.
 nuevo(0,"inicio");
 
 
-class A:
+class Herencia_padre:
     def __init__(self):
-        print("desde clase A")
-    def a(self):
-        print("Este método lo heredo de A")
+        print("desde clase Herencia_padre")
+    def Metodo_padre(self):
+        print("Este método lo heredo de Herencia_padre")
 
-class B:
+class Herencia_madre:
     def __init__(self):
-        print("desde clase B")
-    def b(self):
-        print("Este método lo heredo de B")
+        print("desde clase Herencia_madre")
+    def Metodo_Madre(self):
+        print("Este método lo heredo de Herencia_madre")
 
-class C(A,B):
-	print("desde clase c")
-	print("que llama desde A y B")
-	def c(self):
-		print("Este método es de C")
+class Hijo_1(Herencia_padre,Herencia_madre):
+	def __init__(self):
+		print("desde clase Hijo_1")
+		print("que llama desde Herencia_padre y Herencia_madre")# ver el orden de herencia
+	def Metodo_Hijo_1(self):
+		print("Este Método_Hijo_1 es de clase Hijo_1")
 
+class Hijo_2(Herencia_madre,Herencia_padre):
+	def __init__(self):
+		print("desde clase Hijo_2")
+		print("que llama desde Herencia_madre y Herencia_padre")# ver el orden de herencia
+	def Metodo_Hijo_2(self):
+		print("Este Método_Hijo_2 es de clase Hijo_2")
 
-c = C()
-print("=====================")
-c.a()
+print("		=====objeto 1=========")
+print("Heredo primero el de la izquierda.\n\tclass Hijo_1(Herencia_padre,Herencia_madre):")
+objeto_1 = Hijo_1()
+print("		objeto_1.Método_padre()")
+objeto_1.Metodo_padre()
+print("		---------------------")
+print("		objeto_1.Método_Madre()")
+objeto_1.Metodo_Madre()
 print("---------------------")
-c.b()
-print("---------------------")
-c.c()
-nuevo(0);
-#################################################################
-#Ejercicio_Clases_01
+print("		objeto_1.Metodo_Hijo_1()")
+objeto_1.Metodo_Hijo_1()
+print("		=====objeto 2=========")
+print("Heredo primero el de la izquierda.\n\tclass Hijo_2(Herencia_madre,Herencia_padre):")
+objeto_2 = Hijo_2()
+print("		objeto_2.Método_padre()")
+objeto_2.Metodo_padre()
+print("		---------------------")
+print("		objeto_2.Método_Madre()")
+objeto_2.Metodo_Madre()
+print("		---------------------")
+print("		objeto_2.Metodo_Hijo_2()")
+objeto_2.Metodo_Hijo_2()
+nuevo(1);
+##################################################################################################################################
+#Ejercicio_Clases_02
 
 class Padre(object): 									#Creamos la clase Padre
 	def __init__(self, ojos, cejas): 					#Definimos los Atributos
 		self.ojos = ojos
 		self.cejas = cejas
 
-
 class Hijo(Padre): 										#Creamos clase hija que hereda de Padre
 	def __init__(self, ojos, cejas, cara): 				#creamos el constructor de la clase especificando atributos
 		Padre.__init__(self, ojos, cejas) 				#Especificamos la clase y llamamos a su constructor + Atributos
 		self.cara = cara 								#Especificamos el nuevo atributo para Hijo
-
 
 Tomas = Hijo('Marrones', 'Negras', 'Larga')
 Pedro = Padre('Negros', 'Cortas')
@@ -117,14 +150,12 @@ print (Tomas.ojos, Tomas.cejas, Tomas.cara)
 print ("""De estas ultimas dos formas llamamos al Padre de la clase Hijo para no perder su código y ademas agregamos un atributo nuevo "cara" para la clase Hija.
 Recomiendo en caso de herencia simple utilizar Super()""")
 print ("isinstance(Tomas, Hijo)",isinstance(Tomas, Hijo))		#imprime si es de una clase (objeto, clase que suponemos ==> true/ false)
-print ("isinstance(Tomas, Padre)",isinstance(Tomas, Padre))	#imprime si es de una clase (objeto, clase que suponemos ==> true/ false)
+print ("isinstance(Tomas, Padre)",isinstance(Tomas, Padre))		#imprime si es de una clase (objeto, clase que suponemos ==> true/ false)
 print ("isinstance(Pedro, Hijo)",isinstance(Pedro, Hijo))		#imprime si es de una clase (objeto, clase que suponemos ==> true/ false)
-print ("isinstance(Pedro, Padre)",isinstance(Pedro, Padre))	#imprime si es de una clase (objeto, clase que suponemos ==> true/ false)
+print ("isinstance(Pedro, Padre)",isinstance(Pedro, Padre))		#imprime si es de una clase (objeto, clase que suponemos ==> true/ false)
+
 nuevo(1);
-
-
-
-#################################################################
+##################################################################################################################################
 #Ejercicio_Clases_02
 #desde Ejercicio_Clases_07
 
@@ -143,56 +174,58 @@ class stock_general(object):
 class almacen_1(stock_general):#creo una clase que hereda de productos
 	def __init__(self,codigo,nombre,stock,descripcion,costo_estibaje=100):
 		stock_general.__init__(self,codigo,nombre,stock,descripcion)
+		self.direccion="Av.F.N.Laprida 3460- Vicente Lopez"
 		self.costo_estibaje=costo_estibaje
 class almacen_2(stock_general):#creo una clase que hereda de productos
 	def __init__(self,codigo,nombre,stock,descripcion,costo_estibaje=250):
 		stock_general.__init__(self,codigo,nombre,stock,descripcion)
+		self.direccion="Balcarce 50 - fin del mundo"
 		self.costo_estibaje=costo_estibaje
-item1 = almacen_2("xx2034yy", "Vaso",15, "Vaso de porcelana 50 cc, color blanco con dibujos",50)
-item2 = almacen_2("25cc25cxc", "copa",50, "Copa cristal x 6 unidades, cristal",)
-item3 = almacen_2("sad122", "plato",25, "Plato  x 6 unidades, Blanco",200)
-item4 = almacen_1("ss123", "silla",600, "silla x 6 unidades, Negro",300)
-item5 = almacen_1("mm147", "mesa",500, "mesa  x 1 unidad, Negro")
-item6 = almacen_1("s258s", "sillon",250, "sillon  x 1 unidad, Negro",1000)
-prod=[item1,item2,item3,item4,item5,item6]
-for productos in prod:
+objeto_1 = almacen_2("xx2034yy", "Vaso",15, "Vaso de porcelana 50 cc, color blanco con dibujos",50)
+objeto_2 = almacen_1("25cc25cxc", "copa",50, "Copa cristal x 6 unidades, cristal",)
+objeto_3 = almacen_2("sad122", "plato",25, "Plato  x 6 unidades, Blanco",200)
+objeto_4 = almacen_1("ss123", "silla",600, "silla x 6 unidades, Negro",300)
+objeto_5 = almacen_2("mm147", "mesa",500, "mesa  x 1 unidad, Negro")
+objeto_6 = almacen_1("s258s", "sillon",250, "sillon  x 1 unidad, Negro",1000)
+lista_objetos=[objeto_1,objeto_2,objeto_3,objeto_4,objeto_5,objeto_6]
+for objeto in lista_objetos:
 	print("\n--------------------------")
-	#print("\n",productos )
-	print("Item: ",productos.nombre)
-	if( isinstance(productos, stock_general) ):#pregunta si es de una clase (objeto, clase que suponemos ==> true/ false)
-		print(f"En stock_general hay {productos.stock} unidades de { productos.nombre} con codigo {productos.codigo}")
-	if( isinstance(productos, almacen_1) ):
-		print(F"Ubicadas en {productos.__class__.__name__,} direccion xxx\nCosto estibaje",productos.costo_estibaje)
-	elif( isinstance(productos, almacen_2) ):
-		print(F"Ubicadas en {productos.__class__.__name__,} direccion xxx\nCosto estibaje",productos.costo_estibaje)
+	#print("\n",objeto )
+	print("Item: ",objeto.nombre)
+	if( isinstance(objeto, stock_general) ):#pregunta si es de una clase (objeto, clase que suponemos ==> true/ false)
+		print(f"En stock_general hay {objeto.stock} unidades de { objeto.nombre} con codigo {objeto.codigo}")
+		print(F"Ubicadas en {objeto.__class__.__name__}\n\tdireccion {objeto.direccion}: costo de almacenage {objeto.costo_estibaje}")
 nuevo(2);
-#################################################################
+##################################################################################################################################
 #Ejercicio_Clases_03
-
-class Animal():
+print("""
+super es usado en el inicializador de la clase hija. Esto se debe a que al definir nuestro propio inicializador sobrescribimos el __init__ de la clase padre.
+Para que nuestra clase hija herede todas las características de su clase padre implementadas en el inicializador (el cual hemos sobrescrito) es necesario por tanto llamarlo de forma explícita.
+""")
+class Animal(object):#clase padre que abarca todos los animales
 	def __init__(self,nombre,raza, color):
 		self.nombre=nombre
 		self.raza=raza
 		self.color=color
-	def mostrar(self):
-		print(f"{self.nombre} es el nombre de un {self.raza} color{self.color}")
+	def mostrar(self):#clase hijo que abarca los animales que son mascotas
+		print(f"{self.nombre} es el nombre de un {self.raza} color {self.color}")
 class Mascota(Animal):
-	def __init__(self,nombre,raza, color,dueno,codigo):
-		super().__init__(nombre,raza, color)#llamo al init del super y le paso el paquete de valores
-		self.raza=raza
-		self.color=color
-		self.dueno=dueno
+	def __init__(self,nombre,raza, color,dueño,codigo):
+		Animal.__init__(self,nombre,raza, color)	#llamo al init de la clase padre y le paso el paquete de valores + self
+		"""					o					""";
+		super().__init__(nombre,raza, color)		#llamo al init del super (clase padre) y le paso el paquete de valores
+		self.dueño=dueño
 		self.codigo=codigo
 	def mostrar(self):
-		print(f"{self.nombre} es el nombre de un {self.raza} color {self.color} cuyo dueño es {self.dueno} registrado con el codigo {self.codigo}")
+		print(f"{self.nombre} es el nombre de un {self.raza} color {self.color} cuyo dueño es {self.dueño} registrado con el codigo {self.codigo}")
 objeto_1=Animal("white","oso","blanco")
 objeto_2=Mascota("wanda","algo parecido a u perro ","gris/marron/plata","Ariel","xxxx")
 objeto_1.mostrar()
 objeto_2.mostrar()
 nuevo(3);
-#################################################################
+##################################################################################################################################
 #Ejercicio_Clases_04
-
+"""
 class Humanoide(object):#				clases padre
 	def __init__(self):#					Constructor de estado inicial
 		self.__cabeza=1#           			estado inicial en la clase padre
@@ -301,8 +334,8 @@ ferengi.estados("ferengi",True);
 trill.estados("trill",False);
 romuliano.estados("romuliano",True);
 nuevo(3);
-#################################################################
-
+##################################################################################################################################
+"""
 print("Herencias multiples, problemas a tener en cuenta")
 
 class fruta:#a/o
