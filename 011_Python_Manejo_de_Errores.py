@@ -40,12 +40,12 @@ finally:
    if not(archivo.closed):
 	archivo.close()
 """)
-nuevo(0,"inicio");
+nuevo(0);
 #################################################################
 #Clase_Errores_Ej_001
 print("Ingresa los datos con errores Ej números en string")
 try:
-	maximo = int(input("ingrese la cantidad de numeros :"));
+	maximo = int(input("ingrese la cantidad de números :"));
 except:
 	print ("ha ocurrido un Error. pero sigo con un valor = 10");
 	maximo = 10
@@ -105,11 +105,11 @@ def resultado_divide(valor_1,valor_2):
 	except ZeroDivisionError:
 		print ("No dividiras por 0");
 		return ("error...... pero sigo");
-def resultado_portenciacion(valor_1,valor_2):
+def resultado_portenciación(valor_1,valor_2):
 	return valor_1**valor_2
-def resultado_radicacion2(valor_1,valor_2):
+def resultado_radicacion(valor_1,valor_2):
 	return  math.sqrt(valor_2);
-def resultado_porcentage(valor_1,valor_2):
+def resultado_porcentaje(valor_1,valor_2):
 	try:
 		return valor_1/valor_2*100
 	except ZeroDivisionError:
@@ -130,17 +130,39 @@ def resultado_resto(valor_1,valor_2):
 print ("resultado suma : "+str(resultado_suma(valor1,valor2)));
 print ("resultado resta : "+str(resultado_resta(valor1,valor2)));
 print ("resultado multiplicacion : "+str(resultado_multiplica(valor1,valor2)));
-print ("resultado divicion : "+str(resultado_divide(valor1,valor2)));
-print ("resultado portenciacion : "+str(resultado_portenciacion(valor1,valor2)));
-print ("resultado radicacion2 : "+str(resultado_radicacion2(valor1,valor2)));
-print ("resultado porcentage : "+str(resultado_porcentage(valor1,valor2)));
+print ("resultado division : "+str(resultado_divide(valor1,valor2)));
+print ("resultado portenciación : "+str(resultado_portenciación(valor1,valor2)));
+print ("resultado radicacion : "+str(resultado_radicacion(valor1,valor2)));
+print ("resultado porcentaje : "+str(resultado_porcentaje(valor1,valor2)));
 print ("resultado cociente : "+str(resultado_cociente(valor1,valor2)));
 print ("resultado resto : "+str(resultado_resto(valor1,valor2)));
 nuevo(3);
 #################################################################
 #Clase_Errores_Ej_004
-from Python_Metodos_propia import *#<-------------------------------------------------------------via archivo externo
+from Python_Metodos_propios import *#<-------------------------------------------------------------via archivo externo
+print("Ingrese valores numéricos para funcionar y no numéricos par generar un error");
+while True:
+	try:
+		print("""
+		valor1=float(input("valor 1 : "));
+		valor2=float(input("valor 2 : "));
+		""")
+		valor1=float(input("valor 1 : "));
+		valor2=float(input("valor 2 : "));
+		break
+	except ValueError:
+		print("Error. solo nomeros");
 
+
+print ("resultado suma : "+str(resultado_suma_metodo(valor1,valor2)))
+print ("resultado resta : "+str(resultado_resta_metodo(valor1,valor2)))
+print ("resultado multiplicación : "+str(resultado_multiplica_metodo(valor1,valor2)))
+print ("resultado división : "+str(resultado_divide_metodo(valor1,valor2)))
+print ("resultado portenciación : "+str(resultado_portenciación_metodo(valor1,valor2)))
+print ("resultado radicacion : "+str(resultado_radicacion_metodo(valor1,valor2)))
+print ("resultado porcentaje : "+str(resultado_porcentaje_metodo(valor1,valor2)))
+print ("resultado cociente : "+str(resultado_cociente_metodo(valor1,valor2)))
+print ("resultado resto : "+str(resultado_resto_metodo(valor1,valor2)))
 nuevo(4);
 #################################################################
 #Clase_Errores_Ej_004

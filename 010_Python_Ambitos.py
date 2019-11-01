@@ -11,7 +11,7 @@ print("""
 ║                               ---------                                     ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
  * Ámbito, es una región en el espacio donde los nombres (cuyos datos busco) son accesibles directamente.(Recordad que puede haber el mismo nombre como atributo como acción y en distintos ámbitos");
- * Ámbito, es observable por estructuras de tabulacion")
+ * Ámbito, es observable por estructuras de tabulación")
  * Un espacio con un nombre hereda del Nombre ser la referencia a un dato en un tiempo y espacio.");
 	 Si en el espacio nombrado su dato No cambia durante el tiempo de ejecución se denomina * constante (constantes, tuple etc)");
 	 Si en el espacio nombrado su dato Si cambia durante el tiempo de ejecución se denomina * variable (variable, lista, diccionario, etc");

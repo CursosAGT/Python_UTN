@@ -447,3 +447,18 @@ There are two possible solutions here.
 """)
 nuevo(13,"fin");
 #################################################################
+print("""Función de Ámbito global.
+
+El espacio de nombres del intérprete de Python corresponde al ámbito global.
+La función globals().
+
+La función globals() regresa el contenido del espacio de nombres del ámbito global como un objeto de tipo dict.
+
+Cuando se invoca la función dir() sin argumentos desde el intérprete, ésta regresa un objeto de tipo list con el listado de nombres del ámbito global.
+Ámbitos locales.
+
+Cada función genera su propio espacio de nombres cada vez que es invocada. Cada uno de estos espacios de nombres es un ámbito local.
+La función locals().
+
+La función locals() regresa el contenido del espacio de nombres del ámbito local como un objeto de tipo dict. Cuando se invoca la función dir() sin argumentos desde una función, ésta regresa un objeto de tipo list con el listado de nombres del ámbito local.
+""")
