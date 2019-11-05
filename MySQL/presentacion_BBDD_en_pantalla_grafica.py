@@ -21,7 +21,7 @@ import Python_BBDD_articulos
 
 class FormularioArticulos:
     def __init__(self):
-        self.articulo1=articulos.Articulos()
+        self.articulo1=Python_BBDD_articulos.articulos()
         self.ventana1=tk.Tk()
         self.ventana1.title("Mantenimiento de artículos")
         self.cuaderno1 = ttk.Notebook(self.ventana1)

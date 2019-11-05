@@ -142,8 +142,12 @@ print("""
 ╠═════════════════════════════════════════════════════════════════════════════╣
 ║                                                                             ║
 ║              Unidad 8,0                                                     ║
-║              pip install Pillow==2.2.2                                      ║
+║              pip install Pillow                                             ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
+pip install pillow
+pip install flask
+
+
 https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_tutorials.html
 https://www.youtube.com/watch?v=CppgV8inf7g&pbjreload=10
 https://python-para-impacientes.blogspot.com/2015/12/tkinter-interfaces-graficas-en-python-i.html

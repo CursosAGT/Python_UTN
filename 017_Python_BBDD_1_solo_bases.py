@@ -95,14 +95,27 @@ http://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc36272
 #Clase_BBDD_01
 import mysql.connector
 import json
+import datetime
+nombre_DDBB = "utn2doCuatrimestre"
+nombre_tabla = "alumnos"
+hoy = datetime.date.today()
+print(hoy)
+host_local="localhost"
+usuario = "root"
+password_de_msql="utn"
+
+
+
+
 
 def crear_base(nombre_base_MySQL):
 	print ("Conectamos con MySQL")
-	connection = mysql.connector.connect(host="localhost",user="root", passwd="utn")#database='AGT',
+	connection = mysql.connector.connect(host= host_local ,user= usuario , passwd= password_de_msql )
+	#connection = mysql.connector.connect(host="localhost",user="root", passwd="utn")#database='AGT',
 	cursor = connection.cursor()
 	cursor.execute("CREATE DATABASE "+str(nombre_base_MySQL))
 	print ("Creamos la base de datos "+str(nombre_base_MySQL))
-	print ("cerramos coneccion")
+	print ("cerramos conexión")
 	cursor.close
 def listar_bases():
 	print ("Conectamos con MySQL")
@@ -119,13 +132,13 @@ def listar_bases():
 		lista_de_bases.append(lista_nombres_bases);
 	print (lista_de_bases)
 	pausa()
-	print ("cerramos coneccion")
+	print ("cerramos la conexión")
 	cursor.close
 	return (lista_de_bases)
 
 def chequear_base_existe(nombre_base_MySQL_input):
 	print ("Conectamos con MySQL")
-	connection = mysql.connector.connect(host="localhost",user="root", passwd="utn")
+	connection = mysql.connector.connect(host= host_local ,user= usuario , passwd= password_de_msql )
 	cursor = connection.cursor()
 	cursor.execute("SHOW DATABASES")
 	lista_de_bases=[]
@@ -136,7 +149,7 @@ def chequear_base_existe(nombre_base_MySQL_input):
 		nombre_base_MySQL_para_chequear=nombre_base_MySQL_para_chequear[2:nombre_largo]
 		lista_de_bases.append(nombre_base_MySQL_para_chequear);
 	cursor.close
-	print ("cerramos coneccion")
+	print ("cerramos conexión")
 	print (lista_de_bases)
 	lista_bases_2=json.loads(lista_bases);
 	lista_de_bases_2.append(lista_bases_2);
@@ -157,7 +170,7 @@ def chequear_base_existe(nombre_base_MySQL_input):
 def listar_tablas(nombre_base_MySQL_input):
 	print ("Conectamos con MySQL")
 	print (nombre_base_MySQL_input)
-	connection = mysql.connector.connect(host="localhost",user="root", passwd="utn", database=nombre_base_MySQL_input,)
+	connection = mysql.connector.connect(host= host_local ,user= usuario , passwd= password_de_msql , database=nombre_base_MySQL_input,)
 	cursor = connection.cursor()
 	cursor.execute("SHOW TABLES")
 	lista_de_tablas=[]
@@ -174,7 +187,7 @@ def borrar_base(nombre_base_MySQL_input):
 	limpiar();
 	listar_bases()
 	print ("Conectamos con MySQL")
-	connection = mysql.connector.connect(host="localhost",user="root", passwd="utn")
+	connection = mysql.connector.connect(host= host_local ,user= usuario , passwd= password_de_msql )
 	cursor = connection.cursor()
 	cursor.execute("DROP DATABASE "+str(nombre_base_MySQL_input))
 	cursor.close

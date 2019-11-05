@@ -103,7 +103,7 @@ def crear_base():
 		cursor = connection.cursor()
 		cursor.execute("CREATE DATABASE "+str(nombre_DDBB))
 		print ("Creamos la base de datos  "+str(nombre_DDBB))
-		print ("cerramos coneccion")
+		print ("cerramos conexión")
 		cursor.close
 		print (input("		continuar?"));
 		limpiar();
@@ -126,7 +126,7 @@ def listar_bases():
 			print ("*"+lista_nombres_bases+"*")
 			lista_de_bases.append(lista_nombres_bases);
 		print (lista_de_bases)
-		print ("cerramos coneccion")
+		print ("cerramos conexión")
 		cursor.close
 		print (input("		continuar?"));
 		limpiar();
@@ -178,7 +178,7 @@ def crear_tablas():
 		for column in cursor.fetchall():
 			print (column[nombre_tabla]);
 		print (tablas)
-		print ("cerramos coneccion")
+		print ("cerramos conexión")
 		cursor.close
 	except Exception as e:
 		print("Exeception occured:{}".format(e))
@@ -205,7 +205,7 @@ def agregar_id_tablas():
 
 			lista_de_tablas.append(lista_nombres_tablas);
 		print (lista_de_tablas)
-		print("cerramos coneccion");
+		print("cerramos conexión");
 		cursor.close
 		print (input("		continuar?"));
 		limpiar();
@@ -233,7 +233,7 @@ def listar_tablas():
 		cursor.execute("SHOW columns FROM "+str(lista_de_tablas[colunma_numero]))
 		for column in cursor.fetchall():
 			print (column[colunma_numero]);
-		print("cerramos coneccion");
+		print("cerramos conexión");
 		cursor.close
 		print (input("		continuar?"));
 		limpiar();
@@ -377,15 +377,15 @@ def borrar_datos_tabla():
 	finally:
 		cursor.close
 ##########################################################################################################################
-nombre_DDBB = "utn_2do_cuatrimestre"
+nombre_DDBB = "utn2doCuatrimestre"
 nombre_tabla = "alumnos"
 hoy = datetime.date.today()
 print(hoy)
 usuario = "root"
 password_de_msql="utn"
 host_local="localhost"
-coneccion = str("mysql.connector.connect(host= '"+str(host_local)+"' ,user= '"+str(usuario)+"' , passwd= '"+str(password_de_msql)+"', database= '"+str(nombre_DDBB)+"' )")
-print(coneccion)
+conexión = str("mysql.connector.connect(host= '"+str(host_local)+"' ,user= '"+str(usuario)+"' , passwd= '"+str(password_de_msql)+"', database= '"+str(nombre_DDBB)+"' )")
+print(conexión)
 accion = input ("Borramos base de datos (S/N)"); limpiar();
 if accion.upper() =="S": borrar_base();
 accion = input ("Creamos base de datos (S/N)"); limpiar();

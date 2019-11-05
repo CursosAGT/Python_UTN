@@ -102,14 +102,31 @@ https://dev.mysql.com/doc/connector-python/en/connector-python-example-ddl.html
 https://www.guru99.com/how-to-create-a-database.html
 http://www.mysqltutorial.org/mysql-datetime/
 """)
+pausa();
 limpiar();
 #################################################################
 #Clase_BBDD_01
 import mysql.connector
 import datetime
+
+nombre_DDBB = "utn2doCuatrimestre"
+nombre_tabla = "alumnos"
+hoy = datetime.date.today()
+print(hoy)
+usuario = "root"
+password_de_msql="utn"
+host_local="localhost"
+
+
+
+
+
+
+
+
 def Iniciar_practica():
 	print ("Iniciamos")
-	print ("Conectamos con MySQL")
+	print ("Conectamos con MySQL 	connection = mysql.connector.connect(host= "+str(host_local)+",user="+str( usuario)+", passwd)+= "+str(password_de_msql)+"))")
 	connection = mysql.connector.connect(host= host_local,user= usuario, passwd= password_de_msql)
 	cursor = connection.cursor()
 	print ("para iniciar el ejercicio si exista la base borrarla, sino crearla")
@@ -122,13 +139,24 @@ def Iniciar_practica():
 
 		print (f"Creamos la base de datos  {nombre_DDBB}")
 		cursor.execute("CREATE DATABASE "+str(nombre_DDBB))
+		print("cursor.close<--------------siempre cursor.close")
 		cursor.close
 		connection = mysql.connector.connect(host= host_local ,user= usuario , passwd= password_de_msql, database= nombre_DDBB )
+		print ("connection =",connection)
 		cursor = connection.cursor()
+
+
+		print("CREATE TABLE backup (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL)------------------una tabla vaciá para guardad la copia de seguridad de lo que valla a cambiar")
 		cursor.execute("CREATE TABLE backup (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL)")
+		print("CREATE TABLE viejo (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL)------------------una tabla vaciá para guardad las cosas viejas")
 		cursor.execute("CREATE TABLE viejo (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL)")
+		print("CREATE TABLE "+str(nombre_tabla)+" (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL , ALUMNO_NOMBRE VARCHAR(255) NOT NULL, ALUMNO_MAIL VARCHAR(255), ALUMNO_CELULAR VARCHAR(255), ALUMNO_EDAD INT , ALUMNO_GENERO enum('M','F') , ALUMNO_HOY date, ALUMNO_NACIMIENTO date, ALUMNO_INGRESO date )")
 		cursor.execute("CREATE TABLE "+str(nombre_tabla)+" (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL , ALUMNO_NOMBRE VARCHAR(255) NOT NULL, ALUMNO_MAIL VARCHAR(255), ALUMNO_CELULAR VARCHAR(255), ALUMNO_EDAD INT , ALUMNO_GENERO enum('M','F') , ALUMNO_HOY date, ALUMNO_NACIMIENTO date, ALUMNO_INGRESO date )")
+
+
 		columnas_mysql = "INSERT INTO "+str(nombre_tabla)+" (ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD, ALUMNO_GENERO, ALUMNO_HOY, ALUMNO_NACIMIENTO, ALUMNO_INGRESO) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+		print ("columnas_mysql",columnas_mysql)
+
 		print("""
 		cargo:
 		Garcia Traba", "Ariel" , "cursos.agt@gmail.com","+5491144754637","46","M",hoy,nacimiento,ingreso))
@@ -137,8 +165,6 @@ def Iniciar_practica():
 		Primer Apellido 4", "Nombre_4" , "yyyyy@gmail.com","+549110987654321","66","M",hoy,nacimiento,ingreso))
 		Primer Apellido 5", "Nombre_5" , "wwwww2@gmail.com","+5491100000000","55","F",hoy,nacimiento,ingreso))
 		""")
-
-
 
 		nacimiento = datetime.datetime(1973,9,22)
 		hoy = datetime.date.today()
@@ -173,12 +199,15 @@ def Iniciar_practica():
 			cursor.execute(columnas_mysql, (Apell, Nombre , email,celular,edad,sexo,hoy,fnacimiento,fingreso))
 			connection.commit()
 		print(cursor.rowcount, "record inserted.")
+		print("cursor.close<--------------siempre cursor.close")
 		cursor.close
 def Recargar_practica():
 	print ("Recargar_practica Conectamos con MySQL")
 	connection = mysql.connector.connect(host= host_local,user= usuario, passwd= password_de_msql, database=nombre_DDBB)
+	print ("connection =",connection)
 	cursor = connection.cursor()
 	columnas_mysql = "INSERT INTO "+str(nombre_tabla)+" (ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD, ALUMNO_GENERO, ALUMNO_HOY, ALUMNO_NACIMIENTO, ALUMNO_INGRESO) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+	print ("columnas_mysql",columnas_mysql)
 	nacimiento = datetime.datetime(1973,9,22)
 	hoy = datetime.datetime.now()
 	ingreso = datetime.datetime(2015,3,1)
@@ -193,23 +222,19 @@ def Recargar_practica():
 	cursor.execute(columnas_mysql, ("Primer Apellido 5", "Nombre_5" , "wwwww2@gmail.com","+5491100000000","55","F",hoy,nacimiento,ingreso))
 	connection.commit()
 	print(cursor.rowcount, "record inserted.")
+	print("cursor.close<--------------siempre cursor.close")
 	cursor.close
 ##########################################################################################################################
-nombre_DDBB = "utn_2do_cuatrimestre"
-nombre_tabla = "alumnos"
-hoy = datetime.date.today()
-print(hoy)
-usuario = "root"
-password_de_msql="utn"
-host_local="localhost"
-coneccion = str("mysql.connector.connect(host= '"+str(host_local)+"' ,user= '"+str(usuario)+"' , passwd= '"+str(password_de_msql)+"', database= '"+str(nombre_DDBB)+"' )")
-print(coneccion)
+
+conexión = str("mysql.connector.connect(host= '"+str(host_local)+"' ,user= '"+str(usuario)+"' , passwd= '"+str(password_de_msql)+"', database= '"+str(nombre_DDBB)+"' )")
+print(conexión)
 Iniciar_practica()
-pausa()
+pausa();
 limpiar();
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print ("\n\n  1_1) SELECIONO Y MUESTRO TODO LO QUE TENGA LA TABLA ");
 connection = mysql.connector.connect(host= host_local,user= usuario, passwd= password_de_msql, database=nombre_DDBB)
+print ("connection =",connection)
 cursor = connection.cursor()
 print ('cursor.execute("SELECT * from "+str(nombre_tabla))');
 cursor.execute("SELECT * from "+str(nombre_tabla))
@@ -217,17 +242,18 @@ resultados = cursor.fetchall()
 print("SELECT * from "+str(nombre_tabla))
 for cada_rec in resultados:
 	print(cada_rec)
-limpiar();
-print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+pausa();
+
 print ("\n\n  1_2) MUESTRO POR FILAS LAS COLUMNAS SELECCIONADAS TODO LO QUE TENGA LA TABLA ?");
 cursor.execute("select ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD, ALUMNO_GENERO, ALUMNO_INGRESO from "+str(nombre_tabla))
 print("ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD, ALUMNO_GENERO, ALUMNO_INGRESO")
 for fila in cursor:
 	print(fila)
 	print("------------------------------\n")
+print("cursor.close<--------------siempre cursor.close")
 cursor.close
-limpiar();
-print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+pausa();
+
 print ("\n\n  2) SELECIONO POR COLUMNA ALUMNO_NOMBRE, ALUMNO_MAIL FROM "+str(nombre_tabla));
 connection = mysql.connector.connect(host= host_local,user= usuario, passwd= password_de_msql, database=nombre_DDBB)
 cursor = connection.cursor()
@@ -252,8 +278,9 @@ cursor.execute("SELECT ALUMNO_NOMBRE, ALUMNO_MAIL from "+str(nombre_tabla))
 resultados = cursor.fetchall()
 for cada_rec in resultados:
 	print(cada_rec)
+print("cursor.close<--------------siempre cursor.close")
 cursor.close
-pausa()
+pausa();
 limpiar();
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print ("\n\n  3)SELECCIONO CON FILTROS `WHERE` ");
@@ -266,7 +293,7 @@ resultados = cursor.fetchall()
 print("Datos encontrados con Where")
 for cada_rec in resultados:
 	print(cada_rec)
-pausa()
+pausa();
 limpiar();
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print ("\n\n  4 ) FILTRO CON CARACTERES % wildcard '%LIKE%' ");
@@ -278,8 +305,10 @@ resultados = cursor.fetchall()
 print("Datos encontrados con like")
 for cada_rec in resultados:
 	print(cada_rec)
+print("cursor.close<--------------siempre cursor.close")
 cursor.close
 
+pausa();
 limpiar();
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print ("\n\n  5 ) FILTRO CON CARACTERES %s wildcard  SQL Injection ");
@@ -291,7 +320,9 @@ cursor.execute(string_de_busqueda, dato_buscado)
 resultados = cursor.fetchall()
 for cada_rec in resultados:
 	print(cada_rec)
+print("cursor.close<--------------siempre cursor.close")
 cursor.close
+pausa();
 limpiar();
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print ("\n\n  6 ) SORT ");
@@ -302,7 +333,9 @@ cursor.execute(string_de_busqueda)
 resultados = cursor.fetchall()
 for cada_rec in resultados:
 	print(cada_rec)
+print("cursor.close<--------------siempre cursor.close")
 cursor.close
+pausa();
 limpiar();
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print ("\n\n  7 ) SORT INVERTIDO ");
@@ -314,7 +347,9 @@ resultados = cursor.fetchall()
 for cada_rec in resultados:
 	print(cada_rec)
 Recargar_practica()
+print("cursor.close<--------------siempre cursor.close")
 cursor.close
+pausa();
 limpiar();
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print ("\n\n  8 ) BORRO UN RECORD ");
@@ -327,6 +362,7 @@ print ("\n\n  Listado original ");
 for cada_rec in resultados:
 	print(cada_rec)
 Recargar_practica()
+print("cursor.close<--------------siempre cursor.close")
 cursor.close
 pausa()
 string_de_busqueda = "DELETE FROM "+str(nombre_tabla)+"  WHERE ALUMNO_Nombre = 'Nombre_4'"
@@ -341,7 +377,9 @@ print ("\n\n  Listado con un dato borrado Nombre_4");
 for cada_rec in resultados:
 	print(cada_rec)
 Recargar_practica()
+print("cursor.close<--------------siempre cursor.close")
 cursor.close
+pausa();
 limpiar();
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print ("\n\n  9 ) BORRO UN RECORD - Prevent SQL Injection ");
@@ -367,7 +405,9 @@ print ("\n\n  Listado con un dato borrado Nombre_3");
 for cada_rec in resultados:
 	print(cada_rec)
 Recargar_practica()
+print("cursor.close<--------------siempre cursor.close")
 cursor.close
+pausa();
 limpiar();
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print ("\n\n  10 ) ACTUALIZAR UN DATO 'UPDATE'");
@@ -390,7 +430,9 @@ resultados = cursor.fetchall()
 print ("\n\n  Listado modificado ");
 for cada_rec in resultados:
 	print(cada_rec)
+print("cursor.close<--------------siempre cursor.close")
 cursor.close
+pausa();
 limpiar();
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print ("\n\n  11 ) ACTUALIZAR CON %s SQL Injection 'UPDATE' ?");
@@ -403,20 +445,22 @@ print("SELECT * FROM "+str(nombre_tabla)+"  WHERE ALUMNO_MAIL LIKE '%zzzzz%'")
 
 for cada_rec in resultados:
 	print("se reemplaza el sig resultado de LIKE '%zzzzz%':", cada_rec)
-pausa()
+pausa();
 string_de_busqueda = "UPDATE "+str(nombre_tabla)+"  SET ALUMNO_MAIL = %s WHERE ALUMNO_MAIL = %s"
 print("Busco 'cursos.mithril@gmail.com' y reemplazo con 'zzzzz@yahoo.com' ")
 dato_buscado = ("cursos.mithril@gmail.com", "zzzzz@yahoo.com")
 cursor.execute(string_de_busqueda, dato_buscado)
 connection.commit()
-pausa()
+pausa();
 print(cursor.rowcount, "record(s) affected")
 cursor.execute("SELECT * FROM "+str(nombre_tabla)+"  WHERE ALUMNO_MAIL LIKE '%@%'")
 resultados = cursor.fetchall()
 print("SELECT * FROM "+str(nombre_tabla)+"  WHERE ALUMNO_MAIL LIKE '%@%'")
 for cada_rec in resultados:
 	print(cada_rec)
+print("cursor.close<--------------siempre cursor.close")
 cursor.close
+pausa();
 limpiar();
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print ("\n\n  12 ) LIMITO LA CANTIDAD DE RESULTADOS 'LIMIT' ");
@@ -427,7 +471,9 @@ cursor.execute("SELECT * FROM "+str(nombre_tabla)+"  LIMIT 5")
 resultados = cursor.fetchall()
 for cada_rec in resultados:
 	print(cada_rec)
+print("cursor.close<--------------siempre cursor.close")
 cursor.close
+pausa();
 limpiar();
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print ("\n\n  13 ) INICIO DESDE OTRA POSICION OFFSET ");
@@ -438,8 +484,9 @@ resultados = cursor.fetchall()
 for cada_rec in resultados:
 	print(cada_rec)
 Recargar_practica()
+print("cursor.close<--------------siempre cursor.close")
 cursor.close
-pausa()
+pausa();
 limpiar();
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print ("\n\n  14 ) BORRO UNA TABLA 'Drop' ");
@@ -463,10 +510,12 @@ for cada_rec in cursor:
 	print(cada_rec)
 
 Iniciar_practica()
+print("cursor.close<--------------siempre cursor.close")
 cursor.close
-pausa()
+pausa();
 limpiar();
-print (input("\n\n  15 ) BORRO UNA TABLA '2020_Marzo' (Drop) SI EXISTE "));
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+print ("\n\n  15 ) BORRO UNA TABLA '2020_Marzo' (Drop) SI EXISTE ");
 connection = mysql.connector.connect(host= host_local,user= usuario, passwd= password_de_msql, database=nombre_DDBB)
 cursor = connection.cursor()
 
@@ -475,13 +524,14 @@ cursor = connection.cursor()
 cursor.execute("SHOW TABLES")
 for cada_rec in cursor:
 	print(cada_rec)
+pausa();
 print ("------------DROP-----------------------")
 
 cursor = connection.cursor()
 string_de_busqueda = "DROP TABLE IF EXISTS 2020_Marzo"
 print( "Tabla a borrar"+str(string_de_busqueda))
 cursor.execute(string_de_busqueda)
-
+pausa();
 print ("------------Estado Final---------------")
 cursor = connection.cursor()
 cursor.execute("SHOW TABLES")
@@ -491,12 +541,13 @@ cursor = connection.cursor()
 string_de_busqueda = "DROP TABLE IF EXISTS "+str(nombre_tabla)
 print( "Tabla a borrar"+str(string_de_busqueda))
 cursor.execute(string_de_busqueda)
-
+pausa();
 print ("------------Estado Final---------------")
 cursor = connection.cursor()
 cursor.execute("SHOW TABLES")
 for cada_rec in cursor:
 	print(cada_rec)
-
+pausa();
 Iniciar_practica()
+print("cursor.close<--------------siempre cursor.close")
 cursor.close

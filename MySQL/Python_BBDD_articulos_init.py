@@ -92,81 +92,82 @@ print("""
 ##                                                                        ##
 ############################################################################""");
 import mysql.connector
-from mysql.connector import Error
-from mysql.connector import errorcode
 import datetime
-
+import mysql.connector
 hoy = datetime.date.today()
 print(hoy)
 host_local="localhost"
 usuario = "root"
 password_de_msql="utn"
-nombre_DDBB = "utn2doCuatrimestreEjemplo"
-nombre_tabla = "articulos"
-nombre_columna_1 = "descripcion"
-nombre_columna_2 = "precio"
-nombre_columna_3 = "codigo"
+nombre_DDBB = "bd1"
+
 
 def borrar_base():
 	try:
+		nombre_DDBB = "bd1"
 		print ("Conectamos con MySQL")
-		#connection = mysql.connector.connect(host="localhost",user="root", passwd="utn")
 		connection = mysql.connector.connect(host= host_local ,user= usuario , passwd= password_de_msql )
-		cursor = connection.cursor()
-		print("DROP DATABASE "+str(nombre_DDBB))
+		cursor = conectarse.cursor()
 		cursor.execute("DROP DATABASE "+str(nombre_DDBB))
 		cursor.close
 		limpiar();
 	except Exception as e:
 		print("Exeception occured:{}".format(e))
 	finally:
-		cursor.close
+		print("finally")
 def crear_base():
 
+#import mysql.connector
+#conexion1=mysql.connector.connect(host="localhost",user="root", passwd="utn" ,  database="bd1")
+#cursor1=conexion1.cursor()
+#sql="insert into articulos(descripcion, precio,codigo) values (%s,%s,%s)"
+#filas=[ ("naranjas", 23.50,"nra"), ("bananas", 34,"banana"),("peras", 21,"pera"),("sandía", 19.60,"sandia") ]
+#cursor1.executemany(sql, filas)
+#conexion1.commit()
+#conexion1.close()
 	try:
-
+		nombre_DDBB = "bd1"
+		nombre_tabla = "articulos"
+		nombre_columna_1 = "descripcion"
+		nombre_columna_2 = "precio"
+		nombre_columna_3 = "codigo"
 		print ("Conectamos con MySQL")
-		connection = mysql.connector.connect(host= host_local ,user= usuario , passwd= password_de_msql )
-		cursor = connection.cursor()
+		conectarse = mysql.connector.connect(host="localhost",user="root", passwd="utn")
+		cursor = conectarse.cursor()
 
 		print ("CREATE DATABASE")
 		cursor.execute("CREATE DATABASE "+str(nombre_DDBB))
-		connection.commit()
-		cursor = connection.cursor()
+		conectarse.commit()
+		cursor = conectarse.cursor()
 		print(cursor.rowcount, "record inserted.")
 		print ("USE DATABASE")
 		cursor.execute("USE "+str(nombre_DDBB))
-		cursor = connection.cursor()
+		cursor = conectarse.cursor()
 		print ("CREATE TABLE")
 		print ("CREATE COLUMN")
 		cursor.execute("CREATE TABLE "+str(nombre_tabla) + "(id INT AUTO_INCREMENT PRIMARY KEY, "+str(nombre_columna_1)+" VARCHAR(255), "+str(nombre_columna_2)+" FLOAT, "+str(nombre_columna_3)+" VARCHAR(255))")
-		cursor = connection.cursor()
+		cursor = conectarse.cursor()
 		print ("RECORD INSERT")
-		print('columnas_mysql = "INSERT INTO  "'+str(nombre_tabla) + " ("+str(nombre_columna_1)+", "+str(nombre_columna_2)+", "+str(nombre_columna_3)+") VALUES(%s,%s,%s)")
 		columnas_mysql = "INSERT INTO  "+str(nombre_tabla) + " ("+str(nombre_columna_1)+", "+str(nombre_columna_2)+", "+str(nombre_columna_3)+") VALUES(%s,%s,%s)"
 #		columnas_mysql = "INSERT INTO 2019_Marzo (ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD, ALUMNO_GENERO, ALUMNO_HOY, ALUMNO_NACIMIENTO, ALUMNO_INGRESO) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)"
 		cursor.execute(columnas_mysql, ("Fideos", 30 , "f1"))
-		connection.commit()
+		conectarse.commit()
 		cursor.execute(columnas_mysql, ("Arroz", 25 , "A1"))
-		connection.commit()
+		conectarse.commit()
 		cursor.execute(columnas_mysql, ("Agua", 20 , "H2O"))
-		connection.commit()
+		conectarse.commit()
 		cursor.execute(columnas_mysql, ("Tomates", 15 , "T1"))
-		connection.commit()
+		conectarse.commit()
 		cursor.execute(columnas_mysql, ("Sal", 10, "S1"))
-		connection.commit()
+		conectarse.commit()
 		print(cursor.rowcount, "record inserted.")
-		print("cerramos conexión");
+		print("cerramos coneccion");
 		cursor.close
 	except Exception as e:
 		print("Exeception occured:{}".format(e))
-		cursor.close
 	finally:
 		cursor.close
 
-	print(cursor.rowcount, "record inserted.")
-	print("cerramos conexión");
-	cursor.close
-
 borrar_base();
 crear_base();
+

@@ -98,13 +98,14 @@ import mysql.connector
 from mysql.connector import Error
 from mysql.connector import errorcode
 import datetime
-nombre_DDBB = "utn_2do_cuatrimestre"
-nombre_tabla = "alumnos"
+
 hoy = datetime.date.today()
 print(hoy)
+host_local="localhost"
 usuario = "root"
 password_de_msql="utn"
-host_local="localhost"
+nombre_DDBB = "utn2doCuatrimestre"
+nombre_tabla = "alumnos"
 
 try:
 	print ("Iniciamos")
@@ -128,9 +129,13 @@ except mysql.connector.Error as error:
 	cursor.close
 	connection = mysql.connector.connect(host= host_local ,user= usuario , passwd= password_de_msql, database= nombre_DDBB )
 	cursor = connection.cursor()
+	print("CREATE TABLE backup (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL)------------------una tabla vaciá para guardad la copia de seguridad de lo que valla a cambiar")
 	cursor.execute("CREATE TABLE backup (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL)")
+	print("CREATE TABLE viejo (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL)------------------una tabla vaciá para guardad las cosas viejas")
 	cursor.execute("CREATE TABLE viejo (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL)")
+	print("CREATE TABLE "+str(nombre_tabla)+" (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL , ALUMNO_NOMBRE VARCHAR(255) NOT NULL, ALUMNO_MAIL VARCHAR(255), ALUMNO_CELULAR VARCHAR(255), ALUMNO_EDAD INT , ALUMNO_GENERO enum('M','F') , ALUMNO_HOY date, ALUMNO_NACIMIENTO date, ALUMNO_INGRESO date )")
 	cursor.execute("CREATE TABLE "+str(nombre_tabla)+" (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL , ALUMNO_NOMBRE VARCHAR(255) NOT NULL, ALUMNO_MAIL VARCHAR(255), ALUMNO_CELULAR VARCHAR(255), ALUMNO_EDAD INT , ALUMNO_GENERO enum('M','F') , ALUMNO_HOY date, ALUMNO_NACIMIENTO date, ALUMNO_INGRESO date )")
+	print("INSERT INTO "+str(nombre_tabla)+" (ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD, ALUMNO_GENERO, ALUMNO_HOY, ALUMNO_NACIMIENTO, ALUMNO_INGRESO) VALUES('Garcia Traba', 'Ariel' , 'cursos.agt@gmail.com','+5491144754637','46','M','2020-01-01','1973-09-22','2010-08-14') ")
 	datos_mysql = "INSERT INTO "+str(nombre_tabla)+" (ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD, ALUMNO_GENERO, ALUMNO_HOY, ALUMNO_NACIMIENTO, ALUMNO_INGRESO) VALUES('Garcia Traba', 'Ariel' , 'cursos.agt@gmail.com','+5491144754637','46','M','2020-01-01','1973-09-22','2010-08-14') "
 	cursor =connection.cursor()
 	result = cursor.execute(datos_mysql)
@@ -139,7 +144,7 @@ except mysql.connector.Error as error:
 finally:
 	if (connection.is_connected()):
 		print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-		print ("SELECIONO Y MUESTRO TODO LO QUE TENGA LA TABLA ");
+		print ("SELECCIONO Y MUESTRO TODO LO QUE TENGA LA TABLA ");
 		connection = mysql.connector.connect(host= host_local,user= usuario, passwd= password_de_msql, database=nombre_DDBB)
 		cursor = connection.cursor()
 		print ('cursor.execute("SELECT * from "+str(nombre_tabla))');

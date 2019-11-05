@@ -103,7 +103,7 @@ def crear_base():
 		cursor = connection.cursor()
 		cursor.execute("CREATE DATABASE "+str(nombre_DDBB))
 		print ("Creamos la base de datos  "+str(nombre_DDBB))
-		print ("cerramos coneccion")
+		print ("cerramos conexión")
 		cursor.close
 		print (input("		continuar?"));
 		limpiar();
@@ -126,7 +126,7 @@ def listar_bases():
 			print ("*"+lista_nombres_bases+"*")
 			lista_de_bases.append(lista_nombres_bases);
 		print (lista_de_bases)
-		print ("cerramos coneccion")
+		print ("cerramos conexión")
 		cursor.close
 		print (input("		continuar?"));
 		limpiar();
@@ -178,7 +178,7 @@ def crear_tablas():
 		for column in cursor.fetchall():
 			print (column[nombre_tabla]);
 		print (tablas)
-		print ("cerramos coneccion")
+		print ("cerramos conexión")
 		cursor.close
 	except Exception as e:
 		print("Exeception occured:{}".format(e))
@@ -205,7 +205,7 @@ def agregar_id_tablas():
 
 			lista_de_tablas.append(lista_nombres_tablas);
 		print (lista_de_tablas)
-		print("cerramos coneccion");
+		print("cerramos conexión");
 		cursor.close
 		print (input("		continuar?"));
 		limpiar();
@@ -233,7 +233,7 @@ def listar_tablas():
 		cursor.execute("SHOW columns FROM "+str(lista_de_tablas[colunma_numero]))
 		for column in cursor.fetchall():
 			print (column[colunma_numero]);
-		print("cerramos coneccion");
+		print("cerramos conexión");
 		cursor.close
 		print (input("		continuar?"));
 		limpiar();
