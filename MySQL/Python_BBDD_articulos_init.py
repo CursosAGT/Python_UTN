@@ -98,7 +98,7 @@ hoy = datetime.date.today()
 print(hoy)
 host_local="localhost"
 usuario = "root"
-password_de_msql="utn"
+password_de_msql=""
 nombre_DDBB = "bd1"
 
 
@@ -132,7 +132,7 @@ def crear_base():
 		nombre_columna_2 = "precio"
 		nombre_columna_3 = "codigo"
 		print ("Conectamos con MySQL")
-		conectarse = mysql.connector.connect(host="localhost",user="root", passwd="utn")
+		conectarse = mysql.connector.connect(host="localhost",user="root", passwd="")
 		cursor = conectarse.cursor()
 
 		print ("CREATE DATABASE")

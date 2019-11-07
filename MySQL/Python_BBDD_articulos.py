@@ -16,7 +16,7 @@ hoy = datetime.date.today()
 print(hoy)
 host_local="localhost"
 usuario = "root"
-password_de_msql="utn"
+password_de_msql=""
 nombre_DDBB = "bd1"
 
 
@@ -24,14 +24,15 @@ class articulos:
 
 	def abrir(self):
 		print ("Conectamos con MySQL")
-		#connection = mysql.connector.connect(host="localhost",user="root", passwd="utn")
+		#connection = mysql.connector.connect(host="localhost",user="root", passwd="")
 		connection = mysql.connector.connect(host= host_local ,user= usuario , passwd= password_de_msql , database=nombre_DDBB)
 		return connection
 
 	def alta(self, datos):
 		cone=self.abrir()
 		cursor=cone.cursor()
-		sql="insert into articulos(descripcion, precio) values (%s,%s)"
+		# PM: Agrego codigo ->
+		sql="insert into articulos(descripcion, precio, codigo) values (%s,%s,%s)" 
 		cursor.execute(sql, datos)
 		cone.commit()
 		cone.close()

@@ -46,11 +46,19 @@ class FormularioArticulos:
         self.preciocarga=tk.StringVar()
         self.entryprecio=ttk.Entry(self.labelframe1, textvariable=self.preciocarga)
         self.entryprecio.grid(column=1, row=1, padx=4, pady=4)
+        # Inicio - Agregado por Pablo Mayor
+        # Agrega para ingresar Codigo al producto (insertaba Nulo sino)
+        self.label3=ttk.Label(self.labelframe1, text="Codigo:")
+        self.label3.grid(column=0, row=2, padx=4, pady=4)
+        self.codigocarga=tk.StringVar()
+        self.entrycodigo=ttk.Entry(self.labelframe1, textvariable=self.codigocarga)
+        self.entrycodigo.grid(column=1, row=2, padx=4, pady=4)
+        # Fin - Agregado por Pablo Mayor
         self.boton1=ttk.Button(self.labelframe1, text="Confirmar", command=self.agregar)
-        self.boton1.grid(column=1, row=2, padx=4, pady=4)
+        self.boton1.grid(column=1, row=3, padx=4, pady=4) #Mod: Row=3
 
     def agregar(self):
-        datos=(self.descripcioncarga.get(), self.preciocarga.get())
+        datos=(self.descripcioncarga.get(), self.preciocarga.get(), self.codigocarga.get()) #Agrego: ,self.codigocarga.get()
         self.articulo1.alta(datos)
         mb.showinfo("Información", "Los datos fueron cargados")
         self.descripcion.set("")
