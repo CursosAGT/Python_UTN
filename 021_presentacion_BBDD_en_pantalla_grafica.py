@@ -1,15 +1,17 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# AGT
-# Copyright 2019 Ariel H Garcia T <cursos.agt@gmail.com>
 from Estructura import *
+nuevo(0,"inicio");
 #################################################################
+def Ej_ya_hechos():
+	#Con tab colocaremos aqui las precticas hechas
+	pass
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
-║                               Trabajo Final Python                          ║
+║                               Pantalla Grafica                              ║
 ╠═════════════════════════════════════════════════════════════════════════════╣
-║                                 TP 577/19 - 08-10                           ║
+║                            pip install tkintertable                         ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
+https://tkdocs.com/tutorial/install.html
+tkinter._test()
 """);
 import tkinter as tk
 from tkinter import ttk
@@ -19,7 +21,7 @@ import Python_BBDD_articulos
 
 class FormularioArticulos:
     def __init__(self):
-        self.articulo1=Python_BBDD_articulos.articulos()
+        self.articulo1=articulos.Articulos()
         self.ventana1=tk.Tk()
         self.ventana1.title("Mantenimiento de artículos")
         self.cuaderno1 = ttk.Notebook(self.ventana1)
@@ -44,19 +46,11 @@ class FormularioArticulos:
         self.preciocarga=tk.StringVar()
         self.entryprecio=ttk.Entry(self.labelframe1, textvariable=self.preciocarga)
         self.entryprecio.grid(column=1, row=1, padx=4, pady=4)
-        # Inicio - Agregado por Pablo Mayor
-        # Agrega para ingresar Codigo al producto (insertaba Nulo sino)
-        self.label3=ttk.Label(self.labelframe1, text="Codigo:")
-        self.label3.grid(column=0, row=2, padx=4, pady=4)
-        self.codigocarga=tk.StringVar()
-        self.entrycodigo=ttk.Entry(self.labelframe1, textvariable=self.codigocarga)
-        self.entrycodigo.grid(column=1, row=2, padx=4, pady=4)
-        # Fin - Agregado por Pablo Mayor
         self.boton1=ttk.Button(self.labelframe1, text="Confirmar", command=self.agregar)
-        self.boton1.grid(column=1, row=3, padx=4, pady=4) #Mod: Row=3
+        self.boton1.grid(column=1, row=2, padx=4, pady=4)
 
     def agregar(self):
-        datos=(self.descripcioncarga.get(), self.preciocarga.get(), self.codigocarga.get()) #Agrego: ,self.codigocarga.get()
+        datos=(self.descripcioncarga.get(), self.preciocarga.get())
         self.articulo1.alta(datos)
         mb.showinfo("Información", "Los datos fueron cargados")
         self.descripcion.set("")

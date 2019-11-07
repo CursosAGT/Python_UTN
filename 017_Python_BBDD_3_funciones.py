@@ -111,23 +111,21 @@ import datetime
 
 nombre_DDBB = "utn2doCuatrimestre"
 nombre_tabla = "alumnos"
+nombre_DDBB_backup="backupDDBB"
+nombre_tabla_backup = "backup"
+
+
+
 hoy = datetime.date.today()
 print(hoy)
 usuario = "root"
 password_de_msql="utn"
 host_local="localhost"
 
-
-
-
-
-
-
-
 def Iniciar_practica():
 	print ("Iniciamos")
-	print ("Conectamos con MySQL 	connection = mysql.connector.connect(host= "+str(host_local)+",user="+str( usuario)+", passwd)+= "+str(password_de_msql)+"))")
 	connection = mysql.connector.connect(host= host_local,user= usuario, passwd= password_de_msql)
+	print ("Conectamos con MySQL 	connection = ",connection)
 	cursor = connection.cursor()
 	print ("para iniciar el ejercicio si exista la base borrarla, sino crearla")
 	try:
@@ -146,12 +144,12 @@ def Iniciar_practica():
 		cursor = connection.cursor()
 
 
-		print("CREATE TABLE backup (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL)------------------una tabla vaciá para guardad la copia de seguridad de lo que valla a cambiar")
-		cursor.execute("CREATE TABLE backup (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL)")
-		print("CREATE TABLE viejo (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL)------------------una tabla vaciá para guardad las cosas viejas")
-		cursor.execute("CREATE TABLE viejo (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL)")
 		print("CREATE TABLE "+str(nombre_tabla)+" (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL , ALUMNO_NOMBRE VARCHAR(255) NOT NULL, ALUMNO_MAIL VARCHAR(255), ALUMNO_CELULAR VARCHAR(255), ALUMNO_EDAD INT , ALUMNO_GENERO enum('M','F') , ALUMNO_HOY date, ALUMNO_NACIMIENTO date, ALUMNO_INGRESO date )")
 		cursor.execute("CREATE TABLE "+str(nombre_tabla)+" (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL , ALUMNO_NOMBRE VARCHAR(255) NOT NULL, ALUMNO_MAIL VARCHAR(255), ALUMNO_CELULAR VARCHAR(255), ALUMNO_EDAD INT , ALUMNO_GENERO enum('M','F') , ALUMNO_HOY date, ALUMNO_NACIMIENTO date, ALUMNO_INGRESO date )")
+
+
+		print("CREATE TABLE "+str(nombre_tabla_backup)+" (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL , ALUMNO_NOMBRE VARCHAR(255) NOT NULL, ALUMNO_MAIL VARCHAR(255), ALUMNO_CELULAR VARCHAR(255), ALUMNO_EDAD INT , ALUMNO_GENERO enum('M','F') , ALUMNO_HOY date, ALUMNO_NACIMIENTO date, ALUMNO_INGRESO date )")
+		cursor.execute("CREATE TABLE "+str(nombre_tabla_backup)+" (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255) NOT NULL , ALUMNO_NOMBRE VARCHAR(255) NOT NULL, ALUMNO_MAIL VARCHAR(255), ALUMNO_CELULAR VARCHAR(255), ALUMNO_EDAD INT , ALUMNO_GENERO enum('M','F') , ALUMNO_HOY date, ALUMNO_NACIMIENTO date, ALUMNO_INGRESO date )")
 
 
 		columnas_mysql = "INSERT INTO "+str(nombre_tabla)+" (ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD, ALUMNO_GENERO, ALUMNO_HOY, ALUMNO_NACIMIENTO, ALUMNO_INGRESO) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)"
@@ -231,6 +229,7 @@ print(conexión)
 Iniciar_practica()
 pausa();
 limpiar();
+
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print ("\n\n  1_1) SELECIONO Y MUESTRO TODO LO QUE TENGA LA TABLA ");
 connection = mysql.connector.connect(host= host_local,user= usuario, passwd= password_de_msql, database=nombre_DDBB)
@@ -257,7 +256,7 @@ pausa();
 print ("\n\n  2) SELECIONO POR COLUMNA ALUMNO_NOMBRE, ALUMNO_MAIL FROM "+str(nombre_tabla));
 connection = mysql.connector.connect(host= host_local,user= usuario, passwd= password_de_msql, database=nombre_DDBB)
 cursor = connection.cursor()
-print("""
+print('''
 Para leer los resultados de la consulta
 <cursor.execute('select * from una_tabla')>
 <resultados = cursor.fetchall()>
@@ -273,7 +272,7 @@ while True:
 	for row in rows:
 		yield row
 >
-""")
+''')
 cursor.execute("SELECT ALUMNO_NOMBRE, ALUMNO_MAIL from "+str(nombre_tabla))
 resultados = cursor.fetchall()
 for cada_rec in resultados:
@@ -282,11 +281,12 @@ print("cursor.close<--------------siempre cursor.close")
 cursor.close
 pausa();
 limpiar();
+
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print ("\n\n  3)SELECCIONO CON FILTROS `WHERE` ");
 connection = mysql.connector.connect(host= host_local,user= usuario, passwd= password_de_msql, database=nombre_DDBB)
 cursor = connection.cursor()
-print(""" devuelve todo si corresponde a WHERE ALUMNO_MAIL ='cursos.agt@gmail.com'""")
+print(" devuelve todo si corresponde a WHERE ALUMNO_MAIL ='cursos.agt@gmail.com'")
 string_de_busqueda = "SELECT * FROM "+str(nombre_tabla)+"  WHERE ALUMNO_MAIL ='cursos.agt@gmail.com'"
 cursor.execute(string_de_busqueda)
 resultados = cursor.fetchall()
@@ -517,7 +517,6 @@ limpiar();
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print ("\n\n  15 ) BORRO UNA TABLA '2020_Marzo' (Drop) SI EXISTE ");
 connection = mysql.connector.connect(host= host_local,user= usuario, passwd= password_de_msql, database=nombre_DDBB)
-cursor = connection.cursor()
 
 print ("------------Estado Inicial-------------")
 cursor = connection.cursor()
@@ -551,3 +550,105 @@ pausa();
 Iniciar_practica()
 print("cursor.close<--------------siempre cursor.close")
 cursor.close
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
+
+print ("\n\n  16 ) respaldo externo  Backup ");
+print("Asegurate de crear el directorio backup")
+pausa()
+import os
+import time
+import datetime
+import pipes
+
+
+
+BACKUP_PATH = 'backup'# 'backup/MySql_DDBB_Backup------------sub_directorio/sub_sub_d y /para raiz'
+DATETIME = time.strftime('%Y%m%d-%H%M%S')
+String_nombre_backup = BACKUP_PATH + '/' + DATETIME
+
+try:
+	os.stat(String_nombre_backup)
+except:
+	os.mkdir(String_nombre_backup)
+
+# Chequeo si tomo una base de datos o varias para backup en nombre_DDBB.
+print ("Chequeo si existe el archivo.")
+if os.path.exists(nombre_DDBB):
+	file1 = open(nombre_DDBB)
+	multi = 1
+	print ("Database encontrada...\nInico el backup de  " + nombre_DDBB)
+else:
+	print ("Database NO encontrada...\nInico el backup de  " + nombre_DDBB)
+	multi = 0
+
+# Comienzo con el proceso de backup
+if multi:
+   in_file = open(nombre_DDBB,"r")
+   flength = len(in_file.readlines())
+   in_file.close()
+   p = 1
+   dbfile = open(nombre_DDBB,"r")
+
+   while p <= flength:
+	   db = dbfile.readline()   # Leo la database por linea
+	   db = db[:-1]         	# Borro las lineas extra
+	   dumpcmd = "mysqldump -h " + host_local + " -u " + usuario + " -p" + password_de_msql + " " + db + " > " + pipes.quote(String_nombre_backup) + "/" + db + ".sql"
+	   os.system(dumpcmd)
+	   gzipcmd = "compacto via gzip " + pipes.quote(String_nombre_backup) + "/" + db + ".sql"
+	   os.system(gzipcmd)
+	   p = p + 1
+   dbfile.close()
+else:
+   db = nombre_DDBB
+   dumpcmd = "mysqldump -h " + host_local + " -u " + usuario + " -p" + password_de_msql + " " + db + " > " + pipes.quote(String_nombre_backup) + "/" + db + ".sql"
+   os.system(dumpcmd)
+   gzipcmd = "compacto via gzip " + pipes.quote(String_nombre_backup) + "/" + db + ".sql"
+   os.system(gzipcmd)
+
+print ("Backup completo")
+print ("Se creo el backup '" + String_nombre_backup + "' en su respectivo directorio")
+
+
+
+
+
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+print ("\n\n  17 ) Backup de una tabla a otra en una misma base ");
+
+
+
+print ("Iniciamos")
+connection = mysql.connector.connect(host= host_local,user= usuario, passwd= password_de_msql, database= nombre_DDBB )
+print ("Conectamos con MySQL connection = ",connection)
+cursor = connection.cursor()
+cursor.execute("DROP TABLE IF EXISTS "+str(nombre_tabla_backup))
+cursor.execute("CREATE TABLE "+str(nombre_tabla_backup)+" AS (SELECT *  FROM "+str(nombre_tabla)+" )")
+#cursor.execute("CREATE TABLE "+str(nombre_tabla_backup)+" AS (SELECT *  FROM "+str(nombre_tabla)+" WHERE column1 = 'myCriteria')")
+
+print (f"Creamos la copia de base de datos  {nombre_DDBB}")
+string_de_carga="CREATE "+str(nombre_DDBB_backup)+" LIKE  "+str(nombre_DDBB)
+print(string_de_carga)
+#cursor.execute("CREATE DATABASE backup LIKE  alumnos ;")
+print("cursor.close<--------------siempre cursor.close")
+cursor.close
+connection.close
+
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+print ("\n\n  18 ) Backup de una tabla a otra en distintas bases ");
+
+print ("Iniciamos")
+connection = mysql.connector.connect(host= host_local,user= usuario, passwd= password_de_msql, database= nombre_DDBB )
+print ("Conectamos con MySQL connection = ",connection)
+cursor = connection.cursor()
+cursor.execute("DROP DATABASE IF EXISTS "+str(nombre_DDBB_backup))
+cursor.execute("CREATE DATABASE "+str(nombre_DDBB_backup))
+cursor.execute("CREATE TABLE "+str(nombre_DDBB_backup)+"."+str(nombre_tabla_backup)+" AS (SELECT *  FROM "+str(nombre_DDBB)+"."+str(nombre_tabla)+" )")
+#cursor.execute("CREATE TABLE "+str(nombre_tabla_backup)+" AS (SELECT *  FROM "+str(nombre_tabla)+" WHERE column1 = 'myCriteria')")
+
+print("cursor.close<--------------siempre cursor.close")
+cursor.close
+connection.close
+
+
+
