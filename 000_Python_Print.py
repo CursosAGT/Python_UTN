@@ -30,7 +30,7 @@ ej_02() #llamada a la funcion
 nuevo(2);
 #################################################################
 #Ejercicio_Print_03
-cadena = "es hora de trabajar grupo 2019-UTN"
+cadena = "es hora de trabajar grupo 2020-UTN"
 print ("La Cadena original es : ", cadena);
 print(input("continuar?"));
 print(" print ('cadena',end=''); el, end=' ' genera que al final no se genere un final de linea por lo que siguiente printe sera seguido")
@@ -40,7 +40,7 @@ print(input("continuar?"));
 # multiples lineas
 print ("# multiples lineas ")
 cadena2 = '''...Es hora
-            de trabajar grupo 2019
+            de trabajar grupo 2020
             ...UTN...'''
 print("Cadena 2 multilinea ", end="");
 print(cadena2);

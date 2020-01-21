@@ -238,7 +238,7 @@ def iniciar3_pantalla_raiz():
 	frame_pantalla_raiz.pack()
 	pantalla_raiz.geometry("300x200")
 	pantalla_raiz.configure(bg = "#ff55ff")
-	pantalla_raiz.title("UTN 2019 app")
+	pantalla_raiz.title("UTN 2020 app")
 	frame_pantalla_raiz = Frame(pantalla_raiz, width=640,height=480)
 	frame_pantalla_raiz.pack(fill="both", expand="True")
 
@@ -316,7 +316,7 @@ def iniciar4_pantalla_raiz():
 	pantalla_raiz=Tk()
 	pantalla_raiz.geometry("300x200")
 	pantalla_raiz.configure(bg = "#ff55ff")
-	pantalla_raiz.title("UTN 2019 app")
+	pantalla_raiz.title("UTN 2020 app")
 
 	pantalla_raiz.title("Aplicacion grafica en python")
 	etiqueta_pantalla_raiz = Label(pantalla_raiz, text=etiquieta)

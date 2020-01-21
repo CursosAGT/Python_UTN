@@ -164,8 +164,8 @@ def Ej_ya_hechos():
 		lista.append(5000)
 		print ("dentro del ámbito de la función la variable toma el valor :",variable)
 		print ("dentro del ámbito de la función la lista toma el / los valores :",lista)
-	variable = 2019
-	lista = [2019]
+	variable = 2020
+	lista = [2020]
 	print ("fuera del ámbito de la función antes de pasar la variable toma el valor :",variable)
 	print ("fuera del ámbito de la función antes de pasar la lista toma el / los valores :",lista)
 	funcion(variable, lista)

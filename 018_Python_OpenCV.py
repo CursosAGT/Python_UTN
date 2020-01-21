@@ -408,7 +408,7 @@ nuevo(24);
 #################################################################
 #Clase_openCV_025
 output = imagen.copy()
-cv2.putText(output, "UTN 2019 en Opencv2!!!", (10, 25),
+cv2.putText(output, "UTN 2020 en Opencv2!!!", (10, 25),
 cv2.FONT_HERSHEY_SIMPLEX, 0.7, (55, 55, 255), 2)
 cv2.imshow("Texto", output)
 cv2.waitKey(1500)

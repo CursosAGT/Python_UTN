@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # AGT
-# Copyright 2019 Ariel H Garcia Traba <ariel.garcia.traba@gmail.com>
+# Copyright 2020 Ariel H Garcia Traba <ariel.garcia.traba@gmail.com>
 
 def limpiar():
     import os
@@ -144,7 +144,7 @@ def crear_base():
 		print ("RECORD INSERT")
 		print('columnas_mysql = "INSERT INTO  "'+str(nombre_tabla) + " ("+str(nombre_columna_1)+", "+str(nombre_columna_2)+", "+str(nombre_columna_3)+") VALUES(%s,%s,%s)")
 		columnas_mysql = "INSERT INTO  "+str(nombre_tabla) + " ("+str(nombre_columna_1)+", "+str(nombre_columna_2)+", "+str(nombre_columna_3)+") VALUES(%s,%s,%s)"
-#		columnas_mysql = "INSERT INTO 2019_Marzo (ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD, ALUMNO_GENERO, ALUMNO_HOY, ALUMNO_NACIMIENTO, ALUMNO_INGRESO) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+#		columnas_mysql = "INSERT INTO 2020_Marzo (ALUMNO_APELLIDO, ALUMNO_NOMBRE, ALUMNO_MAIL, ALUMNO_CELULAR, ALUMNO_EDAD, ALUMNO_GENERO, ALUMNO_HOY, ALUMNO_NACIMIENTO, ALUMNO_INGRESO) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)"
 		cursor.execute(columnas_mysql, ("Fideos", 30 , "f1"))
 		connection.commit()
 		cursor.execute(columnas_mysql, ("Arroz", 25 , "A1"))

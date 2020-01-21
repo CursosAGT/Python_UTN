@@ -195,7 +195,7 @@ def agregar_id_tablas():
 		cursor = connection.cursor()
 		cursor.execute("ALTER TABLE "+str(nombre_tabla)+" ADD COLUMN id INT AUTO_INCREMENT PRIMARY KEY")
 		cursor.execute("SHOW TABLES")
-		print ("Mostramos las tablas de la bases de datos UTN_practica1_2019")
+		print ("Mostramos las tablas de la bases de datos UTN_practica1_2020")
 		lista_de_tablas=[]
 		for lista_tablas in (cursor):
 			lista_nombres_tablas=str(lista_tablas)
@@ -215,7 +215,7 @@ def agregar_id_tablas():
 		cursor.close
 def listar_tablas():
 	try:
-		nombre_DDBB = "UTN_practica1_2019";
+		nombre_DDBB = "UTN_practica1_2020";
 		print ("Conectamos con MySQL")
 		connection = mysql.connector.connect(host= host_local ,user= usuario , passwd= password_de_msql, database= nombre_DDBB )
 		cursor = connection.cursor()
@@ -249,15 +249,15 @@ def Iniciar_practica():
 		cursor = connection.cursor()
 		accion = input ("Drop la DDBB (S/N)")
 		if accion.upper() == "S":
-			cursor.execute("DROP DATABASE UTN_practica1_2019")
-		cursor.execute("CREATE DATABASE UTN_practica1_2019")
-		print ("Creamos la base de datos  UTN_practica1_2019")
+			cursor.execute("DROP DATABASE UTN_practica1_2020")
+		cursor.execute("CREATE DATABASE UTN_practica1_2020")
+		print ("Creamos la base de datos  UTN_practica1_2020")
 		cursor.close
 		connection = mysql.connector.connect(host= host_local ,user= usuario , passwd= password_de_msql, database= nombre_DDBB )
 		cursor = connection.cursor()
 		cursor.execute("CREATE TABLE UTN_cuatrimestre (id INT AUTO_INCREMENT PRIMARY KEY, ALUMNO_APELLIDO VARCHAR(255), ALUMNO_NOMBRE VARCHAR(255), ALUMNO_MAIL VARCHAR(255), ALUMNO_CELULAR VARCHAR(255), ALUMNO_EDAD INT)")
 		cursor.execute("SHOW TABLES")
-		print ("Mostramos las tablas de la bases de datos UTN_practica1_2019")
+		print ("Mostramos las tablas de la bases de datos UTN_practica1_2020")
 		lista_de_tablas=[]
 		for lista_tablas in (cursor):
 			lista_nombres_tablas=str(lista_tablas)
@@ -284,7 +284,7 @@ def agregar_datos_tabla():
 		connection = mysql.connector.connect(host= host_local ,user= usuario , passwd= password_de_msql, database= nombre_DDBB )
 		cursor = connection.cursor()
 		cursor.execute("SHOW TABLES")
-		print ("Mostramos las tablas de la bases de datos UTN_practica1_2019")
+		print ("Mostramos las tablas de la bases de datos UTN_practica1_2020")
 		lista_de_tablas=[]
 		for lista_tablas in (cursor):
 			lista_nombres_tablas=str(lista_tablas)
@@ -400,25 +400,25 @@ if accion.upper() =="S": agregar_id_tablas();
 print ("segunda parte del ejercicio")
 accion= input("Inicio practica alumnos (S/N)");
 if accion.upper() =="S": Iniciar_practica()
-accion= input("Listamos Tablas en la base de datos UTN_practica1_2019 (S/N)");
+accion= input("Listamos Tablas en la base de datos UTN_practica1_2020 (S/N)");
 if accion.upper() =="S": listar_tablas();
-accion= input("Agregar dato 1 en la base de datos UTN_practica1_2019 (S/N)");
+accion= input("Agregar dato 1 en la base de datos UTN_practica1_2020 (S/N)");
 if accion.upper() =="S": agregar_datos_tabla();
-accion= input("Agregar dato 2 en la base de datos UTN_practica1_2019 (S/N)");
+accion= input("Agregar dato 2 en la base de datos UTN_practica1_2020 (S/N)");
 if accion.upper() =="S": agregar_datos_tabla();
-accion= input("Agregar dato 3 en la base de datos UTN_practica1_2019 (S/N)");
+accion= input("Agregar dato 3 en la base de datos UTN_practica1_2020 (S/N)");
 if accion.upper() =="S": agregar_datos_tabla();
-accion= input("Agregar dato 4 en la base de datos UTN_practica1_2019 (S/N)");
+accion= input("Agregar dato 4 en la base de datos UTN_practica1_2020 (S/N)");
 if accion.upper() =="S": agregar_datos_tabla();
-accion= input("Agregar dato 5 en la base de datos UTN_practica1_2019 (S/N)");
+accion= input("Agregar dato 5 en la base de datos UTN_practica1_2020 (S/N)");
 if accion.upper() =="S": agregar_datos_tabla();
-accion= input("Agregar dato 6 en la base de datos UTN_practica1_2019 (S/N)");
+accion= input("Agregar dato 6 en la base de datos UTN_practica1_2020 (S/N)");
 if accion.upper() =="S": agregar_datos_tabla();
-accion= input("Listar datos en la base de datos UTN_practica1_2019 (S/N)");
+accion= input("Listar datos en la base de datos UTN_practica1_2020 (S/N)");
 if accion.upper() =="S": listar_datos_tabla();
-accion= input("Modificar datos en la base de datos UTN_practica1_2019 (S/N)");
+accion= input("Modificar datos en la base de datos UTN_practica1_2020 (S/N)");
 if accion.upper() =="S": modificar_datos_tabla();
-accion= input("Borrar datos en la base de datos UTN_practica1_2019 (S/N)");
+accion= input("Borrar datos en la base de datos UTN_practica1_2020 (S/N)");
 if accion.upper() =="S": borrar_datos_tabla();
 
 

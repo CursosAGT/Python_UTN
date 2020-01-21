@@ -291,8 +291,8 @@ nuevo(5);
 #################################################################
 #Clase_fechas_Ej_006
 from datetime import date
-i_date = date(2019, 11, 2)
-f_date = date(2019, 11, 11)
+i_date = date(2020, 11, 2)
+f_date = date(2020, 11, 11)
 print("fecha inicial: ",i_date)
 print("fecha final: ",f_date)
 delta = f_date - i_date
@@ -749,7 +749,7 @@ print ("""
 from datetime import datetime,timedelta
 from dateutil.relativedelta import relativedelta
 #                     espacios sin ceros
-fecha = datetime(2019, 4, 4)
+fecha = datetime(2020, 4, 4)
 
 month = relativedelta(months=15)
 hoy_menos_meses = fecha - month
@@ -765,7 +765,7 @@ Con esto estamos sumando 15 meses a la fecha 2017,04,02 con lo que nos imprime 2
 y 2018-07-02 00:00:0 la primera para la resta de 15 meses y la segunda para la suma de 15 meses,
 podríamos agregar un input para agregar manualmente los meses.
 """)
-fecha = datetime(2019, 4, 4)
+fecha = datetime(2020, 4, 4)
 years = relativedelta(years=15)
 hoy_menos_meses = fecha - years
 hoy_mas_meses = fecha + years
@@ -780,7 +780,7 @@ Podemos pasarle .date  al final de las variables para obtener solo las fechas:
 from datetime import datetime,timedelta
 from dateutil.relativedelta import relativedelta
 
-fecha = datetime(2019, 4, 4)
+fecha = datetime(2020, 4, 4)
 month = relativedelta(months=15)
 hoy_menos_meses = fecha - month
 hoy_mas_meses = fecha + month
@@ -788,7 +788,7 @@ hoy_mas_meses = fecha + month
 print (hoy_menos_meses.date())
 print (hoy_mas_meses.date())
 
-fecha = datetime(2019, 4, 4)
+fecha = datetime(2020, 4, 4)
 years = relativedelta(years=15)
 hoy_menos_meses = fecha - years
 hoy_mas_meses = fecha + years

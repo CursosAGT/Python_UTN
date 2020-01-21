@@ -99,7 +99,7 @@ Los objetos clase soportan dos tipos de operaciones: hacer referencia a atributo
 class Clases_ejemplo():
 	atributos = 1973
 	def instancia(self):
-		return 'UTN 2019'
+		return 'UTN 2020'
 
 Clases_ejemplo.atributos (numero entero) y Clases_ejemplo.instancia (Función o Metodo).
 Asignarcion exterior
@@ -124,7 +124,7 @@ class Clases_ejemplo:
 	atributos_M = 9
 	atributos_D = 22
 	def Hacer_Metodo(self):
-		en_metodo = "UTN_2019"
+		en_metodo = "UTN_2020"
 		return (en_metodo)
 """)
 class Clases_ejemplo:
@@ -132,7 +132,7 @@ class Clases_ejemplo:
 	atributos_M = 9
 	atributos_D = 22
 	def Hacer_Metodo(self):
-		en_metodo = "UTN_2019"
+		en_metodo = "UTN_2020"
 		return (en_metodo)
 print("Desde la 'clases'  imprimo los atributos, aun no hay objetos instanciados")
 print ("Clases_ejemplo.atributos_A",Clases_ejemplo.atributos_A)

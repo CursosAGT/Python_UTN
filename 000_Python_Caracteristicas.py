@@ -13,7 +13,7 @@ print("""
 ╠═════════════════════════════════════════════════════════════════════════════╣
 ║      Ecosistema y Librerías    Google,facebook,Spotify,drobox,Netflix,NASA,+║
 ╠═════════════════════════════════════════════════════════════════════════════╣
-║      10 clases (- 8) de 3 horas ??                                          ║
+║      10 clases (- 8) de 3 horas 4                                           ║
 ╠═════════════════════════════════════════════════════════════════════════════╣
 ║      conocimientos previos en pop / poo  - Paradigmas                       ║
 ║         clases, atributos métodos                                           ║

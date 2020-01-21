@@ -87,6 +87,30 @@ Conjuntos inmutables_____frozenset___Conjunto inmutable");
 \n Una variable de instancia se define dentro de un método y pertenece a un objeto determinado de la clase instanciada.
 """);
 nuevo(0,"inicio");
+
+#################################################################
+"""
+ir a consola (py)
+>>> x=2020
+>>> type(x)
+??????
+>>> x=20.20
+>>> type(x)
+??????
+>>> x=20,20
+>>> type(x)
+??????
+>>> x=2,0,2,0
+>>> type(x)
+??????
+>>> x="Ariel"
+>>> type(x)
+??????
+>>> x=True
+>>> type(x)
+??????
+
+"""
 #################################################################
 #Clase_Variables_01 
 print("  *String - Cadenas puede incorporar en cualquiera de los dos comillas simples (') o comillas dobles (\") o para multiplas lineas se usan comillas triples de cada una (''' o """);
@@ -103,9 +127,9 @@ cadena=(17);print (type(cadena),cadena);
 cadena=(3.2);print (type(cadena),int(cadena));
 print (input("Fin continuar?"));
 print("  *String - Cadenas con doble comillas pueden incluir  comilla simple dentro o viceversa");
-cadena='UTN\n 2019'
+cadena='UTN\n 2020'
 print (cadena);
-cadena=("UTN 2019")
+cadena=("UTN 2020")
 print (cadena);
 cadena='"hola" como va todo'
 print (cadena);
@@ -118,8 +142,8 @@ cadena='Cat\'s plate'
 print (cadena);
 cadena='It s\'nt a problem'
 print (cadena);
-print (3*"UTN 2019")
-variable="UTN 2019"
+print (3*"UTN 2020")
+variable="UTN 2020"
 print (variable)
 print (variable[2])
 print (variable[:4])
@@ -132,7 +156,7 @@ print ("a = "+str(a),type(a))
 print ("b = "+str(b),type(b))
 print ("c = "+str(c),type(c))
 print ("#--------------------------------")
-variable1,variable2="UTN "," 2019"
+variable1,variable2="UTN "," 2020"
 print (variable1+variable2)
 print (variable2)
 print (variable1)
@@ -148,7 +172,7 @@ funcion_ej_000_V_3();
 print(var);
 #--------------------------------
 print("Ingrese datos alfa, numericos y mixtos")
-for i in range (3):
+for i in range (3):#BUCLE <------------------------------------luego veremos esto en profundidad
 	print("#--------------------------------");
 	var_a = input("variable A:")
 	var_b = input("variable B:")
@@ -210,7 +234,7 @@ nuevo(4);
 #################################################################
 #Clase_Variables_05
 variable = "variable original"
-def variable_global():
+def variable_global():#FUNCION <------------------------------------luego veremos esto en profundidad
 	print ("INGERSO A LA FUNCION")
 	global variable1
 	variable = "variable global modificada desde dentro de una funcion"
@@ -238,7 +262,8 @@ print (variable)
 nuevo(6);
 #################################################################
 #Clase_Variables_07		La clase Counter es una subclase de diccionario utilizada para realizar cuentas:
-from collections import Counter
+from collections import Counter#IMPORTAR <------------------------------------luego veremos esto en profundidad
+
 dato = [1,2,3,4,1,2,3,1,2,1]
 print(dato)
 print(Counter(dato))

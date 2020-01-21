@@ -16,7 +16,7 @@ print('''
 ║                python -m pip install --upgrade pip                          ║
 ║                pip install Django                                           ║
 ║                                                                             ║
-║                cd...voy a un directorio para crear el proyecto Django2019   ║
+║                cd...voy a un directorio para crear el proyecto Django2020   ║
 ║                                                                             ║
 ║          Creo un proyecto                                                   ║
 ║                django-admin.py startproject TP_django                       ║
@@ -37,7 +37,7 @@ print('''
 ║                                                                             ║
 ║           Primera prueba                                                    ║
 ║                cd...voy a un directorio creado por django para mi proyecto  ║
-║                /Django2019/TP_django/                                       ║
+║                /Django2020/TP_django/                                       ║
 ║                                                                             ║
 ║               opciones:              	                                      ║
 ║                 Desde consola        	                                      ║
@@ -59,15 +59,15 @@ print('''
 ║                                                                             ║
 ║          Configuración                                                      ║
 ║                cd...voy a un directorio creado por django para mi proyecto  ║
-║                /Django2019/TP_django/                                       ║
+║                /Django2020/TP_django/                                       ║
 ║                python manage.py createsuperuser                             ║
 ║                python3 manage.py createsuperuser                            ║
 ║                                                                             ║
 ║                creamos el usuario                                           ║
 ║                     Username (leave blank to use 'xxx'): utn                ║
 ║                     Email address: cursos.agt@gmail.com                     ║
-║                     Password: utn_2019                                      ║
-║                     Password (again): utn_2019                              ║
+║                     Password: utn_2020                                      ║
+║                     Password (again): utn_2020                              ║
 ║                          + de 8 caracteres                                  ║
 ║                     >>>Superuser created successfully.                      ║
 ║                                                                             ║
@@ -81,7 +81,7 @@ print('''
 ║                                                                             ║
 ║          Primer ejercicio                                                   ║
 ║                desde el IDE creo en el directorio pertinente admin.py       ║
-║                /Django2019/TP_django/TP_django/admin.py                     ║
+║                /Django2020/TP_django/TP_django/admin.py                     ║
 ║                                                                             ║
 ╚ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ╝
 '''
@@ -92,7 +92,7 @@ admin.site.register(Name)
 ╔ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ╗
 ║                                                                             ║
 ║                desde el IDE abro en el directorio pertinente urls.py        ║
-║                /Django2019/TP_django/TP_django/urls.py                      ║
+║                /Django2020/TP_django/TP_django/urls.py                      ║
 ║                                                                             ║
 ╚ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ╝
 '''
@@ -103,7 +103,7 @@ from django.urls import path
 ╔ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ╗
 ║                                                                             ║
 ║                desde el IDE creo en el directorio pertinente views.py       ║
-║                /Django2019/TP_django/TP_django/views.py                     ║
+║                /Django2020/TP_django/TP_django/views.py                     ║
 ║                                                                             ║
 ╚ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ╝
 '''
@@ -144,7 +144,7 @@ def menu(request):# segunda funcion de vista
 				<P><FONT COLOR="blue">Segundo cuatrimestre</font></P>
 				<BR> Salto de linea. Uso de <STRONG>negritas </STRONG> para complementar.
 				<P><h2>Python Django</h2></P>
-				<H3><FONT COLOR="red">Hola Alumnos UTN 2019</FONT><H3>
+				<H3><FONT COLOR="red">Hola Alumnos UTN 2020</FONT><H3>
 				<P>Un <a href= "http://www.mithril.com.ar/">enlace</a></P>
 				<HR>
 			</center>

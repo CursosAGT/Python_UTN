@@ -255,7 +255,7 @@ from mysql.connector import Error
 
 try:
 	connection = mysql.connector.connect(host='localhost',
-										 database='utn_2019',
+										 database='utn_2020',
 										 user='root',
 										 password='utn')
 
