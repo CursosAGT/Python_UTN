@@ -2,7 +2,7 @@ from Estructura import *
 nuevo(0,"inicio");
 #################################################################
 def Ej_ya_hechos():
-	#Con tab colocaremos aqui las precticas hechas
+	#Con tab colocaremos aqui las practicas hechas
 	pass
 	print("""
 	╔═════════════════════════════════════════════════════════════════════════════╗
@@ -18,7 +18,8 @@ def Ej_ya_hechos():
 	nota_alumno_2 = int(input("Ingreso la nota del 2d0 parcial :"));
 	print ("1er parcial : "+str(nota_alumno_1));
 	print ("2do parcial : "+str(nota_alumno_2));
-	print ("promedio : "+str((nota_alumno_1+nota_alumno_2)/2));
+	promedio=(nota_alumno_1+nota_alumno_2)/2
+	print ("promedio : "+str(promedio));
 	nuevo(1);
 	#################################################################
 	#IO Ej_02
@@ -36,24 +37,26 @@ def Ej_ya_hechos():
 	print ("la suma de los valores es "+str(resultado_suma)+" pesos");
 	print ("la devolucion genera una resta cuyo saldo es de "+str(resultado_resta)+" pesos");
 	print ("la multiplicacion de ambos valores es de " +str(resultado_multiplica)+" pesos", end=" ");
-	print (" y la deivion es de "+str(resultado_divide)+" aunque esto no sirve para nada");
+	print (" y la division es de "+str(resultado_divide)+" aunque esto no sirve para nada");
 	nuevo(2);
 	#################################################################
 	#IO Ej_03
 	edad=int(input("Ingere su edad : "));
 	if edad<0:
 		print("error");
-	if edad<=2:
+	elif edad<=2:
 		print("bebe");
-	if edad<=10:
+	elif edad<=10:
 		print("Chico");
-	if edad<=15:
+	elif edad<=15:
 		print("pavo");
-	if edad<=20:
+	elif edad<=20:
 		print("Ni ni");
-	if edad<=30:
+	elif edad<=30:
 		print("A laburar");
-	if edad>=40:
+	elif edad<=40:
+		print("estamos jodidos")
+	else:
 		print("te crece la panza y se cae todo, hasta el pelo");
 	nuevo(3);
 	#################################################################
@@ -97,9 +100,9 @@ def Ej_ya_hechos():
 	#################################################################
 	#IO Ej_07
 	nota_1 = int(input("Ingreso la nota del 1er bimestre :"));
-	nota_2 = int(input("Ingreso la nota del 2er bimestre :"));
+	nota_2 = int(input("Ingreso la nota del 2do bimestre :"));
 	nota_3 = int(input("Ingreso la nota del 3er bimestre :"));
-	nota_4 = int(input("Ingreso la nota del 4er bimestre :"));
+	nota_4 = int(input("Ingreso la nota del 4to bimestre :"));
 	if nota_1<nota_2<nota_3<nota_4:
 		valoracion="MEJORANDO"
 	elif nota_1>nota_2>nota_3>nota_4:
@@ -157,7 +160,9 @@ dato_a, dato_b = input("Ingrese dos datos separados por un espacio: ").split()
 print(f"El primer dato es {dato_a.upper()} el segundo es {dato_b.upper()}")
 print()
 nuevo(10);
+
 #################################################################
-dato = list(map(int, input("Ingrese valores múltiples separados por comas: ").split(",")))
+dato = list(map(int, input("Ingrese valores múltiple
+s separados por comas: ").split(",")))
 print("Lista: ", dato)
 nuevo(11,"fin");

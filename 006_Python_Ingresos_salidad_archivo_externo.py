@@ -7,57 +7,7 @@ def Ej_ya_hechos(x):
 	'''
 	'''
 print("""
-╔═════════════════════════════════════════════════════════════════════════════╗
-║                                                                             ║
-║                                                                             ║
-║                   Unidad 7 - Fechas, Horas, Archivos                        ║
-║                      * Operaciones con archivos                             ║
-║                                                                             ║
-╠═════════════════════════════════════════════════════════════════════════════╣
-║                                                                             ║
-║                                Ingreso - salida de datos                    ║
-║                                                                             ║
-║                                                                             ║
-║                                otros archivos de texto                      ║
-║                                -----------------------                      ║
-║                                                                             ║
-║                                     crear archivos de texto                 ║
-║                                                                             ║
-║                                     escribir un texto                       ║
-║                                                                             ║
-║                             escribir una linea al final                     ║
-║                                                                             ║
-║                             leer un texto                                   ║
-║                                                                             ║
-║                             leer una linea                                  ║
-║                                                                             ║
-║                                     cerrar archivos                         ║
-║                                                                             ║
-╠═════════════════════════════════════════════════════════════════════════════╣
-║                                                                             ║
-║                            IO  -  TIPO  o CVS 'text.txt                     ║
-║                                                                             ║
-║                          Unidad 7 - Fechas, Horas, Archivos                 ║
-║                                * Operaciones con archivos                   ║
-║                                                                             ║
-║                          Unidad 4 - Listas, Tuplas y Diccionarios           ║
-║                                * Operaciones con archivos                   ║
-║                                libreria   pickle                            ║
-║                                                                             ║
-╠═════════════════════════════════════════════════════════════════════════════╣
-║                                                                             ║
-║                   r      read   Lectura                                     ║
-║                   r+     read+  Lectura/Escritura simultánea                ║
-║                   w      write  Sobreescritura. Si no existe archivo se crea║
-║                   a      append Añadir. Escribe al final del archivo        ║
-║                          EN BINARIO                                         ║
-║                   rb     read   Lectura binaria                             ║
-║                   r+b    read+  Lectura/Escritura binaria simultánea        ║
-║                   wb     write  Sobreescritura binaria                      ║
-║                                                                             ║
-║                   U            Salto de línea                               ║
-║                                                                             ║
-╚═════════════════════════════════════════════════════════════════════════════╝
+
 	https://docs.python.org/3/library/pickle.html
 """);
 from io import *
@@ -75,10 +25,11 @@ print("""
 print("Un módulo es un fichero que contiene codigo PYTHON. Su extensión es .py. Almacena declaración de variables e implementación de funciones. Posibilidad de hacer referencia a otros módulos (mediante la instrucción import).")
 print("salida de datos a otro archivo write");
 archivo_de_texto=open("text.txt","w")#						abre el archivo text.txt para escritura y si no existe lo crea
-texto_en_memoria="TEXT\nLenguaje interpretado\n Un lenguaje interpretado es un lenguaje de programación para el que la mayoría de sus implementaciones ejecuta las instrucciones directamente, sin una previa compilación del programa a instrucciones en lenguaje máquina.\n El intérprete ejecuta el programa directamente, traduciendo cada sentencia en una secuencia de una o más subrutinas ya compiladas en código máquina.\n Los términos lenguaje interpretado y lenguaje compilado​ no están bien definidos porque, en teoría, cualquier lenguaje de programación puede ser interpretado o compilado.\n Cada vez es más popular, en las implementaciones más modernas de un lenguaje de programación, ofrecer ambas opciones.\n Los lenguajes interpretados también pueden diferenciarse de los lenguajes de máquina.\n Funcionalmente, tanto la ejecución y la interpretación significan lo mismo -obtener la siguiente instrucción/sentencia del programa y su ejecución-.\n Aunque el bytecode (código byte) interpretado es además idéntico a su forma en código máquina y tiene una representación en ensamblador, el término 'interpretado' se reserva en la práctica para lenguajes 'procesados por software' (como las máquinas virtuales o emuladores) por encima del procesado nativo (por ejemplo, por hardware).\n En principio, los programas de muchos lenguajes se pueden compilar o interpretar, emular o ejecutar nativamente, así que esta designación se aplica solamente a la implementación práctica más usual, en vez de representar una propiedad esencial del lenguaje.\n De forma parecida al microcódigo del procesador, muchos intérpretes, internamente recaen en una compilación en tiempo de ejecución.\n Evitando la compilación, los programas interpretados son más fáciles de evolucionar durante el desarrollo y la ejecución (transformándose en ocasiones de uno en la otra).\n De otra parte, ya que la compilación implica una traducción a un formato más amigable con la máquina, los programas interpretados corren más lentamente y menos eficientemente (es decir, gastan considerablemente más energía).\n Esto es especialmente verdad para los lenguajes de guion, cuyas sentencias son más complejas de analizar comparadas con las instrucciones máquina.\n Muchos lenguajes se han implementado usando tanto compiladores como intérpretes, incluyendo BASIC, C, Lisp, Pascal y Python. Java y C# se compilan a código byte, el lenguaje interpretado específico para la máquina virtual.\n Muchas implementaciones de Lisp pueden mezclar libremente código interpretado y compilado. "
+texto_en_memoria="TEXT\nLenguaje interpretado\n Un lenguaje interpretado es un lenguaje de programación para el que la mayoría de sus implementaciones ejecuta las instrucciones directamente, sin una previa compilación del programa a instrucciones en lenguaje máquina.\n El intérprete ejecuta el programa directamente, traduciendo cada sentencia en una secuencia de una o más subrutinas ya compiladas en código máquina.\n Los términos lenguaje interpretado y lenguaje no están bien definidos porque, en teoría, cualquier lenguaje de programación puede ser interpretado o compilado.\n Cada vez es más popular, en las implementaciones más modernas de un lenguaje de programación, ofrecer ambas opciones.\n Los lenguajes interpretados también pueden diferenciarse de los lenguajes de máquina.\n Funcionalmente, tanto la ejecución y la interpretación significan lo mismo -obtener la siguiente instrucción/sentencia del programa y su ejecución-.\n Aunque el bytecode (código byte) interpretado es además idéntico a su forma en código máquina y tiene una representación en ensamblador, el término 'interpretado' se reserva en la práctica para lenguajes 'procesados por software' (como las máquinas virtuales o emuladores) por encima del procesado nativo (por ejemplo, por hardware).\n En principio, los programas de muchos lenguajes se pueden compilar o interpretar, emular o ejecutar nativamente, así que esta designación se aplica solamente a la implementación práctica más usual, en vez de representar una propiedad esencial del lenguaje.\n De forma parecida al microcódigo del procesador, muchos intérpretes, internamente recaen en una compilación en tiempo de ejecución.\n Evitando la compilación, los programas interpretados son más fáciles de evolucionar durante el desarrollo y la ejecución (transformándose en ocasiones de uno en la otra).\n De otra parte, ya que la compilación implica una traducción a un formato más amigable con la máquina, los programas interpretados corren más lentamente y menos eficientemente (es decir, gastan considerablemente más energía).\n Esto es especialmente verdad para los lenguajes de guion, cuyas sentencias son más complejas de analizar comparadas con las instrucciones máquina.\n Muchos lenguajes se han implementado usando tanto compiladores como intérpretes, incluyendo BASIC, C, Lisp, Pascal y Python. Java y C# se compilan a código byte, el lenguaje interpretado específico para la máquina virtual.\n Muchas implementaciones de Lisp pueden mezclar libremente código interpretado y compilado. "
 print("salida de datos a otro archivo binario write wr ");
 archivo_de_texto.write(texto_en_memoria);
 archivo_de_texto.close();
+pausa()
 nuevo(1);
 #################################################################
 #IO_ext Ej_02 ;

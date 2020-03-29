@@ -1,3 +1,4 @@
+
 from Estructura import *
 nuevo(0,"inicio");
 #################################################################
@@ -10,76 +11,84 @@ print("""
 ║                                                                             ║
 ║                                Condicionales                                ║
 ║                                                                             ║
-║                                    "if"                                     ║
+║                               "if else elif"                                ║
 ║                                 <,>,==,!=                                   ║
 ║                                                                             ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
 """);
 dato = [99, 25, 50, 5];
-
 print (dato)
-print("Ejemplo de operador de comparación Igual:");
-
+#################################################################
+print("Ejemplo de operador de comparación Igual: ==");
 if (dato[0] == dato[1]):
 	print ("'dato[0]' y 'dato[1]' son iguales.");
 else:
 	print ("'dato[0]' y 'dato[1]' no son iguales.");
-
-print("Ejemplo de operador de comparación Distinto:");
-
+#################################################################
+print("Ejemplo de operador de comparación Distinto: !=");
 if (dato[0] != dato[1]):
 	print ("'dato[0]' y 'dato[1]' son distintas.");
 else:
 	print ("'dato[0]' y 'dato[1]' no son distintas.");
-
-print("Ejemplo de operador de comparación Menor que:");
-
+#################################################################
+print("Ejemplo de operador de comparación Menor que: <");
 if (dato[0] < dato[1]):
 	print ("'dato[0]' es menor que 'dato[1]'.");
 else:
 	print ("'dato[0]' no es menor que 'dato[1]'.");
-
-print("Ejemplo de operador de comparación Mayor que:");
-
+#################################################################
+print("Ejemplo de operador de comparación Mayor que: >");
 if (dato[0] > dato[1]):
 	print ("'dato[0]' es mayor que 'dato[1]'.");
 else:
 	print ("'dato[0]' no es mayor que 'dato[1]'.");
-
-print("Ejemplo de operador de comparación Menor o igual que:");
-
+#################################################################
+print("Ejemplo de operador de comparación Menor o igual que: <=");
 if (dato[2] <= dato[3]):
 	print ("'dato[2]' es menor o igual que 'dato[3]'.");
 else:
 	print ("'dato[2]' no es menor o igual que 'dato[3]'.");
-
-print("Ejemplo de operador de comparación Mayor o igual que:");
-
+#################################################################
+print("Ejemplo de operador de comparación Mayor o igual que: >=");
 if (dato[3] >= dato[2]):
 	print ("'dato[3]' es mayor o igual que 'dato[2]'.");
 else:
 	print ("'dato[3]' no es mayor o igual que 'dato[2]'.");
-
-if ((dato[0] >= dato[1])) != ((dato[2] >= dato[3])):
+#################################################################
+print("Ejemplo de dos operadoradores de dos comparaciones");
+if ((dato[0] >= dato[1]) != (dato[2] >= dato[3])):
 	print ("(dato[0] >= dato[1])) != ((dato[2] >= dato[3]).");
 else:
 	print ("NO  (dato[0] >= dato[1])) != ((dato[2] >= dato[3]).");
 
-if not ((dato[0] <= dato[1])):
-	print ("NOT (dato[0] <= dato[1])).");
-else:
-	print ("(dato[0] <= dato[1]))")
-limpiar()
+nuevo(1);
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
 ║                                                                             ║
 ║                                Condicionales                                ║
 ║                                                                             ║
 ║                                    "if"                                     ║
-║                               or , and , not                                ║
+║                                  or , and ,                                 ║
+║                                 not, is, in                                 ║
+╔═════════════════════════════════════════════════════════════════════════════╗
+║                               TABLAS DE VERDAD                              ║
+║         AND                                              OR                 ║
+║     ===========                                      ==========             ║
+║      V  V  | Verdadero                                V V  | V              ║
+║      F  V  | Falso                                    F V  | V              ║
+║      V  F  | Falso                                    V F  | V              ║
+║      F  F  | Falso                                    F F  | F              ║
+║                                                                             ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
 """);
+
+
+
+#################################################################
+
+print("Ejemplo de operadores OR y AND de comparaciones");
 if (dato[0] >= dato[1]) or (dato[2] >= dato[3]):
+	
 	print ("VERDADERO: ((dato[0] >= dato[1]) or (dato[2] >= dato[3])).");
 
 if (dato[0] >= dato[1]) and (dato[2] >= dato[3]):
@@ -87,70 +96,23 @@ if (dato[0] >= dato[1]) and (dato[2] >= dato[3]):
 
 if not ((dato[0] == dato[1]) or (dato[2] == dato[3])):
 	print ("VERDADERO: not ((dato[0] == dato[1]) or (dato[2] == dato[3])).");
-limpiar()
+pausa();limpiar()
+#################################################################
+
+print("Ejemplo de operador NOT de comparación");
+if not ((dato[0] <= dato[1])):
+	print ("NOT (dato[0] <= dato[1])).");
+else:
+	print ("(dato[0] <= dato[1]))")
+
+#################################################################
 x = 10
 if not x > 10:
 	print("not es True")
 else:
 	print("not es False")
+nuevo(2);
 
-print("array :", dato)
-for item in dato:
-	if not item in (25,5):
-		print ("Items del Array 'not' en mi lista:(25 y 5) " ,item," en ",dato)
-limpiar()
-
-print("""
-╔═════════════════════════════════════════════════════════════════════════════╗
-║                                                                             ║
-║                                Condicionales                                ║
-║                                                                             ║
-║                                    "if"                                     ║
-║                                  in , not in                                ║
-╚═════════════════════════════════════════════════════════════════════════════╝
-""");
-
-print("""
-x = 'HOLA UTN'
-y = {1:'a',2:'b'}
-""")
-x = 'HOLA UTN'
-y = {1:'a',2:'b'}
-print("'H' in x:",'H' in x)#true
-print("'HOLA' not in x :",'HOLA' not in x)#true
-print(" 1 in y: ",1 in y)#true
-print("'a' in y: ",'a' in y)#false
-
-print(dato)
-
-if 5 in dato:
-	print("5 SI esta en el array")
-else:
-	print("5 NO esta en el array")
-
-
-if 66 not in dato:
-	print("66 NO esta en el array")
-else:
-	print("66 SI esta en el array")
-
-var = int(input ("ingrese un numero : "))
-if var not in dato:
-	print (f" {var} No esta en la lista de datos :{dato}")
-else:
-	print (f" {var} Si esta en la lista de datos :{dato}")
-limpiar()
-
-
-lista_mails =["cursos.agt@gmail.com","cursos.agt_gmail.com","cursos.agt//gmail.com"]
-for mail in lista_mails:
-	if "@" not in mail:
-		#raise ValueError("Reemplace el mail")
-		print(f"Seguro que {mail} No es mail xq @ no esta en el array.")
-	else:
-		print(f"Probablemente {mail} sea un mail xq @ esta en el array.")
-
-limpiar()
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
 ║                                                                             ║
@@ -206,15 +168,35 @@ You should only use is if you:
 You use is (and is not) for singletons, like None, where you don't care about objects that might want to pretend to be None or where you want to protect against objects breaking when being compared against None.
 
 """);
+pausa()
+#################################################################
+print("Ejemplo de operador IN de comparación");
+print("array :", dato)
+for item in dato:
+	if not item in (150,5):
+		print ("Items del Array 'not' en mi lista:(25 y 5) " ,item," en ",dato)
 
-mail=input("Ingrese su email")
 
-if mail is not None and "@" not in mail:
-	print(f"Seguro que {mail} No es mail xq @ no esta en el array.")
+#################################################################
+print("Ejemplo de operador IS de comparación");
+
+print(dato)
+
+if 5 in dato:
+	print("5 SI esta en el array")
 else:
-	print(f"Probablemente {mail} sea un mail xq @ esta en el array.")
+	print("5 NO esta en el array")
 
 
+if 66 not in dato:
+	print("66 NO esta en el array")
+else:
+	print("66 SI esta en el array")
+nuevo(3);
+
+#################################################################
+print("Ejemplo de comparación sin IF");
+#################################################################
 print("""
 x1 = 5
 y1 = 5
@@ -230,10 +212,53 @@ y2 = 'Hola'
 x3 = [1,2,3]
 y3 = [1,2,3]
 # Output:
+print("x1 is not y1:",x1 is y1)#False
 print("x1 is not y1:",x1 is not y1)#False
 print("x2 is y2:",x2 is y2)#true
 print("x3 is y3:",x3 is y3)#False
 #################################################################
+print("""
+x = 'HOLA CURSO'
+y = {1:'a',2:'b'}
+""")
+x = 'HOLA CURSO'
+y = {1:'a',2:'b'}
+print("'H' in x:",'H' in x)#true
+print("'HOLA' not in x :",'HOLA' not in x)#true
+print(" 1 in y: ",1 in y)#true
+print("'a' in y: ",'a' in y)#false
+
+#################################################################
+nuevo(4);
+#################################################################
+print("\tEjemplos de condicionales varios")
+#################################################################
+print("El array contiene :"+ str(dato))
+var = int(input ("\n\tingrese un numero : "))
+if var not in dato:
+	print (f" {var} No esta en la lista de datos :{dato}")
+else:
+	print (f" {var} Si esta en la lista de datos :{dato}")
+#################################################################
+pausa()
+limpiar()
+lista_mails =["cursos.agt@gmail.com","cursos.agt_gmail.com","cursos.agt//gmail.com"]
+for mail in lista_mails:
+	if "@" not in mail:
+		#raise ValueError("Reemplace el mail")
+		print(f"Seguro que {mail} No es mail xq @ no esta en el array.")
+	else:
+		print(f"Probablemente {mail} sea un mail xq @ esta en el array.")
+#################################################################
+pausa()
+limpiar()
+mail=input("Ingrese su email: ")
+
+if mail is not None and "@" not in mail:
+	print(f"Seguro que {mail} No es mail xq @ no esta en el array.")
+else:
+	print(f"Probablemente {mail} sea un mail xq @ esta en el array.")
+pausa()
 limpiar()
 
 print("""
@@ -249,6 +274,8 @@ if (list1 == list2):#True
 	print("True")
 else:
 	print("False")
+
+
 print("if (list1 is list2):")
 if (list1 is list2):#false
 	print("True")
@@ -260,16 +287,22 @@ if (list1 is list3):#True
 	print("True")
 else:
 	print("False")
+pausa()
+limpiar()
+#################################################################
+print("rehacer con par impar")
+for i in range(250, 260): a = i; print ("%i: %s" % (i, a is int(str(i))));
 
 #################################################################
-limpiar()
-for i in range(250, 260): a = i; print ("%i: %s" % (i, a is int(str(i))));
+
+pausa()
 limpiar()
 dato2 = "Ariel"
-
+print("rehacer con input y upper")
 if dato2 is "Ariel":
 	print ('Si dato2 is "Ariel"')
 #################################################################
+pausa()
 limpiar()
 
 print("""
@@ -279,7 +312,10 @@ b = "algo" + "_" + "asi"
 a = "some_string"
 b = "some" + "_" + "string"
 print("a is b:",a is b)
+pausa()
 limpiar()
+#################################################################
+
 print("""
 a = "Ariel"
 b = "Ariel"
@@ -287,7 +323,10 @@ b = "Ariel"
 a = "Ariel"
 b = "Ariel"
 print("a is b:",a is b)
+pausa()
 limpiar()
+#################################################################
+
 print("""
 a = "Ariel!"
 b = "Ariel!"
@@ -301,7 +340,7 @@ a, b = "Ariel!", "Ariel!"
 """)
 a, b = "Ariel!", "Ariel!"
 print("a is b:",a is b)
-
+pausa()
 limpiar()
 #################################################################
 #Condicional_Ej_02;
@@ -356,11 +395,11 @@ valor=0
 valor=int(input("Ingrese numero para sacar raiz cuadrada:"));
 if valor>0:
 	resultado = math.sqrt(valor);
-	print ("la raiz cuadrada de :"+str(valor)+" son los nomeros Reales: + -"+str(resultado));
+	print ("la raiz cuadrada de :"+str(valor)+" son los numeros Reales: + -"+str(resultado));
 elif valor<0:
 	resultado = math.sqrt(abs(valor));
-	print ("la raiz cuadrada de :"+str(valor)+" es un numero Imaginario : + -"+str(resultado)+" i donde i");
-nuevo(5);
+	print ("la raiz cuadrada de :"+str(valor)+" es un numero Imaginario : + -"+str(resultado)+" i ");
+	nuevo(5);
 #################################################################
 #Condicional_Ej_06;
 print("cambia el ejercicio anterior para  ");
@@ -408,15 +447,15 @@ nuevo(8);
 #################################################################
 #Condicional_Ej_09;
 print("rehacer ej anterior Condicionales string");
-texto_a=texto_a.upper
-texto_a=texto_a.lower
+texto_a=texto_a.upper()
+texto_a=texto_a.lower()
 nuevo(9);
 #################################################################
 #Condicional_Ej_10;
-print("Condicionales string");
-nombre = " "
-nombre = str(input("Cual es su gracia? :) "));
-if nombre==("Ariel","Segundo Nombre","Andrea","Primer Nombre"):
+print("Condicionales string")
+nombre = (input("Cual es su gracia? :) "));
+conocidos=["ARIEL","FACUNDO","ANDREA","JOAQUIN"]
+if nombre.upper() in conocidos:#camba por nombres de su entorno
 	print("yo te conozco "+str(nombre));
 print("Un placer " + nombre + "!");
 Edad = input("Tu edad? ");
@@ -427,6 +466,7 @@ nuevo(10);
 print("Lista");
 jugadores = ['Batalla', 'Driussi', 'Casco', 'Alario', 'Pity', 'Rojas', 'Ponzio', 'Alonso']
 print(jugadores)
+
 print("""
  Para evitar un error con el método remove()
  chequeamos la existencia del ítem antes de
@@ -468,6 +508,5 @@ var = "par" if (num % 2 == 0) else "impar"
 print (var)
 nuevo(13,"fin");
 #################################################################
-#Condicional_Ej_13;
-
+#Condicional_Ej_14;
 

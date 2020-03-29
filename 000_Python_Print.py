@@ -1,16 +1,4 @@
-from Estructura import *
-nuevo(0,"inicio");
-#################################################################
-def Ej_ya_hechos():
-	#Con tab colocaremos aqui las precticas hechas
-	pass
-
-limpiar();
-#################################################################
-#Ejercicio_Print_01
-print ("linea 1");
-print ("linea 2");
-print ("linea 3");
+from Estructura import * 
 print ("--------");
 print ()
 print ("c:\nicolas");
@@ -32,7 +20,7 @@ nuevo(2);
 #Ejercicio_Print_03
 cadena = "es hora de trabajar grupo 2020-UTN"
 print ("La Cadena original es : ", cadena);
-print(input("continuar?"));
+input("continuar?");
 print(" print ('cadena',end=''); el, end=' ' genera que al final no se genere un final de linea por lo que siguiente printe sera seguido")
 print ("La Cadena original es : ", cadena, end="");
 print (cadena);
@@ -112,7 +100,7 @@ print("""
 ║                                                                             ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
 """);
-
+pausa()
 limpiar()
 
 
@@ -153,6 +141,7 @@ def ej001_4():
 	print (var_entera_3);
 	print (var_entera_1*var_entera_3-var_entera_2);
 	print ((var_entera_1*var_entera_3+1)/var_entera_2);
+ej001_4()
 nuevo(4);
 #################################################################
 #Ejercicio_Print_05

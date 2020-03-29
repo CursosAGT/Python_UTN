@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # AGT
-# Copyright 2019 Ariel H Garcia Traba <ariel.garcia.traba@gmail.com>
+# Copyright 2020 Ariel H Garcia Traba <ariel.garcia.traba@gmail.com>
 import math
 def resultado_suma_metodo(valor_1,valor_2):
 	return valor_1+valor_2

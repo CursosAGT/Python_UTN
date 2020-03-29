@@ -81,7 +81,7 @@ print ("posicion [-3]  "+Nombre_tupla_1[-9])
 nuevo(5);
 #################################################################
 #Clase_Tupples_Ej_006
-print("sectores o porsiones") 
+print("sectores o porciones") 
 print (Nombre_tupla_1)
 print ("posicion [4 al 8]  "+str(Nombre_tupla_1[4:8]))
 print ("posicion [0 al -2]  "+str(Nombre_tupla_1[0:-2]))

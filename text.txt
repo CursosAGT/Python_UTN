@@ -1,16 +1,17 @@
 TEXT
 Lenguaje interpretado
- Un lenguaje interpretado es un lenguaje de programaci√≥n para el que la mayor√≠a de sus implementaciones ejecuta las instrucciones directamente, sin una previa compilaci√≥n del programa a instrucciones en lenguaje m√°quina.
- El int√©rprete ejecuta el programa directamente, traduciendo cada sentencia en una secuencia de una o m√°s subrutinas ya compiladas en c√≥digo m√°quina.
- Los t√©rminos lenguaje interpretado y lenguaje compilado no est√°n bien definidos porque, en teor√≠a, cualquier lenguaje de programaci√≥n puede ser interpretado o compilado.
- Cada vez es m√°s popular, en las implementaciones m√°s modernas de un lenguaje de programaci√≥n, ofrecer ambas opciones.
- Los lenguajes interpretados tambi√©n pueden diferenciarse de los lenguajes de m√°quina.
- Funcionalmente, tanto la ejecuci√≥n y la interpretaci√≥n significan lo mismo -obtener la siguiente instrucci√≥n/sentencia del programa y su ejecuci√≥n-.
- Aunque el bytecode (c√≥digo byte) interpretado es adem√°s id√©ntico a su forma en c√≥digo m√°quina y tiene una representaci√≥n en ensamblador, el t√©rmino 'interpretado' se reserva en la pr√°ctica para lenguajes 'procesados por software' (como las m√°quinas virtuales o emuladores) por encima del procesado nativo (por ejemplo, por hardware).
- En principio, los programas de muchos lenguajes se pueden compilar o interpretar, emular o ejecutar nativamente, as√≠ que esta designaci√≥n se aplica solamente a la implementaci√≥n pr√°ctica m√°s usual, en vez de representar una propiedad esencial del lenguaje.
- De forma parecida al microc√≥digo del procesador, muchos int√©rpretes, internamente recaen en una compilaci√≥n en tiempo de ejecuci√≥n.
- Evitando la compilaci√≥n, los programas interpretados son m√°s f√°ciles de evolucionar durante el desarrollo y la ejecuci√≥n (transform√°ndose en ocasiones de uno en la otra).
- De otra parte, ya que la compilaci√≥n implica una traducci√≥n a un formato m√°s amigable con la m√°quina, los programas interpretados corren m√°s lentamente y menos eficientemente (es decir, gastan considerablemente m√°s energ√≠a).
- Esto es especialmente verdad para los lenguajes de guion, cuyas sentencias son m√°s complejas de analizar comparadas con las instrucciones m√°quina.
- Muchos lenguajes se han implementado usando tanto compiladores como int√©rpretes, incluyendo BASIC, C, Lisp, Pascal y Python. Java y C# se compilan a c√≥digo byte, el lenguaje interpretado espec√≠fico para la m√°quina virtual.
- Muchas implementaciones de Lisp pueden mezclar libremente c√≥digo interpretado y compilado. 
+ Un lenguaje interpretado es un lenguaje de programaciÛn para el que la mayorÌa de sus implementaciones ejecuta las instrucciones directamente, sin una previa compilaciÛn del programa a instrucciones en lenguaje m·quina.
+ El intÈrprete ejecuta el programa directamente, traduciendo cada sentencia en una secuencia de una o m·s subrutinas ya compiladas en cÛdigo m·quina.
+ Los tÈrminos lenguaje interpretado y lenguaje no est·n bien definidos porque, en teorÌa, cualquier lenguaje de programaciÛn puede ser interpretado o compilado.
+ Cada vez es m·s popular, en las implementaciones m·s modernas de un lenguaje de programaciÛn, ofrecer ambas opciones.
+ Los lenguajes interpretados tambiÈn pueden diferenciarse de los lenguajes de m·quina.
+ Funcionalmente, tanto la ejecuciÛn y la interpretaciÛn significan lo mismo -obtener la siguiente instrucciÛn/sentencia del programa y su ejecuciÛn-.
+ Aunque el bytecode (cÛdigo byte) interpretado es adem·s idÈntico a su forma en cÛdigo m·quina y tiene una representaciÛn en ensamblador, el tÈrmino 'interpretado' se reserva en la pr·ctica para lenguajes 'procesados por software' (como las m·quinas virtuales o emuladores) por encima del procesado nativo (por ejemplo, por hardware).
+ En principio, los programas de muchos lenguajes se pueden compilar o interpretar, emular o ejecutar nativamente, asÌ que esta designaciÛn se aplica solamente a la implementaciÛn pr·ctica m·s usual, en vez de representar una propiedad esencial del lenguaje.
+ De forma parecida al microcÛdigo del procesador, muchos intÈrpretes, internamente recaen en una compilaciÛn en tiempo de ejecuciÛn.
+ Evitando la compilaciÛn, los programas interpretados son m·s f·ciles de evolucionar durante el desarrollo y la ejecuciÛn (transform·ndose en ocasiones de uno en la otra).
+ De otra parte, ya que la compilaciÛn implica una traducciÛn a un formato m·s amigable con la m·quina, los programas interpretados corren m·s lentamente y menos eficientemente (es decir, gastan considerablemente m·s energÌa).
+ Esto es especialmente verdad para los lenguajes de guion, cuyas sentencias son m·s complejas de analizar comparadas con las instrucciones m·quina.
+ Muchos lenguajes se han implementado usando tanto compiladores como intÈrpretes, incluyendo BASIC, C, Lisp, Pascal y Python. Java y C# se compilan a cÛdigo byte, el lenguaje interpretado especÌfico para la m·quina virtual.
+ Muchas implementaciones de Lisp pueden mezclar libremente cÛdigo interpretado y compilado. 
+ fuente wikipedia : https://es.wikipedia.org/wiki/Int%C3%A9rprete_(inform%C3%A1tica)#Eficiencia

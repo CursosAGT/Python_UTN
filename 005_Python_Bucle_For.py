@@ -4,126 +4,126 @@ nuevo(0,"inicio");
 def Ej_ya_hechos():
 	#Con tab colocaremos aquí las prácticas hechas
 	pass
-print("""
-╔═════════════════════════════════════════════════════════════════════════════╗
-║                                   Bucles // for                             ║
-╠═════════════════════════════════════════════════════════════════════════════╣
-║                                    range (rango)                            ║
-╚═════════════════════════════════════════════════════════════════════════════╝
-for i in range(10):<------------recordar los dos puntos ':'
-Range - rango   ╚════════  10 valores, sin otro dato empieza en 0 y termina en 9
+	print("""
+	╔═════════════════════════════════════════════════════════════════════════════╗
+	║                                   Bucles // for                             ║
+	╠═════════════════════════════════════════════════════════════════════════════╣
+	║                                    range (rango)                            ║
+	╚═════════════════════════════════════════════════════════════════════════════╝
+	for i in range(10):<------------recordar los dos puntos ':'
+	Range - rango   ╚════════  10 valores, sin otro dato empieza en 0 y termina en 9
 
-for i in range(5,20):<------------recordar los dos puntos ':'
-			   ║  ╚════════ 20 valor final termina en 19
-			   ╚═══════════ 5 valor inicial empieza 5
+	for i in range(5,20):<------------recordar los dos puntos ':'
+				   ║  ╚════════ 20 valor final termina en 19
+				   ╚═══════════ 5 valor inicial empieza 5
 
-for i in range(3,300,10):
-			   ║  ║   ═════ Step incremento 10, ira de 10 en 10
-			   ║  ╚════════ 300 valor final termina en 293
-			   ╚═══════════ 3 valor inicial empieza 3
+	for i in range(3,300,10):
+				   ║  ║   ═════ Step incremento 10, ira de 10 en 10
+				   ║  ╚════════ 300 valor final termina en 293
+				   ╚═══════════ 3 valor inicial empieza 3
 
-""");
-nuevo(0,"inicio");
-#################################################################
-#Clase_For_Ej_01
+	""");
+	nuevo(0,"inicio");
+	#################################################################
+	#Clase_For_Ej_01
 
-for i in range(5):
-	print ("Valor "+str(i));
-nuevo(1);
-#################################################################
-#Clase_For_Ej_02
-for i in range(5,20):
-	print ("Valor "+str(i));
-nuevo(2);
-#################################################################
-#Clase_For_Ej_03
-for i in range(3,300,10):
-	print ("Valor "+str(i));
-nuevo(3);
-#################################################################
-print("""
-╔═════════════════════════════════════════════════════════════════════════════╗
-║                                   Bucles // for                             ║
-╠═════════════════════════════════════════════════════════════════════════════╣
-║                        Array:  limites no numéricos                         ║
-╚═════════════════════════════════════════════════════════════════════════════╝
-for i in [1,2,3,4,5]:<------------recordar los dos puntos ':'
-lista         ╚════════  5 valores ordenados
+	for i in range(5):
+		print ("Valor "+str(i));
+	nuevo(1);
+	#################################################################
+	#Clase_For_Ej_02
+	for i in range(5,20):
+		print ("Valor "+str(i));
+	nuevo(2);
+	#################################################################
+	#Clase_For_Ej_03
+	for i in range(3,311,10):
+		print ("Valor "+str(i));
+	nuevo(3);
+	#################################################################
+	print("""
+	╔═════════════════════════════════════════════════════════════════════════════╗
+	║                                   Bucles // for                             ║
+	╠═════════════════════════════════════════════════════════════════════════════╣
+	║                        Array:  limites no numéricos                         ║
+	╚═════════════════════════════════════════════════════════════════════════════╝
+	for i in [1,2,3,4,5]:<------------recordar los dos puntos ':'
+	lista         ╚════════  5 valores ordenados
 
-for i in [6,2,5,4,8]:<------------recordar los dos puntos ':'
-lista         ╚════════  5 valores sin orden
+	for i in [6,2,5,4,8]:<------------recordar los dos puntos ':'
+	lista         ╚════════  5 valores sin orden
 
-for i in ["Nombre_1","Nombre_2","Nombre_3","Nombre_4"]:<-recordar los dos puntos ':'
-lista         ╚════════  lista[], tupla (), etc
+	for i in ["Nombre_1","Nombre_2","Nombre_3","Nombre_4"]:<-recordar los dos puntos ':'
+	lista         ╚════════  lista[], tupla (), etc
 
-for i in ["Nombre_1","Nombre_2","Nombre_3","Nombre_4"]:<-recordar los dos puntos ':'
-lista         ╚════════  lista[], tupla (), etc
+	for i in ["Nombre_1","Nombre_2","Nombre_3","Nombre_4"]:<-recordar los dos puntos ':'
+	lista         ╚════════  lista[], tupla (), etc
 
-""");
-#Clase_For_Ej_04
-for i in [1,2,3,4,5]:
-	print ("valor de la lista "+str(i));
-print("#################################################################")
-for i in [6,2,5,4,8]:
-	print ("valor de la lista "+str(i));
-nuevo(4);
-#################################################################
-#Clase_For_Ej_05
-for i in ["Nombre_1","Nombre_2","Nombre_3","Nombre_4"]:
-	print ("valor de la lista "+str(i));
-print("#################################################################")
-for i in ("Nombre_1","Nombre_2","Nombre_3","Nombre_4"):
-	print ("valor de la Tupla "+str(i));
-print("#################################################################")
-lista_1 = ["Nombre_1","Nombre_2","Nombre_3","Nombre_4"]
-print ("Lista "+str(lista_1));
-for i in lista_1:
-	print ("valor de la lista "+str(i));
-nuevo(5);
-#################################################################
-#Clase_For_Ej_06
-for i in "casilla_de_Mail@hotmail.com":
-	print ("valor del string "+str(i));
-nuevo(6);
-#################################################################
-#Clase_For_Ej_07
-arroba = False
-for i in "casillaMail@hotmail.com":#			recorre caracter por caracter
-	print ("valor del string "+str(i));
-	if str(i)=="@":
-		arroba = True
-if arroba==True:
-	print ("tiene @ puede ser mail");
-else:
-	print ("No puede ser mail");
-nuevo(7);
-#################################################################
-#Clase_For_Ej_08
-arroba = False
-for i in "casillaMail@hotmail.com":
-	print ("valor del string "+str(i));
-	if str(i)=="@":
-		arroba = True
-		break
-if arroba==True:
-	print ("tiene @ puede ser mail");
-else:
-	print ("No puede ser mail");
-nuevo(8);
-#################################################################
-#Clase_For_Ej_09
-print ("verificar si tiene @ y como minimo un punto.");
-nuevo(9);
-#################################################################
-#Clase_For_Ej_10
-print ("verificar si tiene mas de un @ y como minimo un punto.");
-nuevo(10);
-#################################################################
-#Clase_For_Ej_11
-print ("verificar si tiene mas de un @ y como minimo un punto. y caracteres alfanuméricos");
-nuevo(11);
-#################################################################
-#Clase_For_Ej_12
+	""");
+	#Clase_For_Ej_04
+	for i in [1,2,3,4,5]:
+		print ("valor de la lista "+str(i));
+	print("#################################################################")
+	for i in [6,2,5,4,8]:
+		print ("valor de la lista "+str(i));
+	nuevo(4);
+	#################################################################
+	#Clase_For_Ej_05
+	for i in ["Nombre_1","Nombre_2","Nombre_3","Nombre_4"]:
+		print ("valor de la lista "+str(i));
+	print("#################################################################")
+	for i in ("Nombre_1","Nombre_2","Nombre_3","Nombre_4"):
+		print ("valor de la Tupla "+str(i));
+	print("#################################################################")
+	lista_1 = ["Nombre_1","Nombre_2","Nombre_3","Nombre_4"]
+	print ("Lista "+str(lista_1));
+	for i in lista_1:
+		print ("valor de la lista "+str(i));
+	nuevo(5);
+	#################################################################
+	#Clase_For_Ej_06
+	for i in "casilla_de_Mail@hotmail.com":
+		print ("valor del string "+str(i));
+	nuevo(6);
+	#################################################################
+	#Clase_For_Ej_07
+	arroba = False
+	for i in "casillaMail@hotmail.com":#			recorre caracter por caracter
+		print ("valor del string "+str(i));
+		if str(i)=="@":
+			arroba = True
+	if arroba==True:
+		print ("tiene @ puede ser mail");
+	else:
+		print ("No puede ser mail");
+	nuevo(7);
+	#################################################################
+	#Clase_For_Ej_08
+	arroba = False
+	for i in "casillaMail@hotmail.com":
+		print ("valor del string "+str(i));
+		if str(i)=="@":
+			arroba = True
+			break
+	if arroba==True:
+		print ("tiene @ puede ser mail");
+	else:
+		print ("No puede ser mail");
+	nuevo(8);
+	#################################################################
+	#Clase_For_Ej_09
+	print ("verificar si tiene @ y como minimo un punto.");
+	nuevo(9);
+	#################################################################
+	#Clase_For_Ej_10
+	print ("verificar si tiene mas de un @ y como minimo un punto.");
+	nuevo(10);
+	#################################################################
+	#Clase_For_Ej_11
+	print ("verificar si tiene mas de un @ y como minimo un punto. y caracteres alfanuméricos");
+	nuevo(11);
+	#################################################################
+	#Clase_For_Ej_12
 print("""
 ╔═════════════════════════════════════════════════════════════════════════════╗
 ║                                                                             ║
@@ -567,30 +567,7 @@ else:
 nuevo(22);
 #################################################################
 #Clase_For_Ej_023
-arroba = False
-email = input("Ingrese su email")
-for i in email:
-	print ("valor del string "+str(i));
-	if str(i)=="@":
-		arroba = True
-		break
-if arroba==True:
-	print ("tiene @ puede ser mail");
-else:
-	print ("No puede ser mail");
-nuevo(23);
-#################################################################
-#Clase_For_Ej_024
-print ("verificar si tiene @ y como minimo un punto.");
-nuevo(24);
-#################################################################
-#Clase_For_Ej_025
-print ("verificar si tiene mas de un @ y como minimo un punto.");
-nuevo(25);
-#################################################################
-#Clase_For_Ej_026
-print ("verificar si tiene mas de un @ y como minimo un punto. y caracteres alfanumericos");
-nuevo(26);
+
 #################################################################
 #Clase_For_Ej_027
 multiplica =[]

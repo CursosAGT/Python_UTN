@@ -4,108 +4,108 @@ nuevo(0,"inicio");
 def Ej_ya_hechos():
 	#Con tab colocaremos aqui las precticas hechas
 	pass
-	print("""
-	╔═════════════════════════════════════════════════════════════════════════════╗
-	║                                                                             ║
-	║                              Funciones y Metodos                            ║
-	║                              -------------------                            ║
-	║                                                                             ║
-	║          Funciones    Description                                           ║
-	║                   lambda                                                    ║
-	║                                                                             ║
-	║                                                                             ║
-	║          Metodos son finciones dentro de clases donde se deberia instanciar ║
-	║                   a la clase con self nombre_objeto                         ║
-	║                                                                             ║
-	╠═════════════════════════════════════════════════════════════════════════════╣
-	║                                                                             ║
-	║                              Funciones,  Metodos                            ║
-	║                                  y Generadores                              ║
-	║                                                                             ║
-	╚═════════════════════════════════════════════════════════════════════════════╝
+print("""
+╔═════════════════════════════════════════════════════════════════════════════╗
+║                                                                             ║
+║                              Funciones y Metodos                            ║
+║                              -------------------                            ║
+║                                                                             ║
+║          Funciones    Description                                           ║
+║                   lambda                                                    ║
+║                                                                             ║
+║                                                                             ║
+║          Metodos son finciones dentro de clases donde se deberia instanciar ║
+║                   a la clase con self nombre_objeto                         ║
+║                                                                             ║
+╠═════════════════════════════════════════════════════════════════════════════╣
+║                                                                             ║
+║                              Funciones,  Metodos                            ║
+║                                  y Generadores                              ║
+║                                                                             ║
+╚═════════════════════════════════════════════════════════════════════════════╝
 
-	https://www.w3schools.com/python/python_ref_list.asp
-	https://www.w3schools.com/python/python_lists.asp
-	https://python-para-impacientes.blogspot.com/2014/02/programacion-funcional-funciones-de.html
-	https://python-para-impacientes.blogspot.com/2014/02/funciones.html
-	""")
-	nuevo(0,"inicio");
-	#################################################################
-	#Ejercicio_Funciones_Ej_001
-	print("""
-	╔═════════════════════════════════════════════════════════════════════════════╗
-	║                                                                             ║
-	║                              Funciones,  Metodos                            ║
-	║                                                                             ║
-	╚═════════════════════════════════════════════════════════════════════════════╝
-	""")
-	#                          como función
-	def funcion (var_1, var_2):
-		return  (var_1 * var_2)
-	print ("Función directa :",funcion (3,6))
-	mi_array=(3,6)
-	print ("Función con array :",funcion (*mi_array))# ver el "*"
-	#                          como Método
-	class Clase1:# ver el nombre con mayúscula en su primer carácter que no debe ser numérico
-		resultado= 0
-		def metodo(self,var_1,var_2):
-			self.var_1=  var_1
-			self.var_2=  var_2
-			self.resultado= (var_1 *var_2)
-	ej=Clase1()
-	ej.metodo(3,6)
-	print ("Método de clase:",ej.resultado)
-	nuevo(1);
-	#################################################################
-	#Ejercicio_Funciones_Ej_002
-	print("""
-	╔═════════════════════════════════════════════════════════════════════════════╗
-	║                                                                             ║
-	║                                     Métodos                                 ║
-	║                                                                             ║
-	╚═════════════════════════════════════════════════════════════════════════════╝
-	""")
-	class Clase2:# ver el nombre con mayúscula en su primer carácter que no debe ser numérico
-		resultado= 0
-		def __init__(self):#construye los objetos
-			self.var_1=  0
-			self.var_2=  0
-		def meto2(self,var_1,var_2):
-			self.var_1=  var_1
-			self.var_2=  var_2
-			self.resultado= (var_1 *var_2)
+https://www.w3schools.com/python/python_ref_list.asp
+https://www.w3schools.com/python/python_lists.asp
+https://python-para-impacientes.blogspot.com/2014/02/programacion-funcional-funciones-de.html
+https://python-para-impacientes.blogspot.com/2014/02/funciones.html
+""")
+nuevo(0,"inicio");
+#################################################################
+#Ejercicio_Funciones_Ej_001
+print("""
+╔═════════════════════════════════════════════════════════════════════════════╗
+║                                                                             ║
+║                              Funciones,  Metodos                            ║
+║                                                                             ║
+╚═════════════════════════════════════════════════════════════════════════════╝
+""")
+#                          como función
+def funcion (var_1, var_2):
+	return  (var_1 * var_2)
+print ("Función directa :",funcion (3,6))
+mi_array=(3,6)
+print ("Función con array :",funcion (*mi_array))# ver el "*"
+#                          como Método
+class Clase1:# ver el nombre con mayúscula en su primer carácter que no debe ser numérico
+	resultado= 0
+	def metodo(self,var_1,var_2):
+		self.var_1=  var_1
+		self.var_2=  var_2
+		self.resultado= (var_1 *var_2)
+ej=Clase1()
+ej.metodo(3,6)
+print ("Método de clase:",ej.resultado)
+nuevo(1);
+#################################################################
+#Ejercicio_Funciones_Ej_002
+print("""
+╔═════════════════════════════════════════════════════════════════════════════╗
+║                                                                             ║
+║                                     Métodos                                 ║
+║                                                                             ║
+╚═════════════════════════════════════════════════════════════════════════════╝
+""")
+class Clase2:# ver el nombre con mayúscula en su primer carácter que no debe ser numérico
+	resultado= 0
+	def __init__(self):#construye los objetos
+		self.var_1=  0
+		self.var_2=  0
+	def meto2(self,var_1,var_2):
+		self.var_1=  var_1
+		self.var_2=  var_2
+		self.resultado= (var_1 *var_2)
 
-	ej=Clase2()
-	print ("al inicio con valores 'self'",ej.resultado)
-	ej.meto2(3,6)
-	print ("al final con datos modificado por método",ej.resultado)
-	nuevo(2);
-	#################################################################
-	#Ejercicio_Funciones_Ej_003
-	def varios(param1, param2, **diccionario):
-		for dato in diccionario.items():
-			print ("Datos en el diccionario",dato)
-	varios(1, 2, tercero = 3, cuarto = 4, quinto = 5)
+ej=Clase2()
+print ("al inicio con valores 'self'",ej.resultado)
+ej.meto2(3,6)
+print ("al final con datos modificado por método",ej.resultado)
+nuevo(2);
+#################################################################
+#Ejercicio_Funciones_Ej_003
+def varios(param1, param2, **diccionario):
+	for dato in diccionario.items():
+		print ("Datos en el diccionario",dato)
+varios(1, 2, tercero = 3, cuarto = 4, quinto = 5)
 
 
-	def saludar(lenguaje_elejido):
-		def saludar_es():
-			print ("Hola")
-		def saludar_en():
-			print ("Hi")
-		def saludar_fr():
-			print ("Salut")
-		def saludar_it():
-			print ("Ciao")
-		def saludar_ge():
-			print ("Hallo")
-		Saludar_en_su_leng = {"es": saludar_es,"en": saludar_en,"fr": saludar_fr,"it": saludar_it,"ge": saludar_ge}
-		return Saludar_en_su_leng[lenguaje_elejido]
-	saludar("es")()
-	saludar("it")()
-	saludar("fr")()
+def saludar(lenguaje_elejido):
+	def saludar_es():
+		print ("Hola")
+	def saludar_en():
+		print ("Hi")
+	def saludar_fr():
+		print ("Salut")
+	def saludar_it():
+		print ("Ciao")
+	def saludar_ge():
+		print ("Hallo")
+	Saludar_en_su_leng = {"es": saludar_es,"en": saludar_en,"fr": saludar_fr,"it": saludar_it,"ge": saludar_ge}
+	return Saludar_en_su_leng[lenguaje_elejido]
+saludar("es")()
+saludar("it")()
+saludar("fr")()
 
-	nuevo(3);
+nuevo(3);
 #################################################################
 #Ejercicio_Funciones_Ej_004
 print("""
